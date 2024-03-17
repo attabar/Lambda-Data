@@ -1,0 +1,290 @@
+* {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 210px;
+    height: 100%;
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: auto;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+    transition: 0.9s;
+    z-index: -1;
+}
+.header{
+    background-color: #fff;
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    z-index: 1;
+    position: fixed;
+    width: 100%;
+}
+.navbar{
+    width: 50px;
+    background-color: #333;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.content {
+    flex: 1;
+    box-sizing: border-box;
+}
+.sidebar-content{
+    margin-top: 55px;
+}
+
+
+.sidebar-content ul li:hover {
+    background-color: #555;
+}
+
+.sidebar-content ul .submenu li a{
+    color:#333;
+}
+
+.sidebar-content ul .submenu li a:hover{
+    color: #fff;
+}
+
+/* Add this CSS to your existing stylesheet */
+.sidebar-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-content ul li {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    position: relative;
+}
+
+.sidebar-content ul li i {
+    margin-right: 10px;
+}
+
+.sidebar-content ul li.with-arrow {
+    position: relative;
+}
+
+.sidebar-content ul li.with-arrow i.bi-chevron-down {
+    position: absolute;
+    right: 2px;
+}
+a{
+    text-decoration: none;
+    color: #fff;
+}
+.submenu{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 10%;
+    color: #333;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    /* z-index: 1; */
+    margin-top: 40px;
+}
+
+.submenu li{
+    padding: 10px;
+    /* border-bottom: 1px solid #555;  */
+}
+.sidebar-content ul li.open + li {
+    margin-top: 245px; /* Adjust the margin as needed */
+}
+marquee{
+    background-color: #fff;
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    position: absolute;
+    width: 80%;
+    right: 2%;
+    top: 13%;
+}
+.account-details{
+    position: absolute;
+    top: 30%;
+    right: 2%;
+    width: 80%;
+    background-color: #333;
+    padding: 25px;
+    height: 50vh;
+    color: #fff;
+}
+.wemaImg{
+    width: 80px;
+}
+.account-status{
+    background-color: #333;
+    position: absolute;
+    top: 90%;
+    width: 80%;
+    height: 70vh;
+    right: 2%;
+    padding: 15px;
+}
+.account-status .account-container{
+    display: flex;
+    justify-content: space-around;
+    padding: 15px;
+}
+.account-status .account-container button{
+    padding: 15px;
+    font-weight: 900;
+}
+
+.services .grid-container div{
+    background-color: #fff;
+    width: 150px;
+    box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.7);
+    padding: 20px;
+    text-align: center;
+}
+.services .grid-container div i{
+    font-size: 30px;
+}
+.wallet-details-and-referral{
+   position: absolute;
+   top: 90%;
+}
+/* large screen */
+@media only screen and (min-width:1200px) {
+    .main-content{
+        margin-left: 250px;
+        margin-top: 100px;
+    }
+    .chargesAmount{
+        position: absolute;
+        right: 0;
+    }
+    .grid-container{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 100px;
+        transform: translate(50px, 0px);
+    }
+    .services h1{
+        text-align: center;
+        margin-bottom: 15px;
+    }
+    .services div i{
+        font-size: 100px;
+    }
+    .services div{
+        margin-bottom: 10px;
+    }
+    .services div h2{
+        margin-bottom: 15px;
+    }
+    .services{
+        position: absolute;
+        top: 170%;
+        left: 27%;
+    }
+}
+/* .sidebar-content ul li:hover .submenu {
+    display: block;
+} */
+/* on small screen */
+@media only screen and (max-width:767px) {
+    .sidebar{
+        display: none;
+        height: 100vh;
+        position: fixed;
+    }
+    .main-content{
+        margin-left: 50px;
+        margin-top: 100px;
+    }
+    marquee{
+        z-index: -1;
+    }
+    .sidebar{
+        z-index: 1;
+        position: absolute;
+        right: 10%;
+    }
+    .services{
+        position: absolute;
+        top: 160%;
+        left: 17%;
+    }
+    .services .grid-container div{
+        width: 100px;
+        margin-bottom: 15px;
+    }
+    .services .grid-container div h2{
+        font-size: 15px;
+    }
+    .grid-container{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+    marquee{
+        position: absolute;
+        width: 90%;
+        right: 0;
+        left: 5%;
+        top: 13%;
+    }
+    .account-details{
+        position: absolute;
+        top: 30%;
+        right: 0;
+        width: 100%;
+        background-color: #333;
+        padding: 25px;
+        height: 50vh;
+        color: #fff;
+    }
+    .account-status{
+        background-color: #333;
+        position: absolute;
+        top: 90%;
+        width: 100%;
+        height: 60vh;
+        right: 0;
+        padding: 15px;
+    }
+    .chargesAmount{
+        position: absolute;
+        right: 1%;
+    }
+    .account-container{
+        display: grid;
+        gap: 15px;
+    }
+    .account-status .account-container button{
+        padding: 7px;
+    }
+    .sidebar-content ul li{
+        margin-top: 15px;
+    }
+    .sidebar{
+        position: fixed;
+    }
+    
+}

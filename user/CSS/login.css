@@ -1,0 +1,87 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.brand{
+    text-align: center;
+}
+.brand img{
+    width: 50px;
+    border-radius: 50%;
+}
+form div{
+    margin-bottom: 10px;
+}
+
+.login-button{
+    margin-top: 17px;
+}
+.button{
+    background-color: blue;
+    color: aliceblue;
+    font-weight: 900; 
+    border: none;
+}
+button:hover{
+    background-color: black;
+}
+.login-button p{
+    text-align: center;
+    margin-top: 10px;
+}
+.login-button p a{
+    text-decoration: none;
+}
+
+/* on small screen */
+@media only screen and (max-width:767px) {
+    .form-container{
+        background-color: aqua;
+        height: 50vh;
+    }
+    form{
+        background-color: aliceblue;
+        width: 80%;
+        position: absolute;
+        top: 30%;
+        padding: 10px;
+        left: 10%;
+        border-radius: 5px;
+    }
+    input, button{
+        width: 100%;
+        padding: 18px;
+        border-radius: 5px;
+    }
+    form div{
+        margin-bottom: 10px;
+    }
+    label{
+        font-size: 25px;
+    }
+
+}
+
+/* on large screen */
+@media only screen and (min-width:1200px) {
+    .form-container{
+        background-color: aqua;
+        height: 60vh;
+    }
+    form{
+        background-color: aliceblue;
+        width: 500px;
+        position: absolute;
+        top: 25%;
+        left: 30%;
+        padding: 15px;
+        border-radius: 10px;
+    }
+    input, button{
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+    }
+}
