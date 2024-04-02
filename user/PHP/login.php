@@ -1,11 +1,17 @@
 <?php
-session_start();
 
+session_start();
 require_once 'connection.php';
 
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        $username = $conn->real_escape_string($_POST['username']);
-        $password = $conn->real_escape_string($_POST['password']);
+class Login {
+
+    private $conn;
+
+    public function __construct($conn) {
+        $this->conn = $conn;
+    }
+    
+    public function userLogin($username, $password){
 
         $response = array();
 
@@ -13,7 +19,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $response['status'] = 'error';
             $response['message'] = "<span style='color:red'>All the Fields Are Required</span>";
         }
-        $stmt = $conn->prepare("SELECT * FROM users WHERE username = ?");
+        $stmt = $this->conn->prepare("SELECT * FROM users WHERE username = ?");
         $stmt->bind_param("s", $username);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -39,7 +45,16 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         // Output the JSON response
         header('Content-Type:application/json'); 
         echo json_encode($response);
+    }
 }
 
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
+    $username = $conn->real_escape_string($_POST['username']);
+    $password = $conn->real_escape_string($_POST['password']);
+
+    $login = new Login($conn);
+    $login->userLogin($username,$password);
+
+}
 ?>

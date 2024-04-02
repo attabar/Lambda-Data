@@ -6,6 +6,7 @@ class Connection {
     private $username;
     private $password;
     private $dbname;
+    private $conn;
     
 
     public function __construct($host,$username,$password,$dbname) {
@@ -15,19 +16,24 @@ class Connection {
         $this->dbname = $dbname;   
     }
 
-    public function DatabaseConnection($conn) {
-        if($conn->error){
-            // echo "<h1>CONNECTION SUCCESSFULLY</h1>";
-            $error = "Error: " . $conn->error;
+    public function connect(){
+
+        // Attempt to establish connection
+        $conn = new mysqli($this->host, $this->username, $this->password, $this->dbname);
+
+        // check for database connection
+        if($conn->connect_error){
+            $error = "Connection Failed: " . $conn->connect_error;
+            return $error;
         }
+        return $conn;
     }
 }
 $host = "localhost";
 $username = "root";
 $password = "";
 $dbname = "vtu";
-$conn = new mysqli($host, $username, $password, $dbname);
 
-$c = new Connection($host,$username,$password,$dbname);
-$c->DatabaseConnection($conn);
+$connection = new Connection($host,$username,$password,$dbname);
+$conn = $connection->connect();
 ?>

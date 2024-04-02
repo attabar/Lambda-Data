@@ -13,7 +13,7 @@
 </head>
 <body>
 <div class="form-container">
-  <form id="signUpForm" method="post" action="./PHP/insertData.php" autocomplete="off">
+  <form id="signUpForm" autocomplete="off">
     <!-- brand container -->
     <div class="brand">
       <img src="../img/logo.jpg" alt="">
@@ -69,55 +69,43 @@
 <!-- jquery link -->
 <script src="JQUERY/jquery.js"></script>
 <script>
- $("document").ready(function(e){
-  $("#submitBtn").click(function(){
-    confirm("Are You So You Want to Submit")
+
+document.getElementById("signUpForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  var formData = new FormData(this);
+
+  fetch("./PHP/Registration.php", {
+    method: "POST",
+    body: formData
+  })
+  .then(response => {
+    if(!response.ok){
+      throw new Error("Network response was not ok");
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log(data);
+    if(data.success){
+      showMessage(data.message, "success")
+    }else{
+      showMessage(data.message, "error");
+    }
+  })
+  .catch(error => {
+    console.log("There was a problem with the response operation: ",error);
+  })
+})
+
+function showMessage(message, type){
+  Swal.fire({
+    icon: type,
+    title: type === "success" ? "success" : "error",
+    text: message
   });
-  $("#signUpForm").submit(function(e){
-    e.preventDefault();
-    let fname = $("#fname").val();
-    let lname = $("#lname").val();
-    let username = $("#username").val();
-    let email = $("#email").val();
-    let phone = $("#mobile").val();
-    let password = $("#password").val();
-    let cpassword = $("#cpassword").val();
-    let formData = $("#signUpForm").serialize();
-    
-    $.ajax({
-      type: "POST",
-      url: "./PHP/insertData.php",
-      data: formData,
-      beforeSend: function(){
-        $('.loading').html("Processing...");
-       },
-      success: function(response){
-        if(response.includes('Registration is Successful')){
-          $(".message").html(response);
-          setTimeout(function(){
-            window.location.href = "./loginPage.php"
-          }, 3000);
-        }else{
-          let result = response
-          Swal.fire({
-            icon: 'error',
-            title: 'Wrong Input',
-            text: result + " "
-          })
-          // $('.message').html(response);
-        }
-       },
-       error: function(){
-        // Handle AJAX errors here
-        Swal.fire({
-          icon: 'error',
-          title: 'Oops...',
-          text: 'An error occurred during the request.',
-        });
-      }
-    })
-  })
-  })
+}
+
 </script>
 </body>
 </html>
