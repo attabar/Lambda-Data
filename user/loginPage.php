@@ -38,10 +38,9 @@
       </div>
     </form>
   </div>
-  <script src="./JQUERY/jquery.js"></script>
   <script src="../js/sweetalert.js"></script>
   <script>
-    $(document).ready(function () {
+    // declaring toast function
     const Toast = Swal.mixin({
         toast: true,
         position: "top-right",
@@ -52,48 +51,45 @@
             toast.onmouseenter = Swal.stopTimer;
             toast.onmouseleave = Swal.resumeTimer;
         }
-    });
-    // Submitting form using jQuery AJAX -->
-    $('#loginForm').submit(function (e) {
-      e.preventDefault();
+      })
+document.getElementById("loginForm").addEventListener("submit", function(e) {
+  e.preventDefault();
 
-      // Get form data
-      var formData = new FormData(this);
+  var formData = new FormData(this);
 
-        // Send AJAX request to the server
-         $.ajax({
-          url: './PHP/login.php',
-          method: 'POST',
-          data: formData,
-          contentType: false,
-          processData: false,
-          success: function (data) {
-            if (data.status === 'success') {
-              $("#submitBtn").text("Authenticating...").css("opacity", 0.5)
-              // SweetAlert for success
-              Toast.fire({
-                icon: "success",
-                title: data.message,
-                // text: data.message
-              });
-              setTimeout(function(){
-                window.location.href = './dashboard.php'
-              }, 4000)
-            } else { 
-              // SweetAlert for error
-              Toast.fire({
-                icon: "error",
-                title: data.message,
-                // text: data.message
-              });
-            }
-          },
-          error: function (error) {
-            console.error('Error:', error);
-          }
-        });
-    });
-}); 
+  fetch("./PHP/login.php", {
+    method: "POST",
+    body: formData
+  })
+  .then(response => {
+    if(!response.ok){
+      throw new Error("response network was not okey");
+    }
+    return response.json();
+  })
+  .then(data => {
+    if(data.status){
+      Toast.fire({
+        icon: "success",
+        title: data.title,
+        text: data.message
+      })
+      setTimeout(function(){
+        window.location.href = './dashboard.php'
+      }, 5000)
+    }else{
+      Toast.fire({
+        icon: "error",
+        title: data.title,
+        text: data.message
+      })
+    }
+  }).catch(error => {
+    console.log(error);
+  })
+
+
+})
   </script>
 </body>
 </html>

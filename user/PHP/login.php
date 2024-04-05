@@ -13,7 +13,7 @@ class Login {
     
     public function userLogin($username, $password){
 
-        $response = array();
+        $response = [];
 
         if(empty($username) || empty($password)){
             $response['status'] = 'error';
@@ -31,15 +31,13 @@ class Login {
                 $_SESSION['username'] = $row['username'];
                 $_SESSION['email'] = $row['email'];
                 $_SESSION['fullname'] = $row['fname'] . $row['lname'];
-                $response['status'] = 'success';
-                $response['message'] = "Login was Successful";
+
+                $response = ['status' => true, 'title' => 'Successful', 'message' => "Login was Successful"];
             }else{
-                $response['status'] = 'error';
-                $response['message'] = "Invalid Password";
+                $response = ['status' => false, 'title' => 'Wrong Input', 'message' => 'Invalid Password'];
             }
         }else{
-            $response['status'] = 'error';
-            $response['message'] = "User not found";
+            $response = ['status' => false, 'title' => 'No User', 'message' => "User not found"];
         }
 
         // Output the JSON response

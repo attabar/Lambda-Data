@@ -9,7 +9,7 @@
   <!-- favicon -->
   <link rel="icon" type="image/x-icon" href="../img/logo.jpg">
   <!-- jquery cdn -->
-  <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 <div class="form-container">
@@ -69,7 +69,18 @@
 <!-- jquery link -->
 <script src="JQUERY/jquery.js"></script>
 <script>
-
+// declaring toast function
+const Toast = Swal.mixin({
+        toast: true,
+        position: "top-right",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
+        }
+      })
 document.getElementById("signUpForm").addEventListener("submit", function(e){
   e.preventDefault();
 
@@ -80,6 +91,7 @@ document.getElementById("signUpForm").addEventListener("submit", function(e){
     body: formData
   })
   .then(response => {
+    console.log("Response received:", response);
     if(!response.ok){
       throw new Error("Network response was not ok");
     }
@@ -88,9 +100,17 @@ document.getElementById("signUpForm").addEventListener("submit", function(e){
   .then(data => {
     console.log(data);
     if(data.success){
-      showMessage(data.message, "success")
+      Swal.fire({
+        icon: "success",
+        title: "Successful",
+        text: data.message
+      })
     }else{
-      showMessage(data.message, "error");
+      Swal.fire({
+        icon: "error",
+        title: "Failed",
+        text: data.message
+      })
     }
   })
   .catch(error => {
@@ -98,13 +118,6 @@ document.getElementById("signUpForm").addEventListener("submit", function(e){
   })
 })
 
-function showMessage(message, type){
-  Swal.fire({
-    icon: type,
-    title: type === "success" ? "success" : "error",
-    text: message
-  });
-}
 
 </script>
 </body>

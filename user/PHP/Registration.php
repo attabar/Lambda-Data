@@ -1,8 +1,5 @@
 <?php
 
-// session_start();
-header("Content-Type: application/json");
-
 // include database connection file
 require_once './connection.php';
 
@@ -10,7 +7,7 @@ class Registration {
         
     // Properties
     private $conn;
-    
+
     // Constructor to initialize database connection
     public function __construct($conn){
         $this->conn = $conn;
@@ -24,12 +21,12 @@ class Registration {
         $hashedCPassword = password_hash($cpassword, PASSWORD_DEFAULT);
         
         // validate input data
-        $isValid = $this->validateData($fname,$lname,$username,$email,$phone,$password,$cpassword);
+        $validationResult = $this->validateData($fname,$lname,$username,$email,$phone,$password,$cpassword);
         
-        if($isValid){
+        if($validationResult === true){
 
-            // initialise the response variable
-            $response = [];
+            // begin transaction
+            $this->conn->begin_transaction();
 
             $stmt = $this->conn->prepare("INSERT INTO users(fname,lname,username,email,phone,pass,confirmPass) VALUES(?,?,?,?,?,?,?)");
             $stmt->bind_param("sssssss", $fname,$lname,$username,$email,$phone,$hashedPassword,$hashedCPassword);
@@ -40,32 +37,38 @@ class Registration {
                 $user_id = $stmt->insert_id;
 
                 // Proceed to wallet account detail creation
-                $this->createWalletAccount($fname, $lname, $username, $email, $user_id);
+                $walletCreationResponse = $this->createWalletAccount($fname, $lname, $username, $email, $user_id);
+                // Check if wallet account creation was successful
+                if($walletCreationResponse['success']){
+                    // commit the transaction
+                    $this->conn->commit();
+                    return $walletCreationResponse;
+                }else{
+                    // Wallet account creation failed, rollback transaction
+                    $this->conn->rollback();
+                    return $walletCreationResponse;
+                }
             }else {
-                $response = ["success" => false, "message" => "Error encountered during Registration: " . $this->conn->error];
+                return ["success" => false, "message" => "Error encountered during Registration: " . $this->conn->error];
             }    
         }else{
-            $response = ["success" => false, "message" => "Invalid Input"];
+            return $validationResult;
         }
-        echo json_encode($response);
     }
 
      // Method to validate input data
      private function validateData($fname, $lname, $username, $email, $phone, $password, $cpassword) {
         $isValid = true;
 
-        // initialise the response variable
-        $response = [];
-
         // Validate First Name shall only contain letters and white space
         if (!preg_match("/^[a-zA-Z-' ]*$/", $fname)) {
-            $response = ["success" => false, "message" => "Only letters and white space allowed For First Name"];
+            return ["success" => false, "message" => "Only letters and white space allowed For First Name"];
             $isValid = false;
         }
 
         // Validate Last Name shall only contain letters and white space
         if (!preg_match("/^[a-zA-Z-' ]*$/", $lname)) {
-            $response = ["success" => false, "message" => "Only letters and white space allowed For Last Name"];
+            return ["success" => false, "message" => "Only letters and white space allowed For Last Name"];
             $isValid = false;
         }
 
@@ -76,43 +79,39 @@ class Registration {
         $result = $query->get_result();
 
         if ($result->num_rows > 0) {
-            $response = ["success" => false, "message" => "Username Already Exists. Please choose another username"];
+            return ["success" => false, "message" => "Username Already Exists. Please choose another username"];
             $isValid = false;
         }
 
         // Check the validity of email format
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $response = ["success" => false, "message" => "Error: Invalid email format"];
+            return ["success" => false, "message" => "Error: Invalid email format"];
             $isValid = false;
         }
 
         // Validate mobile number input value
         if (strlen($phone) < 11) {
-            $response = ["success" => false, "message" => "Mobile number Must be 11 digits."];
+            return ["success" => false, "message" => "Mobile number Must be 11 digits."];
             $isValid = false;
         }
 
         // Validate password to contain a combination of lowercase, uppercase, and digit
         $pattern = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=!*_]).{8,}$/';
         if (!preg_match($pattern, $password)) {
-            $response = ["success" => false, "message" => "Password needs Uppercase (A-Z), Lowercase (a-z), and Special Characters (@$%-)."];
+            return ["success" => false, "message" => "Very Weak Password"];
             $isValid = false;
         }
 
         // Check if password and confirm password match
         if ($password !== $cpassword) {
-            $response = ["success" => false, "message" => "Password and Confirm Password do not match"];
+            return ["success" => false, "message" => "Password and Confirm Password do not match"];
             $isValid = false;
         }
-        echo json_encode($response);
         return $isValid;
     }
 
     // Method to process additional actions upon successful registration
     private function createWalletAccount($fname, $lname, $username, $email, $user_id) {
-
-        // initialise the response variable
-        $response = [];
 
         // Additional actions upon successful registration
         require_once 'AccessTokenGenerator.php';
@@ -150,7 +149,9 @@ class Registration {
         $response = curl_exec($ch);
 
         if (curl_errno($ch)) {
-            $response = ["success" => false, "message" => 'cURL: ' . curl_error($ch)];
+            $error = 'cURL: ' . curl_error($ch);
+            error_log($error, 3, '../../../../../php/logs/php_error_log');
+            return ["success" => false, "message" => "No stable internet connection, try again later..."];
         } else {
             $responseData = json_decode($response);
             if ($responseData->requestSuccessful == 1) {
@@ -167,16 +168,19 @@ class Registration {
 
                 
                 if ($reserved_table) {
-                    $response = ["success" => true, "message" => "Registration is Successful"];
+                    return ["success" => true, "message" => "Registration is Successful"];
                 } else {
-                    $response = ["success" => false, "message" => "Wallet Account didn't insert into Table Successfully: " . $this->conn->$reserved_table];
+                    return ["success" => false, "message" => "Wallet Account didn't insert into Table Successfully: " . $this->conn->$reserved_table];
                 }
             } else {
-                $response = ["success" => false, "message" => "Error While Creating Wall]et: " . $responseData->responseMessage];
+                $error = "Error While Creating Wallet: " . $responseData->responseMessage;
+                error_log($error, 3, '../../../../../php/logs/php_error_log');
+                // return a generic error message to the user so that to avoid exposing sensitive information
+                return ["success" => false, "message" => "Registration incomplete...Try again later."];
             }
-            echo json_encode($response);
         }
     }
+
    
 }
 
@@ -193,7 +197,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
      // Instantiate Registration class and submit data
      $registration = new Registration($conn);
-     $registration->retrieveData($fname, $lname, $username, $email, $phone, $password, $cpassword);
+     $response = $registration->retrieveData($fname, $lname, $username, $email, $phone, $password, $cpassword);
+
+     header("Content-Type: application/json");
+     echo json_encode($response);
+     exit;
  }
 
 ?>
