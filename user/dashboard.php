@@ -30,7 +30,7 @@
                             class="bi bi-chevron-down"></i>
                         <!-- submenu for account -->
                         <ul class="submenu">
-                            <li><a href=""><i class="bi bi-arrow-right-short"></i> Profile</a></li>
+                            <li><a href="./profile.php"><i class="bi bi-arrow-right-short"></i> Profile</a></li>
                             <li><a href=""><i class="bi bi-arrow-right-short"></i> Upgrade Account</a></li>
                             <li><a href=""><i class="bi bi-arrow-right-short"></i> KYC</a></li>
                             <li><a href=""><i class="bi bi-arrow-right-short"></i> Pin Management</a></li>

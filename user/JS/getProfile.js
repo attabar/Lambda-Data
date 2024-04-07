@@ -10,7 +10,11 @@ fetch("./PHP/Profile.php", {
 .then(data => {
     console.log(data)
     if(data.success){
+        document.getElementById('fullname').innerHTML = data.fname + ' ' + data.lname;
         document.getElementById('username').innerHTML = data.username;
+        document.getElementById('email').innerHTML = data.email;
+        document.getElementById('mobile').innerHTML = data.mobile;
+        
     }else{
         console.log(data.success)
     }

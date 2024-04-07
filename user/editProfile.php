@@ -1,4 +1,3 @@
-<?php require_once './PHP/RedirectBackToLoginPage.php' ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +7,7 @@
     <title>User Dashboard</title>
     <!-- custom css file -->
     <link rel="stylesheet" href="./CSS/dashboard.css">
-    <link rel="stylesheet" href="./CSS/profile.css">
+    <link rel="stylesheet" href="./CSS/editProfile.css">
     <!-- fontawesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
         integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw=="
@@ -75,69 +74,59 @@
             </div>
             <!-- Your main content goes here -->
             <div class="main-content">
-                <marquee behavior="" direction="">This is the only avalailable bank we have for now that is wema bank
-                </marquee>
                 <!-- account -->
-                <div class="user-profile">
-                    <h1 class="h1-user-profile">User Profile</h1>
-                    <h3>Full Name: <span id="fullname"></span></h3><br>
-                    <h3>Username: <span id="username"></span></h3>
-                    <br>
-                    <h3>E-mail: <span id="email"></span></h3><br>
-                    <h3>Mobile: <span id="mobile"></span></h3>
-                    <a class="editProfile" href="./editProfile.php"><h4>Edit Profile</h4></a>
+                <div class="form-container">
+  <form id="signUpForm" autocomplete="off">
+    <!-- brand container -->
+    <div class="brand">
+      <img src="../img/logo.jpg" alt="">
+      <h3>EDIT PROFILE</h3>
+    </div>
+    <!-- message -->
+    <div class="message"></div>
+    <div class="loading"></div>
+    <!-- fname container -->
+    <div class="fname-container">
+      <label for="fname">First Name</label>
+      <input type="text" id="fname" name="fname" required>
+    </div>
+    <!-- lname container -->
+    <div class="lname-container">
+      <label for="lname">Last Name</label>
+      <input type="text" id="lname" name="lname" required>
+    </div>
+    <!-- username container-->
+    <div class="username-container">
+      <label for="username">Username</label>
+      <input type="text" name="username" id="username" required>
+    </div>
+    <!-- Email container -->
+    <div class="email-container">
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email" required>
+    </div>
+    <!-- phone number container -->
+    <div class="mobile-container">
+      <label for="mobile">Mobile</label>
+      <input type="number" name="phone" id="mobile" required>
+    </div>
+    <!-- password container -->
+    <div class="password-container">
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password" autocomplete="off" required>
+    </div>
+    <!-- confirm password -->
+    <div class="cpassword">
+      <label for="cpassword">Confirm Password</label>
+      <input type="password" name="cpassword" id="cpassword" autocomplete="off" required>
+    </div>
+    <!-- submit button container -->
+    <div class="button">
+      <button name="submit" id="submitBtn" type="submit">Submit</button>
+    </div>  
+  </form>
+</div>
                 </div>
-                <!-- userStatus -->
-                <div class="account-status">
-                    <div class="account-container"><button><i class="bi bi-plus-lg"></i> Fund Wallet</button><button><i
-                                class="bi bi-plus-lg"></i> Upgrade Account</button></div>
-                    <h1 style="color:aliceblue;padding:35px">Welcome <span id="username"></span></h1>
-                    <h3 style="color:aliceblue;padding-left:35px">SMART EARNER</h3>
-                    <h2 style="color:aliceblue;padding-left:35px;padding-top:40px" id="accBalance">₦0.00</h2>
-                    <h4 style="color:aliceblue;padding-left:35px;padding-top:15px;font-weight:100">Wallet Balance</h4>
-                </div>
-                <!-- services -->
-                <div class="services" id="services">
-                    <!-- grid container -->
-                    <div class="grid-container">
-                        <!-- data -->
-                        <div class="data">
-                            <i class="bi bi-wifi"></i>
-                            <h2>Buy <br>Data</h2>
-                        </div>
-                        <!-- airtime -->
-                        <div class="airtime">
-                            <i class="bi bi-telephone-inbound-fill"></i>
-                            <h2>Buy <br>Airtime</h2>
-                        </div>
-                        <!-- tv -->
-                        <div class="tv">
-                            <i class="bi bi-tv"></i>
-                            <h2>TV Cables</h2>
-                        </div>
-                        <!-- bill -->
-                        <div class="bill">
-                            <i class="bi bi-lightbulb-fill"></i>
-                            <h2>Buy <br>Electricity</h2>
-                        </div>
-                        <!-- result pin -->
-                        <div class="result-pin">
-                            <i class="bi bi-mortarboard-fill"></i>
-                            <h2>Result Pin</h2>
-                        </div>
-                        <!-- airtime to money -->
-                        <div class="airtime-to-money">
-                            <i class="bi bi-cash"></i>
-                            <h2>Airtime To Cash</h2>
-                        </div>
-                    </div>
-                </div>
-                <!-- wallet details and referral div -->
-                <!-- <div class="wallet-details-and-referral" style="background-color: red;">
-                <div class="wallet-details">
-                    <h2>Wallet Balance</h2>
-                </div>
-            </div> -->
                 <!-- end of main content -->
             </div>
         </div>
@@ -173,12 +162,6 @@
         })
     })
     </script>
-    <!-- wallet account file -->
-    <script src="./JS/getAccountDetails.js"></script>
-    <!-- session file -->
-    <script src="./JS/getProfile.js"></script>
-    <!-- account balance -->
-    <script src="./JS/getBalance.js"></script>
 </body>
 
 </html>

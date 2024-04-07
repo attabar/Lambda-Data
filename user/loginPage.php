@@ -34,7 +34,7 @@
       <!-- login button -->
       <div class="login-button">
         <button type="submit" id="submitBtn" class="button">Login</button>
-        <p>Don&apos;t have an account <a href="./register.php">Sign Up</a></p>
+        <p>Don&apos;t have an account <a href="./RegistrationPage.php">Sign Up</a></p>
       </div>
     </form>
   </div>
