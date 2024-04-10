@@ -1,58 +1,87 @@
 *{
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
-html{
-    background-color: aqua;
-    height: 50vh;
-}
-h1{
+
+.brand{
     text-align: center;
 }
-.col{
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 15px;
+.brand img{
+    width: 50px;
+    border-radius: 50%;
 }
-input{
-    padding: 10px;
-    border-radius: 5px;
-    /* border: none; */
-    /* background-color: wheat; */
-    color: black;
-    outline: none;
+form div{
+    margin-bottom: 10px;
 }
-button{
+
+.login-button{
+    margin-top: 17px;
+}
+.button{
     background-color: blue;
-    padding: 10px;
-    border: none;
-    outline: none;
-    border-radius: 5px;
     color: aliceblue;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-label{
-    margin-bottom: 5px;
+    font-weight: 900; 
+    border: none;
 }
 button:hover{
     background-color: black;
 }
-/* large screen */
-@media screen and (min-width:1200px) {
-    .form-container{
-        background-color: white;
-        width: 500px;
-        height: 50vh;
-        transform: translate(400px, 50px);
-        border-radius: 5px;
-        padding: 15px;
-    } 
+.login-button p{
+    text-align: center;
+    margin-top: 10px;
 }
-/* small screen */
-@media screen and (max-width:767px) {
+.login-button p a{
+    text-decoration: none;
+}
+
+/* on small screen */
+@media only screen and (max-width:767px) {
     .form-container{
+        background-color: aqua;
+        height: 50vh;
+    }
+    form{
         background-color: aliceblue;
-        padding: 15px;
+        width: 80%;
+        position: absolute;
+        top: 30%;
+        padding: 10px;
+        left: 10%;
         border-radius: 5px;
-        transform: translate(0, 25px);
+    }
+    input, button{
+        width: 100%;
+        padding: 18px;
+        border-radius: 5px;
+    }
+    form div{
+        margin-bottom: 10px;
+    }
+    label{
+        font-size: 25px;
+    }
+
+}
+
+/* on large screen */
+@media only screen and (min-width:1200px) {
+    .form-container{
+        background-color: aqua;
+        height: 60vh;
+    }
+    form{
+        background-color: aliceblue;
+        width: 500px;
+        position: absolute;
+        top: 25%;
+        left: 30%;
+        padding: 15px;
+        border-radius: 10px;
+    }
+    input, button{
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
     }
 }

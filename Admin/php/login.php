@@ -1,29 +1,56 @@
 <?php
-require_once './connection.php';
 
-// $response = array('success' => false, 'message' => '');
+session_start();
+require_once 'connection.php';
+
+class Login {
+
+    private $conn;
+
+    public function __construct($conn) {
+        $this->conn = $conn;
+    }
+    
+    public function userLogin($username, $password){
+
+        $response = [];
+
+        if(empty($username) || empty($password)){
+            $response['status'] = 'error';
+            $response['message'] = "<span style='color:red'>All the Fields Are Required</span>";
+        }
+        $stmt = $this->conn->prepare("SELECT * FROM admin WHERE username = ?");
+        $stmt->bind_param("s", $username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            if(password_verify($password, $row['pass'])){
+                $_SESSION['user_id'] = $row['user_id'];
+                $_SESSION['username'] = $row['username'];
+    
+                $response = ['status' => true, 'title' => 'Successful', 'message' => "Login was Successful"];
+            }else{
+                $response = ['status' => false, 'title' => 'Wrong Input', 'message' => 'Invalid Password'];
+            }
+        }else{
+            $response = ['status' => false, 'title' => 'No User', 'message' => "User not found"];
+        }
+
+        // Output the JSON response
+        header('Content-Type:application/json'); 
+        echo json_encode($response);
+    }
+}
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
+
     $username = $conn->real_escape_string($_POST['username']);
     $password = $conn->real_escape_string($_POST['password']);
 
-    $sql = $conn->prepare("SELECT * FROM admintable WHERE username = ?");
-    $sql->bind_param("s", $username);
-    $sql->execute();
+    $login = new Login($conn);
+    $login->userLogin($username,$password);
 
-    $result = $sql->get_result();
-    if($result->num_rows > 0){
-        $row =  $result->fetch_assoc();
-        $plainPassword = $row['pass'];
-        $hashedPassword = password_hash($plainPassword, PASSWORD_DEFAULT);
-        if(password_verify($password, $hashedPassword)){
-            echo "<span style='color:green'>You're Authorised to access this site</span>";
-        }else {
-            echo "<span style='color:red'>Incorrect Password</span>";
-        }
-        // echo 
-    }else{
-        echo "<span style='color:red'>You're not authorized to access this site</span>";
-    }
 }
 ?>

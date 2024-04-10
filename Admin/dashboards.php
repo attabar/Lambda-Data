@@ -45,8 +45,8 @@
                 </li>
                 <!-- <li><i class="bi bi-cash"></i> Wallet Summary</li>
                 <li class="with-arrow"><i class="bi bi-sliders"></i> Others <i class="bi bi-chevron-down"></i></li>
-                <li><i class="bi bi-gear-fill"></i> Settings</li>
-                <li><i class="bi bi-tag-fill"></i> Price</li> -->
+                <li><i class="bi bi-gear-fill"></i> Settings</li> -->
+                <li><i class="fa fa-envelope-open" aria-hidden="true"></i> Send Email</li> 
                 <li><i class="bi bi-bell-fill"></i> Notifications</li>
                 <li id="logout"><i class="bi bi-box-arrow-left"></i> Logout</li>
             </ul>
@@ -61,21 +61,28 @@
         <!-- Your main content goes here -->
         <div class="main-content">
             <div class="funding-revenue">
-                <div class="headingone"><h1>TOTAL FUNDING AND REVENUE</h1></div>
-                <div class="funding-and-revenue">
-                    <div class="child1"><i class="fas fa-wallet"></i><h5>TOTAL FUNDING</h5><h6>N600,000</h6></div>
-                    <div class="child2"><i class="fas fa-exchange-alt"></i><h5>DAILY TRANSACTIONS</h5><h6>N3,000</h6></div>
-                    <div class="child3"><i class="fas fa-exchange-alt"></i><h5>MONTHLY TRANSACTIONS</h5><h6>N90,000</h6></div>
+            <div class="head"><h1>OVERVIEW</h1></div>
+            <div class="row-2">
+                    <div class="child1"><i class="fas fa-wallet"></i><h5>Total Balance</h5><h6>9,000</h6></div>
+                    <div class="child2"><i class="fas fa-user"></i><h5>Users</h5><h6>N300,000</h6></div>
+                    <div class="child3"><i class="fas fa-wifi"></i><h5>Top Transaction</h5><h6>N100,000</h6></div>
                 </div>
-                <div class="headingtwo"><h1>TOTAL USERS AND TOP TOP-UPS</h1></div>
-                <div class="totalusers-top-top-ups">
-                    <div class="child1"><i class="fas fa-user"></i><h5>TOTAL USERS</h5><h6>9,000</h6></div>
-                    <div class="child2"><i class="fas fa-wifi"></i><h5>DATA TOP UPS</h5><h6>N300,000</h6></div>
-                    <div class="child3"><i class="fas fa-phone"></i><h5>AIRTIME TOP UP</h5><h6>N100,000</h6></div>
+
+                <div class="head"><h1>DATA <i class="fas fa-wifi"></i></h1></div>
+                <div class="row-1">
+                    <div class="child1"><i class="fa fa-line-chart" aria-hidden="true"></i><h5>Daily Profit</h5><h6>N600,000</h6></div>
+                    <div class="child2"><i class="fas fa-exchange-alt"></i><h5>Weekly Profit</h5><h6>N3,000</h6></div>
+                    <div class="child3"><i class="fas fa-exchange-alt"></i><h5>Monthly Profit</h5><h6>N90,000</h6></div>
+                </div>
+                <div class="head"><h1>AIRTIME <i class="fas fa-phone"></i></h1></div>
+                <div class="row-2">
+                    <div class="child1"><i class="fa fa-line-chart" aria-hidden="true"></i><h5>Daily Profit</h5><h6>9,000</h6></div>
+                    <div class="child2"><i class="fa fa-bar-chart" aria-hidden="true"></i><h5>Weekly Profit</h5><h6>N300,000</h6></div>
+                    <div class="child3"><i class="fa fa-area-chart" aria-hidden="true"></i><h5>Monthly Profit</h5><h6>N100,000</h6></div>
                 </div>
             </div>
             <div class="chart-container">
-                <canvas id="transactionChart"></canvas>
+            <div class="head"><h1>Recent Transaction <i class="fas fa-exchange-alt"></i></h1></div>
             </div>
         </div>
     </div>

@@ -1,69 +1,94 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Login</title>
-    <link rel="stylesheet" href="./CSS/adminLogin.css">
-    <link rel="icon" type="image/x-icon" href="../img/logo.jpg">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login</title>
+  <!-- favicon -->
+  <link rel="shortcut icon" type="image/jpeg" href="../img/logo.jpg" />
+  <!-- css file -->
+  <link rel="stylesheet" href="./CSS/adminlogin.css">
+    <!-- jquery cdn -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <div class="form-container">
-        <form id="loginForm" autocomplete="off">
-        <h1 id="test">Admin Login</h1>
-        <div class="result" style="text-align: center;"></div>
-            <div class="username col">
-                <label for="username">USERNAME</label>
-                <input type="text" id="username" class="message">
-            </div>
-            <div class="password col">
-                <label for="password">PASSWORD</label>
-                <input type="password" id="password" class="message">
-            </div>
-            <div class="submit col">
-                <button id="loginBtn" name="loginBtn">Login</button>
-            </div>
-        </form>
-        <div id="error-message"></div>
-    </div>
-    <script src="../user/JQUERY/jquery.js"></script>
-    <script>
-        $("document").ready(function(){
-            $("#loginForm").submit(function(e){
-                e.preventDefault()
-                let username = $("#username").val();
-                let password = $("#password").val(); 
-                $.ajax({
-                    type: "POST",
-                    url: "./php/login.php",
-                    data: {username: username, password: password},
-                    success: function(response){
-                        $(".message").html('');
-                        $(".result").html(response);
-                        if(response.includes("You're Authorised to access this site")){
-                            $("#username").after('<span style="color: green;">&#10004;</span>')
-                            $("#password").after('<span style="color: green;">&#10004;</span>')
-                            $("#loginBtn").text("Authenticating...").css("opacity", 0.4);
-                            $(".form-container").css("height", "30%");
-            
+  <div class="form-container">
+    <form id="loginForm">
+      <!-- brand -->
+      <div class="brand">
+        <img src="../img/logo.jpg" alt="" srcset="">
+        <h2>Admin Login</h2>
+      </div>
+      <!-- message -->
+      <div id="message"></div>
+      <!-- username container -->
+      <div class="username-container">
+        <label for="user">Username</label>
+        <input type="text" name="username" id="user" required>
+      </div>
+      <!-- password container -->
+      <div class="password-container">
+        <label for="pass">Password</label>
+        <input type="password" name="password" id="pass" required>
+      </div>
+      <!-- login button -->
+      <div class="login-button">
+        <button type="submit" id="submitBtn" class="button">Login</button>
+      </div>
+    </form>
+  </div>
+  <script src="../js/sweetalert.js"></script>
+  <script>
+    // declaring toast function
+    const Toast = Swal.mixin({
+        toast: true,
+        position: "top-right",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
+        }
+      })
+document.getElementById("loginForm").addEventListener("submit", function(e) {
+  e.preventDefault();
 
-                            // delay of 5 seconds before redirection
-                            setTimeout(function(){
-                                window.location.href = "./dashboards.php"
-                            }, 5000)
-                        }else{
-                            $(".form-container").css("height", "30%");
-                            if(!username){
-                                $("#username").after('<span style="color: red;">&#10008; Please enter a username</span>');
-                            }
-                            if(!password){
-                                $("#password").after("<span style='color: red'>&#10008; Please enter a password</span>");
-                            }
-                        }
-                    }
-                })
-            })
-        })
-    </script>
+  var formData = new FormData(this);
+
+  fetch("./php/login.php", {
+    method: "POST",
+    body: formData
+  })
+  .then(response => {
+    if(!response.ok){
+      throw new Error("response network was not okey");
+    }
+    return response.json();
+  })
+  .then(data => {
+    if(data.status){
+      Toast.fire({
+        icon: "success",
+        title: data.title,
+        text: data.message
+      })
+      setTimeout(function(){
+        window.location.href = './dashboards.php'
+      }, 5000)
+    }else{
+      Toast.fire({
+        icon: "error",
+        title: data.title,
+        text: data.message
+      })
+    }
+  }).catch(error => {
+    console.log(error);
+  })
+
+
+})
+  </script>
 </body>
 </html>

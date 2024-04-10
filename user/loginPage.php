@@ -13,7 +13,7 @@
 </head>
 <body>
   <div class="form-container">
-    <form id="loginForm" method="post" action="./PHP/login.php">
+    <form id="loginForm">
       <!-- brand -->
       <div class="brand">
         <img src="../img/logo.jpg" alt="" srcset="">

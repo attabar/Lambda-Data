@@ -107,29 +107,28 @@ a{
 
 
 .chart-container, .funding-revenue {
-    width: 95%;
+    width: 60%;
     margin: 10px auto;
     background-color: #fff;
-    padding: 100px;
+    padding: 5px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.headingone, .headingtwo{
+.head{
     width: 90%;
-    background-color: #333;
-    color: #fff;
-    text-align: center;
+    color: black;
+    text-align: left;
     margin-bottom: 10%;
     margin: 50px auto;
     border-radius: 10px;
 }
-.funding-and-revenue{
+.row-1{
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
-.funding-and-revenue > div, .totalusers-top-top-ups > div{
+.row-1 > div, .row-2 > div{
     border: 1px solid #ccc;
     padding: 30px; 
     text-align: center;
@@ -150,7 +149,7 @@ a{
   .child3 {
     background-color: #d0d0d0; /* Example background color */
   }
-  .totalusers-top-top-ups{
+  .row-2{
     display:flex;
     justify-content: space-around;
   }

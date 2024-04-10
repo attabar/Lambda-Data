@@ -1,123 +1,122 @@
-$('document').ready(function(e){
-    
-    var network = $("#network");
-    var dataType = $("#plan_type");
-    
-   
-    // function for network changing to append data plan and data type
-    $("#network").on('change', function(e){
-        e.preventDefault();
-        var networkName = $(this).find(":selected").val();
-        $.ajax({
-            url: './PHP/fetchPrice.php',
-            type: 'POST',
-            dataType: 'json',
-            data: {network:networkName},
-            success: function(response){
-                if(response && response.success && networkName === '1'){
-                    dataType.find('option:not(:first)').remove();
-                    for(var i = 0; i < response.mtn.length; i++){
-                        dataType.append('<option value="'+response.mtn[i].mtn_data_id+'">'+response.mtn[i].mtn_plan_type +' '+response.mtn[i].mtn_data_type+' </option>')
-                    }
-                }else if(response && response.success && networkName === '3'){
-                    dataType.find('option:not(:first)').remove();
-                    for(var i = 0; i < response.airtel.length; i++){
-                        dataType.append('<option value="'+response.airtel[i].airtel_data_id+'">'+response.airtel[i].airtel_plan_type+ ' '+response.airtel[i].airtel_data_type+' </option>');
-                    }
-                }else if(response && response.success && networkName === '2'){
-                    dataType.find('option:not(:first)').remove();
-                    for(var i = 0; i < response.glo.length; i++){
-                        dataType.append('<option value="'+response.glo[i].glo_data_id+'">'+response.glo[i].glo_plan_type+ ' '+response.glo[i].glo_data_type+'</option>')
-                    }
-                }else if(response && response.success && networkName === '6'){
-                    dataType.find('option:not(:first)').remove();
-                    for(var i = 0; i < response.nineMobile.length; i++){
-                        dataType.append('<option value="'+response.nineMobile[i].nineMobile_data_id+'">'+response.nineMobile[i].nineMobile_plan_type+ ' '+response.nineMobile[i].nineMobile_data_type+'</option>')
-                    }
-                }
-            },
-            error: function(xhr, status, error){
-                console.log("AJAX ERROR: ", status, error);
-            }
-        });   
-    })
-    network.trigger('change');
+document.addEventListener('DOMContentLoaded', function() {
+    var network = document.getElementById('network');
+    var dataType = document.getElementById('plan_type');
 
-    dataType.on('change', function(e){
-        e.preventDefault();
-        var plan_type = $(this).find(":selected").val();
-       
-        var data_plan = $("#data_plan");
-        var amount = $('#amount');
-
-        $.ajax({
-            url: './PHP/fetchPrice2.php',
-            type: 'POST',
-            dataType: 'json',
-            data: {plan_type:plan_type},
-            success: function(response){
-                if(response && response.success){
-                    data_plan.val(response.fetch[0].fetchDataPlan)
-                    amount.val(response.fetch[0].fetchDataPrice)
-                }else{
-                    data_plan.val(response.fetch[0].fetchDataPrice)
-                }
-            },
-            error: function(xhr,status,error){
-                console.log(xhr.responseText)
+    function fetchDataPlan() {
+        var networkName = network.value;
+        fetch('./PHP/fetchPrice.php', {
+            method: 'POST',
+            body: JSON.stringify({ network: networkName }),
+            headers: {
+                'Content-Type': 'application/json'
             }
         })
-    })
-    dataType.trigger('change');
-
-
-    $("#dataForm").submit(function(e){
-        e.preventDefault();
-
-        // Add the selected options to the FormData
-        var selectedNetwork = $("#network").find(":selected").val();
-        var selectedDataType = $("#plan_type").find(":selected").val();
-        var formData = new FormData(this); 
-        formData.append("network_id", selectedNetwork);
-        formData.append("plan_id", selectedDataType);
-        var amount = $("#amount").val();
-        $.ajax({
-            url: './PHP/buyData.php',
-            type: "POST", 
-            dataType: 'json',
-            data: formData,
-            contentType: false,
-            processData: false,
-            success: function(response){
-                if(response.success && response.status === 'successful'){
-                    Swal.fire({
-                        icon: 'success',
-                        title: response.status,
-                        text: response.message,
-                        confirmButtonText: "OK"
-                    });
-                }else if(response.success && response.status === 'failed'){
-                    Swal.fire({
-                        icon: 'error',
-                        title: response.status,
-                        text: response.message,
-                        confirmButtonText: "OK"
-                    });
-                }else if(parseFloat(amount) > parseFloat(response.settlement_amount)){
-                    // alert(response.message);
-                    Swal.fire({
-                            icon:'error',
-                            title: response.title,
-                            text: response.message,
-                            confirmButtonText: "OK"
-                        });
-                    }
-                
-            },
-            error: function(xhr, status, error){
-                console.log(error,status);
-                console.log(xhr.responseText)
+        .then(response => response.json())
+        .then(response => {
+            if (response && response.success) {
+                dataType.innerHTML = '<option value="">Select Plan Type</option>';
+                var plans = null;
+                switch(networkName) {
+                    case '1':
+                        plans = response.mtn;
+                        break;
+                    case '2':
+                        plans = response.glo;
+                        break;
+                    case '3':
+                        plans = response.airtel;
+                        break;
+                    case '6':
+                        plans = response.nineMobile;
+                        break;
+                    default:
+                        plans = [];
+                }
+                plans.forEach(plan => {
+                    dataType.innerHTML += `<option value="${plan.id}">${plan.plan_type} ${plan.data_type}</option>`;
+                });
             }
         })
-    })
-})
+        .catch(error => {
+            console.error('Fetch Error:', error);
+        });
+    }
+
+    network.addEventListener('change', function(e) {
+        e.preventDefault();
+        fetchDataPlan();
+    });
+
+    network.dispatchEvent(new Event('change'));
+
+    dataType.addEventListener('change', function(e) {
+        e.preventDefault();
+        var planType = dataType.value;
+        var dataPlan = document.getElementById('data_plan');
+        var amount = document.getElementById('amount');
+        
+        fetch('./PHP/fetchPrice2.php', {
+            method: 'POST',
+            body: JSON.stringify({ plan_type: planType }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(response => {
+            if (response && response.success) {
+                dataPlan.value = response.fetch[0].fetchDataPlan;
+                amount.value = response.fetch[0].fetchDataPrice;
+            } else {
+                dataPlan.value = response.fetch[0].fetchDataPrice;
+            }
+        })
+        .catch(error => {
+            console.error('Fetch Error:', error);
+        });
+    });
+
+    dataType.dispatchEvent(new Event('change'));
+
+    var dataForm = document.getElementById('dataForm');
+    dataForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        var formData = new FormData(dataForm);
+        formData.append('network_id', network.value);
+        formData.append('plan_id', dataType.value);
+
+        fetch('./PHP/buyData.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(response => {
+            if (response.success && response.status === 'successful') {
+                Swal.fire({
+                    icon: 'success',
+                    title: response.status,
+                    text: response.message,
+                    confirmButtonText: 'OK'
+                });
+            } else if (response.success && response.status === 'failed') {
+                Swal.fire({
+                    icon: 'error',
+                    title: response.status,
+                    text: response.message,
+                    confirmButtonText: 'OK'
+                });
+            } else if (parseFloat(amount.value) > parseFloat(response.settlement_amount)) {
+                Swal.fire({
+                    icon: 'error',
+                    title: response.title,
+                    text: response.message,
+                    confirmButtonText: 'OK'
+                });
+            }
+        })
+        .catch(error => {
+            console.error('Fetch Error:', error);
+        });
+    });
+});
