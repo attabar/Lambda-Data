@@ -13,8 +13,7 @@
     <!-- favicon -->
     <link rel="icon" type="image/x-icon" href="../img/logo.jpg">
     <!-- sweetalert -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.all.min.js"></script> -->
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.all.min.js"></script>
 </head>
 <body>
 <div class="container">
@@ -61,7 +60,7 @@
         <form id="dataForm">
           <div>
             <label for="network" class="form-label">Network<span style="color: red;">*</span></label>
-            <select class="form-select form-select-lg" id="network" name="network_id" required>
+            <select class="form-select form-select-lg" id="network" name="network" required>
               <option disabled selected>--Select Network--</option>
               <option value="1">MTN</option>
               <option value="3">Airtel</option>
@@ -70,22 +69,20 @@
             </select>
           </div>
 
-          <div class="">
-            <label for="dataType" class="form-label">Plan Type<span style="color: red;">*</span></label>
-            <select class="form-select form-select-lg" id="plan_type" name="plan_id" required>
-              <option>--Select Plan--</option>
-              
+          <div>
+            <label for="plan_type" class="form-label">Plan Type<span style="color: red;">*</span></label>
+            <select id="plan_id" name="plan_id" required>
             </select>
           </div>
 
           <div class="">
             <label for="mobile" class="form-label">Phone Number<span style="color: red;">*</span></label>
-            <input type="number" class="form-control lg" name="mobile_number" id="mobile" required maxlength="11">
+            <input type="number" name="mobile_number" id="mobile" required maxlength="11">
           </div>
 
           <div class="">
-            <label for="dataPlan" class="form-label">Data Type<span style="color: red;">*</span></label>
-            <input type="text" class="form-select form-select-lg" disabled id="data_plan" name="data_type" required>
+            <label for="data_type" class="form-label">Data Type<span style="color: red;">*</span></label>
+            <input type="text" disabled id="data_type" name="data_type" required>
           </div>
           
           <div class="">
@@ -102,7 +99,6 @@
   </div>
   <script src="./SweetAlert/sweetalert.js"></script>
 <script src="./JQUERY/jquery.js"></script>
-<script src="./JS/buyData.js"></script>
 <script>
 $('document').ready(function(){
     $('.navbar').click(function(e){
@@ -129,9 +125,6 @@ $('document').ready(function(){
     });
 })
 </script>
-<!-- wallet account file -->
-<script src="./JS/getFundWalletFile.js"></script>
-<!-- session file -->
-<script src="./JS/getSessionFile.js"></script>
+<script src="./JS/buyData.js"></script>
 </body>
 </html>

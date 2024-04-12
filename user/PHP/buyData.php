@@ -19,7 +19,7 @@ class DataTransaction {
 
         if ($amount < $balance) {
             // Perform data purchase
-            $response = $this->performDataPurchase($network_id, $mobile_number, $plan_id, $balance, $amount);
+            $response = $this->performDataPurchase($network_id, $mobile_number, $plan_id);
             echo json_encode($response);
         } else {
             // Insufficient balance
@@ -45,7 +45,7 @@ class DataTransaction {
         return 0;
     }
 
-    private function performDataPurchase($network_id, $mobile_number, $plan_id, $balance, $amount) {
+    private function performDataPurchase($network_id, $mobile_number, $plan_id) {
         $endpoint = 'https://gladtidingsapihub.com/api/data/';
         $header = array(
             'Authorization: Token ' . '45264e5b4be99aa0f1571e0c0447719759c3e4bb',

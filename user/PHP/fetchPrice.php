@@ -7,7 +7,7 @@ require_once 'connection.php';
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
     try{
         $network = isset($_POST['network']) ? $conn->real_escape_string($_POST['network']) : '';
-        $plan_type = isset($_POST['plan_type']) ? $conn->real_escape_string($_POST['plan_type']) : '';
+        $plan_type = isset($_POST['plan_id']) ? $conn->real_escape_string($_POST['plan_id']) : '';
         $data_plan = isset($_POST['data_plan']) ? $conn->real_escape_string($_POST['data_plan']) : '';
         $amount = isset($_POST['amount']) ? $conn->real_escape_string($_POST['amount']) : '';
 
@@ -40,6 +40,7 @@ function mtn($conn){
     $sql = $conn->prepare("SELECT * FROM data_prices WHERE Network_Name = ?");
     $sql->bind_param("s", $network);
     $sql->execute();
+
 
     $res = $sql->get_result();
     if($res->num_rows > 0){

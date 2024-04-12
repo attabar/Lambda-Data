@@ -2,40 +2,60 @@
 header("Content-Type: application/json");
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
+
 require_once 'connection.php';
 
-if($_SERVER['REQUEST_METHOD'] === 'POST'){
-    try{
-        
-        $plan_type = isset($_POST['plan_type']) ? $conn->real_escape_string($_POST['plan_type']) : '';
-        
-        $sql = $conn->prepare("SELECT data_type,price FROM data_prices WHERE Data_ID = ? ");
-        $sql->bind_param("i",$plan_type);
-        $sql->execute();
+class DataFetcher {
+    private $conn;
 
-        $res = $sql->get_result();
-        if($res->num_rows > 0){
+    public function __construct($conn) {
+        $this->conn = $conn;
+    }
 
-            $fetch = [];
+    public function fetchData($plan_type) {
+        try {
+            $sql = $this->conn->prepare("SELECT data_type, price FROM data_prices WHERE Data_ID = ?");
+            $sql->bind_param("i", $plan_type);
+            $sql->execute();
 
-            while($row = $res->fetch_assoc()){
+            $res = $sql->get_result();
+            if ($res->num_rows > 0) {
+                $fetch = [];
 
-            $fetchDataPlan = $row['data_type'];
-            $fetchDataPrice = $row['price'];
+                while ($row = $res->fetch_assoc()) {
+                    $fetchDataPlan = $row['data_type'];
+                    $fetchDataPrice = $row['price'];
 
-            $fetch[] = [
-                'fetchDataPlan' => $fetchDataPlan,
-                'fetchDataPrice' => $fetchDataPrice
-            ];
+                    $fetch[] = [
+                        'fetchDataPlan' => $fetchDataPlan,
+                        'fetchDataPrice' => $fetchDataPrice
+                    ];
+                }
 
+                return [
+                    'success' => true,
+                    'fetch' => $fetch
+                ];
+            } else {
+                return [
+                    'success' => false,
+                    'message' => 'No data found for the specified plan type.'
+                ];
             }
-            echo json_encode([
-                'success' => true,
-                'fetch' => $fetch
-            ]);
+        } catch (Exception $e) {
+            return [
+                'success' => false,
+                'message' => $e->getMessage()
+            ];
         }
-
-    }catch(Exception $e){
-        echo $e->getMessage();
     }
 }
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $dataFetcher = new DataFetcher($conn);
+    $plan_type = isset($_POST['plan_id']) ? $conn->real_escape_string($_POST['plan_id']) : '';
+
+    $result = $dataFetcher->fetchData($plan_type);
+    echo json_encode($result);
+}
+?>

@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     var network = document.getElementById('network');
-    var dataType = document.getElementById('plan_type');
+    var planType = document.getElementById('plan_id');
 
     function fetchDataPlan() {
         var networkName = network.value;
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(response => response.json())
         .then(response => {
             if (response && response.success) {
-                dataType.innerHTML = '<option value="">Select Plan Type</option>';
+                planType.innerHTML = '<option value="">Select Plan Type</option>';
                 var plans = null;
                 switch(networkName) {
                     case '1':
@@ -33,7 +33,8 @@ document.addEventListener('DOMContentLoaded', function() {
                         plans = [];
                 }
                 plans.forEach(plan => {
-                    dataType.innerHTML += `<option value="${plan.id}">${plan.plan_type} ${plan.data_type}</option>`;
+                    alert(plan.mtn_data_id)
+                    planType.innerHTML += `<option value="${plan.mtn_data_id}">${plan.mtn_plan_type} ${mtn_plan.data_type}</option>`;
                 });
             }
         })
@@ -49,10 +50,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     network.dispatchEvent(new Event('change'));
 
-    dataType.addEventListener('change', function(e) {
+
+    planType.addEventListener('change', function(e) {
         e.preventDefault();
-        var planType = dataType.value;
-        var dataPlan = document.getElementById('data_plan');
+        var planType = planType.value;
+        var dataType = document.getElementById('data_type');
         var amount = document.getElementById('amount');
         
         fetch('./PHP/fetchPrice2.php', {
@@ -65,10 +67,12 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(response => response.json())
         .then(response => {
             if (response && response.success) {
-                dataPlan.value = response.fetch[0].fetchDataPlan;
+                
+                dataType.value = response.fetch[0].fetchDataPlan;
                 amount.value = response.fetch[0].fetchDataPrice;
+            
             } else {
-                dataPlan.value = response.fetch[0].fetchDataPrice;
+                dataType.value = response.fetch.fetchDataPrice;
             }
         })
         .catch(error => {
