@@ -7,13 +7,13 @@
     <!-- custom css file -->
     <link rel="stylesheet" href="./CSS/data.css">
     <!-- fontawesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
     <!-- bootstrap icon -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css"> -->
     <!-- favicon -->
     <link rel="icon" type="image/x-icon" href="../img/logo.jpg">
     <!-- sweetalert -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.all.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.all.min.js"></script> -->
 </head>
 <body>
 <div class="container">
@@ -57,7 +57,7 @@
     <div class="main-content">
       <div class="form-container">
         <h2 class="">Buy Data</h2>
-        <form id="dataForm">
+        <form id="dataForm" method="POST" action="./PHP/fetchPrice2.php">
           <div>
             <label for="network" class="form-label">Network<span style="color: red;">*</span></label>
             <select class="form-select form-select-lg" id="network" name="network" required>
@@ -72,6 +72,8 @@
           <div>
             <label for="plan_type" class="form-label">Plan Type<span style="color: red;">*</span></label>
             <select id="plan_id" name="plan_id" required>
+              <option value="">---Select Plan Type---</option>
+              <option value="125">125</option>
             </select>
           </div>
 
@@ -125,6 +127,7 @@ $('document').ready(function(){
     });
 })
 </script>
-<script src="./JS/buyData.js"></script>
+<!-- <script src="./JS/buyData.js"></script> -->
+<script src="./JS/fetchDataPrice.js"></script>
 </body>
 </html>
