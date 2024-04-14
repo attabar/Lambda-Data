@@ -57,7 +57,7 @@
     <div class="main-content">
       <div class="form-container">
         <h2 class="">Buy Data</h2>
-        <form id="dataForm" method="POST" action="./PHP/fetchPrice2.php">
+        <form id="dataForm">
           <div>
             <label for="network" class="form-label">Network<span style="color: red;">*</span></label>
             <select class="form-select form-select-lg" id="network" name="network" required>
@@ -72,8 +72,7 @@
           <div>
             <label for="plan_type" class="form-label">Plan Type<span style="color: red;">*</span></label>
             <select id="plan_id" name="plan_id" required>
-              <option value="">---Select Plan Type---</option>
-              <option value="125">125</option>
+            <option disabled selected>---Select Plan Type---</option>
             </select>
           </div>
 
@@ -128,6 +127,6 @@ $('document').ready(function(){
 })
 </script>
 <!-- <script src="./JS/buyData.js"></script> -->
-<script src="./JS/fetchDataPrice.js"></script>
+<script src="./JS/fetchOptionForData.js"></script>
 </body>
 </html>
