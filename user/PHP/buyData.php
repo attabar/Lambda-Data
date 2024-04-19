@@ -93,7 +93,7 @@ class DataTransaction {
 $dataTransaction = new DataTransaction($conn);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $network_id = isset($_POST['network_id']) ? $conn->real_escape_string($_POST['network_id']) : '';
+    $network_id = isset($_POST['network']) ? $conn->real_escape_string($_POST['network']) : '';
     $plan_id = isset($_POST['plan_id']) ? $conn->real_escape_string($_POST['plan_id']) : '';
     $mobile_number = isset($_POST['mobile_number']) ? $conn->real_escape_string($_POST['mobile_number']) : '';
     $amount = isset($_POST['amount']) ? $conn->real_escape_string($_POST['amount']) : '';

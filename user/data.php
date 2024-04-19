@@ -7,13 +7,13 @@
     <!-- custom css file -->
     <link rel="stylesheet" href="./CSS/data.css">
     <!-- fontawesome -->
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- bootstrap icon -->
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css"> -->
     <!-- favicon -->
     <link rel="icon" type="image/x-icon" href="../img/logo.jpg">
     <!-- sweetalert -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.all.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.all.min.js"></script>
 </head>
 <body>
 <div class="container">
@@ -83,12 +83,12 @@
 
           <div class="">
             <label for="data_type" class="form-label">Data Type<span style="color: red;">*</span></label>
-            <input type="text" disabled id="data_type" name="data_type" required>
+            <input type="text" id="data_type" name="data_type" required>
           </div>
           
           <div class="">
             <label for="amount" class="form-label">Price<span style="color: red;">*</span></label>
-            <input type="number" class="form-control lg" placeholder="0" name="amount" id="amount" required>
+            <input type="number" placeholder="0" name="amount" id="amount" required>
           </div>
           <div id="btn-container">
             <button type="submit" class="btn" id="btn" name="submit">Buy</button>
@@ -126,7 +126,7 @@ $('document').ready(function(){
     });
 })
 </script>
-<!-- <script src="./JS/buyData.js"></script> -->
 <script src="./JS/fetchOptionForData.js"></script>
+<script src="JS/buyData.js"></script>
 </body>
 </html>

@@ -9,7 +9,7 @@ $('document').ready(function(e){
         e.preventDefault();
         var networkName = $(this).find(":selected").val();
         $.ajax({
-            url: './PHP/fetchPrice.php',
+            url: './PHP/fetchOptionForData.php',
             type: 'POST',
             dataType: 'json',
             data: {network:networkName},
@@ -17,22 +17,22 @@ $('document').ready(function(e){
                 if(response && response.success && networkName === '1'){
                     dataType.find('option:not(:first)').remove();
                     for(var i = 0; i < response.mtn.length; i++){
-                        dataType.append('<option value="'+response.mtn[i].mtn_data_id+'">'+response.mtn[i].mtn_plan_type +' '+response.mtn[i].mtn_data_type+' </option>')
+                        dataType.append('<option value="'+response.mtn[i].mtn_data_id+'">'+response.mtn[i].mtn_plan_type +' '+response.mtn[i].mtn_data_type+'  -  '+response.mtn[i].mtn_validity+'</option>')
                     }
                 }else if(response && response.success && networkName === '3'){
                     dataType.find('option:not(:first)').remove();
                     for(var i = 0; i < response.airtel.length; i++){
-                        dataType.append('<option value="'+response.airtel[i].airtel_data_id+'">'+response.airtel[i].airtel_plan_type+ ' '+response.airtel[i].airtel_data_type+' </option>');
+                        dataType.append('<option value="'+response.airtel[i].airtel_data_id+'">'+response.airtel[i].airtel_plan_type+ ' '+response.airtel[i].airtel_data_type+'  -  '+response.airtel[i].airtel_validity+'</option>');
                     }
                 }else if(response && response.success && networkName === '2'){
                     dataType.find('option:not(:first)').remove();
                     for(var i = 0; i < response.glo.length; i++){
-                        dataType.append('<option value="'+response.glo[i].glo_data_id+'">'+response.glo[i].glo_plan_type+ ' '+response.glo[i].glo_data_type+'</option>')
+                        dataType.append('<option value="'+response.glo[i].glo_data_id+'">'+response.glo[i].glo_plan_type+ ' '+response.glo[i].glo_data_type+'  -  '+response.glo[i].glo_validity+'</option>')
                     }
                 }else if(response && response.success && networkName === '6'){
                     dataType.find('option:not(:first)').remove();
                     for(var i = 0; i < response.nineMobile.length; i++){
-                        dataType.append('<option value="'+response.nineMobile[i].nineMobile_data_id+'">'+response.nineMobile[i].nineMobile_plan_type+ ' '+response.nineMobile[i].nineMobile_data_type+'</option>')
+                        dataType.append('<option value="'+response.nineMobile[i].nineMobile_data_id+'">'+response.nineMobile[i].nineMobile_plan_type+ ' '+response.nineMobile[i].nineMobile_data_type+'  -  '+response.nineMobile[i].nineMobile_validity+'</option>')
                     }
                 }
             },
@@ -46,30 +46,31 @@ $('document').ready(function(e){
     dataType.on('change', function(e){
         e.preventDefault();
         var plan_type = $(this).find(":selected").val();
-       
         var data_plan = $("#data_type");
         var amount = $('#amount');
 
         $.ajax({
-            url: './PHP/fetchPrice2.php',
+            url: './PHP/fetchOptionForData2.php',
             type: 'POST',
             dataType: 'json',
-            data: {plan_type:plan_type},
+            data: {dataType:plan_type},
             success: function(response){
                 console.log(response);
                 if(response && response.success){
-                    data_plan.val(response.fetch[0].fetchDataPlan)
-                    amount.val(response.fetch[0].fetchDataPrice)
+                    if(response.fetchPrice.length > 0 && response.fetchDataType.length > 0){
+                        data_plan.val(response.fetchDataType)
+                        amount.val(response.fetchPrice)
+                    }
                 }else{
-                    data_plan.val(response.fetch[0].fetchDataPrice)
+                    console.error(response.fetch);
                 }
             },
             error: function(xhr,status,error){
-                console.log(xhr.responseText)
+                console.log("Error: ", error)
             }
         })
     })
-    dataType.trigger('change');
+    // dataType.trigger('change');
 
 
     $("#dataForm").submit(function(e){

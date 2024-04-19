@@ -2,10 +2,12 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById("dataForm").addEventListener('submit', function(e) {
         e.preventDefault();
 
+        var network = $("#network");
+        var planId = $("#plan_id");
         var selectedNetwork = network.value;
-        var selectedDataType = dataType.value;
+        var selectedDataType = planId.value;
         var formData = new FormData(this);
-        formData.append("network_id", selectedNetwork);
+        formData.append("network", selectedNetwork);
         formData.append("plan_id", selectedDataType);
         var amount = document.getElementById("amount").value;
 

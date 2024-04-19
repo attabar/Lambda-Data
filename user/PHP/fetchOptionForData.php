@@ -40,7 +40,8 @@ class DataFetcher {
                     strtolower($networkName) . '_data_id' => $row['Data_ID'],
                     strtolower($networkName) . '_plan_type' => $row['plan_type'],
                     strtolower($networkName) . '_data_type' => $row['data_type'],
-                    strtolower($networkName) . '_price' => $row['price']
+                    strtolower($networkName) . '_price' => $row['price'],
+                    strtolower($networkName) . '_validity' => $row['validity']
                 ];
             }
             return ['success' => true, strtolower($networkName) => $data];

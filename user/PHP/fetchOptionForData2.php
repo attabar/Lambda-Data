@@ -20,21 +20,16 @@ class DataFetcher {
 
             $res = $sql->get_result();
             if ($res->num_rows > 0) {
-                $fetch = [];
 
-                while ($row = $res->fetch_assoc()) {
-                    $fetchDataPlan = $row['data_type'];
-                    $fetchDataPrice = $row['price'];
+                $row = $res->fetch_assoc();
 
-                    $fetch[] = [
-                        'fetchDataPlan' => $fetchDataPlan,
-                        'fetchDataPrice' => $fetchDataPrice
-                    ];
-                }
+                $fetchPrice = $row['price'];
+                $fetchDataType = $row['data_type'];
 
                 return [
                     'success' => true,
-                    'fetch' => $fetch
+                    'fetchPrice' => $fetchPrice,
+                    'fetchDataType' => $fetchDataType
                 ];
             } else {
                 return [
@@ -53,7 +48,7 @@ class DataFetcher {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $dataFetcher = new DataFetcher($conn);
-    $plan_type = isset($_POST['plan_id']) ? $conn->real_escape_string($_POST['plan_id']) : '';
+    $plan_type = isset($_POST['dataType']) ? $conn->real_escape_string($_POST['dataType']) : '';
 
     $result = $dataFetcher->fetchData($plan_type);
     echo json_encode($result);
