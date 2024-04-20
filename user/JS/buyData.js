@@ -4,11 +4,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
         var network = $("#network");
         var planId = $("#plan_id");
+        var dataType = $("#data_type");
         var selectedNetwork = network.value;
-        var selectedDataType = planId.value;
+        var selectedPlantId = planId.value;
+        var selectedDataType = dataType.value;
         var formData = new FormData(this);
         formData.append("network", selectedNetwork);
-        formData.append("plan_id", selectedDataType);
+        formData.append("plan_id", selectedPlantId);
+        formData.append("data_type", selectedDataType);
         var amount = document.getElementById("amount").value;
 
         fetchData('./PHP/buyData.php', 'POST', formData, function(response) {

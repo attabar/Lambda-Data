@@ -19,7 +19,7 @@ class DataTransaction {
 
         if ($amount < $balance) {
             // Perform data purchase
-            $response = $this->performDataPurchase($network_id, $mobile_number, $plan_id);
+            $response = $this->performDataPurchase($network_id, $plan_id, $data_type, $mobile_number);
             echo json_encode($response);
         } else {
             // Insufficient balance
@@ -45,7 +45,7 @@ class DataTransaction {
         return 0;
     }
 
-    private function performDataPurchase($network_id, $mobile_number, $plan_id) {
+    private function performDataPurchase($network_id, $plan_id, $data_type, $mobile_number,) {
         $endpoint = 'https://gladtidingsapihub.com/api/data/';
         $header = array(
             'Authorization: Token ' . '45264e5b4be99aa0f1571e0c0447719759c3e4bb',
@@ -54,8 +54,9 @@ class DataTransaction {
 
         $data = array(
             "network" => $network_id,
-            "mobile_number" => $mobile_number,
             "plan" => $plan_id,
+            "data_type" => $data_type,
+            "mobile_number" => $mobile_number,
             "Ported_number" => true
         );
 
@@ -69,6 +70,8 @@ class DataTransaction {
 
         $response = curl_exec($ch);
         $objResponse = json_decode($response);
+
+        print_r($objResponse);
 
         if (curl_errno($ch)) {
             $error = "cURL: " . curl_error($ch);
@@ -95,6 +98,7 @@ $dataTransaction = new DataTransaction($conn);
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $network_id = isset($_POST['network']) ? $conn->real_escape_string($_POST['network']) : '';
     $plan_id = isset($_POST['plan_id']) ? $conn->real_escape_string($_POST['plan_id']) : '';
+    $data_type = isset($_POST['data_type']) ? $conn->real_escape_string($_POST['data_type']) : '';
     $mobile_number = isset($_POST['mobile_number']) ? $conn->real_escape_string($_POST['mobile_number']) : '';
     $amount = isset($_POST['amount']) ? $conn->real_escape_string($_POST['amount']) : '';
 

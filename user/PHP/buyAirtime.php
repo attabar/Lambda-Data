@@ -1,11 +1,10 @@
 <?php
 require_once 'connection.php';
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])){
-    $network_provider = $conn->real_escape_string($_POST['network_provider']);
+    $network_provider = $conn->real_escape_string($_POST['network_id']);
     $airtime_type = $conn->real_escape_string($_POST['airtime_type']);
     $mobile_number = $conn->real_escape_string($_POST['mobile_number']);
-    // $data_plan = $conn->real_escape_string($_POST['data_plan']);
-    $amount = $conn->real_escape_string($_POST['amount']);
+    $amount = $conn->real_escape_string($_POST['rechargeId']);
     
     function BuyAirtime($network_provider,$mobile_number, $amount){
 

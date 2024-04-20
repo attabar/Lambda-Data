@@ -59,42 +59,39 @@
 
           <div>
             <label for="options" class="form-label">Network<span style="color: red;">*</span></label>
-            <select class="form-select form-select-lg" name="network_provider" id="options" onchange="togglePopDownInput()">
+            <select name="network_id" id="network_id" onchange="togglePopDownInput()">
               <option>------</option>
               <option value="1">MTN</option>
-              <option value="2">Airtel</option>
-              <option value="3">Glo</option>
-              <option value="4">9Mobile</option>
+              <option value="3">Airtel</option>
+              <option value="2">Glo</option>
+              <option value="6">9Mobile</option>
             </select>
           </div>
                   
           <div class="mt-3" style="display: none;" id="hidden">
             <label for="username" class="form-label">Airtime Type</label>
             <select class="form-select form-select-lg" name="airtime_type">
-              <option id='firstType'>VTU</option>
-              <option id='secondType'>AWUF4U</option>
-              <option id='thirdType'>Share and Sell</option>
-              <option id="fourthType">ERC</option>
+              <option id='vtu' value="VTU">VTU</option>
             </select>
           </div>
 
           <div class="mt-3">
             <label for="" class="form-label">Phone Number<span style="color: red;">*</span></label>
-            <input type="number" class="form-control lg" name="mobile_number" id="">
+            <input type="number" name="mobile_number" id="mobile_number">
           </div>
 
           <div class="mt-3">
             <label for="" class="form-label">Amount<span style="color: red;">*</span></label>
-            <input type="number" class="form-control lg" name="amount" id="" >
+            <input type="number" name="rechargeId" id="rechargeId" >
           </div>
 
           <div class="mt-3">
             <label for="" class="form-label">Amount to Pay<span style="color: red;">*</span></label>
-            <input type="number" class="form-control lg" name="amount" id="" >
+            <input type="number" name="amountToPay" id="amountToPay" >
           </div>
 
           <div id="btn-container" style="margin-bottom: 7px; width:85%">
-            <button type="submit" class="btn" id="btn" name="submit">Buy</button>
+            <button type="submit" class="btn" id="btn" name="submit">Buy Airtime</button>
           </div>
         </form>
       </div>
@@ -134,32 +131,14 @@ $('document').ready(function(){
 <script src="./JS/getSessionFile.js"></script>
 <script>
         function togglePopDownInput(){
-          var optionsDropDown = document.getElementById("options");
+          var optionsDropDown = document.getElementById("network_id");
           var hiddenInput = document.getElementById("hidden");
           // Reset the display property of all options
-          document.getElementById("firstType").style.display = "block";
-          document.getElementById("secondType").style.display = "block";
-          document.getElementById("thirdType").style.display = "block";
-          document.getElementById("fourthType").style.display = "block";
-
-          if(optionsDropDown.value === "1"){
+          document.getElementById("vtu").style.display = "block";
+    
+          if(optionsDropDown.value === "1" || optionsDropDown.value === "3" || optionsDropDown.value === "2" || optionsDropDown.value === "6"){
             hiddenInput.style.display = "block";
-            document.getElementById("fourthType").style.display = "none";
-          }else if(optionsDropDown.value === "3"){
-            hiddenInput.style.display = "block";
-            document.getElementById("secondType").style.display = "none";
-            document.getElementById("thirdType").style.display = "none";
-            document.getElementById("fourthType").style.display = "none";
-          }else if(optionsDropDown.value === "4"){
-            hiddenInput.style.display = "block";
-            document.getElementById("secondType").style.display = "none";
-            document.getElementById("thirdType").style.display = "none";
-            document.getElementById("fourthType").style.display = "none";
-          }else if(optionsDropDown.value === "option2"){
-            hiddenInput.style.display = "block";
-            document.getElementById("firstType").style.display = "none";
-            document.getElementById("secondType").style.display = "none";
-            document.getElementById("thirdType").style.display = "none";
+            // document.getElementById("fourthType").style.display = "none";
           }
         }
       </script>
