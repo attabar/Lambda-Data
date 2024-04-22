@@ -55,7 +55,7 @@
       <div class="main-content">
         <div class="form-container">
           <h2 class="">Buy Airtime</h2>
-          <form action="./PHP/buyAirtime.php" method="POST">
+          <form action="./PHP/fetchForAirtimeAmount.php" method="POST">
 
           <div>
             <label for="options" class="form-label">Network<span style="color: red;">*</span></label>
@@ -63,8 +63,8 @@
               <option>------</option>
               <option value="1">MTN</option>
               <option value="3">Airtel</option>
-              <option value="2">Glo</option>
-              <option value="6">9Mobile</option>
+              <option value="6">Glo</option>
+              <option value="2">9Mobile</option>
             </select>
           </div>
                   
@@ -82,7 +82,8 @@
 
           <div class="mt-3">
             <label for="" class="form-label">Amount<span style="color: red;">*</span></label>
-            <input type="number" name="rechargeId" id="rechargeId" >
+            <select name="rechargeId" id="rechargeId" >
+              <option value="">Select Amount</option>
           </div>
 
           <div class="mt-3">

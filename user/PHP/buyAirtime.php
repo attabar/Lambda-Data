@@ -15,6 +15,17 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])){
             'Content-Type: application/json'
         );
 
+//         curl --location 'https://gladtidingsapihub.com/api/topup/' \
+// --header 'Authorization: Token 66f2e5c39ac8640f13cd888f161385b12f7e5e92' \
+// --header 'Content-Type: application/json' \
+// --data '{"network":network_id,
+// "amount":amount,
+// "mobile_number":phone,
+// "Ported_number":true
+// "airtime_type":"VTU"
+
+// }'
+
         $data = array(
             "network" => $network_provider,
             "mobile_number" => $mobile_number,
