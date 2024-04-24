@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data</title>
+    <title>Airtime</title>
     <!-- custom css file -->
-    <link rel="stylesheet" href="./CSS/data.css">
+    <link rel="stylesheet" href="./CSS/airtime.css">
     <!-- fontawesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- bootstrap icon -->
@@ -55,7 +55,7 @@
       <div class="main-content">
         <div class="form-container">
           <h2 class="">Buy Airtime</h2>
-          <form action="./PHP/fetchForAirtimeAmount.php" method="POST">
+          <form id="airtimeForm">
 
           <div>
             <label for="options" class="form-label">Network<span style="color: red;">*</span></label>
@@ -68,30 +68,31 @@
             </select>
           </div>
                   
-          <div class="mt-3" style="display: none;" id="hidden">
+          <div style="display: none;" id="hidden">
             <label for="username" class="form-label">Airtime Type</label>
             <select class="form-select form-select-lg" name="airtime_type">
               <option id='vtu' value="VTU">VTU</option>
             </select>
           </div>
 
-          <div class="mt-3">
-            <label for="" class="form-label">Phone Number<span style="color: red;">*</span></label>
+          <div>
+            <label for="mobile_number" class="form-label">Phone Number<span style="color: red;">*</span></label>
             <input type="number" name="mobile_number" id="mobile_number">
           </div>
 
-          <div class="mt-3">
-            <label for="" class="form-label">Amount<span style="color: red;">*</span></label>
-            <select name="rechargeId" id="rechargeId" >
+          <div>
+            <label for="rechargeId" class="form-label">Amount<span style="color: red;">*</span></label>
+            <select name="amount" id="amount" >
               <option value="">Select Amount</option>
+            </select>
           </div>
 
-          <div class="mt-3">
-            <label for="" class="form-label">Amount to Pay<span style="color: red;">*</span></label>
-            <input type="number" name="amountToPay" id="amountToPay" >
+          <div style="display: none;">
+            <label for="amountToPay" class="form-label">Amount to Pay</label>
+            <input type="text" name="amountToPay" id="amountToPay" >
           </div>
 
-          <div id="btn-container" style="margin-bottom: 7px; width:85%">
+          <div id="btn-container">
             <button type="submit" class="btn" id="btn" name="submit">Buy Airtime</button>
           </div>
         </form>
@@ -110,26 +111,11 @@ $('document').ready(function(){
         $(this).toggleClass('open');
         $(this).find('.submenu').toggle();
     });
-    // logout
-    $('#logout').click(function(e){
-        e.preventDefault();
-        $.ajax({
-            url: './PHP/logout.php',
-            type: 'GET',
-            success: function(response){
-                window.location.href = './loginPage.php'
-            },
-            error: function(xhr, status, error){
-                console.log("AJAX ERROR: " + status + " - " + error);
-            }
-        })
-    })
 })
 </script>
 <!-- wallet account file -->
-<script src="./JS/getFundWalletFile.js"></script>
-<!-- session file -->
-<script src="./JS/getSessionFile.js"></script>
+<script src="./JS/logout.js"></script>
+<script src="./JS/fetchOptionsForAirtimeAmount.js"></script>
 <script>
         function togglePopDownInput(){
           var optionsDropDown = document.getElementById("network_id");

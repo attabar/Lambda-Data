@@ -8,8 +8,12 @@ $_SESSION = array();
 // destroy the session
 session_destroy();
 
+$response = array("success" => true);
 
-header('./loginPage.php');
+
+header("Content-Type: json/application");
+
+echo json_encode($response);
 
 
 ?>

@@ -17,10 +17,16 @@ class FetchForAirtimeAmount {
 
         $res = $sql->get_result();
         if($res->num_rows > 0) {
+            $response = array();
             while($row=$res->fetch_assoc()){
                 $amount = $row['amount'];
-                echo $amount . '<br/>';
+                
+                $response = [
+                    "success" => true,
+                    "amount" => $amount
+                ];
             }
+            return $response;
         }else{
             echo "The row is 0";
         }
@@ -31,7 +37,8 @@ if(isset($_POST['network_id'])){
     $network_id = $_POST['network_id'];
 
     $fetchAmount = new FetchForAirtimeAmount($conn);
-    $fetchAmount->fetchAmount($network_id);
+    $response = $fetchAmount->fetchAmount($network_id);
+    echo json_encode($response);
 }else{
     echo "undefine post";
 }
