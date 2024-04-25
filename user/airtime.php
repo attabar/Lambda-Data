@@ -87,7 +87,7 @@
             </select>
           </div>
 
-          <div style="display: none;">
+          <div>
             <label for="amountToPay" class="form-label">Amount to Pay</label>
             <input type="text" name="amountToPay" id="amountToPay" >
           </div>
