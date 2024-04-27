@@ -1,12 +1,31 @@
 <?php
 require_once 'connection.php';
-if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])){
-    $network_provider = $conn->real_escape_string($_POST['network_id']);
-    $airtime_type = $conn->real_escape_string($_POST['airtime_type']);
-    $mobile_number = $conn->real_escape_string($_POST['mobile_number']);
-    $amount = $conn->real_escape_string($_POST['rechargeId']);
-    
-    function BuyAirtime($network_provider,$mobile_number, $amount){
+
+class Airtime {
+
+    private $conn;
+
+    public function __construct($conn){
+        $this->conn = $conn;
+    }
+
+    public function buyAirtime($network_id, $mobile_number, $airtime_type, $amount){
+        $balance = $this->checkAccountBalance();
+
+        if($amount > $balance){
+            $response = $this->performAirtimePurchase($network_id, $mobile_number, $airtime_type, $amount);
+            echo json_encode($response);
+        }else{
+            echo json_encode([
+                'success' => false,
+                'settlement_amount' => $balance,
+                'title' => 'INSUFFICIENT BALANCE',
+                'message' => 'Kindly Fund Your Wallet and Enjoy Your Top Ups, Your Current Balance: ' . $balance
+            ]);
+        }
+    }
+
+    private function performAirtimePurchase($network_id, $mobile_number, $airtime_type, $amount){
 
         $endpoint =  'https://gladtidingsapihub.com/api/topup/';
 
@@ -15,21 +34,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])){
             'Content-Type: application/json'
         );
 
-//         curl --location 'https://gladtidingsapihub.com/api/topup/' \
-// --header 'Authorization: Token 66f2e5c39ac8640f13cd888f161385b12f7e5e92' \
-// --header 'Content-Type: application/json' \
-// --data '{"network":network_id,
-// "amount":amount,
-// "mobile_number":phone,
-// "Ported_number":true
-// "airtime_type":"VTU"
-
-// }'
-
         $data = array(
-            "network" => $network_provider,
+            "network" => $network_id,
             "mobile_number" => $mobile_number,
-            "airtime_type"=>"VTU",
+            "airtime_type"=> $airtime_type,
             "Ported_number" => true,
             "amount" => $amount
         );
@@ -45,12 +53,39 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])){
         $response = curl_exec($ch);
 
         if(curl_errno($ch)){
-            echo "cURL: " . curl_error($ch);
+            $error = ["success" => false, "message" => "cURL: " . curl_error($ch)];
+            // error_log($error);
         }else{
-            print_r($response); 
+            $result = json_decode($response);
+
+            if($result->Status === 'successful'){
+                return ["success" => true, "message" => $result->api_response];
+            }
         }
     }
-    BuyAirtime($network_provider,$mobile_number, $amount);
+
+    public function checkAccountBalance(){
+        $sql = $this->conn->prepare("SELECT settlement_amount FROM account_balance WHERE  transaction_user_id = ?");
+        $sql->bind_param("i", $_SESSION['user_id']);
+        $sql->execute();
+
+        $result = $sql->get_result();
+        if($result->num_rows > 0){
+            $row = $result->fetch_assoc();
+            return $row['settlement_amount'];
+        }
+        return 0;
+    }
+}
+
+if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])){
+    $network_id = $conn->real_escape_string($_POST['network_id']);
+    $airtime_type = $conn->real_escape_string($_POST['airtime_type']);
+    $mobile_number = $conn->real_escape_string($_POST['mobile_number']);
+    $amount = $conn->real_escape_string($_POST['rechargeId']);
+    
+    $airtime = new Airtime($conn);
+    $airtime->buyAirtime($network_id,$mobile_number, $airtime_type, $amount);
     
 }
 

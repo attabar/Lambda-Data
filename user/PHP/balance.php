@@ -13,7 +13,7 @@ if(isset($_SESSION['user_id'])){
     $dbname = "vtu";
     $conn = new mysqli($host, $username, $password, $dbname);
 
-    $sql = $conn->prepare("SELECT settlement_amount FROM transaction_history WHERE transaction_user_id = ?");
+    $sql = $conn->prepare("SELECT settlement_amount FROM account_balance WHERE transaction_user_id = ?");
     $sql->bind_param("i", $user_id);
     $sql->execute();
     $res = $sql->get_result();

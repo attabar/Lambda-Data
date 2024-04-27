@@ -17,7 +17,7 @@ class DataTransaction {
         // Check the account balance before proceeding to the transaction
         $balance = $this->getAccountBalance();
 
-        if ($amount < $balance) {
+        if ($amount > $balance) {
             // Perform data purchase
             $response = $this->performDataPurchase($network_id, $plan_id, $data_type, $mobile_number);
             echo json_encode($response);
@@ -33,7 +33,7 @@ class DataTransaction {
     }
 
     private function getAccountBalance() {
-        $sql = $this->conn->prepare("SELECT settlement_amount FROM transaction_history WHERE transaction_user_id = ?");
+        $sql = $this->conn->prepare("SELECT settlement_amount FROM account_balance WHERE transaction_user_id = ?");
         $sql->bind_param("i", $_SESSION['user_id']);
         $sql->execute();
         
@@ -45,7 +45,7 @@ class DataTransaction {
         return 0;
     }
 
-    private function performDataPurchase($network_id, $plan_id, $data_type, $mobile_number,) {
+    private function performDataPurchase($network_id, $plan_id, $data_type, $mobile_number) {
         $endpoint = 'https://gladtidingsapihub.com/api/data/';
         $header = array(
             'Authorization: Token ' . '45264e5b4be99aa0f1571e0c0447719759c3e4bb',

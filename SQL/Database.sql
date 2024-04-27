@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS wallet_account(
 );
 
 -- Wallet Ballance
-CREATE TABLE IF NOT EXISTS transaction_history(
+CREATE TABLE IF NOT EXISTS account_balance(
     transaction_id INT(11) PRIMARY KEY AUTO_INCREMENT,
     transaction_user_id INT(11),
     settlement_amount VARCHAR(255),
@@ -73,15 +73,4 @@ CREATE TABLE IF NOT EXISTS subscribers(
     subscribers VARCHAR(255),
     PRIMARY KEY(id)
 );
-
-CREATE TABLE IF NOT EXISTS data_prices(
-    id INT(11) AUTO_INCREMENT PRIMARY KEY,
-    Data_ID INT(11),
-    Network_Name VARCHAR(255),
-    plan_type VARCHAR(255),
-    price VARCHAR(255),
-    data_type VARCHAR(255)
-);
-
--- insert Data into Admin table
 INSERT INTO admintable(username,pass) VALUES('Malik', 'Malik@306')
