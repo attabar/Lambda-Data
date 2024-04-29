@@ -68,5 +68,31 @@ document.addEventListener("DOMContentLoaded", function(){
         .catch(error => {
             console.log("Error: ", error);
         });
-    });    
+    });
+    document.getElementById("airtimeForm").addEventListener("submit", function(e){
+        e.preventDefault();
+
+        var formData = new FormData(this)
+        fetch('./PHP/buyAirtime.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            if(!response.ok){
+                throw new Error("network response was not ok")
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log(data)
+            if(data.success){
+                console.log(data.message)
+            }else{
+                console.log(data.message)
+            }
+        })
+        .then(error => {
+            console.log("error: ", error)
+        })
+    })
 });

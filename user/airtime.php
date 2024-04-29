@@ -81,7 +81,7 @@
           </div>
 
           <div>
-            <label for="rechargeId" class="form-label">Amount<span style="color: red;">*</span></label>
+            <label for="amount" class="form-label">Amount<span style="color: red;">*</span></label>
             <select name="amount" id="amount" >
               <option value="">Select Amount</option>
             </select>

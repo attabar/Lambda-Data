@@ -1,6 +1,6 @@
 <?php
 require_once 'connection.php';
-
+header("Content-Type: application/json");
 class Airtime {
 
     private $conn;
@@ -14,14 +14,14 @@ class Airtime {
 
         if($amount > $balance){
             $response = $this->performAirtimePurchase($network_id, $mobile_number, $airtime_type, $amount);
-            echo json_encode($response);
+            return ['success', 'message' => 'Purchase successfully'];
         }else{
-            echo json_encode([
+            return [
                 'success' => false,
                 'settlement_amount' => $balance,
                 'title' => 'INSUFFICIENT BALANCE',
                 'message' => 'Kindly Fund Your Wallet and Enjoy Your Top Ups, Your Current Balance: ' . $balance
-            ]);
+            ];
         }
     }
 
@@ -53,7 +53,7 @@ class Airtime {
         $response = curl_exec($ch);
 
         if(curl_errno($ch)){
-            $error = ["success" => false, "message" => "cURL: " . curl_error($ch)];
+            return ["success" => false, "message" => "cURL: " . curl_error($ch)];
             // error_log($error);
         }else{
             $result = json_decode($response);
@@ -82,11 +82,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])){
     $network_id = $conn->real_escape_string($_POST['network_id']);
     $airtime_type = $conn->real_escape_string($_POST['airtime_type']);
     $mobile_number = $conn->real_escape_string($_POST['mobile_number']);
-    $amount = $conn->real_escape_string($_POST['rechargeId']);
+    $amount = $conn->real_escape_string($_POST['amount']);
     
     $airtime = new Airtime($conn);
-    $airtime->buyAirtime($network_id,$mobile_number, $airtime_type, $amount);
-    
+    $buyAirtime = $airtime->buyAirtime($network_id,$mobile_number, $airtime_type, $amount);
+    echo json_encode($buyAirtime);
 }
 
 ?>
