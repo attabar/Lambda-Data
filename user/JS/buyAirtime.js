@@ -72,23 +72,37 @@ document.addEventListener("DOMContentLoaded", function(){
     document.getElementById("airtimeForm").addEventListener("submit", function(e){
         e.preventDefault();
 
-        var formData = new FormData(this)
+        var network_id = document.getElementById("network_id").value;
+        var amount = document.getElementById("amount").value;
+        var formData = new FormData(this);
+        formData.append("network_id", network_id);
+        formData.append("amount", amount);
+
         fetch('./PHP/buyAirtime.php', {
             method: 'POST',
             body: formData
         })
         .then(response => {
+            console.log(response)
             if(!response.ok){
                 throw new Error("network response was not ok")
             }
             return response.json();
         })
         .then(data => {
-            console.log(data)
             if(data.success){
-                console.log(data.message)
+                Swal.fire({
+                    icon: "success",
+                    title: "Successful",
+                    text: data.message
+                })
+                // console.log(data.message)
             }else{
-                console.log(data.message)
+                Swal.fire({
+                    icon: "error",
+                    title: "Failed",
+                    text: data.message
+                })
             }
         })
         .then(error => {

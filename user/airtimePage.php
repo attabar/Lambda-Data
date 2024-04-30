@@ -101,6 +101,7 @@
     </div>
   </div>
 <script src="./JQUERY/jquery.js"></script>
+<script src="./SweetAlert/sweetalert.js"></script>
 <script>
 $('document').ready(function(){
     $('.navbar').click(function(e){
@@ -115,7 +116,7 @@ $('document').ready(function(){
 </script>
 <!-- wallet account file -->
 <script src="./JS/logout.js"></script>
-<script src="./JS/fetchOptionsForAirtimeAmount.js"></script>
+<script src="./JS/buyAirtime.js"></script>
 <script>
         function togglePopDownInput(){
           var optionsDropDown = document.getElementById("network_id");

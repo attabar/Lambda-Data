@@ -96,13 +96,14 @@ class DataTransaction {
 $dataTransaction = new DataTransaction($conn);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $network_id = isset($_POST['network']) ? $conn->real_escape_string($_POST['network']) : '';
+    $network_id = isset($_POST['network_id']) ? $conn->real_escape_string($_POST['network_id']) : '';
     $plan_id = isset($_POST['plan_id']) ? $conn->real_escape_string($_POST['plan_id']) : '';
     $data_type = isset($_POST['data_type']) ? $conn->real_escape_string($_POST['data_type']) : '';
     $mobile_number = isset($_POST['mobile_number']) ? $conn->real_escape_string($_POST['mobile_number']) : '';
     $amount = isset($_POST['amount']) ? $conn->real_escape_string($_POST['amount']) : '';
 
     // Call buyData method
+    $dataTransaction = new DataTransaction($conn);
     $dataTransaction->buyData($network_id, $mobile_number, $plan_id, $amount);
 }
 ?>

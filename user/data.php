@@ -60,7 +60,7 @@
         <form id="dataForm">
           <div>
             <label for="network" class="form-label">Network<span style="color: red;">*</span></label>
-            <select class="form-select form-select-lg" id="network" name="network" required>
+            <select class="form-select form-select-lg" id="network_id" name="network_id" required>
               <option disabled selected>--Select Network--</option>
               <option value="1">MTN</option>
               <option value="3">Airtel</option>

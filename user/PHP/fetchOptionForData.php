@@ -53,7 +53,7 @@ class DataFetcher {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $dataFetcher = new DataFetcher($conn);
-    $network = isset($_POST['network']) ? $conn->real_escape_string($_POST['network']) : '';
+    $network = isset($_POST['network_id']) ? $conn->real_escape_string($_POST['network_id']) : '';
 
     if (!empty($network)) {
         $result = $dataFetcher->fetchDataByNetwork($network);
