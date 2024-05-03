@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
             // Add 'Select Amount' option as the first option
             var selectAmountOption = document.createElement("option");
-            selectAmountOption.text = 'Select Amount';
+            selectAmountOption.text = '---Select Amount---';
             selectAmountOption.value = '';
             select.appendChild(selectAmountOption);
 
