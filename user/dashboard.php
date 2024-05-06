@@ -1,7 +1,5 @@
-<?php require_once './PHP/RedirectBackToLoginPage.php' ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -173,10 +171,9 @@
         })
     })
     </script>
+    <script src="./JS/redirect.js"></script>
     <!-- wallet account file -->
     <script src="./JS/getAccountDetails.js"></script>
-    <!-- session file -->
-    <script src="./JS/getProfile.js"></script>
     <!-- account balance -->
     <script src="./JS/getBalance.js"></script>
 </body>

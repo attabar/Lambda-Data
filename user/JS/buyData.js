@@ -1,69 +1,4 @@
 document.addEventListener("DOMContentLoaded", function(){
-    document.getElementById("network_id").addEventListener("change", function(e){
-        e.preventDefault();
-
-        var network_id = document.getElementById("network_id").value;
-
-        var formData = new FormData();
-        formData.append("network_id", network_id);
-        
-        fetch("./PHP/buyData.php", {
-            method: "POST",
-            body: formData
-        })
-        .then(response => {
-            if(!response.ok){
-                throw new Error("network is not ok");
-            }else{
-                return response.json();
-            }
-        })
-        .then(data => {
-            var select = document.getElementById("plan_id");
-            select.innerHTML = '';
-
-            selectDataPlanOption = document.createElement("option");
-            selectDataPlanOption.text = "---Select Data Plan---";
-            selectDataPlanOption.value = '';
-            select.appendChild(selectDataPlanOption);
-
-            data.forEach(function(item){
-                var option = document.createElement("option");
-                option.text = item.data_type + ' ' + item.plan_type + ' ' + item.validity;
-                option.value = item.data_id
-                select.appendChild(option)
-            })
-        })
-        .then(error => {
-            console.log("Error: ", error)
-        })
-    })
-
-    document.getElementById("plan_id").addEventListener("change", function(e){
-
-        e.preventDefault();
-        var plan_id = document.getElementById("plan_id").value;
-        var formData = new FormData();
-        formData.append("plan_id", plan_id);
-
-        fetch("./PHP/buyData.php", {
-            method: "POST",
-            body: formData
-        })
-        .then(response => {
-            if(!response.ok){
-                throw new Error("network response was not ok");
-            }
-            return response.json();
-        })
-        .then(data => {
-            if(data.success){
-                document.getElementById("data_type").value = data.fetchDataType
-                document.getElementById("amount").value = data.fetchPrice;
-            }
-        })
-    })
-
     // Buy Data
     document.getElementById("dataForm").addEventListener('submit', function(e) {
         e.preventDefault();
@@ -71,13 +6,15 @@ document.addEventListener("DOMContentLoaded", function(){
         var network_id = document.getElementById("network_id").value;
         var plan_id = document.getElementById("plan_id").value;
         var data_type = document.getElementById("data_type").value;
-      
+        var amount = document.getElementById("amount").value;
+        var mobile = document.getElementById("mobile_number").value;
+
         var formData = new FormData(this);
         formData.append("network_id", network_id);
         formData.append("plan_id", plan_id);
         formData.append("data_type", data_type);
-
-        var amount = document.getElementById("amount").value;
+        formData.append("amount", amount);
+        formData.append("mobile_number", mobile);
 
         fetch('./PHP/buyData.php', {
             method: "POST",
@@ -85,36 +22,52 @@ document.addEventListener("DOMContentLoaded", function(){
         })
         .then(response => {
             if(!response.ok){
-                throw new Error("network response was not okey")
+                throw new Error("Network response was not okay");
             }
             return response.json();
         })
         .then(data => {
-            if (data.success && data.status === 'successful') {
-                Swal.fire({
-                    icon: 'success',
-                    title: response.status,
-                    text: response.message,
-                    confirmButtonText: "OK"
-                });
-            } else if (data.success && data.status === 'failed') {
+            console.log(data);
+            if (data.success) {
+                if (data.status === 'successful') {
+                    Swal.fire({
+                        icon: 'success',
+                        title: data.status,
+                        text: data.message,
+                        confirmButtonText: "OK"
+                    });
+                } else if (data.status === 'failed') {
+                    Swal.fire({
+                        icon: 'error',
+                        title: data.status,
+                        text: data.message,
+                        confirmButtonText: "OK"
+                    });
+                } else if (amount > data.balance) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'INSUFFICIENT BALANCE',
+                        text: 'Kindly Fund Your Wallet and Enjoy Your Top Ups, Your Current Balance: ' + data.balance,
+                        confirmButtonText: "OK"
+                    });
+                }
+            } else {
                 Swal.fire({
                     icon: 'error',
-                    title: response.status,
-                    text: response.message,
-                    confirmButtonText: "OK"
-                });
-            } else if (amount > data.amount) {
-                Swal.fire({
-                    icon: 'error',
-                    title: data.title,
-                    text: data.message,
+                    title: 'Error',
+                    text: 'An error occurred while processing your request.',
                     confirmButtonText: "OK"
                 });
             }
         })
-    })
-    .catch(error => {
-        console.log("Error: ", error)
-    })
-})
+        .catch(error => {
+            console.log("Error: ", error);
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'An error occurred while processing your request.',
+                confirmButtonText: "OK"
+            });
+        });
+    });
+});

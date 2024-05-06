@@ -59,7 +59,7 @@
         <h2 class="">Buy Data</h2>
         <form id="dataForm">
           <div>
-            <label for="network" class="form-label">Network<span style="color: red;">*</span></label>
+            <label for="network_id" class="form-label">Network<span style="color: red;">*</span></label>
             <select class="form-select form-select-lg" id="network_id" name="network_id" required>
               <option disabled selected>--Select Network--</option>
               <option value="1">MTN</option>
@@ -73,12 +73,13 @@
             <label for="plan_type" class="form-label">Plan Type<span style="color: red;">*</span></label>
             <select id="plan_id" name="plan_id" required>
             <option disabled selected>------</option>
+            <option value="166">1GB</option>
             </select>
           </div>
 
           <div class="">
             <label for="mobile" class="form-label">Phone Number<span style="color: red;">*</span></label>
-            <input type="number" name="mobile_number" id="mobile" required maxlength="11">
+            <input type="number" name="mobile_number" id="mobile_number" required maxlength="11">
           </div>
 
           <div class="">
@@ -126,6 +127,7 @@ $('document').ready(function(){
     });
 })
 </script>
+<script src="./JS/dataOptions.js"></script>
 <script src="JS/buyData.js"></script>
 </body>
 </html>

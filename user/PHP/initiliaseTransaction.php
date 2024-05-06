@@ -6,8 +6,8 @@ function sendMoneyToWallet($walletAccountNumber, $amount)
     require_once 'AccessTokenGenerator.php';
 
     $Base_url = "https://sandbox.monnify.com";
-
-    $access_token = generateAccessToken();
+     $token = new GenerateAccessToken("apiKey", "secretKey");
+    $access_token = $token->getAccessToken();
 
     $headers = array(
         'Content-Type:application/json',

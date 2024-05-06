@@ -1,19 +1,30 @@
 <?php
 
 session_start();
+header("Content-Type: application/json");
 
 class RedirectBackToLoginPage {
 
     public function getUsername() {
         if(isset($_SESSION['username'])){
             $username = $_SESSION['username'];
+
+            $response = [
+                "success" => true,
+                "username" => $username
+            ];
+            return $response;
         }else{
-            header('location:./loginPage.php');
+            $response = [
+                "success" => false,
+                "username" => "Username not found"
+            ];
+            return $response;
         }
     }
 }
 
 $redirect = new RedirectBackToLoginPage();
-$redirect->getUsername();
-
+$response = $redirect->getUsername();
+echo json_encode($response);
 ?>
