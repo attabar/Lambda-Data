@@ -1,49 +1,92 @@
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-.header{
-    background-color:white;
+
+.header {
+    background-color: #333;
     display: flex;
     justify-content: space-between;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 1.5);
-    width: 100%;
-    align-items: center;
-    z-index: 1;
-    position: fixed;
-}
-.openClose{
-    display: none;
-}
-.closeMenu{
-    display: none;
-}
-.brand img{
-    width: 60px;
-    height: 50px;
-    border-radius: 50%;
-}
-
-.nav ul{
-    display: flex;
-}
-
-.nav ul li{
-    list-style: none;
+    color: #fff;
     padding: 15px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+.logo{
+    width: 2rem;
+    height: 2rem;
+}
+.menu-on-large-screen ul{
+    display: flex;
+    list-style: none;
+}
+.menu-on-large-screen ul li{ 
+    padding-right: 3rem;
+}
+.menu-on-large-screen ul a{
+    color: white;
+}
+.menu {
+    position: fixed;
+    top: -100%; /* Initially hidden */
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #111;
+    transition: top 0.3s ease;
+    z-index: 999;
 }
 
-.nav ul li a{
+.menu ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.menu ul li {
+    padding: 15px;
+    border-bottom: 1px solid #444;
+}
+
+.menu ul li:last-child {
+    border-bottom: none;
+}
+
+.menu ul li a {
+    color: #fff;
     text-decoration: none;
-    font-weight: 900;
 }
 
-.nav ul li a:hover{
-    background-color: black;
-    color: aliceblue;
-    padding: 5px;
-    border-radius: 5px;
+.menu-toggle {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    cursor: pointer;
+}
+
+/* Animation for menu toggle icon */
+.menu-toggle .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin-bottom: 5px;
+    transition: all 0.3s ease;
+}
+
+.menu-toggle.open .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.open .bar:first-child {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.menu-toggle.open .bar:last-child {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Hide navigation on small screens */
+.nav {
+    display: none;
 }
 
 .hero{
@@ -127,7 +170,7 @@ button:hover{
 }
 /* large screen */
 @media only screen and (min-width:1200px) {
-    .openMenu{
+    .menu-toggle{
         display: none;
     }
     .hero h3{
@@ -254,46 +297,20 @@ button:hover{
 
 /* small screen */
 @media only screen and (max-width:767px){
-    .nav{
+    .menu-on-large-screen{
         display: none;
     }
-    .openAndclose{
+
+    .logo{
         display: none;
     }
-    .openMenu{
-        width: 50px;
-    }
-    .closeMenu{
-        width: 30px;
-    }
+
     .hero{
         position: absolute;
         top: 7%;
         z-index: -1;
     }
-    .openClose{
-        z-index: 1;
-        background-color: #fff;
-        position: absolute;
-        top: 7%;
-        width: 100%;
-        padding: 15px;
-        height: 100vh;
-    }
-    .openClose ul{
-        list-style: none;
-        text-align: center;
-    }
-    .openClose ul li{
-        padding: 10px;
-    }
 
-    .openClose ul li a{
-        text-decoration: none;
-        font-size: 21px;
-        color: black;
-        font-weight: 900;
-    }
     .aboutUs{
         position: absolute;
         top: 55%;

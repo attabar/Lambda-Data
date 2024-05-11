@@ -73,7 +73,6 @@
             <label for="plan_type" class="form-label">Plan Type<span style="color: red;">*</span></label>
             <select id="plan_id" name="plan_id" required>
             <option disabled selected>------</option>
-            <option value="166">1GB</option>
             </select>
           </div>
 

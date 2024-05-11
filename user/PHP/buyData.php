@@ -9,8 +9,7 @@ class DataPurchase{
 
     private $conn;
 
-    public function __construct($conn)
-    {
+    public function __construct($conn){
         $this->conn = $conn;
     }
 
@@ -19,11 +18,7 @@ class DataPurchase{
         // Check the account balance before proceeding to the transaction
         $balance = $this->getAccountBalance();
 
-        if ($amount < $balance) {
-            // Perform data purchase
-            $response = $this->performDataPurchase($network_id, $plan_id, $data_type, $mobile_number);
-            return $response;
-        } else {
+        if ($amount > $balance) {
             // Insufficient balance
             return [
                 'success' => false,
@@ -31,6 +26,22 @@ class DataPurchase{
                 'title' => 'INSUFFICIENT BALANCE',
                 'message' => 'Kindly Fund Your Wallet and Enjoy Your Top Ups, Your Current Balance: ' . $balance
             ];
+            
+        } else {
+            // Perform data purchase
+            $response = $this->performDataPurchase($network_id, $plan_id, $data_type, $mobile_number);
+            if($response === "successful"){
+                // IF THE TRANSACTION WERE SUCCESSFUL THEN DEDUCT THE BALANCE WITH THE AMOUNT APPLIED
+                $currentBalance = $balance - $amount;
+                // AFTER DEDUCTION THEN UPDATE THE BALANCE STORED IN THE DATABASE
+                $sql = $this->conn->prepare("UPDATE account_balance SET settlement_amount = $currentBalance WHERE transaction_user_id = ?");
+                $sql->bind_param("i", $_SESSION['user_id']);
+                $sql->execute();
+                return ['success' => true, 'status' => 'Successful', 'message'=>'Data was Successfully Purchased', 'currentBalance' => $currentBalance];
+
+            }else{
+                return ['success' => false, 'status' => 'Failed', 'message' => 'Failed to Purchase'];
+            }
         }
     }
 
@@ -43,8 +54,7 @@ class DataPurchase{
         if ($res->num_rows > 0) {
             $row = $res->fetch_assoc();
 
-            $balance = $row['settlement_amount'];
-            return $balance;
+            return $row['settlement_amount'];
         }
         return 0;
     }
@@ -82,34 +92,24 @@ class DataPurchase{
             error_log($error, 3, '../../../../../php/logs/php_error_log');
             return ['success' => false, 'error' => $error];
         } else {
-            // Handle API response
-            // ...
-
-            // Store the API response
-            // ...
-
-            return [
-                'success' => true,
-                'status' => $objResponse->Status,
-                'message' => $objResponse->api_response
-            ];
+            return $objResponse->Status;
         }
     }
 
 }
 
 if(!empty($_POST['network_id']) && !empty($_POST['plan_id']) && !empty($_POST['data_type']) && !empty($_POST['mobile_number']) && !empty($_POST['amount'])){
-    $network_id = $_POST['network_id'];
-    $plan_id = $_POST['plan_id'];
-    $data_type = $_POST['data_type'];
-    $mobile_number = $_POST['mobile_number'];
-    $amount = $_POST['amount'];
+    $network_id = $conn->real_escape_string($_POST['network_id']);
+    $plan_id = $conn->real_escape_string($_POST['plan_id']);
+    $data_type = $conn->real_escape_string($_POST['data_type']);
+    $mobile_number = $conn->real_escape_string($_POST['mobile_number']);
+    $amount = $conn->real_escape_string($_POST['amount']);
     
     $buy = new DataPurchase($conn);
     $bd = $buy->buyData($network_id, $mobile_number, $plan_id, $data_type, $amount);
     echo json_encode($bd);
 }else{
-    echo json_encode(["success" => false, "message" => "all the fields are empty"])
+    echo json_encode(["success" => false, "message" => "all the fields are empty"]);
 }
 
 ?>

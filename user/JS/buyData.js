@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function(){
         var amount = document.getElementById("amount").value;
         var mobile = document.getElementById("mobile_number").value;
 
-        var formData = new FormData(this);
+        var formData = new FormData();
         formData.append("network_id", network_id);
         formData.append("plan_id", plan_id);
         formData.append("data_type", data_type);
@@ -21,51 +21,47 @@ document.addEventListener("DOMContentLoaded", function(){
             body: formData
         })
         .then(response => {
+            console.log(response);
             if(!response.ok){
                 throw new Error("Network response was not okay");
             }
             return response.json();
         })
         .then(data => {
-            console.log(data);
-            if (data.success) {
-                if (data.status === 'successful') {
-                    Swal.fire({
-                        icon: 'success',
-                        title: data.status,
-                        text: data.message,
-                        confirmButtonText: "OK"
-                    });
-                } else if (data.status === 'failed') {
-                    Swal.fire({
-                        icon: 'error',
-                        title: data.status,
-                        text: data.message,
-                        confirmButtonText: "OK"
-                    });
-                } else if (amount > data.balance) {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'INSUFFICIENT BALANCE',
-                        text: 'Kindly Fund Your Wallet and Enjoy Your Top Ups, Your Current Balance: ' + data.balance,
-                        confirmButtonText: "OK"
-                    });
-                }
-            } else {
+            if(amount > data.balance){
                 Swal.fire({
                     icon: 'error',
-                    title: 'Error',
-                    text: 'An error occurred while processing your request.',
+                    title: 'INSUFFICIENT BALANCE',
+                    text: 'Kindly Fund Your Wallet and Enjoy Your Top Ups, Your Current Balance: ' + data.balance,
                     confirmButtonText: "OK"
                 });
             }
+            else if(data.success && data.status === 'successful'){
+                Swal.fire({
+                    icon: 'success',
+                    title: data.status,
+                    text: data.message
+                })
+            }
+            else if (data.success === false && data.status === 'failed') {
+                    Swal.fire({
+                        icon: 'error',
+                        title: data.status,
+                        text: data.message,
+                        confirmButtonText: "OK"
+                    });
+            } 
+            // else (amount > data.balance) {
+            //         
+            // } 
+
         })
         .catch(error => {
             console.log("Error: ", error);
             Swal.fire({
                 icon: 'error',
                 title: 'Error',
-                text: 'An error occurred while processing your request.',
+                text: error,
                 confirmButtonText: "OK"
             });
         });

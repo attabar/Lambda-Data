@@ -11,47 +11,39 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
 </head>
 <body>
-    <!-- header container -->
-    <div class="header">
-        <!-- brand -->
-        <div class="brand">
-            <img src="./img/logo.jpg" alt="" srcset="">
-        </div>
-        <!-- navigations -->
-        <div class="nav">
+      <!-- Header with menu toggle -->
+      <div class="header">
+        <img src="./img/logo.jpg" class="logo" alt="" srcset="">
+        <!-- Side menu -->
+        <div class="menu-on-large-screen" id="menu-on-large-screen">
             <ul>
                 <li><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#prices">Prices</a></li>
-                <li><a href="#testimonials">Testimonial</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="./user/register.php">Register</a></li>
-                <li><a href="./user/loginPage.php">Login</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
             </ul>
         </div>
-        <!-- open menu icon -->
-        <img src="./img/openMenuIcon.jpeg" alt="" class="openMenu">
-        <img src="./img/closeMenuIcon.jpeg" alt="" class="closeMenu">
-    </div>
-    <!-- hide and show -->
-    <div class="openClose">
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#prices">Prices</a></li>
-                <li><a href="#testimonials">Testimonial</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="./user/register.php">Register</a></li>
-                <li><a href="./user/loginPage.php">Login</a></li>
-            </ul>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
         </div>
-    <!-- hero section -->
-    <div class="hero">
-        <img src="./img/hero.jpeg" alt="">
-        <h3>Recharge Anywhere and Anytime</h3>
     </div>
+
+    <!-- Side menu -->
+    <div class="menu" id="menu">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
+  <!-- hero section -->
+  <div class="hero">
+    <img src="./img/hero.jpeg" alt="">
+    <h3>Recharge Anywhere and Anytime</h3>
+  </div>
     <!-- about us-->
     <div class="aboutUs" id="about">
         <h1 style="text-align: center;">About Us</h1>
@@ -436,23 +428,17 @@
         <p>&copy; AND Developed at LAMBDA TECH SERVICES SOLUTION 2023</p>
       </div>
     </div>
-    <script src="./js/jquery.js"></script>
     <script>
-        $(document).ready(function(){
-            $(".openMenu").click(function(){
-                $(".openClose").slideToggle();
-                // $(".openMenu").toggle();
-                // $(".closeMenu").toggle();
-            })
-            // $(".closeMenu").click(function(){
-            //     $(".closeMenu").slideToggle();
-            //     $(".openMenu").toggle();
-            //     $(".closeMenu").toggle();
-            // })
-        })
+        // Function to toggle the menu visibility
+        function toggleMenu() {
+            var menu = document.getElementById('menu');
+            var isOpen = menu.style.top === '0%';
+            menu.style.top = isOpen ? '-100%' : '0%';
+            // Change toggle icon
+            var toggleIcon = document.querySelector('.menu-toggle');
+            toggleIcon.classList.toggle('open');
+        }
     </script>
 
-    
-    <!-- <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> -->
 </body>
 </html>
