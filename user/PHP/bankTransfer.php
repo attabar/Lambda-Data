@@ -7,7 +7,8 @@ function sendMoneyToWallet($walletAccountNumber, $amount)
 
     $Base_url = "https://sandbox.monnify.com";
 
-    $access_token = generateAccessToken();
+    $class = new GenerateAccessToken("MK_TEST_KWB4J5FHZN","Q4PFEVJWE1YFAHFVDP1QQX8SGYGAVUM5");
+    $access_token = $class->getAccessToken();
 
     $headers = array(
         'Content-Type:application/json',
@@ -15,10 +16,10 @@ function sendMoneyToWallet($walletAccountNumber, $amount)
     );
 
     $data = array(
-        // "amount" => $amount,
-        // "currencyCode" => "NGN",
-        // "toWallet" => $walletAccountNumber,
-        "transactionReference" => "{{6582d59d9a38d}}",
+        "amount" => $amount,
+        "currencyCode" => "NGN",
+        "toWallet" => $walletAccountNumber,
+        "transactionReference" => "{{662cd0d892a79}}",
         "bankCode" => "035"
     );
 
@@ -58,7 +59,7 @@ function sendMoneyToWallet($walletAccountNumber, $amount)
 }
 
 // Example usage
-$walletAccountNumber = "3000254186"; // Replace with the actual wallet account number
+$walletAccountNumber = "3000284761"; // Replace with the actual wallet account number
 $amountToSend = 300.00; // Replace with the amount you want to send
 
 sendMoneyToWallet($walletAccountNumber, $amountToSend);

@@ -1,6 +1,7 @@
 <?php
 require_once 'connection.php';
 header("Content-Type: application/json");
+session_start();
 class Airtime {
 
     private $conn;
@@ -11,18 +12,26 @@ class Airtime {
 
     public function buyAirtime($network_id, $mobile_number, $airtime_type, $amount){
         $balance = $this->checkAccountBalance();
-
         if($amount > $balance){
-            $response = $this->performAirtimePurchase($network_id, $mobile_number, $airtime_type, $amount);
-            echo json_encode($response);
-            // return ['success', 'message' => 'Purchase successfully'];
-        }else{
             echo json_encode([
                 'success' => false,
-                'settlement_amount' => $balance,
+                'balance' => $balance,
                 'title' => 'INSUFFICIENT BALANCE',
                 'message' => 'Kindly Fund Your Wallet and Enjoy Your Top Ups, Your Current Balance: ' . $balance
             ]);
+        }
+        else{
+            $response = $this->performAirtimePurchase($network_id, $mobile_number, $airtime_type, $amount);
+            if($response === "successful"){
+                $currentBalance = $balance - $amount;
+                $sql = $this->conn->prepare("UPDATE account_balance SET settlement_amount = $currentBalance WHERE transaction_user_id = ?");
+                $sql->bind_param("i",$_SESSION['user_id']);
+                $sql->execute();
+                 return ['success' => true, 'status' => $response, 'message' => 'Purchase successfully'];
+            }else{
+                return ['success' => false, 'status' => $response, 'message' => 'Failed To Top Up Airtime'];
+            }
+           
         }
     }
 

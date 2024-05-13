@@ -15,13 +15,11 @@ function sendMoneyToWallet($walletAccountNumber, $amount)
     );
 
     $data = array(
-        // "amount" => $amount,
-        // "currencyCode" => "NGN",
-        // "toWallet" => $walletAccountNumber,
-        "amount"=>1000.00,
+        "amount" => $amount,
+        "toWallet" => $walletAccountNumber,
         "customerName"=>"Ahmad Abdulmalik",
         "customerEmail"=>"Musty234@gmail.com",
-        "paymentReference"=>"65b248a4d11af",
+        "paymentReference"=>"662cd0d892a79",
         "paymentDescription"=>"Trial transaction",
         "currencyCode"=> "NGN",
         "contractCode"=>"0378523971",
@@ -64,7 +62,7 @@ function sendMoneyToWallet($walletAccountNumber, $amount)
 }
 
 // Example usage
-$walletAccountNumber = "3000287783"; // Replace with the actual wallet account number
+$walletAccountNumber = "3000284761"; // Replace with the actual wallet account number
 $amountToSend = 400.00; // Replace with the amount you want to send
 
 sendMoneyToWallet($walletAccountNumber, $amountToSend);

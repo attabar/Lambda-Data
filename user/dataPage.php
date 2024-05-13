@@ -57,7 +57,7 @@
     <div class="main-content">
       <div class="form-container">
         <h2 class="">Buy Data</h2>
-        <form id="dataForm">
+        <form id="dataForm" method="POST" action="./PHP/buyData.php">
           <div>
             <label for="network_id" class="form-label">Network<span style="color: red;">*</span></label>
             <select class="form-select form-select-lg" id="network_id" name="network_id" required>
@@ -127,6 +127,6 @@ $('document').ready(function(){
 })
 </script>
 <script src="./JS/dataOptions.js"></script>
-<script src="JS/buyData.js"></script>
+<!-- <script src="JS/buyData.js"></script> -->
 </body>
 </html>

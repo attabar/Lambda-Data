@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function(){
         var formData = new FormData();
         formData.append('network_id', networkId);
 
-        fetch("./PHP/fetchForAirtimeAmount.php", {
+        fetch("./PHP/airtimeOption.php", {
             method: "POST",
             body: formData
         })
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
             // Add 'Select Amount' option as the first option
             var selectAmountOption = document.createElement("option");
-            selectAmountOption.text = '---Select Amount---';
+            selectAmountOption.text = '------';
             selectAmountOption.value = '';
             select.appendChild(selectAmountOption);
 
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function(){
         var formData = new FormData();
         formData.append("amount", amountValue);
 
-        fetch("./PHP/fetchForAirtimeAmount.php", {
+        fetch("./PHP/airtimeOption.php", {
             method: "POST",
             body: formData
         })
@@ -83,24 +83,28 @@ document.addEventListener("DOMContentLoaded", function(){
             body: formData
         })
         .then(response => {
-            console.log(response)
             if(!response.ok){
                 throw new Error("network response was not ok")
             }
             return response.json();
         })
         .then(data => {
-            if(data.success){
+            if(data.success === false && amount > data.balance){
                 Swal.fire({
-                    icon: "success",
-                    title: "Successful",
+                    icon: "error",
+                    title: data.title,
                     text: data.message
                 })
-                // console.log(data.message)
+            }else if(data.success && data.status === "successful"){
+                Swal.fire({
+                    icon: "success",
+                    title: data.status,
+                    text: data.message
+                })
             }else{
                 Swal.fire({
                     icon: "error",
-                    title: "Failed",
+                    title: data.status,
                     text: data.message
                 })
             }

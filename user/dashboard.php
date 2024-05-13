@@ -37,7 +37,7 @@
                     </li>
                     <li><i class="fas fa-wallet"></i> Fund Wallet</li>
                     <li><a href="./data.php"><i class="fas fa-wifi"></i> Buy Data</a></li>
-                    <li><a href="./airtime.php"><i class="fas fa-phone"></i> Buy Airtime</a></li>
+                    <li><a href="./airtimePage.php"><i class="fas fa-phone"></i> Buy Airtime</a></li>
                     <li><i class="fas fa-lightbulb"></i> Bills</li>
                     <li><i class="bi bi-tv"></i>TV Cables</li>
                     <!-- transaction history -->

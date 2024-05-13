@@ -21,6 +21,9 @@
                 <li><a href="#">About</a></li>
                 <li><a href="#">Services</a></li>
                 <li><a href="#">Contact</a></li>
+                <li><a href="#">Prices</a></li>
+                <li><a href="#">Testimonials</a></li>
+                <li><a href="./user/RegistrationPage.php">Register</a></li>
             </ul>
         </div>
         <div class="menu-toggle" onclick="toggleMenu()">
@@ -33,10 +36,13 @@
     <!-- Side menu -->
     <div class="menu" id="menu">
         <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Prices</a></li>
+          <li><a href="#">Testimonials</a></li>
+          <li><a href="./user/RegistrationPage.php">Register</a></li>
         </ul>
     </div>
   <!-- hero section -->
@@ -46,9 +52,9 @@
   </div>
     <!-- about us-->
     <div class="aboutUs" id="about">
-        <h1 style="text-align: center;">About Us</h1>
+        <h1>About Us</h1>
         <div class="aboutChild1">
-        <img src="./img/logo.jpg" width="300" height="800" alt="">
+        <img src="./img/logo.jpg" alt="">
         <div class="rightText">
         <h2>Lambda Data</h2>
         <h4>Lambda data is a virtual top up company registered with CAC Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima, obcaecati quos in cumque sunt sequi possimus pariatur fugit alias ab animi? Distinctio aut velit perferendis, sit nam sint culpa odit!

@@ -3,15 +3,10 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 session_start();
 header('Content-Type: application/json');
+require_once 'connection.php';
 
 if(isset($_SESSION['user_id'])){
     $user_id = $_SESSION['user_id'];
-
-    $host = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "vtu";
-    $conn = new mysqli($host, $username, $password, $dbname);
 
     $sql = $conn->prepare("SELECT settlement_amount FROM account_balance WHERE transaction_user_id = ?");
     $sql->bind_param("i", $user_id);
@@ -30,13 +25,13 @@ if(isset($_SESSION['user_id'])){
     else{
         echo json_encode([
             'success'=>false,
-            'balance'=>'This Account is Not Exist'
+            'balance'=> 0
         ]);
     }
 }else{
     echo json_encode([
         'success'=>true,
-        'balance'=>'User Not loggined'
+        'balance'=>'Unauthorised User'
     ]);
 }
 

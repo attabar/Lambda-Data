@@ -3,8 +3,9 @@
     background-color: #333;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     color: #fff;
-    padding: 15px;
+    padding: 5px;
     position: fixed;
     top: 0;
     width: 100%;
@@ -23,6 +24,7 @@
 }
 .menu-on-large-screen ul a{
     color: white;
+    text-decoration: none;
 }
 .menu {
     position: fixed;
@@ -93,6 +95,7 @@
     position: relative;
     overflow: hidden;
     background-color: rgba(0,0,0,0.3);
+    width: 100%;
 }
 
 .hero::before{
@@ -106,8 +109,8 @@
 }
 .hero img{
     width: 100%;
-    height: auto;
-    display: block;
+    height: 100%;
+    object-fit: cover;
 }
 
 .hero h3{
@@ -178,11 +181,23 @@ button:hover{
     }
     .aboutUs{
         margin-top: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: row;
+    }
+    .aboutUs img{
+        max-width: 40%;
+        height: auto;
+        margin-right: 20px;
     }
     .aboutUs .aboutChild1{
         display: flex;
         justify-content: space-around;
-    }    
+    }   
+    .aboutUs .rightText{
+        max-width: 60%;
+    } 
     .aboutUs .aboutChild1 .rightText{
         transform: translate(0px, 100px);
         max-width: 500px;
@@ -201,13 +216,20 @@ button:hover{
     .grid-container{
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        /* justify-content: space-around; */
         gap: 20px;
-        transform: translate(50px, 0px);
+        align-items: center;
     }
+    /* .services{
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px; */
+    /* } */
     .services h1{
         text-align: center;
         margin-bottom: 15px;
+    }
+    .services div{
+        text-align: center;
     }
     .services div i{
         font-size: 100px;
@@ -297,6 +319,15 @@ button:hover{
 
 /* small screen */
 @media only screen and (max-width:767px){
+    .header{
+        padding: 30px;
+    }
+    .menu ul{
+        padding: 55px;
+    }
+    .menu ul li{
+        text-align: center;
+    }
     .menu-on-large-screen{
         display: none;
     }
@@ -306,18 +337,28 @@ button:hover{
     }
 
     .hero{
-        position: absolute;
-        top: 7%;
-        z-index: -1;
+       height: 300px;
+       width: 100%;
+    }
+
+    .hero h3{
+        font-size: 20px;
     }
 
     .aboutUs{
-        position: absolute;
-        top: 55%;
+        position: static;
+        margin-top: 20px;
+        padding: 0px 15px;
+        text-align: center;
         align-items: center;
-        justify-content: center;
-        display: flex;
         flex-direction: column;
+    }
+    .aboutUs img{
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+    .aboutUs .rightText{
+        max-width: 100%;
     }
     .aboutUs h2{
         text-align: center;
