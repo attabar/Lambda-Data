@@ -49,11 +49,7 @@ document.addEventListener("DOMContentLoaded", function(){
                         text: data.message,
                         confirmButtonText: "OK"
                     });
-            } 
-            // else (amount > data.balance) {
-            //         
-            // } 
-
+            }
         })
         .catch(error => {
             console.log("Error: ", error);

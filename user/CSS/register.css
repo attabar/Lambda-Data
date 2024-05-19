@@ -46,7 +46,7 @@ button:hover{
 /* on large screen */
 @media only screen and (min-width:1200px){
     .form-container{
-        background-color: aqua;
+        background-color: black;
         height: 50vh;
     }
     form{

@@ -29,14 +29,14 @@
                         <!-- submenu for account -->
                         <ul class="submenu">
                             <li><a href="./profile.php"><i class="bi bi-arrow-right-short"></i> Profile</a></li>
-                            <li><a href=""><i class="bi bi-arrow-right-short"></i> Upgrade Account</a></li>
+                            <li><a href="./PHP/WebHook.php"><i class="bi bi-arrow-right-short"></i> Upgrade Account</a></li>
                             <li><a href=""><i class="bi bi-arrow-right-short"></i> KYC</a></li>
                             <li><a href=""><i class="bi bi-arrow-right-short"></i> Pin Management</a></li>
                             <li><a href=""><i class="bi bi-arrow-right-short"></i> Change Password</a></li>
                         </ul>
                     </li>
-                    <li><i class="fas fa-wallet"></i> Fund Wallet</li>
-                    <li><a href="./data.php"><i class="fas fa-wifi"></i> Buy Data</a></li>
+                    <li><a href="./fundWallet.php"><i class="fas fa-wallet"></i> Fund Wallet</a></li>
+                    <li><a href="./dataPage.php"><i class="fas fa-wifi"></i> Buy Data</a></li>
                     <li><a href="./airtimePage.php"><i class="fas fa-phone"></i> Buy Airtime</a></li>
                     <li><i class="fas fa-lightbulb"></i> Bills</li>
                     <li><i class="bi bi-tv"></i>TV Cables</li>

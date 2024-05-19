@@ -10,8 +10,8 @@
                 customerFullName: "Muhammad Abdulmalik",
                 customerEmail: "mabdulmalik436@gmail.com",
                 apiKey: "MK_TEST_KWB4J5FHZN",
-                contractCode: "03785239711",
-                paymentDescription: "For data topup",
+                contractCode: "0378523971",
+                paymentDescription: "Lahray World",
                 metadata: {
                     "name": "Damilare",
                     "age": 45

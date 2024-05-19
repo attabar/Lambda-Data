@@ -1,123 +1,105 @@
 <?php
+session_start();
+require_once 'connection.php';
 
-// Retrieve the Monnify webhook payload
-$payload = file_get_contents("php://input");
+class Webhook {
 
-// Retrieve the Monnify webhook signature
-$signature = $_SERVER['HTTP_X_MONNIFY_SIGNATURE'];
+    private $conn;
 
-// Define your Monnify API secret key
-$apiSecretKey = 'Q4PFEVJWE1YFAHFVDP1QQX8SGYGAVUM5';
-
-// Verify the signature
-$isValidSignature = verifyMonnifyWebhookSignature($payload, $signature, $apiSecretKey);
-
-if ($isValidSignature) {
-    // Signature is valid, proceed with processing the webhook
-    // Decode the JSON payload
-    $data = json_decode($payload, true);
-    // Extract the necessary information from the payload
-         
-    if ($data !== null) {
-        // Check if the eventType is 'SUCCESSFUL_TRANSACTION'
-        if ($data['eventType'] === 'SUCCESSFUL_TRANSACTION') {
-            // Extract all data
-            $eventType = $data['eventType'];
-            $eventData = $data['eventData'];
-            
-            // Product details
-            $productReference = $eventData['product']['reference'];
-            $productType = $eventData['product']['type'];
-    
-            // Transaction details
-            $transactionReference = $eventData['transactionReference'];
-            $paymentReference = $eventData['paymentReference'];
-            $paidOn = $eventData['paidOn'];
-            $paymentDescription = $eventData['paymentDescription'];
-    
-            // Payment source information
-            $paymentSourceInformation = $eventData['paymentSourceInformation'];
-            $amountPaid = $eventData['amountPaid'];
-    
-            // Destination account information
-            $destinationAccountInformation = $eventData['destinationAccountInformation'];
-            $destinationBankCode = $destinationAccountInformation['bankCode'];
-            $destinationBankName = $destinationAccountInformation['bankName'];
-            $destinationAccountNumber = $destinationAccountInformation['accountNumber'];
-    
-            // Other details
-            $totalPayable = $eventData['totalPayable'];
-            $paymentMethod = $eventData['paymentMethod'];
-            $currency = $eventData['currency'];
-            $settlementAmount = $eventData['settlementAmount'];
-            $paymentStatus = $eventData['paymentStatus'];
-    
-            // Customer details
-            $customer = $eventData['customer'];
-            $customerName = $customer['name'];
-            $customerEmail = $customer['email'];
-             
-             
-            $host = "localhost";
-            $username = "root";
-            $password = "";
-            $dbname = "vtu";
-    
-            $conn = new mysqli($host,$username,$password,$dbname);
-    
-            // Get the user_id from the users table based on the customer's email
-            $sql = $conn->prepare("SELECT user_id FROM users WHERE email = ?");
-            $sql->bind_param("s", $customerEmail);
-            $sql->execute();
-            $res = $sql->get_result();
-            if($res->num_rows > 0){
-                $row = $res->fetch_assoc();
-                $user_id = $row['user_id'];
-    
-                // Perform actions based on successful 
-                $sql = $conn->prepare("INSERT INTO account_balance(transaction_user_id,settlement_amount,paid_on,payment_reference,transaction_reference,payment_status) VALUES(?,?,?,?,?,?)");
-                $sql->bind_param("isssss",$user_id,$settlementAmount,$paidOn,$paymentReference,$transactionReference,$paymentStatus);
-                $sql->execute();
-                // Respond to Monnify with a success status code (HTTP 200 OK)
-                http_response_code(200);
-            }
-            
-        } else {
-            // Handle other event types if needed
-            echo "Invalid JSON data";
-            echo "User not found";
-            // Respond with an appropriate status code
-            http_response_code(400); // Bad Request for unknown event types
-        }
-    } else {
-        // Invalid JSON data
-        // Respond with an appropriate status code
-        http_response_code(400); // Bad Request for invalid JSON
+    public function __construct($conn){
+        $this->conn = $conn;
     }
-    
-    
-    // Return a response to Monnify indicating successful processing
-    
-    //     http_response_code(200);
-    //         echo 'Webhook processed successfully.';
-            
-    // } else {
-                // Invalid signature, discard the webhook notification
-                
-    //        http_response_code(403);
-    //       echo 'Invalid signature. Webhook discarded.';
-     }
 
-    
-// Function to verify the Monnify webhook signature
+    // get balance 
+    private function getBalance($user_id){
+        $sql = $this->conn->prepare("SELECT settlement_amount FROM account_balance WHERE transaction_user_id = ?");
+        $sql->bind_param("i", $user_id);
+        $sql->execute();
 
-function verifyMonnifyWebhookSignature($payload, $signature, $apiSecretKey) {
+        $res = $sql->get_result();
 
-    $concatenatedString = $payload . $apiSecretKey;
-    
-    $generatedSignature = hash('sha512',$concatenatedString);
-    
-    return hash_equals($generatedSignature, $signature);
+        if($res->num_rows > 0){
+            $row = $res->fetch_assoc();
+            return $row['settlement_amount'];
+        }
+        return 0;
+    }
+
+    private function processSuccessfulTransaction($eventData){
+        $customerEmail = $eventData['customer']['email'];
+        $settlementAmount = $eventData['settlementAmount'];
+        $paidOn = $eventData['paidOn'];
+        $paymentReference = $eventData['paymentReference'];
+        $transactionReference = $eventData['transactionReference'];
+        $paymentStatus = $eventData['paymentStatus'];
+
+        // Get the user_id from the users table based on the customer's email
+        $sql = $this->conn->prepare("SELECT user_id FROM users WHERE email = ?");
+        $sql->bind_param("s", $customerEmail);
+        $sql->execute();
+        $res = $sql->get_result();
+
+        if ($res->num_rows > 0) {
+            $row = $res->fetch_assoc();
+            $user_id = $row['user_id'];
+
+            // Get the current balance + new funding money
+            $incrementBalance = $this->getBalance($user_id) + $settlementAmount;
+            // Perform actions based on successful transaction
+            $balanceUpdate = $this->conn->prepare("UPDATE account_balance SET
+                                                                              settlement_amount = ?,
+                                                                              paid_on = ?,
+                                                                              payment_reference = ?,
+                                                                              transaction_reference = ?,
+                                                                              payment_status = ?
+                                                                              WHERE transaction_user_id = ?");
+            $balanceUpdate->bind_param("sssssi", $incrementBalance, $paidOn, $paymentReference, $transactionReference, $paymentStatus, $user_id);
+            $balanceUpdate->execute();
+            $balanceUpdate->close();
+
+            // Respond to Monnify with a success status code (HTTP 200 OK)
+            http_response_code(200);
+            echo 'Webhook processed successfully.';
+        } else {
+            http_response_code(404); // Not Found
+            echo "User not found";
+        }
+        $sql->close();
+    }
+
+    public function handleWebhook(){
+        $payload = file_get_contents("php://input");
+        
+        // Log the payload for debugging
+        error_log("Payload: " . $payload);
+
+        $data = json_decode($payload, true);
+
+        print_r($data);
+
+        if ($data === null) {
+            // Log the JSON error
+            error_log("JSON Decode Error: " . json_last_error_msg(), 3, '../../../../../php/logs/php_error_log');
+        }
+
+        if ($data !== null && isset($data['eventType'])) {
+            if ($data['eventType'] === 'SUCCESSFUL_TRANSACTION') {
+                $this->processSuccessfulTransaction($data['eventData']);
+            } else {
+                http_response_code(400); // Bad Request for unknown event types
+                echo "Invalid event type";
+            }
+        } else {
+            http_response_code(400); // Bad Request for invalid JSON
+            echo "Invalid JSON data";
+        }
+    }
+
+    public function __destruct(){
+        $this->conn->close();
+    }
 }
 
+$handleWebhook = new Webhook($conn);
+$handleWebhook->handleWebhook();
 ?>

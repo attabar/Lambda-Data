@@ -17,10 +17,10 @@ class RedirectBackToLoginPage {
         }else{
             $response = [
                 "success" => false,
-                "username" => "Username not found"
+                "username" => null
             ];
-            return $response;
         }
+        return $response;
     }
 }
 

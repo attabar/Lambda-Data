@@ -17,4 +17,8 @@ document.addEventListener("DOMContentLoaded", function(e){
             window.location.href = "./loginPage.php"
         }
     })
+    .catch(error => {
+        console.log("There was a problem with the fetch operation: ", error);
+        window.location.href = './loginPage.php';
+    })
 })
