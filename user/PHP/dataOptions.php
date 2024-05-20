@@ -42,7 +42,7 @@ class BuyData {
                     'data_id' => $row['data_id'],
                     'plan_type' => $row['plan_type'],
                     'data_type' => $row['data_type'],
-                    'price' => $row['price'],
+                    'price' => $row['selling_price'],
                     'validity' => $row['validity']
                 ];
             }
@@ -55,7 +55,7 @@ class BuyData {
     // plan id
     public function fetchData($plan_type) {
         try {
-            $sql = $this->conn->prepare("SELECT data_type, price FROM data_prices WHERE data_id = ?");
+            $sql = $this->conn->prepare("SELECT data_type, selling_price FROM data_prices WHERE data_id = ?");
             $sql->bind_param("i", $plan_type);
             $sql->execute();
 
@@ -64,7 +64,7 @@ class BuyData {
 
                 $row = $res->fetch_assoc();
 
-                $fetchPrice = $row['price'];
+                $fetchPrice = $row['selling_price'];
                 $fetchDataType = $row['data_type'];
 
                 return [

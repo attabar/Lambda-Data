@@ -19,7 +19,7 @@ class Login {
             $response['status'] = 'error';
             $response['message'] = "<span style='color:red'>All the Fields Are Required</span>";
         }
-        $stmt = $this->conn->prepare("SELECT * FROM admin WHERE username = ?");
+        $stmt = $this->conn->prepare("SELECT * FROM admintable WHERE username = ?");
         $stmt->bind_param("s", $username);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -27,8 +27,8 @@ class Login {
         if($result->num_rows > 0) {
             $row = $result->fetch_assoc();
             if(password_verify($password, $row['pass'])){
-                $_SESSION['user_id'] = $row['user_id'];
-                $_SESSION['username'] = $row['username'];
+                // $_SESSION['user_id'] = $row['user_id'];
+                // $_SESSION['username'] = $row['username'];
     
                 $response = ['status' => true, 'title' => 'Successful', 'message' => "Login was Successful"];
             }else{

@@ -29,19 +29,8 @@ class DataPurchase{
             
         } else {
             // Perform data purchase
-            $response = $this->performDataPurchase($network_id, $plan_id, $data_type, $mobile_number);
-            if($response === "successful"){
-                // IF THE TRANSACTION WERE SUCCESSFUL THEN DEDUCT THE BALANCE WITH THE AMOUNT APPLIED
-                $currentBalance = $balance - $amount;
-                // AFTER DEDUCTION THEN UPDATE THE BALANCE STORED IN THE DATABASE
-                $sql = $this->conn->prepare("UPDATE account_balance SET settlement_amount = $currentBalance WHERE transaction_user_id = ?");
-                $sql->bind_param("i", $_SESSION['user_id']);
-                $sql->execute();
-                return ['success' => true, 'status' => 'Successful', 'message'=>'Data was Successfully Purchased', 'currentBalance' => $currentBalance];
-
-            }else{
-                return ['success' => false, 'status' => 'Failed', 'message' => 'Failed to Purchase'];
-            }
+            $response = $this->performDataPurchase($network_id, $plan_id, $data_type, $mobile_number, $amount);
+            return $response;
         }
     }
 
@@ -59,7 +48,7 @@ class DataPurchase{
         return 0;
     }
 
-    private function performDataPurchase($network_id, $plan_id, $data_type, $mobile_number) {
+    private function performDataPurchase($network_id, $plan_id, $data_type, $mobile_number, $amount) {
         $endpoint = 'https://gladtidingsapihub.com/api/data/';
         $header = array(
             'Authorization: Token ' . '45264e5b4be99aa0f1571e0c0447719759c3e4bb',
@@ -92,7 +81,37 @@ class DataPurchase{
             error_log($error, 3, '../../../../../php/logs/php_error_log');
             return ['success' => false, 'error' => $error];
         } else {
-            return $objResponse->Status;
+
+            $planNetwork = $objResponse->plan_network;
+            $mn = $objResponse->mobile_number;
+            $plan = $objResponse->plan;
+            $plan_name = $objResponse->plan_name;
+            $plan_amount = $objResponse->plan_amount;
+            $date = $objResponse->create_date;
+            $status = $objResponse->Status;
+
+            if($status === "successful"){
+            
+                $user_id = $_SESSION['user_id'];
+                
+                // Insert the transaction done as transaction history
+                $sql = $this->conn->prepare("INSERT INTO data_transaction(data_user_id,plan_network,mobile_number,plan,status,plan_name,plan_amount,create_date) VALUES(?,?,?,?,?,?,?,?)");
+                $sql->bind_param("isiissds", $user_id,$planNetwork,$mn,$plan,$status,$plan_name,$plan_amount,$date);
+                $sql->execute();
+                
+                $balance = $this->getAccountBalance();
+                // IF THE TRANSACTION WERE SUCCESSFUL THEN DEDUCT THE BALANCE WITH THE AMOUNT APPLIED
+                $currentBalance = $balance - $amount;
+                // AFTER DEDUCTION THEN UPDATE THE BALANCE STORED IN THE DATABASE
+                $sql = $this->conn->prepare("UPDATE account_balance SET settlement_amount = ? WHERE transaction_user_id = ?");
+                $sql->bind_param("ii", $currentBalance,$user_id);
+                $sql->execute();
+                return ['success' => true, 'status' => 'Successful', 'message'=>'Data was Successfully Purchased', 'currentBalance' => $currentBalance];
+                exit;
+
+            }else{
+                return ['success' => false, 'status' => 'Failed', 'message' => 'Failed to Purchase'];
+            }
         }
     }
 

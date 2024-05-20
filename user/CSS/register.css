@@ -26,7 +26,7 @@ button{
     padding: 10px;
     border-radius: 5px;
     border: none;
-    background-color: blue;
+    background-color: black;
     color: aliceblue;
     font-weight: 900;
 }
@@ -38,7 +38,7 @@ button{
     margin-top: 10px;
 }
 button:hover{
-    background-color: black;
+    background-color: blue;
 }
 .button p a{
     text-decoration: none;
