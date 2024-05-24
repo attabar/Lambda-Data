@@ -73,10 +73,17 @@ document.addEventListener("DOMContentLoaded", function(){
         e.preventDefault();
 
         var network_id = document.getElementById("network_id").value;
+        var airtime_type = document.getElementById("airtime_type").value;
+        var mobile_number = document.getElementById("mobile_number").value;
         var amount = document.getElementById("amount").value;
+        var amountToPay = document.getElementById("amountToPay").value;
+
         var formData = new FormData(this);
         formData.append("network_id", network_id);
+        formData.append("airtime_type", airtime_type);
+        formData.append("mobile_number", mobile_number);
         formData.append("amount", amount);
+        formData.append("amountToPay", amountToPay);
 
         fetch('./PHP/buyAirtime.php', {
             method: 'POST',

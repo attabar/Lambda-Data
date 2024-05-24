@@ -10,15 +10,15 @@ class Airtime {
         $this->conn = $conn;
     }
 
-    public function buyAirtime($network_id, $mobile_number, $airtime_type, $amount){
-        $balance = $this->checkAccountBalance();
-        if($amount > $balance){
-            echo json_encode([
+    public function buyAirtime($network_id, $mobile_number, $airtime_type, $amount, $amountToPay){
+        $balance = $this->getAccountBalance();
+        if($amountToPay > $balance){
+            return [
                 'success' => false,
                 'balance' => $balance,
                 'title' => 'INSUFFICIENT BALANCE',
                 'message' => 'Kindly Fund Your Wallet and Enjoy Your Top Ups, Your Current Balance: ' . $balance
-            ]);
+            ];
         }
         else{
             $response = $this->performAirtimePurchase($network_id, $mobile_number, $airtime_type, $amount);
@@ -61,28 +61,30 @@ class Airtime {
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 
         $response = curl_exec($ch);
+        $result = json_decode($response);
 
         if(curl_errno($ch)){
             $error = "cURL: " . curl_error($ch);
             error_log($error, 3, '../../../../../php/logs/php_error_log');
             return ["success" => false, "message" => "Failed To Buy, maybe Network connection"];
         }else{
-            $result = json_decode($response);
-
+            
             if($result->Status === 'successful'){
-                return ["success" => true, "message" => $result->api_response];
+                return $result->Status;
+                // return ["success" => true, "message" => $result->api_response];
             }
         }
     }
 
-    public function checkAccountBalance(){
-        $sql = $this->conn->prepare("SELECT settlement_amount FROM account_balance WHERE  transaction_user_id = ?");
+    private function getAccountBalance() {
+        $sql = $this->conn->prepare("SELECT settlement_amount FROM account_balance WHERE transaction_user_id = ?");
         $sql->bind_param("i", $_SESSION['user_id']);
         $sql->execute();
+        
+        $res = $sql->get_result();
+        if ($res->num_rows > 0) {
+            $row = $res->fetch_assoc();
 
-        $result = $sql->get_result();
-        if($result->num_rows > 0){
-            $row = $result->fetch_assoc();
             return $row['settlement_amount'];
         }
         return 0;
@@ -94,9 +96,11 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     $airtime_type = $conn->real_escape_string($_POST['airtime_type']);
     $mobile_number = $conn->real_escape_string($_POST['mobile_number']);
     $amount = $conn->real_escape_string($_POST['amount']);
+    $amountToPay = $conn->real_escape_string($_POST['amountToPay']);
     
     $airtime = new Airtime($conn);
-    $airtime->buyAirtime($network_id,$mobile_number, $airtime_type, $amount);
+    $buy = $airtime->buyAirtime($network_id,$mobile_number, $airtime_type, $amount, $amountToPay);
+    echo json_encode($buy);
 }else{
     echo json_encode(["success" => false,"message"=>"Undefined Post"]);
 }

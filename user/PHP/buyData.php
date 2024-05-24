@@ -30,7 +30,13 @@ class DataPurchase{
         } else {
             // Perform data purchase
             $response = $this->performDataPurchase($network_id, $plan_id, $data_type, $mobile_number, $amount);
-            return $response;
+            if($response === 'successful'){
+                return ['success' => true, 'status' => 'Successful', 'message'=>'Data was Successfully Purchased', 'currentBalance' => $currentBalance];
+                exit;
+            }elseif($response === 'failed'){
+                return ['success' => false, 'status' => 'Failed', 'message' => 'Failed to Purchase'];
+                exit;
+            }
         }
     }
 
@@ -106,11 +112,8 @@ class DataPurchase{
                 $sql = $this->conn->prepare("UPDATE account_balance SET settlement_amount = ? WHERE transaction_user_id = ?");
                 $sql->bind_param("ii", $currentBalance,$user_id);
                 $sql->execute();
-                return ['success' => true, 'status' => 'Successful', 'message'=>'Data was Successfully Purchased', 'currentBalance' => $currentBalance];
-                exit;
 
-            }else{
-                return ['success' => false, 'status' => 'Failed', 'message' => 'Failed to Purchase'];
+                return $status;
             }
         }
     }

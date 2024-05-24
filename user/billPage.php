@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Airtime</title>
+    <title>Bill</title>
     <!-- custom css file -->
     <link rel="stylesheet" href="./CSS/airtime.css">
     <!-- fontawesome -->
@@ -31,10 +31,10 @@
             <li><i class="bi bi-arrow-right-short"></i> Change Password</li>
           </ul>
           </li>
-          <li><i class="fas fa-wallet"></i> Fund Wallet</li>
+          <li><a href="./fundWallet.php"><i class="fas fa-wallet"></i> Fund Wallet</a></li>
           <li><a href="./dataPage.php"><i class="fas fa-wifi"></i> Buy Data</a></li>
-          <li><i class="fas fa-phone"></i> Buy Airtime</li>
-          <li><a href="./billPage.php"><i class="fas fa-lightbulb"></i> Bills</a></li>
+          <li><a href="./airtimePage.php"><i class="fas fa-phone"></i> Buy Airtime</a></li>
+          <li><a href="./PHP/buyBill.php"><i class="fas fa-lightbulb"></i> Bills</a></li>
           <li><i class="fas fa-dollar-sign"></i> Transactions</li>
           <li><i class="bi bi-cash"></i> Wallet Summary</li>
           <li class="with-arrow"><i class="bi bi-sliders"></i> Others <i class="bi bi-chevron-down"></i></li>
@@ -54,8 +54,8 @@
       <!-- Your main content goes here -->
       <div class="main-content">
         <div class="form-container">
-          <h2 class="">Buy Airtime</h2>
-          <form id="airtimeForm">
+          <h2 class="">Buy Electricity Bill</h2>
+          <form id="billForm">
 
           <div>
             <label for="options" class="form-label">Network<span style="color: red;">*</span></label>
@@ -65,6 +65,7 @@
               <option value="3">Airtel</option>
               <option value="6">Glo</option>
               <option value="2">9Mobile</option>
+              <option value=""></option>
             </select>
           </div>
                   
@@ -103,7 +104,6 @@
 <script src="./JQUERY/jquery.js"></script>
 <script src="./SweetAlert/sweetalert.js"></script>
 <script src="./JS/logout.js"></script>
-<script src="./JS/buyAirtime.js"></script>
 <script>
 $('document').ready(function(){
     $('.navbar').click(function(e){

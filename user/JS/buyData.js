@@ -16,13 +16,6 @@ document.addEventListener("DOMContentLoaded", function(){
         formData.append("amount", amount);
         formData.append("mobile_number", mobile);
 
-        const overlay = document.querySelector('.loading-overlay');
-        const spinner = document.querySelector('.spinner');
-    
-        // Show the spinner
-        overlay.style.display = 'block';
-        spinner.style.display = 'block';
-
         fetch('./PHP/buyData.php', {
             method: "POST",
             body: formData
@@ -34,15 +27,12 @@ document.addEventListener("DOMContentLoaded", function(){
             return response.json();
         })
         .then(data => {
-            // Hide the spinner
-            overlay.style.display = 'none';
-            spinner.style.display = 'none';
             
             if(amount > data.balance){
                 Swal.fire({
                     icon: 'error',
-                    title: 'INSUFFICIENT BALANCE',
-                    text: 'Kindly Fund Your Wallet and Enjoy Your Top Ups, Your Current Balance: ' + data.balance,
+                    title: data.title,
+                    text: data.message,
                     confirmButtonText: "OK"
                 });
             }

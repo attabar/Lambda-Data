@@ -33,9 +33,9 @@
           <li><i class="bi bi-arrow-right-short"></i> Change Password</li>
         </ul>
         </li>
-        <li><i class="fas fa-wallet"></i> Fund Wallet</li>
+        <li><a href="./fundWallet.php"><i class="fas fa-wallet"></i> Fund Wallet</a></li>
         <li><a href="./data.php"><i class="fas fa-wifi"></i> Buy Data</a></li>
-        <li><i class="fas fa-phone"></i> Buy Airtime</li>
+        <li><a href="./airtimePage.php"><i class="fas fa-phone"></i> Buy Airtime</a></li>
         <li><i class="fas fa-lightbulb"></i> Bills</li>
         <li><i class="fas fa-dollar-sign"></i> Transactions</li>
         <li><i class="bi bi-cash"></i> Wallet Summary</li>
@@ -113,22 +113,9 @@ $('document').ready(function(){
         $(this).toggleClass('open');
         $(this).find('.submenu').toggle();
     });
-    // logout
-    $('#logout').click(function(e){
-        e.preventDefault();
-        $.ajax({
-            url: './PHP/logout.php',
-            type: 'GET',
-            success: function(response){
-                window.location.href = './loginPage.php'
-            },
-            error: function(xhr, status, error){
-                console.log("AJAX ERROR: " + status + " - " + error);
-            }
-        })
-    });
 })
 </script>
+<script src="./JS/logout.js"></script>
 <script src="./JS/dataOptions.js"></script>
 <script src="JS/buyData.js"></script>
 </body>

@@ -38,7 +38,7 @@
                     <li><a href="./fundWallet.php"><i class="fas fa-wallet"></i> Fund Wallet</a></li>
                     <li><a href="./dataPage.php"><i class="fas fa-wifi"></i> Buy Data</a></li>
                     <li><a href="./airtimePage.php"><i class="fas fa-phone"></i> Buy Airtime</a></li>
-                    <li><i class="fas fa-lightbulb"></i> Bills</li>
+                    <li><a href="./billPage.php"><i class="fas fa-lightbulb"></i> Bills</a></li>
                     <li><i class="bi bi-tv"></i>TV Cables</li>
                     <!-- transaction history -->
                     <li class="with-arrow transaction"><i class="fas fa-dollar-sign"></i> Transactions <i
