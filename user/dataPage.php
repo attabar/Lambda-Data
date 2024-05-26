@@ -95,9 +95,6 @@
           </div>
         </form>
       </div>
-      <div class="loading-overlay">
-        <div class="spinner"></div>
-      </div>
       <!-- end of main content -->
     </div>
   </div>

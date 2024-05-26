@@ -12,7 +12,7 @@ class ElectricityBillPayment{
        $this->conn = $conn; 
     }
 
-    public function buyNepaBill($amount){
+    public function buyNepaBill($disco_name, $amount, $meter_number, $meter_type){
         // call the method for getting particular user account balance
         $balance = $this->getAccountBalance();
         
@@ -20,31 +20,31 @@ class ElectricityBillPayment{
         if($amount > $balance){
             return [
                 "success" => false,
-                "title" => "error",
-                "text" => "Insufficient Balance",
-                "message" => "......................"
+                "title" => "Insufficient Balance",
+                "message" => "please kindly fund your wallet and then continue transaction with us, current balance: " . $balance
+            ];
+        }
+
+        $response = $this->processElectricityBillPayment($disco_name, $amount, $meter_number, $meter_type);
+
+        if($response && $response['status'] === "successful"){
+            return [
+                "success" => true,
+                "title" => "Successful Transaction",
+                "message" => "Electricity Bill was Purchased successfully",
+                "status" => "successful"
             ];
         }else{
-            $response = $this->processElectricityBillPayment();
-            if($response === "successful"){
-                return [
-                    "success" => true,
-                    "title" => "success",
-                    "text" => "Success",
-                    "message" => "....................."
-                ];
-            }else{
-                return [
-                    "success" => false,
-                    "title" => "error",
-                    "text" => "Failed",
-                    "message" => "..................."
-                ];
-            }
+            return [
+                "success" => false,
+                "title" => "Transaction Failed",
+                "message" => "Failed to Purchase Electricity Bill, Please try again",
+                "status" => "failed"
+            ];
         }
     }
 
-    private function processElectricityBillPayment(){
+    private function processElectricityBillPayment($disco_name, $amount, $meter_number, $meter_type){
 
         $endpoint = "'https://gladtidingsapihub.com/api/billpayment/";
         $header = array(
@@ -53,10 +53,11 @@ class ElectricityBillPayment{
         );
 
         $data = array(
-            "disco_name" => 'Yola Electric',
-            "amount" => '15000',
-            "meter_number" => 'meter number',
-            "MeterType" => 'meter type id (PREPAID:1,POSTPAID:2)'
+            "disco_name" => $disco_name,
+            "amount" => $amount,
+            "meter_number" => $meter_number,
+            "MeterType" => $meter_type
+            // 'meter type id (PREPAID:1,POSTPAID:2)'
         );
 
         $curl = curl_init();
@@ -69,7 +70,12 @@ class ElectricityBillPayment{
 
         $response = curl_exec($curl);
 
-        print_r($response);
+        if(curl_errno($curl)){
+            return ["status" => "failed", "error" => curl_error($curl)];
+        }
+
+        curl_close($curl);
+        return json_decode($response, true);
     }
 
     private function getAccountBalance() {
@@ -86,8 +92,15 @@ class ElectricityBillPayment{
         return 0;
     }
 }
+if(!empty($_POST['disco_name']) && !empty($_POST['amount']) && !empty($_POST['meter_number']) && !empty($_POST['meter_type'])){
 
-$cl = new ElectricityBillPayment($conn);
-$call = $cl->buyNepaBill($amount);
-echo $call;
+    $disco_name = $conn->real_escape_string($_POST['disco_name']);
+    $amount = $conn->real_escape_string($_POST['amount']);
+    $meter_number = $conn->real_escape_string($_POST['meter_number']);
+    $meter_type = $conn->real_escape_string($_POST['meter_type']);
+
+    $cl = new ElectricityBillPayment($conn);
+    $call = $cl->buyNepaBill($disco_name, $amount, $meter_number, $meter_type);
+    echo json_encode($call);
+}
 ?>

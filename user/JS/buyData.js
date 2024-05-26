@@ -9,6 +9,11 @@ document.addEventListener("DOMContentLoaded", function(){
         var amount = document.getElementById("amount").value;
         var mobile = document.getElementById("mobile_number").value;
 
+        var submitBtn = document.getElementById("btn");
+        submitBtn.innerHTML = "Processing..."
+        submitBtn.style.fontWeight = 'bold'
+        submitBtn.disabled = true;
+
         var formData = new FormData();
         formData.append("network_id", network_id);
         formData.append("plan_id", plan_id);
@@ -28,29 +33,14 @@ document.addEventListener("DOMContentLoaded", function(){
         })
         .then(data => {
             
-            if(amount > data.balance){
-                Swal.fire({
-                    icon: 'error',
-                    title: data.title,
-                    text: data.message,
-                    confirmButtonText: "OK"
-                });
-            }
-            else if(data.success && data.status === 'successful'){
-                Swal.fire({
-                    icon: 'success',
-                    title: data.status,
-                    text: data.message
-                })
-            }
-            else{
-                    Swal.fire({
-                        icon: 'error',
-                        title: data.status,
-                        text: data.message,
-                        confirmButtonText: "OK"
-                    });
-            }
+            Swal.fire({
+                icon: data.success ? 'success':'error',
+                title: data.title,
+                text: data.message
+            })
+
+            submitBtn.innerHTML = 'Buy';
+            submitBtn.disabled = false
         })
         .catch(error => {
             console.log("Error: ", error);
@@ -60,6 +50,8 @@ document.addEventListener("DOMContentLoaded", function(){
                 text: error,
                 confirmButtonText: "OK"
             });
+            submitBtn.innerHTML = 'Buy';
+            submitBtn.disabled = false
         });
     });
 });

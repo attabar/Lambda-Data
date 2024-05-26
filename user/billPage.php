@@ -34,7 +34,7 @@
           <li><a href="./fundWallet.php"><i class="fas fa-wallet"></i> Fund Wallet</a></li>
           <li><a href="./dataPage.php"><i class="fas fa-wifi"></i> Buy Data</a></li>
           <li><a href="./airtimePage.php"><i class="fas fa-phone"></i> Buy Airtime</a></li>
-          <li><a href="./PHP/buyBill.php"><i class="fas fa-lightbulb"></i> Bills</a></li>
+          <li><a href="./billPage.php"><i class="fas fa-lightbulb"></i> Bills</a></li>
           <li><i class="fas fa-dollar-sign"></i> Transactions</li>
           <li><i class="bi bi-cash"></i> Wallet Summary</li>
           <li class="with-arrow"><i class="bi bi-sliders"></i> Others <i class="bi bi-chevron-down"></i></li>
@@ -58,39 +58,36 @@
           <form id="billForm">
 
           <div>
-            <label for="options" class="form-label">Network<span style="color: red;">*</span></label>
-            <select name="network_id" id="network_id" onchange="togglePopDownInput()">
+            <label for="disco_name" class="form-label">Disco Name<span style="color: red;">*</span></label>
+            <select name="disco_name" id="disco_name">
               <option>------</option>
-              <option value="1">MTN</option>
-              <option value="3">Airtel</option>
-              <option value="6">Glo</option>
-              <option value="2">9Mobile</option>
-              <option value=""></option>
+              <option value="Ikeja Electric">Ikeja Electric</option>
+              <option value="Eko Electric">Eko Electric</option>
+              <option value="Abuja Electric">Abuja Electric</option>
+              <option value="Kano Electric">Kano Electric</option>
+              <option value="Enugu Electric">Enugu Electric</option>
+              <option value="Port Harcourt Electric">Port Harcourt Electric</option>
+              <option value="Ibadan Electric">Ibadan Electric</option>
+              <option value="Kaduna Electric">Kaduna Electric</option>
+              <option value="Jos Electric">Jos Electric</option>
+              <option value="Benin Electric">Benin Electric</option>
+              <option value="Yola Electric">Yola Electric</option>
             </select>
-          </div>
-                  
-          <div style="display: none;" id="hidden">
-            <label for="username" class="form-label">Airtime Type</label>
-            <select class="form-select form-select-lg" name="airtime_type">
-              <option id='vtu' value="VTU">VTU</option>
-            </select>
-          </div>
-
-          <div>
-            <label for="mobile_number" class="form-label">Phone Number<span style="color: red;">*</span></label>
-            <input type="number" name="mobile_number" id="mobile_number">
           </div>
 
           <div>
             <label for="amount" class="form-label">Amount<span style="color: red;">*</span></label>
-            <select name="amount" id="amount" >
-              <option value="">Select Amount</option>
-            </select>
+            <input type="number" name="amount" id="amount">
           </div>
 
           <div>
-            <label for="amountToPay" class="form-label">Amount to Pay</label>
-            <input type="text" name="amountToPay" id="amountToPay" placeholder="0">
+            <label for="meter_number" class="form-label">Meter Number<span style="color: red;">*</span></label>
+            <input type="number" name="meter_number" id="meter_number">
+          </div>
+
+          <div>
+            <label for="meter_type" class="form-label">Meter Type</label>
+            <input type="text" name="meter_type" id="meter_type">
           </div>
 
           <div id="btn-container">
@@ -104,6 +101,7 @@
 <script src="./JQUERY/jquery.js"></script>
 <script src="./SweetAlert/sweetalert.js"></script>
 <script src="./JS/logout.js"></script>
+<script src="./JS/buyBill.js"></script>
 <script>
 $('document').ready(function(){
     $('.navbar').click(function(e){
