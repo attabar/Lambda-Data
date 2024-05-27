@@ -55,7 +55,7 @@
       <div class="main-content">
         <div class="form-container">
           <h2 class="">Buy Airtime</h2>
-          <form id="airtimeForm">
+          <form id="airtimeForm" method="POST" action="./PHP/buyAirtime.php">
 
           <div>
             <label for="options" class="form-label">Network<span style="color: red;">*</span></label>
@@ -89,7 +89,7 @@
 
           <div>
             <label for="amountToPay" class="form-label">Amount to Pay</label>
-            <input type="text" name="amountToPay" id="amountToPay" placeholder="0">
+            <input type="number" name="amountToPay" id="amountToPay" placeholder="0">
           </div>
 
           <div id="btn-container">

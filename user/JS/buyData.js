@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener("DOMContentLoaded", function() {
     // Buy Data
     document.getElementById("dataForm").addEventListener('submit', function(e) {
         e.preventDefault();
@@ -10,8 +10,8 @@ document.addEventListener("DOMContentLoaded", function(){
         var mobile = document.getElementById("mobile_number").value;
 
         var submitBtn = document.getElementById("btn");
-        submitBtn.innerHTML = "Processing..."
-        submitBtn.style.fontWeight = 'bold'
+        submitBtn.innerHTML = "Processing...";
+        submitBtn.style.fontWeight = 'bold';
         submitBtn.disabled = true;
 
         var formData = new FormData();
@@ -26,32 +26,31 @@ document.addEventListener("DOMContentLoaded", function(){
             body: formData
         })
         .then(response => {
-            if(!response.ok){
+            if (!response.ok) {
                 throw new Error("Network response was not okay");
             }
             return response.json();
         })
         .then(data => {
-            
             Swal.fire({
-                icon: data.success ? 'success':'error',
+                icon: data.success ? 'success' : 'error',
                 title: data.title,
                 text: data.message
-            })
+            });
 
             submitBtn.innerHTML = 'Buy';
-            submitBtn.disabled = false
+            submitBtn.disabled = false;
         })
         .catch(error => {
             console.log("Error: ", error);
             Swal.fire({
                 icon: 'error',
                 title: 'Error',
-                text: error,
+                text: error.message, // Using error.message to show the error details
                 confirmButtonText: "OK"
             });
             submitBtn.innerHTML = 'Buy';
-            submitBtn.disabled = false
+            submitBtn.disabled = false;
         });
     });
 });

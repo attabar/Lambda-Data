@@ -46,8 +46,6 @@ CREATE TABLE IF NOT EXISTS data_transaction(
     data_id INT(11) PRIMARY KEY AUTO_INCREMENT,
     data_user_id INT(11),
     transaction_id INT(11), -- transaction id
-    balance_before INT(11),
-    balance_after INT(11),
     plan_network VARCHAR(255),
     mobile_number INT(11),
     plan INT(11),
@@ -56,6 +54,20 @@ CREATE TABLE IF NOT EXISTS data_transaction(
     plan_amount INT(11),
     create_date DATETIME,
     FOREIGN KEY (data_user_id) REFERENCES users(user_id)
+);
+
+-- Airtime Transaction Table
+CREATE TABLE IF NOT EXISTS airtime_transaction(
+    airtime_id INT(11) PRIMARY KEY AUTO_INCREMENT,
+    airtime_user_id INT(11),
+    transaction_id INT(11), -- transaction id
+    plan_network VARCHAR(255),
+    mobile_number INT(11),
+    status VARCHAR(255),
+    plan_amount INT(11),
+    paid_amount INT,
+    create_date DATETIME,
+    FOREIGN KEY (airtime_user_id) REFERENCES users(user_id)
 );
 
 -- Contact Us table

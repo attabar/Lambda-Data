@@ -11,7 +11,9 @@ class Airtime {
     }
 
     public function buyAirtime($network_id, $mobile_number, $airtime_type, $amount, $amountToPay){
+
         $balance = $this->getAccountBalance();
+
         if($amountToPay > $balance){
             return [
                 'success' => false,
@@ -20,19 +22,48 @@ class Airtime {
                 'message' => 'Kindly Fund Your Wallet and Enjoy Your Top Ups, Your Current Balance: ' . $balance
             ];
         }
-        else{
-            $response = $this->performAirtimePurchase($network_id, $mobile_number, $airtime_type, $amount);
-            if($response === "successful"){
-                $currentBalance = $balance - $amount;
-                $sql = $this->conn->prepare("UPDATE account_balance SET settlement_amount = $currentBalance WHERE transaction_user_id = ?");
-                $sql->bind_param("i",$_SESSION['user_id']);
-                $sql->execute();
-                 return ['success' => true, 'status' => $response, 'message' => 'Purchase successfully'];
-            }else{
-                return ['success' => false, 'status' => $response, 'message' => 'Failed To Top Up Airtime'];
-            }
-           
+
+        $response = $this->performAirtimePurchase($network_id, $mobile_number, $airtime_type, $amount);
+
+        if(is_array($response)){
+            $response = (object) $response;
+            print_r($response);
         }
+
+        if($response && is_object($response)){
+
+            $transaction_id = $response->id ?? null;
+            $plan_network = $response->plan_network ?? null;
+            $mobile_number = $response->mobile_number ?? null;
+            $status = $response->Status ?? null;
+            $plan_amount = $response->plan_amount ?? null;
+            $paid_amount = $response->paid_amount ?? null;
+            $create_date = $response->create_date ?? null;
+            $message = $response->message ?? null;
+
+            if($status === "successful"){
+                // after successful transaction deduct the balance
+                $currentBalance = $balance - $amount;
+                $sql = $this->conn->prepare("UPDATE account_balance SET settlement_amount = ? WHERE transaction_user_id = ?");
+                $sql->bind_param("ii",$currentBalance,$_SESSION['user_id']);
+                $sql->execute();
+
+                // insert the data into database
+                $sql = $this->conn->prepare("INSERT INTO airtime_transaction(airtime_user_id, transaction_id, plan_network, mobile_number, status, plan_amount, paid_amount, create_date) VALUES(?,?,?,?,?,?,?,?)");
+                $sql->bind_param("iisisiis",$_SESSION['user_id'], $transaction_id, $plan_network, $mobile_number, $status, $plan_amount, $paid_amount, $create_date);
+                $sql->execute();
+
+                return ['success' => true, 'title' => 'Successful Transaction', 'message' => $message];
+            }
+            return [
+                "success" => false,
+                "title" => "Transaction Failed",
+                "message" => "Failed to Top Up Airtime, please try again: " . ($status ?? 'Unknown error')
+            ];
+            
+        }else{
+            return ['success' => false, 'title' => 'Transaction Failed', 'message' => 'Failed to purchase Airtime, response was invalid.'];
+        }  
     }
 
     private function performAirtimePurchase($network_id, $mobile_number, $airtime_type, $amount){
@@ -61,19 +92,13 @@ class Airtime {
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 
         $response = curl_exec($ch);
-        $result = json_decode($response);
-
+    
         if(curl_errno($ch)){
             $error = "cURL: " . curl_error($ch);
             error_log($error, 3, '../../../../../php/logs/php_error_log');
             return ["success" => false, "message" => "Failed To Buy, maybe Network connection"];
-        }else{
-            
-            if($result->Status === 'successful'){
-                return $result->Status;
-                // return ["success" => true, "message" => $result->api_response];
-            }
         }
+        return json_decode($response, true);
     }
 
     private function getAccountBalance() {
