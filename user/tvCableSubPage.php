@@ -54,44 +54,22 @@
       <!-- Your main content goes here -->
       <div class="main-content">
         <div class="form-container">
-          <h2 class="">Buy Electricity Bill</h2>
-          <form id="billForm">
+          <h2 class="">Tv Subscription</h2>
+          <form id="tvCableSubForm" method="POST" action="./PHP/buyCableSub.php">
 
           <div>
-            <label for="disco_name" class="form-label">Disco Name<span style="color: red;">*</span></label>
+            <label for="disco_name" class="form-label">Company Name<span style="color: red;">*</span></label>
             <select name="disco_name" id="disco_name">
-              <option disabled selected>---Select disco name---</option>
-              <option value="Ikeja Electric">Ikeja Electric</option>
-              <option value="Eko Electric">Eko Electric</option>
-              <option value="Abuja Electric">Abuja Electric</option>
-              <option value="Kano Electric">Kano Electric</option>
-              <option value="Enugu Electric">Enugu Electric</option>
-              <option value="Port Harcourt Electric">Port Harcourt Electric</option>
-              <option value="Ibadan Electric">Ibadan Electric</option>
-              <option value="Kaduna Electric">Kaduna Electric</option>
-              <option value="Jos Electric">Jos Electric</option>
-              <option value="Benin Electric">Benin Electric</option>
-              <option value="Yola Electric">Yola Electric</option>
+              <option disabled selected>---Select Company name---</option>
+              <option value="1">GOTV</option>
+              <option value="2">DSTV</option>
+              <option value="3">STARTIME</option>
             </select>
           </div>
 
           <div>
-            <label for="amount" class="form-label">Amount<span style="color: red;">*</span></label>
-            <input type="number" name="amount" id="amount">
-          </div>
-
-          <div>
-            <label for="meter_number" class="form-label">Meter Type<span style="color: red;">*</span></label>
-            <select name="meter_number" id="meter_number">
-              <option disabled selected>---Select Meter Type---</option>
-              <option value="1">Prepaid</option>
-              <option value="2">Postpaid</option>
-            </select>
-          </div>
-
-          <div>
-            <label for="meter_type" class="form-label">Meter Number</label>
-            <input type="text" name="meter_type" id="meter_type" placeholder="Meter Number">
+            <label for="meter_type" class="form-label">Smart card number</label>
+            <input type="text" name="meter_type" id="meter_type" placeholder="Smart card Number">
           </div>
 
           <div id="btn-container">
@@ -119,18 +97,5 @@ $('document').ready(function(){
 })
 </script>
 
-<script>
-        function togglePopDownInput(){
-          var optionsDropDown = document.getElementById("network_id");
-          var hiddenInput = document.getElementById("hidden");
-          // Reset the display property of all options
-          document.getElementById("vtu").style.display = "block";
-    
-          if(optionsDropDown.value === "1" || optionsDropDown.value === "3" || optionsDropDown.value === "2" || optionsDropDown.value === "6"){
-            hiddenInput.style.display = "block";
-            // document.getElementById("fourthType").style.display = "none";
-          }
-        }
-</script>
 </body>
 </html>
