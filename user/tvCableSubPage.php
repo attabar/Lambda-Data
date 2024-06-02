@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bill</title>
+    <title>Tv Sub</title>
     <!-- custom css file -->
     <link rel="stylesheet" href="./CSS/airtime.css">
     <!-- fontawesome -->
@@ -58,9 +58,9 @@
           <form id="tvCableSubForm" method="POST" action="./PHP/buyCableSub.php">
 
           <div>
-            <label for="disco_name" class="form-label">Company Name<span style="color: red;">*</span></label>
-            <select name="disco_name" id="disco_name">
-              <option disabled selected>---Select Company name---</option>
+            <label for="cable_name" class="form-label">Cable Name<span style="color: red;">*</span></label>
+            <select name="cable_name" id="cable_name">
+              <option disabled selected>---Select Cable name---</option>
               <option value="1">GOTV</option>
               <option value="2">DSTV</option>
               <option value="3">STARTIME</option>
@@ -68,9 +68,20 @@
           </div>
 
           <div>
-            <label for="meter_type" class="form-label">Smart card number</label>
-            <input type="text" name="meter_type" id="meter_type" placeholder="Smart card Number">
+            <label for="smart_card_number" class="form-label">Smart card number</label>
+            <input type="text" name="smart_card_number" id="smart_card_number" placeholder="Smart card Number">
           </div>
+
+          <div>
+            <label for="cable_plan_id" class="form-label">Cable Plan<span style="color: red;">*</span></label>
+            <select name="cable_plan_id" id="cable_plan_id">
+              <option disabled selected>---Select Cable Plan---</option>
+              <option value="2">GOtv Max - 7200</option>
+              <option value="6">DStv Yanga - 5100</option>
+              <option value="7">DStv Compact - 	15700</option>
+            </select>
+          </div>
+
 
           <div id="btn-container">
             <button type="submit" class="btn" id="btn" name="submit">Pay</button>

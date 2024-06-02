@@ -55,23 +55,23 @@
       <div class="main-content">
         <div class="form-container">
           <h2 class="">Buy Electricity Bill</h2>
-          <form id="billForm">
+          <form id="billForm" method="POST" action="./PHP/buyBill.php">
 
           <div>
             <label for="disco_name" class="form-label">Disco Name<span style="color: red;">*</span></label>
             <select name="disco_name" id="disco_name">
               <option disabled selected>---Select disco name---</option>
-              <option value="Ikeja Electric">Ikeja Electric</option>
-              <option value="Eko Electric">Eko Electric</option>
-              <option value="Abuja Electric">Abuja Electric</option>
-              <option value="Kano Electric">Kano Electric</option>
-              <option value="Enugu Electric">Enugu Electric</option>
-              <option value="Port Harcourt Electric">Port Harcourt Electric</option>
-              <option value="Ibadan Electric">Ibadan Electric</option>
-              <option value="Kaduna Electric">Kaduna Electric</option>
-              <option value="Jos Electric">Jos Electric</option>
-              <option value="Benin Electric">Benin Electric</option>
-              <option value="Yola Electric">Yola Electric</option>
+              <option value="1">Ikeja Electric</option>
+              <option value="2">Eko Electric</option>
+              <option value="3">Abuja Electric</option>
+              <option value="4">Kano Electric</option>
+              <option value="5">Enugu Electric</option>
+              <option value="6">Port Harcourt Electric</option>
+              <option value="7">Ibadan Electric</option>
+              <option value="8">Kaduna Electric</option>
+              <option value="9">Jos Electric</option>
+              <option value="10">Benin Electric</option>
+              <option value="11">Yola Electric</option>
             </select>
           </div>
 
@@ -105,7 +105,7 @@
 <script src="./JQUERY/jquery.js"></script>
 <script src="./SweetAlert/sweetalert.js"></script>
 <script src="./JS/logout.js"></script>
-<script src="./JS/buyBill.js"></script>
+<!-- <script src="./JS/buyBill.js"></script> -->
 <script>
 $('document').ready(function(){
     $('.navbar').click(function(e){

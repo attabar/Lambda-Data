@@ -1,5 +1,10 @@
 <?php
-
+// {"disco_name":disco,
+//     "amount":amount to pay,
+//     "meter_number": meter number,
+//     "MeterType": meter type id (PREPAID:1,POSTPAID:2)
+    
+//     }
 header("Content-Type: application/json");
 require_once 'connection.php';
 session_start();
@@ -27,26 +32,29 @@ class ElectricityBillPayment{
 
         $response = $this->processElectricityBillPayment($disco_name, $amount, $meter_number, $meter_type);
 
-        if($response && $response['status'] === "successful"){
-            return [
-                "success" => true,
-                "title" => "Successful Transaction",
-                "message" => "Electricity Bill was Purchased successfully",
-                "status" => "successful"
-            ];
-        }else{
-            return [
-                "success" => false,
-                "title" => "Transaction Failed",
-                "message" => "Failed to Purchase Electricity Bill, Please try again",
-                "status" => "failed"
-            ];
+        if(isset($response)){
+            $response;
         }
+        // if($response && $response['status'] === "successful"){
+        //     return [
+        //         "success" => true,
+        //         "title" => "Successful Transaction",
+        //         "message" => "Electricity Bill was Purchased successfully",
+        //         "status" => "successful"
+        //     ];
+        // }else{
+        //     return [
+        //         "success" => false,
+        //         "title" => "Transaction Failed",
+        //         "message" => "Failed to Purchase Electricity Bill, Please try again",
+        //         "status" => "failed"
+        //     ];
+        // }
     }
 
     private function processElectricityBillPayment($disco_name, $amount, $meter_number, $meter_type){
 
-        $endpoint = "'https://gladtidingsapihub.com/api/billpayment/";
+        $endpoint = "https://gladtidingsapihub.com/api/billpayment/";
         $header = array(
             "Authorization: Token"  . '45264e5b4be99aa0f1571e0c0447719759c3e4bb',
             'Content-Type: application/json'
