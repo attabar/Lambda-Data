@@ -34,7 +34,7 @@ class CableSubscription{
         $response = $this->processTvCableSub($cable_name, $cable_plan, $smart_card_number);
 
         if(isset($response)){
-            $response;
+            return $response;
         }
         // if($response && $response['status'] === "successful"){
         //     return [

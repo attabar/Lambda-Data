@@ -40,6 +40,7 @@
                     <li><a href="./airtimePage.php"><i class="fas fa-phone"></i> Buy Airtime</a></li>
                     <li><a href="./billPage.php"><i class="fas fa-lightbulb"></i> Bills</a></li>
                     <li><a href="./tvCableSubPage.php"><i class="bi bi-tv"></i>TV Cables</a></li>
+                    <li><a href="./resultPinPage.php"><i class="bi bi-mortarboard-fill"></i>Result Pin</a></li>
                     <!-- transaction history -->
                     <li class="with-arrow transaction"><i class="fas fa-dollar-sign"></i> Transactions <i
                             class="bi bi-chevron-down"></i>

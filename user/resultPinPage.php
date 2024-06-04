@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tv Sub</title>
+    <title>Result Pin</title>
     <!-- custom css file -->
     <link rel="stylesheet" href="./CSS/airtime.css">
     <!-- fontawesome -->
@@ -56,32 +56,27 @@
       <!-- Your main content goes here -->
       <div class="main-content">
         <div class="form-container">
-          <h2 class="">Tv Subscription</h2>
-          <form id="tvCableSubForm" method="POST" action="./PHP/buyCableSub.php">
+          <h2 class="">Result Pin</h2>
+          <form id="tvCableSubForm" method="POST" action="./PHP/buyResultPin.php">
 
           <div>
-            <label for="cable_name" class="form-label">Cable Name<span style="color: red;">*</span></label>
-            <select name="cable_name" id="cable_name">
-              <option disabled selected>---Select Cable name---</option>
-              <option value="1">GOTV</option>
-              <option value="2">DSTV</option>
-              <option value="3">STARTIME</option>
+            <label for="exam_name" class="form-label">Exam Name<span style="color: red;">*</span></label>
+            <select name="exam_name" id="exam_name">
+              <option disabled selected>---Exam Name---</option>
+              <option value="WAEC">WAEC</option>
+              <option value="NECO">NECO</option>
+              <option value="NABTEB">NABTEB</option>
             </select>
           </div>
 
           <div>
-            <label for="smart_card_number" class="form-label">Smart card number</label>
-            <input type="text" name="smart_card_number" id="smart_card_number" placeholder="Smart card Number">
+            <label for="quantity" class="form-label">Quantity<span style="color: red;">*</span></label>
+            <input type="number" name="quantity" id="quantity" placeholder="quantity 1, 2, Or 5">
           </div>
 
           <div>
-            <label for="cable_plan_id" class="form-label">Cable Plan<span style="color: red;">*</span></label>
-            <select name="cable_plan_id" id="cable_plan_id">
-              <option disabled selected>---Select Cable Plan---</option>
-              <option value="2">GOtv Max - 7200</option>
-              <option value="6">DStv Yanga - 5100</option>
-              <option value="7">DStv Compact - 	15700</option>
-            </select>
+            <label for="price" class="form-label">Price</label>
+            <input type="number" name="price" id="price" placeholder="0">
           </div>
 
 

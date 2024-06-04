@@ -81,17 +81,17 @@
           </div>
 
           <div>
-            <label for="meter_number" class="form-label">Meter Type<span style="color: red;">*</span></label>
-            <select name="meter_number" id="meter_number">
-              <option disabled selected>---Select Meter Type---</option>
+            <label for="meter_number" class="form-label">Meter Number</label>
+            <input type="number" name="meter_number" id="meter_number" placeholder="Meter Number">
+          </div>
+          
+          <div>
+            <label for="meter_type" class="form-label">Meter Type<span style="color: red;">*</span></label>
+            <select name="meter_type" id="meter_type">
+              <option value="0" disabled selected>---Select Meter Type---</option>
               <option value="1">Prepaid</option>
               <option value="2">Postpaid</option>
             </select>
-          </div>
-
-          <div>
-            <label for="meter_type" class="form-label">Meter Number</label>
-            <input type="text" name="meter_type" id="meter_type" placeholder="Meter Number">
           </div>
 
           <div id="btn-container">

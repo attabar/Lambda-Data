@@ -1,10 +1,11 @@
+
 <?php
 
 header("Content-Type: application/json");
 require_once 'connection.php';
 session_start();
 
-class ElectricityBillPayment{
+class ResultPin{
 
     private $conn;
 
@@ -12,59 +13,53 @@ class ElectricityBillPayment{
        $this->conn = $conn; 
     }
 
-    public function buyNepaBill($disco_name, $amount, $meter_number, $meter_type){
+    public function buyResultPin($exam_name, $quantity){
         // call the method for getting particular user account balance
         $balance = $this->getAccountBalance();
         
         // then compare the amount and the purchaser account balance if the balance is low than the account show up insufficient balance
-        if($amount > $balance){
-            return [
-                "success" => false,
-                "title" => "Insufficient Balance",
-                "message" => "please kindly fund your wallet and then continue transaction with us, current balance: " . $balance
-            ];
+        // if($amount > $balance){
+        //     return [
+        //         "success" => false,
+        //         "title" => "Insufficient Balance",
+        //         "message" => "please kindly fund your wallet and then continue transaction with us, current balance: " . $balance
+        //     ];
+        // }
+
+        $response = $this->processResultPin($exam_name, $quantity);
+
+        if(isset($response)){
+            return $response;
         }
-
-        $response = $this->processElectricityBillPayment($disco_name, $amount, $meter_number, $meter_type);
-
-        
-        print_r($response);
-        
         // if($response && $response['status'] === "successful"){
         //     return [
         //         "success" => true,
         //         "title" => "Successful Transaction",
-        //         "message" => "Electricity Bill was Purchased successfully",
+        //         "message" => "Tv Subs was Purchased successfully",
         //         "status" => "successful"
         //     ];
         // }else{
         //     return [
         //         "success" => false,
         //         "title" => "Transaction Failed",
-        //         "message" => "Failed to Purchase Electricity Bill, Please try again",
+        //         "message" => "Failed to Purchase Tv Subs, Please try again",
         //         "status" => "failed"
         //     ];
         // }
     }
 
-    private function processElectricityBillPayment($disco_name, $amount, $meter_number, $meter_type){
+    private function processResultPin($exam_name, $quantity){
 
-        $endpoint = "https://gladtidingsapihub.com/api/billpayment/";
-
+        $endpoint = "https://gladtidingsapihub.com/api/epin/";
         $header = array(
             "Authorization: Token "  . '45264e5b4be99aa0f1571e0c0447719759c3e4bb',
             'Content-Type: application/json'
         );
 
         $data = array(
-            "disco_name" => $disco_name,
-            "amount" => $amount,
-            "meter_number" => $meter_number,
-            "MeterType" => $meter_type
-            // 'meter type id (PREPAID:1,POSTPAID:2)'
+            "exam_name" => $exam_name,
+            "quantity" => $quantity
         );
-
-        print_r($data);
 
         $curl = curl_init();
 
@@ -98,15 +93,13 @@ class ElectricityBillPayment{
         return 0;
     }
 }
-if(!empty($_POST['disco_name']) || !empty($_POST['amount']) || !empty($_POST['meter_type'] || !empty($_POST['meter_number']))){
+if(!empty($_POST['exam_name']) && !empty($_POST['quantity'])){
 
-    $disco_name = $conn->real_escape_string($_POST['disco_name']);
-    $amount = $conn->real_escape_string($_POST['amount']);
-    $meter_type = $conn->real_escape_string($_POST['meter_type']);
-    $meter_number = $conn->real_escape_string($_POST['meter_number']);
-
-    $cl = new ElectricityBillPayment($conn);
-    $call = $cl->buyNepaBill($disco_name, $amount, $meter_number, $meter_type);
+    $exam_name = $conn->real_escape_string($_POST['exam_name']);
+    $quantity = $conn->real_escape_string($_POST['quantity']);
+    
+    $cl = new ResultPin($conn);
+    $call = $cl->buyResultPin($exam_name, $quantity);
     echo json_encode($call);
 }
 ?>
