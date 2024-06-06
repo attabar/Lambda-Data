@@ -18,7 +18,7 @@ class CableSubscription{
        $this->conn = $conn; 
     }
 
-    public function buyTvCable($cable_name, $cable_plan, $smart_card_number){
+    public function buyTvCable($cable_name, $cable_plan_id, $smart_card_number){
         // call the method for getting particular user account balance
         $balance = $this->getAccountBalance();
         
@@ -31,7 +31,7 @@ class CableSubscription{
         //     ];
         // }
 
-        $response = $this->processTvCableSub($cable_name, $cable_plan, $smart_card_number);
+        $response = $this->processTvCableSub($cable_name, $cable_plan_id, $smart_card_number);
 
         if(isset($response)){
             return $response;
@@ -57,15 +57,17 @@ class CableSubscription{
 
         $endpoint = "https://gladtidingsapihub.com/api/cablesub/";
         $header = array(
-            "Authorization: Token"  . '45264e5b4be99aa0f1571e0c0447719759c3e4bb',
+            "Authorization: Token "  . '45264e5b4be99aa0f1571e0c0447719759c3e4bb',
             'Content-Type: application/json'
         );
 
         $data = array(
             "cablename" => $cable_name,
-            "cableplan" => $cable_plan_id,
+            "cableplan" => (int)$cable_plan_id,
             "smart_card_number" => $smart_card_number
         );
+
+        echo json_encode($data);
 
         $curl = curl_init();
 
@@ -80,6 +82,9 @@ class CableSubscription{
         if(curl_errno($curl)){
             return ["status" => "failed", "error" => curl_error($curl)];
         }
+
+        // Log the API response
+        error_log("API Response: " . $response);
 
         curl_close($curl);
         return json_decode($response, true);
@@ -99,14 +104,20 @@ class CableSubscription{
         return 0;
     }
 }
-if(!empty($_POST['cable_name']) && !empty($_POST['smart_card_number']) && !empty($_POST['cable_plan_id'])){
+if(!empty($_POST['cable_name'])  && !empty($_POST['cable_plan_id']) && !empty($_POST['smart_card_number'])){
 
     $cable_name = $conn->real_escape_string($_POST['cable_name']);
-    $smart_card_number = $conn->real_escape_string($_POST['smart_card_number']);
     $cable_plan_id = $conn->real_escape_string($_POST['cable_plan_id']);
+    $smart_card_number = $conn->real_escape_string($_POST['smart_card_number']);
+    
+
+    // Debugging statements
+    error_log("Cable Name: $cable_name");
+    error_log("Smart Card Number: $smart_card_number");
+    error_log("Cable Plan ID: $cable_plan_id");
 
     $cl = new CableSubscription($conn);
-    $call = $cl->buyTvCable($cable_name, $smart_card_number, $cable_plan_id);
+    $call = $cl->buyTvCable($cable_name, $cable_plan_id, $smart_card_number);
     echo json_encode($call);
 }
 ?>

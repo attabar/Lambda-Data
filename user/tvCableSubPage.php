@@ -69,21 +69,21 @@
             </select>
           </div>
 
-          <div>
-            <label for="smart_card_number" class="form-label">Smart card number</label>
-            <input type="text" name="smart_card_number" id="smart_card_number" placeholder="Smart card Number">
-          </div>
-
+          
           <div>
             <label for="cable_plan_id" class="form-label">Cable Plan<span style="color: red;">*</span></label>
             <select name="cable_plan_id" id="cable_plan_id">
-              <option disabled selected>---Select Cable Plan---</option>
+              <option value="0" disabled selected>---Select Cable Plan---</option>
               <option value="2">GOtv Max - 7200</option>
               <option value="6">DStv Yanga - 5100</option>
               <option value="7">DStv Compact - 	15700</option>
             </select>
           </div>
 
+          <div>
+            <label for="smart_card_number" class="form-label">Smart card number</label>
+            <input type="number" name="smart_card_number" id="smart_card_number" placeholder="Smart card Number">
+          </div>
 
           <div id="btn-container">
             <button type="submit" class="btn" id="btn" name="submit">Pay</button>

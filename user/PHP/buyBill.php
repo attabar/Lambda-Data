@@ -27,8 +27,8 @@ class ElectricityBillPayment{
 
         $response = $this->processElectricityBillPayment($disco_name, $amount, $meter_number, $meter_type);
 
-        
-        print_r($response);
+        // Debugging statement
+        error_log("API Response: " . json_encode($response));
         
         // if($response && $response['status'] === "successful"){
         //     return [
@@ -60,11 +60,11 @@ class ElectricityBillPayment{
             "disco_name" => $disco_name,
             "amount" => $amount,
             "meter_number" => $meter_number,
-            "MeterType" => $meter_type
-            // 'meter type id (PREPAID:1,POSTPAID:2)'
+            "MeterType" => (int)$meter_type
         );
 
-        print_r($data);
+        // Debugging statement
+        error_log("API Request Data: " . json_encode($data));
 
         $curl = curl_init();
 
@@ -98,15 +98,30 @@ class ElectricityBillPayment{
         return 0;
     }
 }
-if(!empty($_POST['disco_name']) || !empty($_POST['amount']) || !empty($_POST['meter_type'] || !empty($_POST['meter_number']))){
+
+if(!empty($_POST['disco_name']) || !empty($_POST['amount']) || !empty($_POST['meter_number']) || !empty($_POST['meter_type'])){
 
     $disco_name = $conn->real_escape_string($_POST['disco_name']);
     $amount = $conn->real_escape_string($_POST['amount']);
-    $meter_type = $conn->real_escape_string($_POST['meter_type']);
     $meter_number = $conn->real_escape_string($_POST['meter_number']);
+    $meter_type = $conn->real_escape_string($_POST['meter_type']);
+
+    // Debugging statements
+    error_log("Disco Name: $disco_name");
+    error_log("Amount: $amount");
+    error_log("Meter Number: $meter_number");
+    error_log("Meter Type: $meter_type");
+
+    // Ensure meter_type is a valid value
+    if(!in_array($meter_type, [1, 2])) {
+        echo json_encode(["error" => "Invalid meter type"]);
+        exit();
+    }
 
     $cl = new ElectricityBillPayment($conn);
     $call = $cl->buyNepaBill($disco_name, $amount, $meter_number, $meter_type);
     echo json_encode($call);
+} else {
+    echo json_encode(["error" => "All fields are required"]);
 }
 ?>
