@@ -1,6 +1,6 @@
 $('document').ready(function(){
     $.ajax({
-        url: './php/allUsers.php',
+        url: './php/users.php',
         type: 'GET',
         dataType: 'json', // Assuming your php script will return json format 
         success: function(response){
@@ -18,6 +18,7 @@ $('document').ready(function(){
                         '<td>'+response.users[i].phone+'</td>' +
                         '<td><i class="bi bi-trash delete-icon" data-id="'+ response.users[i].id +'"></i></td>' +
                         '<td><i class="bi bi-pencil-square update-icon" data-id="'+ response.users[i].id +'"></i></td>' +
+                        '<td><i class="bi bi-pencil-square update-icon" data-id="'+ window.location.href +' = ../../users/RegistrationPage.php "></i></td>' +
                         '</tr>'
                     )
                 }

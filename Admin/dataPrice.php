@@ -71,6 +71,7 @@
                     <input type="search" name="" id="search" placeholder="Search Users...">
                 </div>
             </form>
+            <a href="./setDataPrice.php" id="btnText"><button class="addUserBtn">Update Price</button></a>
             </div>
 
             <table>

@@ -112,7 +112,7 @@ $('document').ready(function(){
     });
 })
 </script>
-<script src="./JS/logout.js"></script>
+<script src="./JS/redirect.js"></script>
 <script src="./JS/dataOptions.js"></script>
 <script src="JS/buyData.js"></script>
 </body>

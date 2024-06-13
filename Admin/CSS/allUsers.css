@@ -21,7 +21,8 @@ table {
   }
   #search{
     padding: 10px;
-    width: 300px;
+    width: 400px;
+    border-radius: 15px;
   }
   .search-container{
     position: relative;
@@ -36,3 +37,13 @@ table {
   .delete-icon:hover{
     color: red;
   }
+
+  .addUserBtn{
+    background-color: blue;
+    padding: 15px;
+    border-radius: 50px;
+    border: none;
+    color:aliceblue;
+  }
+
+  

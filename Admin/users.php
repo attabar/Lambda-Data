@@ -22,23 +22,33 @@
         <!-- Your sidebar content goes here -->
         <div class="sidebar-content">
             <ul>
-                <li><a href="#"><i class="bi bi-columns-gap"></i> Dashboard</a></li>
+                <li><a href="./dashboards.php"><i class="bi bi-columns-gap"></i> Dashboard</a></li>
                 <li class="with-arrow account"><i class="fas fa-user"></i> Manage Users <i class="bi bi-chevron-down"></i>
                 <!-- submenu for account -->
                 <ul class="submenu">
-                    <li><a href="./allUsers.php"><i class="bi bi-arrow-right-short"></i>All Users</a></li>
-                    <li><i class="bi bi-arrow-right-short"></i>Add User</li>
+                    <li><a href="./users.php"><i class="bi bi-arrow-right-short"></i>Users</a></li>
+                    <!-- <li><i class="bi bi-arrow-right-short"></i>Add User</li> -->
                 </ul>
                 </li>
-                <li><i class="fas fa-wallet"></i> Fund Wallet</li>
-                <li><a href="./data.php"><i class="fas fa-wifi"></i> Buy Data</a></li>
-                <li><a href="./airtime.php"><i class="fas fa-phone"></i> Buy Airtime</a></li>
-                <li><i class="fas fa-lightbulb"></i> Bills</li>
-                <li><i class="fas fa-dollar-sign"></i> Transactions</li>
-                <li><i class="bi bi-cash"></i> Wallet Summary</li>
+                <li class="with-arrow account"><i class="bi bi-cash"></i> Set Prices  <i class="bi bi-chevron-down"></i>
+                <!-- submenu for prices -->
+                <ul class="submenu">
+                    <li><a href="./dataPrice.php"><i class="bi bi-arrow-right-short"></i>Data Price</a></li>
+                    <li><a href="./AirtimePrice.php"><i class="bi bi-arrow-right-short"></i>Airtime Price</a></li>
+                </ul>
+                </li>
+                <li class="with-arrow account"><i class="fas fa-exchange-alt"></i> Transactions <i class="bi bi-chevron-down"></i>
+                <ul class="submenu">
+                    <li><a href="./dataTransactions.php"><i class="bi bi-arrow-right-short"></i>Data History</a></li>
+                    <li><a href="./airtime.php"><i class="bi bi-arrow-right-short"></i>Airtime History</a></li>
+                    <li><i class="bi bi-arrow-right-short"></i>Bills History</li>
+                    <li><i class="bi bi-arrow-right-short"></i>TV History</li>
+                </ul>
+                </li>
+                <!-- <li><i class="bi bi-cash"></i> Wallet Summary</li>
                 <li class="with-arrow"><i class="bi bi-sliders"></i> Others <i class="bi bi-chevron-down"></i></li>
-                <li><i class="bi bi-gear-fill"></i> Settings</li>
-                <li><i class="bi bi-tag-fill"></i> Price</li>
+                <li><i class="bi bi-gear-fill"></i> Settings</li> -->
+                <li><i class="fa fa-envelope-open" aria-hidden="true"></i> Send Email</li> 
                 <li><i class="bi bi-bell-fill"></i> Notifications</li>
                 <li id="logout"><i class="bi bi-box-arrow-left"></i> Logout</li>
             </ul>
@@ -55,14 +65,16 @@
 
             <div class="search-and-heading">
             <h2>USERS DATA</h2>
+            <!-- <button>Add Users</button> -->
             <form action="">
                 <div class="search-container">
                     <i class="fas fa-search search-icon"></i>
                     <input type="search" name="" id="search" placeholder="Search Users...">
                 </div>
             </form>
+            <button class="addUserBtn"><a href="../user/RegistrationPage.php">Add Users</a></button>
             </div>
-
+            
             <table>
             <tr>
                 <th>ID</th>
@@ -109,6 +121,6 @@ $('document').ready(function(){
 })
 </script>
 <!-- users account -->
-<script src="./JS/allUsers.js"></script>
+<script src="./JS/users.js"></script>
 </body>
 </html>

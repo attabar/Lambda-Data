@@ -24,8 +24,8 @@
                 <li class="with-arrow account"><i class="fas fa-user"></i> Manage Users <i class="bi bi-chevron-down"></i>
                 <!-- submenu for account -->
                 <ul class="submenu">
-                    <li><a href="./allUsers.php"><i class="bi bi-arrow-right-short"></i>Users</a></li>
-                    <li><i class="bi bi-arrow-right-short"></i>Add User</li>
+                    <li><a href="./users.php"><i class="bi bi-arrow-right-short"></i>Users</a></li>
+                    <!-- <li><i class="bi bi-arrow-right-short"></i>Add User</li> -->
                 </ul>
                 </li>
                 <li class="with-arrow account"><i class="bi bi-cash"></i> Set Prices  <i class="bi bi-chevron-down"></i>
@@ -109,7 +109,7 @@ $('document').ready(function(){
             url: './PHP/logout.php',
             type: 'GET',
             success: function(response){
-                window.location.href = './loginPage.php'
+                window.location.href = './index.php'
             },
             error: function(xhr, status, error){
                 console.log("AJAX ERROR: " + status + " - " + error);
