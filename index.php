@@ -15,14 +15,14 @@
       <div class="header">
         <img src="./img/logo.jpg" class="logo" alt="" srcset="">
         <!-- Side menu -->
-        <div class="menu-on-large-screen" id="menu-on-large-screen">
+        <div class="menu" id="menu">
             <ul>
                 <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">Prices</a></li>
-                <li><a href="#">Testimonials</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contactUs">Contact</a></li>
+                <li><a href="#prices">Prices</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="./user/RegistrationPage.php">Register</a></li>
             </ul>
         </div>
@@ -33,37 +33,19 @@
         </div>
     </div>
 
-    <!-- Side menu -->
-    <div class="menu" id="menu">
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Services</a></li>
-          <li><a href="#">Contact</a></li>
-          <li><a href="#">Prices</a></li>
-          <li><a href="#">Testimonials</a></li>
-          <li><a href="./user/RegistrationPage.php">Register</a></li>
-        </ul>
-    </div>
   <!-- hero section -->
   <div class="hero">
     <img src="./img/hero.jpeg" alt="">
     <h3>Recharge Anywhere and Anytime</h3>
   </div>
     <!-- about us-->
+     <h1 style="text-align: center;">About Lambda Data</h1>
     <div class="aboutUs" id="about">
-        <h1>About Us</h1>
-        <div class="aboutChild1">
-        <img src="./img/logo.jpg" alt="">
-        <div class="rightText">
+        <img src="./img/logo.jpg" alt="aboutUsImg" id="aboutUsImg">
         <h2>Lambda Data</h2>
         <h4>Lambda data is a virtual top up company registered with CAC Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima, obcaecati quos in cumque sunt sequi possimus pariatur fugit alias ab animi? Distinctio aut velit perferendis, sit nam sint culpa odit!
         Eius officiis, optio maxime, quam facere velit suscipit possimus architecto hic assumenda illum ratione quaerat! Architecto, dicta vitae cupiditate quisquam explicabo possimus minima voluptas laborum quod tempore corrupti odit natus!
-        Quas, illo necessitatibus quam odit saepe quia quis accusamus? Possimus id eos sunt dolores labore cupiditate eius quos incidunt voluptates iusto similique totam nobis nostrum, quia facilis tenetur ad libero?
-        Nemo recusandae rerum quod corrupti soluta reiciendis tenetur repellendus ex, ipsam exercitationem, neque, iste aspernatur assumenda obcaecati. Quam, reprehenderit? Consequatur nostrum pariatur nisi perspiciatis adipisci id, tempore optio sed enim.
-        Qui tempore odit quaerat beatae deleniti, expedita sit nulla dolor excepturi nobis possimus enim consectetur culpa facilis aspernatur eaque sequi delectus! Eaque aliquam earum eum at numquam neque ipsum cumque.</h4>
-        </div>
-        </div>
+        Quas, illo necessitatibus quam odit saepe quia quis accusamus? Possimus id eos sunt dolores labore cupiditate eius quos incidunt voluptates iusto similique totam nobis nostrum, quia facilis tenetur ad libero?.</h4>
     </div>
     
     <!-- services -->
@@ -363,7 +345,7 @@
       </div>
     </div>
     <!-- contact us -->
-    <div class="contactUs" id="contact">
+    <div class="contactUs" id="contactUs">
       <!-- first child -->
       <div class="firstChild">
         <h1>Contact US</h1>

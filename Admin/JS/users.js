@@ -17,8 +17,8 @@ $('document').ready(function(){
                         '<td>'+response.users[i].email+'</td>' +
                         '<td>'+response.users[i].phone+'</td>' +
                         '<td><i class="bi bi-trash delete-icon" data-id="'+ response.users[i].id +'"></i></td>' +
-                        '<td><i class="bi bi-pencil-square update-icon" data-id="'+ response.users[i].id +'"></i></td>' +
-                        '<td><i class="bi bi-pencil-square update-icon" data-id="'+ window.location.href +' = ../../users/RegistrationPage.php "></i></td>' +
+                        // '<td><i class="bi bi-pencil-square update-icon" data-id="'+ response.users[i].id +'"></i></td>' +
+                        // '<td><i class="bi bi-pencil-square update-icon" data-id="'+ window.location.href +' = ../../users/RegistrationPage.php "></i></td>' +
                         '</tr>'
                     )
                 }

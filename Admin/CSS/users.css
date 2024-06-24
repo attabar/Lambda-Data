@@ -45,5 +45,31 @@ table {
     border: none;
     color:aliceblue;
   }
+/*Start: Style Update data price section, file name dataPrice.php */
+  #setDataPrice{
+    background-color: black;
+    width: 50%;
+    color: #dddddd;
+    margin-top: 35px;
+    padding: 35px;
+    position: relative;
+    left: 25%;
+    border-radius: 10px;
+  }
 
+  .heading{
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  #network-id, #planType, #buying-price, #selling-price, #update{
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  #divForUpdate{
+    margin-bottom: 7px;
+  }
   
+  /* End: Style Update data price section */

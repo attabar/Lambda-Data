@@ -14,9 +14,8 @@ document.addEventListener("DOMContentLoaded", function(){
         .then(response => {
             if(!response.ok){
                 throw new Error("network is not ok");
-            }else{
-                return response.json();
             }
+            return response.json();
         })
         .then(data => {
             var select = document.getElementById("plan_id");

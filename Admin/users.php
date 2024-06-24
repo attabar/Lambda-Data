@@ -13,7 +13,7 @@
     <!-- favicon -->
     <link rel="icon" type="image/x-icon" href="../img/logo.jpg">
     <!-- custom css file -->
-    <link rel="stylesheet" href="./CSS/allUsers.css">
+    <link rel="stylesheet" href="./CSS/users.css">
 </head>
 <body>
 <div class="container">
@@ -83,8 +83,7 @@
                 <th>Username</th>
                 <th>Email</th>
                 <th>Phone</th>
-                <th>Update</th>
-                <th>Delete</th>
+                <!-- <th>Delete</th> -->
             </tr>        
             </table>
         

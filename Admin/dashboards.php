@@ -31,7 +31,7 @@
                 <li class="with-arrow account"><i class="bi bi-cash"></i> Set Prices  <i class="bi bi-chevron-down"></i>
                 <!-- submenu for prices -->
                 <ul class="submenu">
-                    <li><a href="./dataPrice.php"><i class="bi bi-arrow-right-short"></i>Data Price</a></li>
+                    <li><a href="./updateDataPrice.php"><i class="bi bi-arrow-right-short"></i>Data Price</a></li>
                     <li><a href="./AirtimePrice.php"><i class="bi bi-arrow-right-short"></i>Airtime Price</a></li>
                 </ul>
                 </li>
@@ -41,6 +41,7 @@
                     <li><a href="./airtime.php"><i class="bi bi-arrow-right-short"></i>Airtime History</a></li>
                     <li><i class="bi bi-arrow-right-short"></i>Bills History</li>
                     <li><i class="bi bi-arrow-right-short"></i>TV History</li>
+                    <!-- <li><i class="bi bi-arrow-right-short"></i>Result Pin History</li> -->
                 </ul>
                 </li>
                 <!-- <li><i class="bi bi-cash"></i> Wallet Summary</li>

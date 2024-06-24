@@ -1,15 +1,23 @@
 <?php
 
-$host = "localhost";
-$user = "root";
-$pass = "";
-$dbname = "vtu";
+class Database {
 
-$conn = new mysqli($host, $user, $pass, $dbname);
+    private $host = "localhost";
+    private $dbname = "vtu";
+    private $user = "root";
+    private $pass = "";
+    
+    private $conn;
 
-if(!$conn){
-    echo "<h1>Failed to Connect: </h1>" . $conn->error;
+    public function connect() {
+        $this->conn = null;
+        try{
+            $this->conn = new PDO("mysql:host=" . $this->host . ";dbname=" . $this->dbname, $this->user, $this->pass);
+            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        }catch(Exception $ex){
+            echo "Connection Error: " . $ex->getMessage();
+        }
+        return $this->conn;
+    }
 }
-
-
 ?>

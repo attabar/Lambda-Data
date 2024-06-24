@@ -13,7 +13,7 @@
     <!-- favicon -->
     <link rel="icon" type="image/x-icon" href="../img/logo.jpg">
     <!-- custom css file -->
-    <link rel="stylesheet" href="./CSS/allUsers.css">
+    <link rel="stylesheet" href="./CSS/users.css">
 </head>
 <body>
 <div class="container">
@@ -71,7 +71,7 @@
                     <input type="search" name="" id="search" placeholder="Search Users...">
                 </div>
             </form>
-            <a href="./setDataPrice.php" id="btnText"><button class="addUserBtn">Update Price</button></a>
+            <a href="#setDataPrice" id="btnText"><button class="addUserBtn">Update Price</button></a>
             </div>
 
             <table>
@@ -87,6 +87,39 @@
             </tr>        
             </table>
         
+        <div class="setDataPrice" id="setDataPrice">
+            <div class="heading">
+                <h2>UPDATE PRICE</h2>
+            </div>
+            <form id="updateDataPrice">
+                <div class="network-id" id="divForUpdate">
+                    <label for="network-id">Network</label>
+                    <select name="network-id" id="network-id">
+                        <option value="0" selected disabled>Select Network</option>
+                        <option value="1">MTN</option>
+                        <option value="3">AIRTEL</option>
+                        <option value="2">GLO</option>
+                        <option value="6">9MOBILE</option>
+                    </select>
+                </div>
+                <div class="planType" id="divForUpdate">
+                    <label for="">Plan Type</label>
+                    <select name="planType" id="planType">
+                    </select>
+                </div>
+                <div class="buying-price" id="divForUpdate">
+                    <label for="">Buying Price</label>
+                    <input type="number" name="buying-price" id="buying-price" placeholder="Buying Price">
+                </div>
+                <div class="selling-price" id="divForUpdate">
+                    <label for="">Selling Price</label>
+                    <input type="number" name="selling-price" id="selling-price" placeholder="Selling Price">
+                </div>
+                <div class="update-btn" id="divForUpdate">
+                    <input type="submit" value="Update" name="update" id="update">
+                </div>
+            </form>
+        </div>
         </div>
     </div>
 </div>
@@ -119,7 +152,8 @@ $('document').ready(function(){
     })
 })
 </script>
-<!-- users account -->
+<!-- price table -->
 <script src="./JS/dataPrice.js"></script>
+<script src="./JS/updateDataPrice.js"></script>
 </body>
 </html>

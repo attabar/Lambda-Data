@@ -148,7 +148,7 @@ class Registration {
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $response = curl_exec($ch);
 
-        if (curl_errno($ch)) {
+        if (curl_errno($ch)) { 
             $error = 'cURL: ' . curl_error($ch);
             error_log($error, 3, '../../../../../php/logs/php_error_log');
             return ["success" => false, "message" => "No stable internet connection, try again later..."];
