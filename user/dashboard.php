@@ -131,12 +131,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- wallet details and referral div -->
-                <!-- <div class="wallet-details-and-referral" style="background-color: red;">
-                <div class="wallet-details">
-                    <h2>Wallet Balance</h2>
-                </div>
-            </div> -->
+            
                 <!-- end of main content -->
             </div>
         </div>
