@@ -95,7 +95,7 @@
   </div>
 <script src="./JQUERY/jquery.js"></script>
 <script src="./SweetAlert/sweetalert.js"></script>
-<script src="./JS/redirect.js"></script>
+<!-- <script src="./JS/redirect.js"></script> -->
 <script>
 $('document').ready(function(){
     $('.navbar').click(function(e){

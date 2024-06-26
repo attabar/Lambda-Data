@@ -19,13 +19,12 @@
 <body>
     <div class="container">
         <!-- sidebar container -->
-        <div class="sidebar">
+        <div class="sidebar" id="sidebar">
             <!-- Your sidebar content goes here -->
             <div class="sidebar-content">
                 <ul>
                     <li><a href="#"><i class="bi bi-columns-gap"></i> Dashboard</a></li>
-                    <li class="with-arrow account"><i class="fas fa-user"></i> Account <i
-                            class="bi bi-chevron-down"></i>
+                    <li class="with-arrow account"><i class="fas fa-user"></i> Account <i class="bi bi-chevron-down"></i>
                         <!-- submenu for account -->
                         <ul class="submenu">
                             <li><a href="./profile.php"><i class="bi bi-arrow-right-short"></i> Profile</a></li>
@@ -69,11 +68,16 @@
         <div class="content">
             <!-- header -->
             <div class="header">
-                <button class="navbar">&#9776;</button>
+                <div class="navbar" onclick="toggleMenu()">
+                    <!-- &#9776; -->
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
             </div>
             <!-- Your main content goes here -->
             <div class="main-content">
-                <marquee behavior="" direction="">This is the only avalailable bank we have for now that is wema bank
+                <marquee class="marquee" behavior="" direction="">This is the only avalailable bank we have for now that is wema bank
                 </marquee>
                 <!-- account -->
                 <div class="account-details">
@@ -136,13 +140,31 @@
             </div>
         </div>
     </div>
+    <script>
+        function toggleMenu(){
+            let sidebar = document.getElementById('sidebar');
+            let isOpen = sidebar.style.left === '0px';
+            sidebar.style.left = isOpen ? '-228px' : '0px';
+
+            let marquee = document.querySelector('.marquee');
+            let mainContent = document.querySelector('.main-content');
+
+            if (isOpen) {
+                marquee.style.width = 'calc(100% - 20px)'; // Full width minus some margin
+                mainContent.style.marginLeft = '20px'; // Adjust as per your layout
+            } else {
+                marquee.style.width = 'calc(100% - 248px)'; // Full width minus sidebar width and some margin
+                mainContent.style.marginLeft = '248px'; // Adjust as per your layout
+            }
+
+            let toggleIcon = document.querySelector(".navbar");
+            toggleIcon.classList.toggle('open');
+        }
+
+    </script>
     <script src="./JQUERY/jquery.js"></script>
     <script>
     $('document').ready(function() {
-        $('.navbar').click(function(e) {
-            e.preventDefault();
-            $('.sidebar').toggle();
-        });
         $('.account').click(function() {
             $(this).toggleClass('open');
             $(this).find('.submenu').toggle();
