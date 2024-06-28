@@ -77,8 +77,31 @@
             </div>
             <!-- Your main content goes here -->
             <div class="main-content">
-                <marquee class="marquee" behavior="" direction="">This is the only avalailable bank we have for now that is wema bank
-                </marquee>
+                <!-- <marquee class="marquee" behavior="" direction="">This is the only avalailable bank we have for now that is wema bank
+                </marquee> -->
+                <div class="balanceContainer">
+                <h1 style="color:aliceblue;padding:35px">Hi, <span id="username"></span></h1>
+                    <div class="balance">
+                    <i class="fas fa-wallet fa-2x"></i>
+                    Wallet Balance
+                    <h2 style="color:aliceblue;padding-left:35px;padding-top:40px" id="accBalance">₦0.00</h2>
+                    </div>
+                    <div class="referral">
+                        <i class="fa fa-users fa-2x" aria-hidden="true"></i>
+                        Referral Commission
+                        <h2 style="color:aliceblue;padding-left:35px;padding-top:40px" id="accBalance">₦0.00</h2>
+                    </div>
+                    <div class="dataBalance">
+                    <i class="fas fa-wifi fa-2x"></i>
+                    Data Balance
+                    <h2 style="color:aliceblue;padding-left:35px;padding-top:40px" id="accBalance">0.00</h2>
+                    </div>
+                </div>
+                <div class="bankNames">
+                        <button><i class="fa fa-university" aria-hidden="true"></i>Wema Bank</button>
+                        <button><i class="fa fa-university" aria-hidden="true"></i>9PS Bank</button>
+                        <button><i class="fa fa-university" aria-hidden="true"></i>Moniepoint</button>
+                </div>
                 <!-- account -->
                 <div class="account-details">
                     <!-- wema bank logo img-->
@@ -89,15 +112,6 @@
                     <h3>Bank Name: <span id="bank"></span></h3><br><br>
                     <h3>AUTOMATED BANK TRANSFER</h3>
                     <h4>Make transfer to this account to fund your wallet</h4>
-                </div>
-                <!-- userStatus -->
-                <div class="account-status">
-                    <div class="account-container"><button><i class="bi bi-plus-lg"></i> Fund Wallet</button><button><i
-                                class="bi bi-plus-lg"></i> Upgrade Account</button></div>
-                    <h1 style="color:aliceblue;padding:35px">Welcome <span id="username"></span></h1>
-                    <h3 style="color:aliceblue;padding-left:35px">SMART EARNER</h3>
-                    <h2 style="color:aliceblue;padding-left:35px;padding-top:40px" id="accBalance">₦0.00</h2>
-                    <h4 style="color:aliceblue;padding-left:35px;padding-top:15px;font-weight:100">Wallet Balance</h4>
                 </div>
                 <!-- services -->
                 <div class="services" id="services">
@@ -149,13 +163,13 @@
             let marquee = document.querySelector('.marquee');
             let mainContent = document.querySelector('.main-content');
 
-            if (isOpen) {
-                marquee.style.width = 'calc(100% - 20px)'; // Full width minus some margin
-                mainContent.style.marginLeft = '20px'; // Adjust as per your layout
-            } else {
-                marquee.style.width = 'calc(100% - 248px)'; // Full width minus sidebar width and some margin
-                mainContent.style.marginLeft = '248px'; // Adjust as per your layout
-            }
+           // if (isOpen) {
+             //   marquee.style.width = 'calc(100% - 20px)'; // Full width minus some margin
+               // mainContent.style.marginLeft = '20px'; // Adjust as per your layout
+            //} else {
+              //  marquee.style.width = 'calc(100% - 248px)'; // Full width minus sidebar width and some margin
+               // mainContent.style.marginLeft = '248px'; // Adjust as per your layout
+            //}
 
             let toggleIcon = document.querySelector(".navbar");
             toggleIcon.classList.toggle('open');
