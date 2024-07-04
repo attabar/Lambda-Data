@@ -9,6 +9,11 @@
     <link rel="icon" type="image/x-icon" href="./img/logo.jpg">
     <!-- bootstrap icon -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 <body>
       <!-- Header with menu toggle -->
@@ -17,13 +22,14 @@
         <!-- Side menu -->
         <div class="menu" id="menu">
             <ul>
-                <li><a href="#">Home</a></li>
+                <li><a href="/" class="home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#contactUs">Contact</a></li>
                 <li><a href="#prices">Prices</a></li>
                 <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="./user/RegistrationPage.php">Register</a></li>
+                <li><a href="./user/RegistrationPage.php" class="register">Register</a></li>
+                <li><a href="./user/loginPage.php" class="login">Login</a></li>
             </ul>
         </div>
         <div class="menu-toggle" onclick="toggleMenu()">
@@ -35,8 +41,23 @@
 
   <!-- hero section -->
   <div class="hero">
-    <img src="./img/hero.jpeg" alt="">
-    <h3>Recharge Anywhere and Anytime</h3>
+    <div class="hero-text">
+      <div class="effect"></div>
+      <h1>Welcome To <span>Lambda</span> Data, The most fast Virtual Top Up Company In Nigeria.</h1>
+    <h3>Top Up Anytime and Anywhere</h3>
+    <!-- <i class="fas fa-home"></i>
+<i class="fab fa-twitter"></i>
+<i class="fas fa-user"></i> -->
+
+    <a href="./user/RegistrationPage.php" class="btn1">Register</a>
+    <a href="./user/RegistrationPage.php" class="btn2">Login</a>
+    </div>
+    <div class="hero-img">
+      <div class="discount"><i class="fa fa-sort-amount-desc" aria-hidden="true"></i><p>20% Discount</p></div>
+      <div class="imgBg"></div>
+    <img src="./img/hero.png" alt="">
+    <div class="fast"><i class="fa fa-plane" aria-hidden="true"></i><p>100% Fast</p></div>
+    </div>
   </div>
     <!-- about us-->
      <h1 style="text-align: center;">About Lambda Data</h1>
@@ -386,27 +407,25 @@
       <div class="firstChild">
         <!-- contacts -->
         <div class="contact-info">
-          <h1>Contact Info</h1>
-          <p>WhatsApp</p>
-          <p>Facebook</p>
-          <p>Instagram</p>
-          <p>Twitter</p>
+        <img src="./img/logo.jpg" class="logo" alt="" srcset="">
+          <h1><span>Lambda</span> Data</h1>
+          <p>is a virtual top up company that <br/> is used to purchased data, airtime<br/> Tv Subscription, Electricity bill, <br> result pin and airtime to cash.</p>
         </div>
         <!-- usefull link 1 -->
         <div class="useful-link1">
-          <h1>Useful Link</h1>
-          <p>Home</p>
-          <p>About</p>
+          <h1>Nav Links</h1>
+          <p><a href="/">Home</a></p>
+          <p><a href="#about">About</a></p>
           <p>Services</p>
           <p>Contact</p>
         </div>
         <!-- usefull link 2-->
         <div class="useful-link2">
-          <h1>Useful Link</h1>
-          <p>Home</p>
-          <p>About</p>
-          <p>Services</p>
-          <p>Contact</p>
+          <h1>SM Handles</h1>
+          <p><i class="fa fa-whatsapp" aria-hidden="true" style="color: white;"></i> WhatsApp</p>
+          <p><i class="fa fa-facebook-official" aria-hidden="true"></i> Facebook</p>
+          <p><i class="fa fa-telegram" aria-hidden="true"></i> Telegram</p>
+          <p><i class="fa fa-youtube-play" aria-hidden="true"></i> YouTube</p>
         </div>
         <div class="subscribe">
           <form action="./PHP/subscribe.php" method="POST">
@@ -416,7 +435,7 @@
         </div>
       </div>
       <div class="copy-right">
-        <p>&copy; AND Developed at LAMBDA TECH SERVICES SOLUTION 2023</p>
+        <p>&copy; Copyright LAMBDA TECH SERVICES SOLUTION <?php $date = date("Y"); echo $date; ?></p>
       </div>
     </div>
     <script>
