@@ -41,22 +41,20 @@
 
   <!-- hero section -->
   <div class="hero">
+
     <div class="hero-text">
       <div class="effect"></div>
-      <h1>Welcome To <span>Lambda</span> Data, The most fast Virtual Top Up Company In Nigeria.</h1>
-    <h3>Top Up Anytime and Anywhere</h3>
-    <!-- <i class="fas fa-home"></i>
-<i class="fab fa-twitter"></i>
-<i class="fas fa-user"></i> -->
-
-    <a href="./user/RegistrationPage.php" class="btn1">Register</a>
-    <a href="./user/RegistrationPage.php" class="btn2">Login</a>
+        <h1>Welcome To <span>Lambda</span> Data, The most fast Virtual Top Up Company In Nigeria.</h1>
+        <h3>Top Up Anytime and Anywhere</h3>
+        <a href="./user/RegistrationPage.php" class="btn1">Register</a>
+        <a href="./user/RegistrationPage.php" class="btn2">Login</a>
     </div>
+    <!-- hero img start -->
     <div class="hero-img">
       <div class="discount"><i class="fa fa-sort-amount-desc" aria-hidden="true"></i><p>20% Discount</p></div>
       <div class="imgBg"></div>
-    <img src="./img/hero.png" alt="">
-    <div class="fast"><i class="fa fa-plane" aria-hidden="true"></i><p>100% Fast</p></div>
+      <img src="./img/hero.png" alt="">
+      <div class="fast"><i class="fa fa-plane" aria-hidden="true"></i><p>100% Fast</p></div>
     </div>
   </div>
     <!-- about us-->
