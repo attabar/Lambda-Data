@@ -419,7 +419,7 @@
         </div>
         <!-- usefull link 2-->
         <div class="useful-link2">
-          <h1>SM Handles</h1>
+          <h1>Contact Us</h1>
           <p><i class="fa fa-whatsapp" aria-hidden="true" style="color: white;"></i> WhatsApp</p>
           <p><i class="fa fa-facebook-official" aria-hidden="true"></i> Facebook</p>
           <p><i class="fa fa-telegram" aria-hidden="true"></i> Telegram</p>

@@ -148,49 +148,7 @@ marquee{
     right: 2%;
     top: 13%;
 }
-.balanceContainer{
-    display: flex;
-    justify-content: space-around;
-    background-color: #333;
-    color: #fff;
-    width: 80%;
-    height: 30%;
-    position: absolute;
-    top: 13%;
-    right: 2%;
-    padding: 35px;
-    border-radius: 5px;
-    margin-bottom: 13%;
-}
-.bankNames{
-    display: flex;
-    align-items: center;
-    position: absolute;
-    width: 80%;
-    top: 44%;
-    gap: 55px;
-}
-.bankNames button{
-    padding: 5px;
-    background-color: #333;
-    color: #fff;
-    border-radius: 5px;
-    width: 20%;
-    letter-spacing: 5px;
-}
-.account-details{
-    position: absolute;
-    top: 50%;
-    right: 2%;
-    width: 80%;
-    background-color: #333;
-    padding: 25px;
-    height: 50vh;
-    color: #fff;
-}
-.wemaImg{
-    width: 80px;
-}
+
 .account-status{
     background-color: #333;
     position: absolute;
@@ -230,6 +188,54 @@ marquee{
         margin-left: 250px;
         margin-top: 100px;
     }
+
+    .account-details{
+        position: absolute;
+        top: 50%;
+        right: 2%;
+        width: 80%;
+        background-color: #333;
+        padding: 25px;
+        height: 50vh;
+        color: #fff;
+    }
+    .wemaImg{
+        width: 80px;
+    }
+    
+
+    .balanceContainer{
+        display: flex;
+        justify-content: space-around;
+        background-color: #333;
+        color: #fff;
+        width: 80%;
+        height: 30%;
+        position: absolute;
+        top: 13%;
+        right: 2%;
+        padding: 35px;
+        border-radius: 5px;
+        margin-bottom: 13%;
+    }
+
+    .bankNames{
+        display: flex;
+        align-items: center;
+        position: absolute;
+        width: 80%;
+        top: 44%;
+        gap: 55px;
+    }
+    .bankNames button{
+        padding: 5px;
+        background-color: #333;
+        color: #fff;
+        border-radius: 5px;
+        width: 20%;
+        letter-spacing: 5px;
+    }
+    
     .chargesAmount{
         position: absolute;
         right: 0;
@@ -263,7 +269,7 @@ marquee{
     display: block;
 } */
 /* on small screen */
-@media only screen and (max-width:767px) {
+@media only screen and (max-width:768px) {
     .sidebar{
         display: none;
         height: 100vh;
@@ -273,17 +279,29 @@ marquee{
         margin-left: 50px;
         margin-top: 100px;
     }
-    marquee{
+    /* marquee{
         z-index: -1;
-    }
+    } */
     .sidebar{
         z-index: 1;
         position: absolute;
         right: 10%;
     }
+    .balanceContainer{
+        background-color: #333;
+        position: relative;
+
+        right: 0%;
+        display: flex;
+        flex-direction: column;
+        border-bottom: 4px solid red;
+    }
+    .account-details .wemaImg{
+        font-size: 1.5rem;
+    }
     .services{
         position: absolute;
-        top: 160%;
+        top: 140%;
         left: 17%;
     }
     .services .grid-container div{
@@ -306,7 +324,7 @@ marquee{
         top: 13%;
     }
     .account-details{
-        position: absolute;
+        position: relative;
         top: 30%;
         right: 0;
         width: 100%;
