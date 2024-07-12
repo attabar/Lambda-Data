@@ -197,12 +197,25 @@ input{
         right: 10%;
     }
     .form-container{
-        width: 300px;
+        display: flex;
+        flex-direction:column;
+        justify-content: center;
+        align-items: center;
+        text-align:center;
+        width: 250px;
         position: absolute;
         right: 13%;
-        height: 55vh;
+        height: 50vh;
         top:15%;
         border-radius: 15px;
+    }
+    .form-container h2 {
+        font-size: 1.0rem;
+        margin-bottom: 1.5rem;
+    }
+    .form-container i {
+        font-size: 1.9rem;
+        margin-bottom: 1.5rem;
     }
     .form-container div{
         margin-bottom: 20px;

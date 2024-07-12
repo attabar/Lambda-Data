@@ -155,25 +155,15 @@
         </div>
     </div>
     <script>
-        function toggleMenu(){
-            let sidebar = document.getElementById('sidebar');
-            let isOpen = sidebar.style.left === '0px';
-            sidebar.style.left = isOpen ? '-228px' : '0px';
+        function toggleMenu() {
+    let sidebar = document.getElementById('sidebar');
+    let isOpen = sidebar.style.left === '0px';
+    sidebar.style.left = isOpen ? '-228px' : '0px';
 
-            let marquee = document.querySelector('.marquee');
-            let mainContent = document.querySelector('.main-content');
+    let toggleIcon = document.querySelector(".navbar");
+    toggleIcon.classList.toggle('open');
+}
 
-           // if (isOpen) {
-             //   marquee.style.width = 'calc(100% - 20px)'; // Full width minus some margin
-               // mainContent.style.marginLeft = '20px'; // Adjust as per your layout
-            //} else {
-              //  marquee.style.width = 'calc(100% - 248px)'; // Full width minus sidebar width and some margin
-               // mainContent.style.marginLeft = '248px'; // Adjust as per your layout
-            //}
-
-            let toggleIcon = document.querySelector(".navbar");
-            toggleIcon.classList.toggle('open');
-        }
 
     </script>
     <script src="./JQUERY/jquery.js"></script>
