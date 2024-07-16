@@ -1,13 +1,12 @@
 document.addEventListener('DOMContentLoaded', function(){
     document.getElementById("logout").addEventListener("click", function(e){
         e.preventDefault();
-        fetch('./PHP/logout.php', {
+        fetch('./assets/PHP/logout.php', {
             method: 'GET'
         })
         .then(response => {
-            console.log(response)
             if(response.ok){
-                window.location.href = "./loginPage.php";
+                window.location.href = "./index.php";
             }else{
                 console.log("logout failed");
             }

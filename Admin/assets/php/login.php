@@ -18,17 +18,19 @@ class Login {
         if(empty($username) || empty($password)){
             $response['status'] = 'error';
             $response['message'] = "<span style='color:red'>All the Fields Are Required</span>";
+            header('Content-Type: application/json'); 
+            echo json_encode($response);
+            return;
         }
         $stmt = $this->conn->prepare("SELECT * FROM admintable WHERE username = ?");
-        $stmt->bind_param("s", $username);
+        $stmt->bindParam(1, $username, PDO::PARAM_STR);
         $stmt->execute();
-        $result = $stmt->get_result();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if($result->num_rows > 0) {
-            $row = $result->fetch_assoc();
-            if(password_verify($password, $row['pass'])){
-                // $_SESSION['user_id'] = $row['user_id'];
-                // $_SESSION['username'] = $row['username'];
+        if($result) {
+            if(password_verify($password, $result['pass'])){
+                
+                $_SESSION['username'] = $result['username'];
     
                 $response = ['status' => true, 'title' => 'Successful', 'message' => "Login was Successful"];
             }else{
@@ -46,8 +48,11 @@ class Login {
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-    $username = $conn->real_escape_string($_POST['username']);
-    $password = $conn->real_escape_string($_POST['password']);
+    $database = new Database();
+    $conn = $database->connect();
+
+    $username = htmlspecialchars($_POST['username']);
+    $password = htmlspecialchars($_POST['password']);
 
     $login = new Login($conn);
     $login->userLogin($username,$password);

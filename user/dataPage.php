@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data</title>
     <!-- custom css file -->
-    <link rel="stylesheet" href="./CSS/data.css">
+    <link rel="stylesheet" href="./assets/CSS/data.css">
     <!-- fontawesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- bootstrap icon -->
@@ -112,8 +112,9 @@ $('document').ready(function(){
     });
 })
 </script>
-<!-- <script src="./JS/redirect.js"></script> -->
 <script src="./JS/dataOptions.js"></script>
 <script src="JS/buyData.js"></script>
+<script src="./assets/JS/logout.js"></script>
+<script src="./assets/JS/user.js"></script>
 </body>
 </html>

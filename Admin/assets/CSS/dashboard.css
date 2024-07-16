@@ -1,0 +1,297 @@
+* {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    /* padding: 0; */
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 228px;
+    height: 100%;
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: auto;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+    transition: 0.9s;
+    z-index: -1;
+}
+.header{
+    background-color: #fff;
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5);
+    padding: 25px;
+    z-index: 1;
+    position: fixed;
+    width: 100%;
+}
+.navbar{
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    cursor: pointer;
+}
+
+.navbar .bar{
+    display: block;
+    align-items: center;
+    text-align: center;
+    background-color: #333;
+    width: 25px;
+    height: 3px;
+    margin-bottom: 3px;
+    transition: all 0.3s ease;
+}
+
+.navbar.open .bar:nth-child(2){
+    opacity: 0;
+}
+.navbar.open .bar:first-child{
+    transform: translate(-3px, 7px) rotate(55deg);
+}
+.navbar.open .bar:nth-child(3){
+    transform: translate(-5px) rotate(-50deg);
+}
+.content {
+    flex: 1;
+    box-sizing: border-box;
+}
+.sidebar-content{
+    margin-top: 55px;
+}
+
+
+.sidebar-content ul li:hover {
+    background-color: #555;
+}
+
+.sidebar-content ul .submenu li a{
+    color:#333;
+}
+
+.sidebar-content ul .submenu li a:hover{
+    color: #fff;
+}
+
+/* Add this CSS to your existing stylesheet */
+.sidebar-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-content ul li {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    position: relative;
+}
+
+.sidebar-content ul li i {
+    margin-right: 10px;
+}
+
+.sidebar-content ul li.with-arrow {
+    position: relative;
+}
+
+.sidebar-content ul li.with-arrow i.bi-chevron-down {
+    position: absolute;
+    right: 2px;
+}
+a{
+    text-decoration: none;
+    color: #fff;
+}
+.submenu{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 10%;
+    color: #333;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    /* z-index: 1; */
+    margin-top: 40px;
+}
+
+.submenu li{
+    padding: 5px;
+    border-bottom: 1px solid #555; 
+}
+.sidebar-content ul li.open + li {
+    margin-top: 245px; /* Adjust the margin as needed */
+}
+marquee{
+    background-color: #fff;
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    position: absolute;
+    width: 85%;
+    right: 10%;
+    top: 13%;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    font-weight: bolder;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #555;
+  }
+
+  /* Other CSS */
+.with-arrow i.bi-chevron-down {
+    transition: transform 0.3s ease;
+}
+
+.with-arrow.open i.bi-chevron-down {
+    transform: rotate(180deg);
+}
+
+/* Style for submenu */
+.submenu {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 10%;
+    color: #333;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    /* margin-top: 40px; */
+}
+
+.submenu li {
+    padding: 10px;
+}
+
+
+/* large screen */
+@media only screen and (min-width:1200px) {
+    .main-content{
+        margin-left: 250px;
+        margin-top: 100px;
+    }
+
+    .recentTransaction{
+        position: absolute;
+        top: 50%;
+        right: 2%;
+        width: 80%;
+        background-color: #333;
+        padding: 25px;
+        height: 50vh;
+        color: #fff;
+    }
+    
+    .balanceContainer{
+        display: flex;
+        justify-content: space-around;
+        background-color: #333;
+        color: #fff;
+        width: 80%;
+        height: 30%;
+        position: absolute;
+        top: 13%;
+        right: 2%;
+        padding: 35px;
+        border-radius: 5px;
+        margin-bottom: 13%;
+    }
+
+    .bankNames{
+        display: flex;
+        align-items: center;
+        position: absolute;
+        width: 80%;
+        top: 44%;
+        gap: 55px;
+    }
+    
+}
+/* .sidebar-content ul li:hover .submenu {
+    display: block;
+} */
+/* on small screen */
+@media only screen and (max-width:768px) {
+    .sidebar{
+        display: none;
+        height: 100vh;
+        position: fixed;
+    }
+    .main-content{
+        margin-left: 50px;
+        margin-top: 100px;
+    }
+    /* marquee{
+        z-index: -1;
+    } */
+    .sidebar{
+        z-index: 1;
+        position: absolute;
+        right: 10%;
+    }
+    .balanceContainer{
+        background-color: #333;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        position: relative;
+        color: white;
+        right: 10%;
+        display: flex;
+        flex-direction: column;
+    }
+    .balanceContainer i {
+        font-size: 1.0rem;
+    }
+    .bankNames {
+        display: flex;
+        position: relative;
+        right: 10%;
+        padding: 2px;
+    }
+    
+    .recentTransaction{
+        display: block;
+        flex-direction: column;
+        position: relative;
+        top: 30%;
+        right: 10%;
+        /* width: 100%; */
+        background-color: #333;
+        padding: 30px;
+        /* height: 70vh; */
+        font-size: 0.7rem;
+        color: #fff;
+    }
+    
+    .sidebar-content ul li{
+        margin-top: 15px;
+    }
+    .sidebar{
+        display: block;
+        height: 100vh;
+        position: fixed;
+    }
+    .sidebar-content ul li {
+        margin-top: 15px;
+    }
+}

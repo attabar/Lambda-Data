@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function(e){
     e.preventDefault();
     
-    fetch("./PHP/RedirectBackToLoginPage.php", {
+    fetch("./assets/PHP/user.php", {
         method: "GET"
     })
     .then(response => {

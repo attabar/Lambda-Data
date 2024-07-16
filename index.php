@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lambda Data</title>
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
     <!-- favicon -->
-    <link rel="icon" type="image/x-icon" href="./img/logo.jpg">
+    <link rel="icon" type="image/x-icon" href="./assets/img/logo.jpg">
     <!-- bootstrap icon -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <!-- font awesome -->
@@ -18,7 +18,7 @@
 <body>
       <!-- Header with menu toggle -->
       <div class="header">
-        <img src="./img/logo.jpg" class="logo" alt="" srcset="">
+        <img src="./assets/img/logo.jpg" class="logo" alt="" srcset="">
         <!-- Side menu -->
         <div class="menu" id="menu">
             <ul>
@@ -53,14 +53,14 @@
     <div class="hero-img">
       <div class="discount"><i class="fa fa-sort-amount-desc" aria-hidden="true"></i><p>20% Discount</p></div>
       <div class="imgBg"></div>
-      <img src="./img/hero.png" alt="">
+      <img src="./assets/img/hero.png" alt="">
       <div class="fast"><i class="fa fa-plane" aria-hidden="true"></i><p>100% Fast</p></div>
     </div>
   </div>
     <!-- about us-->
      <h1 style="text-align: center;">About Lambda Data</h1>
     <div class="aboutUs" id="about">
-        <img src="./img/logo.jpg" alt="aboutUsImg" id="aboutUsImg">
+        <img src="./assets/img/logo.jpg" alt="aboutUsImg" id="aboutUsImg">
         <h2>Lambda Data</h2>
         <h4>Lambda data is a virtual top up company registered with CAC Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima, obcaecati quos in cumque sunt sequi possimus pariatur fugit alias ab animi? Distinctio aut velit perferendis, sit nam sint culpa odit!
         Eius officiis, optio maxime, quam facere velit suscipit possimus architecto hic assumenda illum ratione quaerat! Architecto, dicta vitae cupiditate quisquam explicabo possimus minima voluptas laborum quod tempore corrupti odit natus!
@@ -118,7 +118,7 @@
         <div class="grid-container">
             <!-- mtn price -->
             <div class="mtn-price">
-                <img src="./img/mtn.jpeg" alt="">
+                <img src="./assets/img/mtn.jpeg" alt="">
                 <table style="display: flex; justify-content:space-around; width:100%">
               <tr>
                 <td>500MB</td>
@@ -172,7 +172,7 @@
             </div>
             <!-- airtel price -->
             <div class="airtel-price">
-                <img src="./img/airtel.jpeg" alt="">
+                <img src="./assets/img/airtel.jpeg" alt="">
                 <table style="display: flex; justify-content:space-around; width:100%">
               <tr>
                 <td>500MB</td>
@@ -226,7 +226,7 @@
             </div>
             <!-- glo price -->
             <div class="glo-price">
-                <img src="./img/glo.jpeg" alt="">
+                <img src="./assets/img/glo.jpeg" alt="">
                 <table style="display: flex; justify-content:space-around; width:100%">
               <tr>
                 <td>500MB</td>
@@ -280,7 +280,7 @@
             </div>
             <!-- 9mobile price -->
             <div class="9mobile-price">
-                <img src="./img/9mobile.jpeg" alt="">
+                <img src="./assets/img/9mobile.jpeg" alt="">
                 <table style="display: flex; justify-content:space-around; width:100%">
               <tr>
                 <td>500MB</td>
@@ -345,21 +345,21 @@
       <div class="secondChild">
         <!-- 1st client -->
         <div class="fClient">
-          <img src="./img/testimonial1.jpeg" alt="">
+          <img src="./assets/img/testimonial1.jpeg" alt="">
           <h5>Ali Zannah</h5>
           <i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus iusto veniam distinctio nisi vitae nemo eius velit dicta itaque consectetur? Ea magnam voluptate consequatur eos aspernatur. Laborum voluptas veritatis dolores?</p>
         </div>
         <!-- 2nd client -->
         <div class="sClient">
-          <img src="./img/testimonial2.jpeg" alt="">
+          <img src="./assets/img/testimonial2.jpeg" alt="">
           <h5>Abba Ali</h5>
           <i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i>
           <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum, autem commodi? Dolores commodi ducimus saepe nostrum, vel provident in, inventore ipsa amet aspernatur velit repellat culpa incidunt exercitationem laudantium omnis.</p>
         </div>
         <!-- 3rd client -->
         <div class="tClient">
-          <img src="./img/testimonial3.jpeg" alt="">
+          <img src="./assets/img/testimonial3.jpeg" alt="">
           <h5>Modu Gana</h5>
           <i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, suscipit! Fuga explicabo quasi laborum debitis iure voluptas amet eveniet odit, at unde ea repudiandae possimus, illo minus veniam, vero exercitationem!</p>

@@ -4,13 +4,31 @@
     box-sizing: border-box;
 }
 
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+.form-container{
+    background-color: black;
+}
+
+form{
+    background-color: aliceblue;
+}
+
 .brand{
     text-align: center;
 }
+
 .brand img{
-    width: 50px;
+    max-width: 10%;
+    height: auto;
     border-radius: 50%;
 }
+
 form div{
     margin-bottom: 10px;
 }
@@ -38,11 +56,9 @@ button:hover{
 /* on small screen */
 @media only screen and (max-width:767px) {
     .form-container{
-        background-color: black;
         height: 50vh;
     }
     form{
-        background-color: aliceblue;
         width: 80%;
         position: absolute;
         top: 30%;
@@ -67,11 +83,9 @@ button:hover{
 /* on large screen */
 @media only screen and (min-width:1200px) {
     .form-container{
-        background-color: black;
-        height: 60vh;
+        height: 65vh;
     }
     form{
-        background-color: aliceblue;
         width: 500px;
         position: absolute;
         top: 25%;

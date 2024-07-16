@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tv Sub</title>
     <!-- custom css file -->
-    <link rel="stylesheet" href="./CSS/airtime.css">
+    <link rel="stylesheet" href="./assets/CSS/airtime.css">
     <!-- fontawesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- bootstrap icon -->
@@ -93,8 +93,9 @@
       <!-- end of main content -->
     </div>
   </div>
-<script src="./JQUERY/jquery.js"></script>
-<script src="./SweetAlert/sweetalert.js"></script>
+<script src="./assets/SweetAlert/sweetalert.js"></script>
+<script src="./assets/JS/logout.js"></script>
+<script src="./assets/JS/user.js"></script>
 <!-- <script src="./JS/redirect.js"></script> -->
 <script>
 $('document').ready(function(){

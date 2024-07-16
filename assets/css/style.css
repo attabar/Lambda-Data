@@ -20,8 +20,8 @@ body, html{
     z-index: 1000;
 }
 .logo{
-    width: 3rem;
-    height: 2rem;
+    max-width: 3%;
+    height: auto;
     border-radius: 30%;
 }
 
@@ -81,23 +81,6 @@ body, html{
     transform: translateY(-8px) rotate(-45deg);
 }
 
-/* .menu ul li .home::after{
-   width: 50%;
-   left: 50%;
-   transition: none;
-}
-
-.menu ul li a::after{
-    content: '';
-    position: relative;
-    bottom: 5px;
-    transition: border-width 0.3s ease-in;
-}
-
-.menu ul li a:hover{
-    border-bottom-color: mediumspringgreen;
-    border-bottom-style: solid;
-} */
 
 .menu ul li a::after {
     content: '';

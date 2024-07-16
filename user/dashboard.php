@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Dashboard</title>
     <!-- custom css file -->
-    <link rel="stylesheet" href="./CSS/dashboard.css">
+    <link rel="stylesheet" href="./assets/CSS/dashboard.css">
     <!-- fontawesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
         integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw=="
@@ -13,7 +13,7 @@
     <!-- bootstrap icon -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <!-- favicon -->
-    <link rel="icon" type="image/x-icon" href="../img/logo.jpg">
+    <link rel="icon" type="image/x-icon" href="../assets/img/logo.jpg">
 </head>
 
 <body>
@@ -105,7 +105,7 @@
                 <!-- account -->
                 <div class="account-details">
                     <!-- wema bank logo img-->
-                    <img src="../img/wemaBankLogo.jpeg" class="wemaImg" alt="" srcset="">
+                    <img src="../assets/img/wemaBankLogo.jpeg" class="wemaImg" alt="" srcset="">
                     <h3>Account Number: <span id="accNum"></span></h3><br>
                     <h3>Account Name: <span id="accName"></span><span class="chargesAmount"> ₦50<br>Charges</span></h3>
                     <br>
@@ -156,48 +156,37 @@
     </div>
     <script>
         function toggleMenu() {
-    let sidebar = document.getElementById('sidebar');
-    let isOpen = sidebar.style.left === '0px';
-    sidebar.style.left = isOpen ? '-228px' : '0px';
+            let sidebar = document.getElementById('sidebar');
+            let isOpen = sidebar.style.left === '0px';
+            sidebar.style.left = isOpen ? '-228px' : '0px';
 
-    let toggleIcon = document.querySelector(".navbar");
-    toggleIcon.classList.toggle('open');
-}
+            let toggleIcon = document.querySelector(".navbar");
+            toggleIcon.classList.toggle('open');
+        }
 
+        document.addEventListener("DOMContentLoaded", function() {
+            let withArrowElements = document.querySelectorAll(".with-arrow");
 
-    </script>
-    <script src="./JQUERY/jquery.js"></script>
-    <script>
-    $('document').ready(function() {
-        $('.account').click(function() {
-            $(this).toggleClass('open');
-            $(this).find('.submenu').toggle();
-        });
-        $('.transaction').click(function() {
-            $(this).toggleClass('open');
-            $(this).find('.submenu').toggle();
-        })
-        // logout
-        $('#logout').click(function(e) {
-            e.preventDefault();
-            $.ajax({
-                url: './PHP/logout.php',
-                type: 'GET',
-                success: function(response) {
-                    window.location.href = './loginPage.php'
-                },
-                error: function(xhr, status, error) {
-                    console.log("AJAX ERROR: " + status + " - " + error);
-                }
+            withArrowElements.forEach(element => {
+                element.addEventListener("click", function(){
+                    this.classList.toggle('open');
+
+                    let submenu = document.querySelector(".submenu");
+
+                    if(submenu){
+                        submenu.style.display = submenu.style.display === "block" ? "block" : "none"
+                    }
+                })
             })
         })
-    })
     </script>
-    <script src="./JS/redirect.js"></script>
+
+    <script src="./assets/JS/user.js"></script>
     <!-- wallet account file -->
-    <script src="./JS/getAccountDetails.js"></script>
+    <script src="./assets/JS/walletInfo.js"></script>
     <!-- account balance -->
-    <script src="./JS/getBalance.js"></script>
+    <script src="./assets/JS/balance.js"></script>
+    <script src="./assets/JS/logout.js"></script>
 </body>
 
 </html>

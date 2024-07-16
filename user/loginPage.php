@@ -7,7 +7,7 @@
   <!-- favicon -->
   <link rel="shortcut icon" type="image/jpeg" href="../img/logo.jpg" />
   <!-- css file -->
-  <link rel="stylesheet" href="./CSS/login.css">
+  <link rel="stylesheet" href="./assets/CSS/login.css">
     <!-- jquery cdn -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
@@ -16,7 +16,7 @@
     <form id="loginForm">
       <!-- brand -->
       <div class="brand">
-        <img src="../img/logo.jpg" alt="" srcset="">
+        <img src="../assets/img/logo.jpg" alt="" srcset="">
         <h2>Login Form</h2>
       </div>
       <!-- message -->
@@ -38,58 +38,7 @@
       </div>
     </form>
   </div>
-  <script src="../js/sweetalert.js"></script>
-  <script>
-    // declaring toast function
-    const Toast = Swal.mixin({
-        toast: true,
-        position: "top-right",
-        showConfirmButton: false,
-        timer: 3000,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-            toast.onmouseenter = Swal.stopTimer;
-            toast.onmouseleave = Swal.resumeTimer;
-        }
-      })
-document.getElementById("loginForm").addEventListener("submit", function(e) {
-  e.preventDefault();
-
-  var formData = new FormData(this);
-
-  fetch("./PHP/login.php", {
-    method: "POST",
-    body: formData
-  })
-  .then(response => {
-    if(!response.ok){
-      throw new Error("response network was not okey");
-    }
-    return response.json();
-  })
-  .then(data => {
-    if(data.status){
-      Toast.fire({
-        icon: "success",
-        title: data.title,
-        text: data.message
-      })
-      setTimeout(function(){
-        window.location.href = './dashboard.php'
-      }, 5000)
-    }else{
-      Toast.fire({
-        icon: "error",
-        title: data.title,
-        text: data.message
-      })
-    }
-  }).catch(error => {
-    console.log(error);
-  })
-
-
-})
-  </script>
+  <script src="./assets/SweetAlert/sweetalert.js"></script>
+  <script src="./assets/JS/login.js"></script>
 </body>
 </html>

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fund Wallet</title>
     <!-- custom css file -->
-    <link rel="stylesheet" href="./CSS/fund.css">
+    <link rel="stylesheet" href="./assets/CSS/fund.css">
     <!-- fontawesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- bootstrap icon -->
@@ -91,34 +91,9 @@
       <!-- end of main content -->
     </div>
   </div>
-  <script src="./SweetAlert/sweetalert.js"></script>
-<script src="./JQUERY/jquery.js"></script>
-<script>
-$('document').ready(function(){
-    $('.navbar').click(function(e){
-        e.preventDefault();
-        $('.sidebar').toggle();
-    });
-    $('.account').click(function(){
-        $(this).toggleClass('open');
-        $(this).find('.submenu').toggle();
-    });
-    // logout
-    $('#logout').click(function(e){
-        e.preventDefault();
-        $.ajax({
-            url: './PHP/logout.php',
-            type: 'GET',
-            success: function(response){
-                window.location.href = './loginPage.php'
-            },
-            error: function(xhr, status, error){
-                console.log("AJAX ERROR: " + status + " - " + error);
-            }
-        })
-    });
-})
-</script>
-<script src="./JS/fundWallet.js"></script>
+  <script src="./assets/SweetAlert/sweetalert.js"></script>
+<script src="./assets/JS/logout.js"></script>
+<script src="./assets/JS/user.js"></script>
+<script src="./assets/JS/fundWallet.js"></script>
 </body>
 </html>

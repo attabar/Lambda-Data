@@ -1,4 +1,4 @@
-fetch("./PHP/DisplayAccountDetails.php", {
+fetch("./assets/PHP/DisplayAccountDetails.php", {
     method: "GET"
 })
 .then(response => {
