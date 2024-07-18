@@ -67,7 +67,11 @@
   <div class="content">
     <!-- header -->
     <div class="header">
-      <button class="navbar">&#9776;</button>
+      <div class="navbar" onclick="toggleSidebar()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
     </div>
     <!-- Your main content goes here -->
     <div class="main-content">
@@ -91,7 +95,17 @@
       <!-- end of main content -->
     </div>
   </div>
-  <script src="./assets/SweetAlert/sweetalert.js"></script>
+  <script>
+    function toggleSidebar(){
+      let sidebar = document.getElementById("sidebar");
+      let isOpen = sidebar.style.left === "-200px";
+      isOpen = sidebar.style.left = isOpen ? "0px": "-200px";
+
+      let togggleBar = document.querySelector(".navbar");
+      togggleBar.classList.toggle("open");
+    }
+  </script>
+<script src="./assets/SweetAlert/sweetalert.js"></script>
 <script src="./assets/JS/logout.js"></script>
 <script src="./assets/JS/user.js"></script>
 <script src="./assets/JS/fundWallet.js"></script>

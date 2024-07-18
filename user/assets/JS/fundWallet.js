@@ -9,7 +9,7 @@ document.getElementById('checkoutForm').addEventListener('submit', function(even
     overlay.style.display = 'block';
     spinner.style.display = 'block';
 
-    fetch('./PHP/checkOut.php', {
+    fetch('./assets/PHP/checkOut.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'

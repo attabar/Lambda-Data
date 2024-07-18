@@ -157,8 +157,8 @@
     <script>
         function toggleMenu() {
             let sidebar = document.getElementById('sidebar');
-            let isOpen = sidebar.style.left === '0px';
-            sidebar.style.left = isOpen ? '-228px' : '0px';
+            let isOpen = sidebar.style.left === '-228px';
+            sidebar.style.left = isOpen ? '0px' : '-228px';
 
             let toggleIcon = document.querySelector(".navbar");
             toggleIcon.classList.toggle('open');

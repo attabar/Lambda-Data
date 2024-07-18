@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function(){
         var formData = new FormData();
         formData.append("network_id", network_id);
         
-        fetch("./PHP/dataOptions.php", {
+        fetch("./assets/PHP/dataOptions.php", {
             method: "POST",
             body: formData
         })
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function(){
         var formData = new FormData();
         formData.append("plan_id", plan_id);
 
-        fetch("./PHP/dataOptions.php", {
+        fetch("./assets/PHP/dataOptions.php", {
             method: "POST",
             body: formData
         })

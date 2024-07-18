@@ -35,13 +35,36 @@
 }
 .navbar{
     width: 50px;
-    background-color: #333;
+    background-color: #fff;
     color: #fff;
     font-size: 16px;
     border: none;
     padding: 5px;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.navbar .bar {
+    display: flex;
+    position: relative;
+    background-color:#333;
+    width: 90%;
+    height: 3px;
+    margin-bottom: 9%;
+    padding: 2%;
+
+}
+
+.navbar.open .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.navbar.open .bar:nth-child(3) {
+    transform: translate(-5px) rotate(-45deg);
+}
+
+.navbar.open .bar:first-child {
+    transform: translate(-3px, 7px) rotate(45deg);
 }
 
 .content {
@@ -181,9 +204,9 @@ input{
     display: block;
 } */
 /* on small screen */
-@media only screen and (max-width:767px) {
+@media only screen and (max-width:768px) {
     .sidebar{
-        display: none;
+        display: block;
         height: 100vh;
         position: fixed;
     }

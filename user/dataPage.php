@@ -11,14 +11,14 @@
     <!-- bootstrap icon -->
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css"> -->
     <!-- favicon -->
-    <link rel="icon" type="image/x-icon" href="../img/logo.jpg">
+    <link rel="icon" type="image/x-icon" href="../assets/img/logo.jpg">
     <!-- sweetalert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.all.min.js"></script>
 </head>
 <body>
 <div class="container">
   <!-- sidebar container -->
-  <div class="sidebar">
+  <div class="sidebar" id="sidebar">
     <!-- Your sidebar content goes here -->
     <div class="sidebar-content">
       <ul>
@@ -51,7 +51,11 @@
   <div class="content">
     <!-- header -->
     <div class="header">
-      <button class="navbar">&#9776;</button>
+      <div class="navbar" onclick="toggleMenu()">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
     </div>
     <!-- Your main content goes here -->
     <div class="main-content">
@@ -98,22 +102,19 @@
       <!-- end of main content -->
     </div>
   </div>
-  <script src="./SweetAlert/sweetalert.js"></script>
-<script src="./JQUERY/jquery.js"></script>
+  <script src="./assets/SweetAlert/sweetalert.js"></script>
 <script>
-$('document').ready(function(){
-    $('.navbar').click(function(e){
-        e.preventDefault();
-        $('.sidebar').toggle();
-    });
-    $('.account').click(function(){
-        $(this).toggleClass('open');
-        $(this).find('.submenu').toggle();
-    });
-})
+function toggleMenu(){
+  let sidebar = document.getElementById("sidebar");
+  let isOpen = sidebar.style.left === "-50%";
+  sidebar.style.left = isOpen ? "0px" : "-50%";
+
+  let toggleIcon = document.querySelector(".navbar");
+  toggleIcon.classList.toggle("open");
+}
 </script>
-<script src="./JS/dataOptions.js"></script>
-<script src="JS/buyData.js"></script>
+<script src="./assets/JS/dataOptions.js"></script>
+<script src="./assets/JS/buyData.js"></script>
 <script src="./assets/JS/logout.js"></script>
 <script src="./assets/JS/user.js"></script>
 </body>

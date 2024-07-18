@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function() {
         formData.append("amount", amount);
         formData.append("mobile_number", mobile);
 
-        fetch('./PHP/buyData.php', {
+        fetch('./assets/PHP/buyData.php', {
             method: "POST",
             body: formData
         })

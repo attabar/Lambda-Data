@@ -405,8 +405,8 @@ button:hover{
     }
     textarea{
         border-radius: 5px;
-        width: 660px;
-        padding: 25px;
+        width: 600px;
+        padding: 20px;
     }
     .message-container{
         margin: auto;

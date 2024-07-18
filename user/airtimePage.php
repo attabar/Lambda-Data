@@ -11,7 +11,7 @@
     <!-- bootstrap icon -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <!-- favicon -->
-    <link rel="icon" type="image/x-icon" href="../img/logo.jpg">
+    <link rel="icon" type="image/x-icon" href="../assets/img/logo.jpg">
 </head>
 <body>
   <div class="container">
@@ -49,12 +49,18 @@
     <div class="content">
       <!-- header -->
       <div class="header">
-        <button class="navbar">&#9776;</button>
+        <button class="navbar">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </button>
       </div>
       <!-- Your main content goes here -->
       <div class="main-content">
         <div class="form-container">
+
           <h2 class="">Buy Airtime</h2>
+          <h3 style="text-align: center;">Hi, <span id="username"></span> kindly top up</h3>
           <form id="airtimeForm" method="POST" action="./PHP/buyAirtime.php">
 
           <div>
