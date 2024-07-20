@@ -28,19 +28,17 @@
 .header{
     background-color: #fff;
     box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5);
-    padding: 15px;
+    padding: 25px;
     z-index: 1;
     position: fixed;
     width: 100%;
 }
 .navbar{
-    width: 50px;
+    position: absolute;
+    top: 15px;
+    left: 15px;
     background-color: #fff;
     color: #fff;
-    font-size: 16px;
-    border: none;
-    padding: 5px;
-    border-radius: 5px;
     cursor: pointer;
 }
 
@@ -48,11 +46,9 @@
     display: flex;
     position: relative;
     background-color:#333;
-    width: 90%;
+    width: 25px;
     height: 3px;
-    margin-bottom: 9%;
-    padding: 2%;
-
+    margin-bottom: 3px;
 }
 
 .navbar.open .bar:nth-child(2) {

@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function(){
         formData.append("meter_number", meter_number);
         formData.append("meter_type", meter_type);
 
-        fetch("./PHP/buyBill.php", {
+        fetch("./assets/PHP/buyBill.php", {
             method: 'POST',
             body: formData
         })

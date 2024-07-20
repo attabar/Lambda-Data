@@ -16,7 +16,7 @@
 <body>
   <div class="container">
     <!-- sidebar container -->
-    <div class="sidebar">
+    <div class="sidebar" id="sidebar">
       <!-- Your sidebar content goes here -->
       <div class="sidebar-content">
         <ul>
@@ -49,11 +49,11 @@
     <div class="content">
       <!-- header -->
       <div class="header">
-        <button class="navbar">
+        <div class="navbar" onclick="toggleSidebar()">
           <div class="bar"></div>
           <div class="bar"></div>
           <div class="bar"></div>
-        </button>
+      </div>
       </div>
       <!-- Your main content goes here -->
       <div class="main-content">
@@ -61,7 +61,7 @@
 
           <h2 class="">Buy Airtime</h2>
           <h3 style="text-align: center;">Hi, <span id="username"></span> kindly top up</h3>
-          <form id="airtimeForm" method="POST" action="./PHP/buyAirtime.php">
+          <form id="airtimeForm">
 
           <div>
             <label for="options" class="form-label">Network<span style="color: red;">*</span></label>
@@ -76,7 +76,7 @@
                   
           <div style="display: none;" id="hidden">
             <label for="username" class="form-label">Airtime Type</label>
-            <select class="form-select form-select-lg" name="airtime_type">
+            <select class="form-select form-select-lg" id="airtime_type" name="airtime_type">
               <option id='vtu' value="VTU">VTU</option>
             </select>
           </div>
@@ -106,23 +106,21 @@
       <!-- end of main content -->
     </div>
   </div>
-<script src="./JQUERY/jquery.js"></script>
+<script>
+  function toggleSidebar() {
+    let sidebar = document.getElementById('sidebar');
+    let isOpen = sidebar.style.left === '-228px';
+    sidebar.style.left = isOpen ? '0px' : '-228px';
+
+    let toggleIcon = document.querySelector(".navbar");
+    toggleIcon.classList.toggle('open');
+  }
+  
+</script>
 <script src="./assets/SweetAlert/sweetalert.js"></script>
-<script src="./JS/buyAirtime.js"></script>
+<script src="./assets/JS/buyAirtime.js"></script>
 <script src="./assets/JS/logout.js"></script>
 <script src="./assets/JS/user.js"></script>
-<script>
-$('document').ready(function(){
-    $('.navbar').click(function(e){
-        e.preventDefault();
-        $('.sidebar').toggle();
-    });
-    $('.account').click(function(){
-        $(this).toggleClass('open');
-        $(this).find('.submenu').toggle();
-    });
-})
-</script>
 
 <script>
         function togglePopDownInput(){

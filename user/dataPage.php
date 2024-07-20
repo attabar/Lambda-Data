@@ -18,35 +18,52 @@
 <body>
 <div class="container">
   <!-- sidebar container -->
-  <div class="sidebar" id="sidebar">
-    <!-- Your sidebar content goes here -->
-    <div class="sidebar-content">
-      <ul>
-        <li><a href="./dashboard.php"><i class="bi bi-columns-gap"></i> Dashboard</a></li>
-        <li class="with-arrow account"><i class="fas fa-user"></i> Account <i class="bi bi-chevron-down"></i>
-        <!-- submenu for account -->
-        <ul class="submenu">
-          <li><i class="bi bi-arrow-right-short"></i> Profile</li>
-          <li><i class="bi bi-arrow-right-short"></i> Upgrade Account</li>
-          <li><i class="bi bi-arrow-right-short"></i> KYC</li>
-          <li><i class="bi bi-arrow-right-short"></i> Pin Management</li>
-          <li><i class="bi bi-arrow-right-short"></i> Change Password</li>
-        </ul>
-        </li>
-        <li><a href="./fundWallet.php"><i class="fas fa-wallet"></i> Fund Wallet</a></li>
-        <li><a href="./data.php"><i class="fas fa-wifi"></i> Buy Data</a></li>
-        <li><a href="./airtimePage.php"><i class="fas fa-phone"></i> Buy Airtime</a></li>
-        <li><i class="fas fa-lightbulb"></i> Bills</li>
-        <li><i class="fas fa-dollar-sign"></i> Transactions</li>
-        <li><i class="bi bi-cash"></i> Wallet Summary</li>
-        <li class="with-arrow"><i class="bi bi-sliders"></i> Others <i class="bi bi-chevron-down"></i></li>
-        <li><i class="bi bi-gear-fill"></i> Settings</li>
-        <li><i class="bi bi-tag-fill"></i> Price</li>
-        <li><i class="bi bi-bell-fill"></i> Notifications</li>
-        <li id="logout"><i class="bi bi-box-arrow-left"></i> Logout</li>
-      </ul>
-    </div>
-  </div>
+        <!-- sidebar container -->
+        <div class="sidebar" id="sidebar">
+            <!-- Your sidebar content goes here -->
+            <div class="sidebar-content">
+                <ul>
+                    <li><a href="./dashboard.php"><i class="bi bi-columns-gap"></i> Dashboard</a></li>
+                    <li class="with-arrow account"><i class="fas fa-user"></i> Account <i class="bi bi-chevron-down"></i>
+                        <!-- submenu for account -->
+                        <ul class="submenu">
+                            <li><a href="./profile.php"><i class="bi bi-arrow-right-short"></i> Profile</a></li>
+                            <li><a href="./PHP/WebHook.php"><i class="bi bi-arrow-right-short"></i> Upgrade Account</a></li>
+                            <li><a href=""><i class="bi bi-arrow-right-short"></i> KYC</a></li>
+                            <li><a href=""><i class="bi bi-arrow-right-short"></i> Pin Management</a></li>
+                            <li><a href=""><i class="bi bi-arrow-right-short"></i> Change Password</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="./fundWallet.php"><i class="fas fa-wallet"></i> Fund Wallet</a></li>
+                    <li><a href="./dataPage.php"><i class="fas fa-wifi"></i> Buy Data</a></li>
+                    <li><a href="./airtimePage.php"><i class="fas fa-phone"></i> Buy Airtime</a></li>
+                    <li><a href="./billPage.php"><i class="fas fa-lightbulb"></i> Bills</a></li>
+                    <li><a href="./tvCableSubPage.php"><i class="bi bi-tv"></i>TV Cables</a></li>
+                    <li><a href="./resultPinPage.php"><i class="bi bi-mortarboard-fill"></i>Result Pin</a></li>
+                    <!-- transaction history -->
+                    <li class="with-arrow transaction"><i class="fas fa-dollar-sign"></i> Transactions <i
+                            class="bi bi-chevron-down"></i>
+                        <!-- submenu for transactions history -->
+                        <ul class="submenu">
+                            <li><a href="./dataTransactionHistory.php"><i class="bi bi-arrow-right-short"></i>Data</a>
+                            </li>
+                            <li><a href="./airtime.php"><i class="bi bi-arrow-right-short"></i>Airtime</a></li>
+                            <li><a href=""><i class="bi bi-arrow-right-short"></i>Bill</a></li>
+                            <li><a href=""><i class="bi bi-arrow-right-short"></i>TV Cables</a></li>
+                            <li><a href=""><i class="bi bi-arrow-right-short"></i>Results Pin</a></li>
+                        </ul>
+                    </li>
+
+                    <li><i class="bi bi-cash"></i> Wallet Summary</li>
+                    <li class="with-arrow"><i class="bi bi-sliders"></i> Others <i class="bi bi-chevron-down"></i></li>
+                    <li><i class="bi bi-gear-fill"></i> Settings</li>
+                    <li><i class="bi bi-tag-fill"></i> Price</li>
+
+                    <li><i class="bi bi-bell-fill"></i> Notifications</li>
+                    <li id="logout"><i class="bi bi-box-arrow-left"></i> Logout</li>
+                </ul>
+            </div>
+        </div>
     
   <div class="content">
     <!-- header -->

@@ -13,7 +13,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 228px;
+    width: 200px;
     height: 100%;
     background-color: #333;
     color: #fff;
@@ -28,27 +28,31 @@
 .header{
     background-color: #fff;
     box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5);
-    padding: 25px;
+    padding: 15px;
     z-index: 1;
     position: fixed;
     width: 100%;
 }
 .navbar{
-    position: absolute;
-    top: 15px;
-    left: 15px;
+    width: 50px;
     background-color: #fff;
     color: #fff;
+    font-size: 16px;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
     cursor: pointer;
 }
 
-.navbar .bar {
-    display: flex;
-    position: relative;
-    background-color:#333;
+.navbar .bar{
+    display: block;
+    align-items: center;
+    text-align: center;
+    background-color: #333;
     width: 25px;
     height: 3px;
     margin-bottom: 3px;
+    transition: all 0.3s ease;
 }
 
 .navbar.open .bar:nth-child(2) {
@@ -56,11 +60,11 @@
 } 
 
 .navbar.open .bar:first-child {
-    transform: translate(-3px, 7px) rotate(45deg);
+    transform: translate(-3px, 7px) rotate(55deg);
 } 
 
 .navbar.open .bar:nth-child(3) {
-    transform: translate(-5px) rotate(-45deg);
+    transform: translate(-5px) rotate(-50deg);
 } 
 
 .content {
@@ -125,80 +129,79 @@ a{
 }
 /* form */
 .form-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #333;
-    position: absolute;
-    top: 15%;
-    right: 25%;
-    width: 35%;
-    height: 72vh;
-    padding: 2%;
-    color: #fff;
-    border-radius: 2%;
-}
-.form-container h2{
-    text-align: center;
-}
-.form-container input, select, #btn{
-    width: 100%;
-    padding: 10px;
-    outline: none;
-}
-.form-container div{
-    margin-bottom: 10px;
-}
-
-#data_plan, #amount{
-    color: black;
-    background-color: #fff;
-    border: none;
-    font-weight: bolder;
-}
-
-.main-content{
+    margin: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: #333;
+    width: 35%;
+    height: 65vh;
+    /* padding: 30px; */
+    color: #fff;
+}
+#billForm{
+    position: relative;
+    left: 5%;
+}
+.form-container h2{
+    text-align: center;
+}
+.form-container input, select, .btn{
+    width: 90%;
+    padding: 10px;
+    outline: none;
+    margin-bottom: 10px;
 }
 
 /* large screen */
 @media only screen and (min-width:1200px) {
+    .main-content{
+        margin-left: 250px;
+        margin-top: 100px;
+    }
 
 }
-
+/* .sidebar-content ul li:hover .submenu {
+    display: block;
+} */
 /* on small screen */
-@media only screen and (max-width:768px) {
+@media only screen and (max-width:767px) {
     .sidebar{
         display: block;
         height: 100vh;
         position: fixed;
-        width: 50%;
     }
-    /* .main-content{
+    .main-content{
         margin-left: 50px;
         margin-top: 100px;
-    } */
-
+    }
+    .sidebar{
+        z-index: 1;
+        position: absolute;
+        right: 10%;
+    }
     .form-container{
-        padding: 10%;
         width: 300px;
         position: absolute;
         right: 7%;
-        height: 82vh;
-        top:15%;
-        /* border-radius: 15px; */
+        height: 75vh;
     }
     .form-container div{
-        margin-bottom: 20px;
+        margin-bottom: 5px;
     }
     #btn-container{
         position: absolute;
-        width: 75%;
+        bottom: 3%;
     }
-
+    #btn-container{
+        width: 100%;
+        position: absolute;
+        bottom: -17%;
+    }
+    .sidebar{
+        position: fixed;
+    }
     .sidebar-content ul li{
         margin-top: 15px;
     }
