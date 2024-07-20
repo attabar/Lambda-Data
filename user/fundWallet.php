@@ -21,6 +21,7 @@
   <div class="sidebar" id="sidebar">
             <!-- Your sidebar content goes here -->
             <div class="sidebar-content">
+            <marquee><h2>Welcome <span id="username"></span></h2></marquee>
                 <ul>
                     <li><a href="./dashboard.php"><i class="bi bi-columns-gap"></i> Dashboard</a></li>
                     <li class="with-arrow account"><i class="fas fa-user"></i> Account <i class="bi bi-chevron-down"></i>

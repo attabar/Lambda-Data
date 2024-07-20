@@ -143,15 +143,7 @@ a{
 .sidebar-content ul li.open + li {
     margin-top: 245px; /* Adjust the margin as needed */
 }
-marquee{
-    background-color: #fff;
-    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5);
-    padding: 15px;
-    position: absolute;
-    width: 80%;
-    right: 2%;
-    top: 13%;
-}
+
 
 .services .grid-container div{
     background-color: #fff;
@@ -184,8 +176,6 @@ marquee{
     .wemaImg{
         width: 80px;
     }
-    
-
     .balanceContainer{
         display: flex;
         justify-content: space-around;
@@ -247,28 +237,19 @@ marquee{
         left: 27%;
     }
 }
-/* .sidebar-content ul li:hover .submenu {
-    display: block;
-} */
 /* on small screen */
 @media only screen and (max-width:768px) {
     .sidebar{
-        display: none;
+        display: block;
         height: 100vh;
+        z-index: 1;
         position: fixed;
+        right: 10%;
     }
     .main-content{
         margin-left: 50px;
         margin-top: 100px;
-    }
-    /* marquee{
-        z-index: -1;
-    } */
-    .sidebar{
-        z-index: 1;
-        position: absolute;
-        right: 10%;
-    }
+    }    
     .balanceContainer{
         background-color: #333;
         justify-content: center;
@@ -315,7 +296,6 @@ marquee{
         grid-template-columns: repeat(2, 1fr);
         gap: 25px;
     }
-    
     .account-details{
         display: block;
         flex-direction: column;
@@ -329,11 +309,9 @@ marquee{
         font-size: 0.7rem;
         color: #fff;
     }
-
     .account-details img{
         width: 2.5rem;
     }
-    
     .chargesAmount{
         position: absolute;
         right: 0%;
@@ -342,16 +320,7 @@ marquee{
         display: grid;
         gap: 15px;
     }
-    
     .sidebar-content ul li{
-        margin-top: 15px;
-    }
-    .sidebar{
-        display: block;
-        height: 100vh;
-        position: fixed;
-    }
-    .sidebar-content ul li {
         margin-top: 15px;
     }
 }

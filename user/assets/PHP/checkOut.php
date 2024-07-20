@@ -105,7 +105,9 @@ class CheckOut {
         $response = curl_exec($ch);
 
         if (curl_errno($ch)) {
-            return array('success'=>false, 'message'=>'cURL Error: ' . curl_error($ch));
+            // return array('success'=>false, 'message'=>'cURL Error: ' . curl_error($ch));
+            return array("success" => false, "message" => "check your network and try again later");
+            exit;
         } else {
             // Handle API response
             $responseData = json_decode($response, true);

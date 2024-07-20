@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Result Pin</title>
     <!-- custom css file -->
-    <link rel="stylesheet" href="./assets/CSS/airtime.css">
+    <link rel="stylesheet" href="./assets/CSS/result.css">
     <!-- fontawesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- bootstrap icon -->
@@ -16,7 +16,7 @@
 <body>
   <div class="container">
     <!-- sidebar container -->
-    <div class="sidebar">
+    <div class="sidebar" id="sidebar">
       <!-- Your sidebar content goes here -->
       <div class="sidebar-content">
         <ul>
@@ -51,7 +51,11 @@
     <div class="content">
       <!-- header -->
       <div class="header">
-        <button class="navbar">&#9776;</button>
+        <div class="navbar" onclick="toggleSidebar()">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
       </div>
       <!-- Your main content goes here -->
       <div class="main-content">
@@ -92,16 +96,14 @@
 <script src="./assets/JS/logout.js"></script>
 <script src="./assets/JS/user.js"></script>
 <script>
-$('document').ready(function(){
-    $('.navbar').click(function(e){
-        e.preventDefault();
-        $('.sidebar').toggle();
-    });
-    $('.account').click(function(){
-        $(this).toggleClass('open');
-        $(this).find('.submenu').toggle();
-    });
-})
+  const toggleSidebar = () => {
+    let sidebar = document.getElementById("sidebar");
+    let isOpen = sidebar.style.left === "-220px";
+    sidebar.style.left = isOpen ? "0px" : "-220px";
+
+    let toggleBar = document.querySelector(".navbar");
+    toggleBar.classList.toggle("open");
+  }
 </script>
 
 </body>

@@ -95,7 +95,7 @@ class Airtime {
     
         if(curl_errno($ch)){
             $error = "cURL: " . curl_error($ch);
-            error_log($error, 3, '../../../../../php/logs/php_error_log');
+            error_log($error, 3, '../../../../../../php/logs/php_error_log');
             return ["success" => false, "message" => "Failed To Buy, maybe Network connection"];
         }
         return json_decode($response, true);

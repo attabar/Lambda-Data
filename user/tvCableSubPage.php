@@ -5,18 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tv Sub</title>
     <!-- custom css file -->
-    <link rel="stylesheet" href="./assets/CSS/airtime.css">
+    <link rel="stylesheet" href="./assets/CSS/tv.css">
     <!-- fontawesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- bootstrap icon -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <!-- favicon -->
-    <link rel="icon" type="image/x-icon" href="../img/logo.jpg">
+    <link rel="icon" type="image/x-icon" href="../assets/img/logo.jpg">
 </head>
 <body>
   <div class="container">
     <!-- sidebar container -->
-    <div class="sidebar">
+    <div class="sidebar" id="sidebar">
       <!-- Your sidebar content goes here -->
       <div class="sidebar-content">
         <ul>
@@ -36,7 +36,7 @@
           <li><a href="./airtimePage.php"><i class="fas fa-phone"></i> Buy Airtime</a></li>
           <li><a href="./billPage.php"><i class="fas fa-lightbulb"></i> Bills</a></li>
           <li><a href="./tvCableSubPage.php"><i class="bi bi-tv"></i>TV Cables</a></li>
-          <li><a href="./resultPin.php"><i class="bi bi-mortarboard-fill"></i>Result Pin</a></li>
+          <li><a href="./resultPinPage.php"><i class="bi bi-mortarboard-fill"></i>Result Pin</a></li>
           <li><i class="fas fa-dollar-sign"></i> Transactions</li>
           <li><i class="bi bi-cash"></i> Wallet Summary</li>
           <li class="with-arrow"><i class="bi bi-sliders"></i> Others <i class="bi bi-chevron-down"></i></li>
@@ -51,7 +51,11 @@
     <div class="content">
       <!-- header -->
       <div class="header">
-        <button class="navbar">&#9776;</button>
+        <div class="navbar" onclick="toggleSidebar()">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
       </div>
       <!-- Your main content goes here -->
       <div class="main-content">
@@ -68,7 +72,6 @@
               <option value="3">STARTIME</option>
             </select>
           </div>
-
           
           <div>
             <label for="cable_plan_id" class="form-label">Cable Plan<span style="color: red;">*</span></label>
@@ -96,18 +99,15 @@
 <script src="./assets/SweetAlert/sweetalert.js"></script>
 <script src="./assets/JS/logout.js"></script>
 <script src="./assets/JS/user.js"></script>
-<!-- <script src="./JS/redirect.js"></script> -->
 <script>
-$('document').ready(function(){
-    $('.navbar').click(function(e){
-        e.preventDefault();
-        $('.sidebar').toggle();
-    });
-    $('.account').click(function(){
-        $(this).toggleClass('open');
-        $(this).find('.submenu').toggle();
-    });
-})
+  const toggleSidebar = () => {
+    let sidebar = document.getElementById("sidebar");
+    let isOpen = sidebar.style.left === "-220px";
+    sidebar.style.left = isOpen ? "0px" : "-220px";
+
+    let toggleSidebar = document.querySelector(".navbar");
+    toggleSidebar.classList.toggle("open")
+  }
 </script>
 
 </body>

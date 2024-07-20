@@ -28,7 +28,12 @@ document.getElementById('checkoutForm').addEventListener('submit', function(even
         if (data.success) {
             window.location.href = data.redirectUrl;
         } else {
-            alert('Error: ' + data.message);
+            // alert('Error: ' + data.message);
+            Swal.fire({
+                icon: "error",
+                title: "Failed To Fund",
+                text: data.message
+            });
         }
     })
     .catch(error => { 

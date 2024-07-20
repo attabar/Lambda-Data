@@ -8,7 +8,7 @@ class RedirectBackToLoginPage {
     public function getUsername() {
         if(isset($_SESSION['username'])){
             $username = $_SESSION['username'];
-
+           
             $response = [
                 "success" => true,
                 "username" => $username
