@@ -23,33 +23,35 @@
         <!-- Your sidebar content goes here -->
         <div class="sidebar-content">
             <ul>
-                <li><a href="#"><i class="bi bi-columns-gap"></i> Dashboard</a></li>
+                <a href="#"><li class="users">  <i class="bi bi-columns-gap"></i> Dashboard</li></a>    
                 <li class="with-arrow account"><i class="fas fa-user"></i> Manage Users <i class="bi bi-chevron-down"></i>
                 <!-- submenu for account -->
                 <ul class="submenu">
-                    <li><a href="./users.php"><i class="bi bi-arrow-right-short"></i>Users</a></li>
+                    <a href="./users.php"><li><i class="bi bi-arrow-right-short"></i>Users</li></a>
                 </ul>
                 </li>
                 <li class="with-arrow account"><i class="bi bi-cash"></i> Set Prices  <i class="bi bi-chevron-down"></i>
                 <!-- submenu for prices -->
                 <ul class="submenu">
-                    <li><a href="./updateDataPrice.php"><i class="bi bi-arrow-right-short"></i>Data Price</a></li>
-                    <li><a href="./AirtimePrice.php"><i class="bi bi-arrow-right-short"></i>Airtime Price</a></li>
+                    <a href="./resetDataPrice.php"><li><i class="bi bi-arrow-right-short"></i>Data Price</li></a>
+                    <a href="./AirtimePrice.php"><li><i class="bi bi-arrow-right-short"></i>Airtime Price</li></a>
+                    <a href="./AirtimePrice.php"><li><i class="bi bi-arrow-right-short"></i>Bills Price</li></a>
+                    <a href="./AirtimePrice.php"><li><i class="bi bi-arrow-right-short"></i>TV Price</li></a>
                 </ul>
                 </li>
                 <li class="with-arrow account"><i class="fas fa-exchange-alt"></i> Transactions <i class="bi bi-chevron-down"></i>
                 <ul class="submenu">
-                    <li><a href="./dataTransactions.php"><i class="bi bi-arrow-right-short"></i>Data History</a></li>
-                    <li><a href="./airtime.php"><i class="bi bi-arrow-right-short"></i>Airtime History</a></li>
-                    <li><i class="bi bi-arrow-right-short"></i>Bills History</li>
-                    <li><i class="bi bi-arrow-right-short"></i>TV History</li>
-                    <!-- <li><i class="bi bi-arrow-right-short"></i>Result Pin History</li> -->
+                    <a href="./dataTransactions.php"><li><i class="bi bi-arrow-right-short"></i>Data History</li></a>
+                    <a href="./airtime.php"><li><i class="bi bi-arrow-right-short"></i>Airtime History</li></a>
+                    <a href="./airtime.php"><li><i class="bi bi-arrow-right-short"></i>Bills History</li></a>
+                    <a href="./airtime.php"><li><i class="bi bi-arrow-right-short"></i>TV History</li></a>
+                    <a href="./airtime.php"><li><i class="bi bi-arrow-right-short"></i>Result Pin History</li></a>
                 </ul>
                 </li>
                 <!-- <li><i class="bi bi-cash"></i> Wallet Summary</li>
-                <li class="with-arrow"><i class="bi bi-sliders"></i> Others <i class="bi bi-chevron-down"></i></li>
-                <li><i class="bi bi-gear-fill"></i> Settings</li> -->
+                <li class="with-arrow"><i class="bi bi-sliders"></i> Others <i class="bi bi-chevron-down"></i></li>-->
                 <li><i class="fa fa-envelope-open" aria-hidden="true"></i> Send Email</li> 
+                <li><i class="bi bi-gear-fill"></i> Settings</li>
                 <li><i class="bi bi-bell-fill"></i> Notifications</li>
                 <li id="logout"><i class="bi bi-box-arrow-left"></i> Logout</li>
             </ul>
@@ -174,8 +176,8 @@
     <script>
         function toggleMenu() {
             let sidebar = document.getElementById('sidebar');
-            let isOpen = sidebar.style.left === '0px';
-            sidebar.style.left = isOpen ? '-228px' : '0px';
+            let isOpen = sidebar.style.left === '-228px';
+            sidebar.style.left = isOpen ? '0px' : '-228px';
 
             let toggleIcon = document.querySelector(".navbar");
             toggleIcon.classList.toggle('open');

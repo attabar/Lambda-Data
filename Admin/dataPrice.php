@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
     <!-- custom css file -->
-    <link rel="stylesheet" href="./CSS/AdminDashboard.css">
+    <link rel="stylesheet" href="./assets/CSS/dashboard.css">
     <!-- fontawesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- bootstrap icon -->
@@ -13,7 +13,7 @@
     <!-- favicon -->
     <link rel="icon" type="image/x-icon" href="../img/logo.jpg">
     <!-- custom css file -->
-    <link rel="stylesheet" href="./CSS/users.css">
+    <link rel="stylesheet" href="./assets/CSS/users.css">
 </head>
 <body>
 <div class="container">
@@ -58,7 +58,11 @@
     <div class="content">
         <!-- header -->
         <div class="header">
-            <button class="navbar">&#9776;</button>
+            <div class="navbar">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
         </div>
         <!-- Your main content goes here -->
         <div class="main-content">
@@ -74,18 +78,7 @@
             <a href="#setDataPrice" id="btnText"><button class="addUserBtn">Update Price</button></a>
             </div>
 
-            <table>
-            <tr>
-                <th>id</th>
-                <th>data id</th>
-                <th>network name</th>
-                <th>Plan Type</th>
-                <th>Buying Price</th>
-                <th>Selling Price</th>
-                <th>Data Type</th>
-                <th>Validity</th>
-            </tr>        
-            </table>
+            <div id="dataPrice"></div>
         
         <div class="setDataPrice" id="setDataPrice">
             <div class="heading">
@@ -93,8 +86,8 @@
             </div>
             <form id="updateDataPrice">
                 <div class="network-id" id="divForUpdate">
-                    <label for="network-id">Network</label>
-                    <select name="network-id" id="network-id">
+                    <label for="network">Network</label>
+                    <select name="network" id="network">
                         <option value="0" selected disabled>Select Network</option>
                         <option value="1">MTN</option>
                         <option value="3">AIRTEL</option>
@@ -123,37 +116,12 @@
         </div>
     </div>
 </div>
-<!-- <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> -->
-<!-- Jquery cdn -->
-<script src="../user/JQUERY/jquery.js"></script>
 <script>
-$('document').ready(function(){
-    $('.navbar').click(function(e){
-        e.preventDefault();
-        $('.sidebar').toggle();
-    });
-    $('.account').click(function(){
-        $(this).toggleClass('open');
-        $(this).find('.submenu').toggle();
-    });
-    // logout
-    $('#logout').click(function(e){
-        e.preventDefault();
-        $.ajax({
-            url: './PHP/logout.php',
-            type: 'GET',
-            success: function(response){
-                window.location.href = './loginPage.php'
-            },
-            error: function(xhr, status, error){
-                console.log("AJAX ERROR: " + status + " - " + error);
-            }
-        })
-    })
-})
+
 </script>
 <!-- price table -->
-<script src="./JS/dataPrice.js"></script>
-<script src="./JS/updateDataPrice.js"></script>
+<script src="./assets/JS/dataPrice.js"></script>
+<script src="./assets/JS/resetDataPrice.js"></script>
+<script src="./assets/JS/logout.js"></script>
 </body>
 </html>

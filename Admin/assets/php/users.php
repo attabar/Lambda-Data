@@ -1,46 +1,55 @@
 <?php
-
-require_once 'connection.php';
 header("Content-Type: application/json");
-try{
-    $sql = $conn->prepare("SELECT * FROM users");
+error_reporting(E_ALL);
+require_once 'connection.php';
 
-    if(!$sql){
-        throw new Exception("Prepared Statement Failed: " . $conn->error);
-    }
+
+class Users {
+    private $conn;
     
-    $sql->execute();
-
-    $result = $sql->get_result();
-
-    if($result->num_rows > 0){
-        $users = [];
-
-        while($row=$result->fetch_assoc()){
-            $id = $row['user_id'];
-            $fname = $row['fname'];
-            $lname = $row['lname'];
-            $username = $row['username'];
-            $email = $row['email'];
-            $phone = $row['phone'];
-
-            $users[] = [
-                'success'=>true,
-                'id'=>$id,
-                'fname'=>$fname,
-                'lname'=>$lname,
-                'username'=>$username,
-                'email'=>$email,
-                'phone'=>$phone
-            ];
-        }
-        echo json_encode([
-            'success' => true,
-            'users' => $users
-        ]);
+    public function __construct($conn) {
+        $this->conn = $conn;
     }
-}catch(Exception $e){
-    echo "ERROR: " . $e->getMessage();
+
+    public function getAllUsers() {
+        try{
+
+            $sql = $this->conn->prepare("SELECT * FROM users");
+            $sql->execute();    
+            
+            $users = [];
+            while($result = $sql->fetch(PDO::FETCH_ASSOC)){
+
+                $users[] = [
+                'id' => $result['user_id'],
+                'fname' => $result['fname'],
+                'lname' => $result['lname'],
+                'username' => $result['username'],
+                'email' => $result['email'],
+                'phone' => $result['phone']
+                ];
+            }
+
+            echo json_encode([
+                'success' => true,
+                 'users' => $users
+            ]);
+
+        
+        }catch(Exception $e){
+            echo json_encode([
+                "success" => false,
+                "message" => "ERROR: " . $e->getMessage()
+            ]);
+        }
+    }
 }
+
+
+$database = new Database();
+$conn = $database->connect();
+
+$users = new Users($conn);
+$users->getAllUsers();
 
 ?>

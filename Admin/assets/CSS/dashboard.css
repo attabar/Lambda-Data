@@ -1,7 +1,7 @@
 * {
     margin: 0;
     font-family: 'Arial', sans-serif;
-    /* padding: 0; */
+    padding: 0;
     box-sizing: border-box;
 }
 
@@ -81,7 +81,6 @@
     color: #fff;
 }
 
-/* Add this CSS to your existing stylesheet */
 .sidebar-content ul {
     list-style: none;
     padding: 0;
@@ -127,9 +126,11 @@ a{
     padding: 5px;
     border-bottom: 1px solid #555; 
 }
-.sidebar-content ul li.open + li {
-    margin-top: 245px; /* Adjust the margin as needed */
-}
+/* This would ensure that any submenu should have space */
+/* .sidebar-content ul li:first-child.open + .submenu li {
+    margin-top: 500px; 
+} */
+
 marquee{
     background-color: #fff;
     box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5);
@@ -172,10 +173,13 @@ table {
     position: absolute;
     top: 0;
     left: 10%;
-    color: #333;
-    background-color: #fff;
+    background-color: #000;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    /* margin-top: 40px; */
+    z-index: 1;
+}
+
+.submenu a {
+    color: #fff;
 }
 
 .submenu li {
