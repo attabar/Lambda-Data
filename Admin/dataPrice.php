@@ -18,7 +18,7 @@
 <body>
 <div class="container">
     <!-- sidebar container -->
-    <div class="sidebar">
+    <div class="sidebar" id="sidebar">
         <!-- Your sidebar content goes here -->
         <div class="sidebar-content">
         <ul>
@@ -58,7 +58,7 @@
     <div class="content">
         <!-- header -->
         <div class="header">
-            <div class="navbar">
+            <div class="navbar" onclick="toggleMenu()">
                 <div class="bar"></div>
                 <div class="bar"></div>
                 <div class="bar"></div>
@@ -109,19 +109,47 @@
                     <input type="number" name="selling-price" id="selling-price" placeholder="Selling Price">
                 </div>
                 <div class="update-btn" id="divForUpdate">
-                    <input type="submit" value="Update" name="update" id="update">
+                    <input type="submit" value="Update" id="btn" name="update" id="update">
                 </div>
             </form>
         </div>
         </div>
     </div>
 </div>
+<script src="../assets/JS/sweetalert.js"></script>
 <script>
+        function toggleMenu() {
+            let sidebar = document.getElementById('sidebar');
+            let isOpen = sidebar.style.left === '-228px';
+            sidebar.style.left = isOpen ? '0px' : '-228px';
 
-</script>
+            let toggleIcon = document.querySelector(".navbar");
+            toggleIcon.classList.toggle('open');
+        }
+      
+        document.addEventListener("DOMContentLoaded", function() {
+            const withArrowElements = document.querySelectorAll(".with-arrow");
+
+            withArrowElements.forEach(element => {
+                element.addEventListener("click", function() {
+                    // Toggle the 'open' class on the clicked element
+                    this.classList.toggle("open");
+
+                    // Toggle the display of the submenu
+                    const submenu = this.querySelector(".submenu");
+                    if (submenu) {
+                        submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+                    }
+                });
+            });
+        });
+
+    </script>
+
 <!-- price table -->
 <script src="./assets/JS/dataPrice.js"></script>
-<script src="./assets/JS/resetDataPrice.js"></script>
+<script src="./assets/JS/dataOptions.js"></script>
+<script src="./assets/JS/resetData.js"></script>
 <script src="./assets/JS/logout.js"></script>
 </body>
 </html>

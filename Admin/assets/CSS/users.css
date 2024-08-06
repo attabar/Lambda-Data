@@ -62,7 +62,7 @@ table {
     margin-bottom: 10px;
   }
 
-  #network-id, #planType, #buying-price, #selling-price, #update{
+  #network, #planType, #buying-price, #selling-price, #update{
     width: 100%;
     padding: 10px;
     border-radius: 5px;

@@ -99,7 +99,7 @@
                         <marquee behavior="" direction="">Recent Transactions</marquee>
                 </div>
                 <!-- account -->
-                <div class="recentTransaction">
+                <div class="recentTransaction" id="recent">
                 <h2>Transactions made in 24 Hours</h2>
 
                 <table>
@@ -173,6 +173,7 @@
             </div>
         </div>
     </div>
+    <script src="./assets/JS/dataTransactions.js"></script>
     <script>
         function toggleMenu() {
             let sidebar = document.getElementById('sidebar');
