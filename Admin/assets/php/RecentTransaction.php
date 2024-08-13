@@ -19,7 +19,7 @@ class RecentTransaction {
         // Get date and time 24 hours ago
         $date_24_hours_ago = date('Y-m-d H:i:s', strtotime('-24 hours'));
 
-        $sql = $this->conn->prepare("SELECT * FROM data_transaction WHERE create_date >= ? AND create_date <= ?");
+        $sql = $this->conn->prepare("SELECT * FROM data_transaction WHERE transaction_date >= ? AND transaction_date <= ?");
         $sql->bindParam(1,$date_24_hours_ago, PDO::PARAM_STR);
         $sql->bindParam(2, $current_date, PDO::PARAM_STR);
         $sql->execute();
@@ -36,7 +36,7 @@ class RecentTransaction {
                 'status' => $result['status'],
                 'plan_name' => $result['plan_name'],
                 'plan_amount' => $result['plan_amount'],
-                'create_date' => $result['create_date']
+                'create_date' => $result['transaction_date']
             ];
         }
 

@@ -100,7 +100,7 @@
 
           <div class="">
             <label for="mobile" class="form-label">Phone Number<span style="color: red;">*</span></label>
-            <input type="number" name="mobile_number" id="mobile_number" required maxlength="11">
+            <input type="tel" name="mobile_number" id="mobile_number" required maxlength="11" placeholder="+2348149715017">
           </div>
 
           <div class="">

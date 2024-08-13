@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function(){
         .then(data => {
             if(data && data.success){
                 const current_transactions = data.current_transactions
-                alert(current_transactions.plan_name)
+                
                 let table = '<table border="1">';
                 table += `
                     <tr>

@@ -187,13 +187,13 @@ class Registration {
 // Check if form data is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Sanitize and retrieve form data
-    $fname = $conn->real_escape_string($_POST['fname']);
-    $lname = $conn->real_escape_string($_POST['lname']);
+    $fname = $conn->real_escape_string($_POST['firstName']);
+    $lname = $conn->real_escape_string($_POST['lastName']);
     $username = $conn->real_escape_string($_POST['username']);
     $email = $conn->real_escape_string($_POST['email']);
     $phone = $conn->real_escape_string($_POST['phone']);
     $password = $conn->real_escape_string($_POST['password']);
-    $cpassword = $conn->real_escape_string($_POST['cpassword']);
+    $cpassword = $conn->real_escape_string($_POST['confirmPassword']);
 
      // Instantiate Registration class and submit data
      $registration = new Registration($conn);

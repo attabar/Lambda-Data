@@ -92,7 +92,7 @@
                     <div class="dataBalance">
                     <i class="bi bi-cash-coin fa-2x"></i>
                     Daily Profit
-                    <h2 style="color:aliceblue;padding-left:35px;padding-top:40px" id="accBalance">₦60,000.00</h2>
+                    <h2 style="color:aliceblue;padding-left:35px;padding-top:40px" id="dailyProfit"></h2>
                     </div>
                 </div>
                 <div class="bankNames">
@@ -174,6 +174,7 @@
         </div>
     </div>
     <script src="./assets/JS/dataTransactions.js"></script>
+    <script src="./assets/JS/dailyProfit.js"></script>
     <script>
         function toggleMenu() {
             let sidebar = document.getElementById('sidebar');

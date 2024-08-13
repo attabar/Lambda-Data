@@ -5,11 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Register</title>
   <!-- custom css -->
-  <link rel="stylesheet" href="./CSS/register.css">
+  <link rel="stylesheet" href="./assets/CSS/register.css">
   <!-- favicon -->
   <link rel="icon" type="image/x-icon" href="../img/logo.jpg">
-  <!-- jquery cdn -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 <div class="form-container">
@@ -25,12 +23,12 @@
     <!-- fname container -->
     <div class="fname-container">
       <label for="fname">First Name</label>
-      <input type="text" id="fname" name="fname" required>
+      <input type="text" id="fname" name="firstName" required>
     </div>
     <!-- lname container -->
     <div class="lname-container">
       <label for="lname">Last Name</label>
-      <input type="text" id="lname" name="lname" required>
+      <input type="text" id="lname" name="lastName" required>
     </div>
     <!-- username container-->
     <div class="username-container">
@@ -55,7 +53,7 @@
     <!-- confirm password -->
     <div class="cpassword">
       <label for="cpassword">Confirm Password</label>
-      <input type="password" name="cpassword" id="cpassword" autocomplete="off" required>
+      <input type="password" name="comfirmPassword" id="cpassword" autocomplete="off" required>
     </div>
     <!-- submit button container -->
     <div class="button">
@@ -66,8 +64,7 @@
 </div>
 <!-- sweetalert -->
 <script src="./SweetAlert/sweetalert.js"></script>
-<!-- jquery link -->
-<script src="JQUERY/jquery.js"></script>
+
 <script>
 // declaring toast function
 const Toast = Swal.mixin({

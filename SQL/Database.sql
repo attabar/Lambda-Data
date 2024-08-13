@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS account_balance(
 
 -- Data Transaction Table
 CREATE TABLE IF NOT EXISTS data_transaction(
-    data_id INT(11) PRIMARY KEY AUTO_INCREMENT,
+    id INT(11) PRIMARY KEY AUTO_INCREMENT,
     data_user_id INT(11),
     transaction_id INT(11), -- transaction id
     plan_network VARCHAR(255),
