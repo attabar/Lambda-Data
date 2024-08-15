@@ -100,8 +100,7 @@ document.addEventListener("DOMContentLoaded", function(){
                 icon: data.success ? "success":"error",
                 title: data.title,
                 text: data.message
-            })
-            
+            }) 
         })
         .then(error => {
             console.log("error: ", error)

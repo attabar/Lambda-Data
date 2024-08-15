@@ -14,6 +14,7 @@
     <link rel="icon" type="image/x-icon" href="../assets/img/logo.jpg">
     <!-- sweetalert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
 <div class="container">
@@ -130,6 +131,7 @@ function toggleMenu(){
   let toggleIcon = document.querySelector(".navbar");
   toggleIcon.classList.toggle("open");
 }
+
 </script>
 <script src="./assets/JS/dataOptions.js"></script>
 <script src="./assets/JS/buyData.js"></script>
