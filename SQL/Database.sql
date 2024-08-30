@@ -6,19 +6,18 @@ CREATE TABLE IF NOT EXISTS admintable(
     PRIMARY KEY (id)
 );
 
--- users table
+-- Users Table
 CREATE TABLE IF NOT EXISTS users(
     user_id INT(11) AUTO_INCREMENT PRIMARY KEY,
-    fname VARCHAR(255),
-    lname VARCHAR(255),
-    username VARCHAR(255),
+    fullname VARCHAR(255),
     email VARCHAR(255),
     phone VARCHAR(255),
-    pass VARCHAR(255),
-    confirmPass VARCHAR(255)
+    referral VARCHAR(255),
+    pin VARCHAR(5),
+    passwords VARCHAR(255)
 );
 
--- Account details table
+-- Account Details Table
 CREATE TABLE IF NOT EXISTS wallet_account(
     wallet_user_id INT,
     wallet_account_id INT(11) PRIMARY KEY AUTO_INCREMENT,
@@ -29,7 +28,7 @@ CREATE TABLE IF NOT EXISTS wallet_account(
     FOREIGN KEY (wallet_user_id) REFERENCES users(user_id)
 );
 
--- Wallet Ballance
+-- Wallet Balance
 CREATE TABLE IF NOT EXISTS account_balance(
     transaction_id INT(11) PRIMARY KEY AUTO_INCREMENT,
     transaction_user_id INT(11),
@@ -45,7 +44,7 @@ CREATE TABLE IF NOT EXISTS account_balance(
 CREATE TABLE IF NOT EXISTS data_transaction(
     id INT(11) PRIMARY KEY AUTO_INCREMENT,
     data_user_id INT(11),
-    transaction_id INT(11), -- transaction id
+    transaction_id INT(11),
     plan_network VARCHAR(255),
     mobile_number INT(11),
     plan INT(11),
@@ -60,7 +59,7 @@ CREATE TABLE IF NOT EXISTS data_transaction(
 CREATE TABLE IF NOT EXISTS airtime_transaction(
     airtime_id INT(11) PRIMARY KEY AUTO_INCREMENT,
     airtime_user_id INT(11),
-    transaction_id INT(11), -- transaction id
+    transaction_id INT(11),
     plan_network VARCHAR(255),
     mobile_number INT(11),
     status VARCHAR(255),
@@ -70,7 +69,7 @@ CREATE TABLE IF NOT EXISTS airtime_transaction(
     FOREIGN KEY (airtime_user_id) REFERENCES users(user_id)
 );
 
--- Contact Us table
+-- Contact Us Table
 CREATE TABLE IF NOT EXISTS contact_us(
     id INT(11) AUTO_INCREMENT,
     fullname VARCHAR(255),
@@ -86,6 +85,7 @@ CREATE TABLE IF NOT EXISTS subscribers(
     PRIMARY KEY(id)
 );
 
+-- Airtime Prices
 CREATE TABLE IF NOT EXISTS airtime_prices(
     id INT(11) AUTO_INCREMENT PRIMARY KEY,
     Recharge_id VARCHAR(255),
@@ -95,40 +95,47 @@ CREATE TABLE IF NOT EXISTS airtime_prices(
     amountToPay VARCHAR(255)
 );
 
+-- Data Prices
 CREATE TABLE IF NOT EXISTS data_prices(
     id INT(11) AUTO_INCREMENT PRIMARY KEY,
     data_id INT(11),
     network_id VARCHAR(255),
     plan_type VARCHAR(255),
     price VARCHAR(255),
+    selling_price VARCHAR(255),
     data_type VARCHAR(255)
 );
 
+-- Inserting into airtime_prices
 INSERT INTO airtime_prices(Recharge_id, Network_Name, Airtime_type, amount, amountToPay) 
-VALUES('13', '1', 'VTU', '100', '98'),
-('14', '1', 'VTU', '200', '198'),
-('15', '1', 'VTU', '500', '480'),
-('16', '2', 'VTU', '100', '98'),
-('17', '2', 'VTU', '200', '198'),
-('18', '1', 'VTU', '1000', '980'),
-('19', '3', 'VTU', '100', '98'),
-('20', '3', 'VTU', '200', '198'),
-('21', '3', 'VTU', '500', '480'),
-('22', '3', 'VTU', '1000', '980'),
-('23', '6', 'VTU', '100', '98'),
-('24', '2', 'VTU', '500', '480'),
-('25', '2', 'VTU', '1000', '980'),
-('26', '1', 'VTU', '400', '380'),
-('27', '1', 'VTU', '750', '740'),
-('28', '6', 'VTU', '200', '198');
+VALUES
+    ('13', '1', 'VTU', '100', '98'),
+    ('14', '1', 'VTU', '200', '198'),
+    ('15', '1', 'VTU', '500', '480'),
+    ('16', '2', 'VTU', '100', '98'),
+    ('17', '2', 'VTU', '200', '198'),
+    ('18', '1', 'VTU', '1000', '980'),
+    ('19', '3', 'VTU', '100', '98'),
+    ('20', '3', 'VTU', '200', '198'),
+    ('21', '3', 'VTU', '500', '480'),
+    ('22', '3', 'VTU', '1000', '980'),
+    ('23', '6', 'VTU', '100', '98'),
+    ('24', '2', 'VTU', '500', '480'),
+    ('25', '2', 'VTU', '1000', '980'),
+    ('26', '1', 'VTU', '400', '380'),
+    ('27', '1', 'VTU', '750', '740'),
+    ('28', '6', 'VTU', '200', '198');
 
+-- Inserting into data_prices
 INSERT INTO data_prices(data_id, network_id, plan_type, price, selling_price, data_type) 
-VALUES(166, 'MTN', 'SME', '253', '273' '1GB'),
-(167, 'MTN', 'SME', '506', '520', '2GB'),
-(168, 'MTN', 'SME', '759', '810', '3GB'),
-(169, 'MTN', 'SME', '1265', '1275', '5GB'),
-(179, 'MTN', 'SME', '127', '140', '500MB')
-(270, 'MTN', 'CG', '25', '50', '50MB');
+VALUES
+    (166, 'MTN', 'SME', '253', '273', '1GB'),
+    (167, 'MTN', 'SME', '506', '520', '2GB'),
+    (168, 'MTN', 'SME', '759', '810', '3GB'),
+    (169, 'MTN', 'SME', '1265', '1275', '5GB'),
+    (179, 'MTN', 'SME', '127', '140', '500MB'),
+    (270, 'MTN', 'CG', '25', '50', '50MB');
 
--- the encrypted password for admin login: Coder@306 --
-INSERT INTO admintable(username,pass) VALUES('Malik', '$2y$10$GvoyFuTBNmnfKOx.P9R0n.FuU6P3L3dUx8b9oejOf64NVSBmSt.Bq')
+-- Inserting into admintable
+INSERT INTO admintable(username, pass) 
+VALUES('Malik', '$2y$10$GvoyFuTBNmnfKOx.P9R0n.FuU6P3L3dUx8b9oejOf64NVSBmSt.Bq');

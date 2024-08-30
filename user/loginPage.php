@@ -24,7 +24,7 @@
       <!-- username container -->
       <div class="username-container">
         <label for="user">Username</label>
-        <input type="text" name="username" id="user" required>
+        <input type="email" name="email" id="user" required>
       </div>
       <!-- password container -->
       <div class="password-container">

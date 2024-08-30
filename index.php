@@ -3,22 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lambda Data</title>
+    <title>Yamboy Sub</title>
     <link rel="stylesheet" href="./assets/css/style.css">
     <!-- favicon -->
-    <link rel="icon" type="image/x-icon" href="./assets/img/logo.jpg">
+    <link rel="icon" type="image/x-icon" href="./assets/img/yamboyLogo.jpg">
     <!-- bootstrap icon -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <!-- font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
         integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
 </head>
 <body>
       <!-- Header with menu toggle -->
       <div class="header">
-        <img src="./assets/img/logo.jpg" class="logo" alt="" srcset="">
+        <img src="./assets/img/yamboyLogo.jpg" class="logo" alt="" srcset="">
         <!-- Side menu -->
         <div class="menu" id="menu">
             <ul>
@@ -44,27 +43,27 @@
 
     <div class="hero-text">
       <div class="effect"></div>
-        <h1>Welcome To <span>Lambda</span> Data, The most fast Virtual Top Up Company In Nigeria.</h1>
+        <h1>Welcome To <span>Yamboy</span> Sub, The most fast Virtual Top Up Company In Nigeria.</h1>
         <h3>Top Up Anytime and Anywhere</h3>
         <a href="./user/RegistrationPage.php" class="btn1">Register</a>
         <a href="./user/RegistrationPage.php" class="btn2">Login</a>
     </div>
     <!-- hero img start -->
     <div class="hero-img">
-      <div class="discount"><i class="fa fa-sort-amount-desc" aria-hidden="true"></i><p>20% Discount</p></div>
-      <div class="imgBg"></div>
       <img src="./assets/img/hero.png" alt="">
-      <div class="fast"><i class="fa fa-plane" aria-hidden="true"></i><p>100% Fast</p></div>
     </div>
   </div>
     <!-- about us-->
-     <h1 style="text-align: center;">About Lambda Data</h1>
+     <h1 style="text-align: center;">About Yamboy Sub</h1>
     <div class="aboutUs" id="about">
-        <img src="./assets/img/logo.jpg" alt="aboutUsImg" id="aboutUsImg">
-        <h2>Lambda Data</h2>
-        <h4>Lambda data is a virtual top up company registered with CAC Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima, obcaecati quos in cumque sunt sequi possimus pariatur fugit alias ab animi? Distinctio aut velit perferendis, sit nam sint culpa odit!
-        Eius officiis, optio maxime, quam facere velit suscipit possimus architecto hic assumenda illum ratione quaerat! Architecto, dicta vitae cupiditate quisquam explicabo possimus minima voluptas laborum quod tempore corrupti odit natus!
-        Quas, illo necessitatibus quam odit saepe quia quis accusamus? Possimus id eos sunt dolores labore cupiditate eius quos incidunt voluptates iusto similique totam nobis nostrum, quia facilis tenetur ad libero?.</h4>
+        <img src="./assets/img/yamboyLogo.jpg" alt="aboutUsImg" id="aboutUsImg">
+        <h2>Yamboy Sub</h2>
+        <h4>Welcome to Yamboy Sub, your reliable partner for fast, secure, and convenient top-ups. Whether you need airtime, data bundles, or utility bill payments, we’ve got you covered—all in one place
+          <br/><br/>Our mission is to simplify the way you stay connected by providing a seamless and user-friendly platform for virtual top-ups. At Yamboy Sub, we understand that time is valuable, and that’s why we’ve made it our goal to offer instant transactions, so you can get back to what matters most.
+
+Powered by cutting-edge technology and a commitment to excellence, Yamboy Sub is here to make sure you're always connected to the things that matter—no more queues, no more hassles, just easy and fast solutions.
+
+Join us today and experience the future of top-up services with Yamboy Sub!</h4>
     </div>
     
     <!-- services -->
@@ -335,37 +334,79 @@
         </div>
     </div>
     <!-- testimonials -->
+    <h1 style="text-align: center">TESTIMONIALS</h1>
+    <p style="text-align: center">What our customers / clients says about our site</p>
     <div class="testimonials" id="testimonials">
-      <!-- first child -->
-      <div class="firstChild">
-      <h1>TESTIMONIALS</h1>
-      <p>What our customers / clients says about our site</p>
-      </div>
-      <!-- second child -->
-      <div class="secondChild">
+      <!-- testimonials cards div container -->
+      <div class="testimonialsCardsDiv">
         <!-- 1st client -->
         <div class="fClient">
           <img src="./assets/img/testimonial1.jpeg" alt="">
-          <h5>Ali Zannah</h5>
           <i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus iusto veniam distinctio nisi vitae nemo eius velit dicta itaque consectetur? Ea magnam voluptate consequatur eos aspernatur. Laborum voluptas veritatis dolores?</p>
+          <p>"Yamboy Sub has been a game-changer for me. I love how fast and easy it is to top up my data and airtime. No more waiting in line at kiosks—just a few clicks, and I'm good to go. Highly recommend!"</p>
+	<h5>— Chika A., Lagos</h5>
         </div>
         <!-- 2nd client -->
         <div class="sClient">
           <img src="./assets/img/testimonial2.jpeg" alt="">
-          <h5>Abba Ali</h5>
           <i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum, autem commodi? Dolores commodi ducimus saepe nostrum, vel provident in, inventore ipsa amet aspernatur velit repellat culpa incidunt exercitationem laudantium omnis.</p>
+          <p>"I’ve been using Yamboy Sub for a few months now, and I’m impressed with the service. The platform is user-friendly, and my transactions are always instant. Plus, the payment options are super convenient!"</p>
+	<h5>— Adeola K., Abuja</h5>
         </div>
         <!-- 3rd client -->
         <div class="tClient">
           <img src="./assets/img/testimonial3.jpeg" alt="">
-          <h5>Modu Gana</h5>
           <i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, suscipit! Fuga explicabo quasi laborum debitis iure voluptas amet eveniet odit, at unde ea repudiandae possimus, illo minus veniam, vero exercitationem!</p>
+          <p>"Yamboy Sub makes it so easy to stay connected. I appreciate the security and speed of the platform. It’s my go-to for topping up airtime and paying bills. Best service out there!"</p>
+	<h5>— Michael O., Port Harcourt</h5>
         </div>
       </div>
     </div>
+    <!-- why choose us -->
+    <h1 style="text-align: center">Why Choose US</h1>
+     <div class="whyChooseUs">
+
+      <div class="fast">
+        <i class="fas fa-bolt"></i>
+        <h3>Fast and Reliable Service</h3>
+        <p>We prioritize speed and efficiency to ensure that your top-up is processed instantly. No more waiting—just seamless transactions.</p>
+      </div>
+
+      <div class="secure">
+        <i class="fas fa-lock"></i>
+        <h3>Secure Transactions</h3>
+        <p>Your safety is our top priority. Our platform is built with advanced security protocols, ensuring that your personal information and payment details are protected at all times.</p>
+      </div>
+
+      <div class="pricing">
+        <i class="fas fa-tags"></i>
+        <h3>Competitive Pricing</h3>
+        <p>We offer some of the best rates in the market, giving you more value for your money. No hidden fees—just transparent, affordable pricing.</p>
+      </div>
+
+      <div class="customerSupport">
+        <i class="fas fa-headset"></i>
+        <h3>24/7 Customer Support</h3>
+        <p>We are here for you around the clock. Our dedicated support team is always ready to assist with any questions or concerns you may have.</p>
+      </div>
+
+      <div class="EasyToUse">
+        <i class="fas fa-check-circle"></i>
+        <h3>Easy to Use</h3>
+        <p>Our user-friendly platform makes it simple for you to top up anytime, anywhere. Just a few clicks, and you're done!</p>
+      </div>
+
+      <div class="WideRangeOfServices">
+        <i class="fas fa-th-list"></i>
+        <h3>Wide Range of Services</h3>
+        <p>Whether you need airtime, data, or utility payments, we have you covered. Enjoy the convenience of multiple services all in one place.</p>
+      </div>
+     </div>
+     <!-- whatsapp us -->
+      <a href="https://wa.me/08149715017" target="_blank" class="whatsappUs">
+      <i class="fab fa-whatsapp"></i>
+        <!-- <i class="fa fa-whatsapp" aria-hidden="true"></i> -->
+      </a>
     <!-- contact us -->
     <div class="contactUs" id="contactUs">
       <!-- first child -->

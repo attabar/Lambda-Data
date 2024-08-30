@@ -7,43 +7,42 @@
   <!-- custom css -->
   <link rel="stylesheet" href="./assets/CSS/register.css">
   <!-- favicon -->
-  <link rel="icon" type="image/x-icon" href="../img/logo.jpg">
+  <link rel="icon" type="image/x-icon" href="../assets/img/yamboyLogo.jpg">
 </head>
 <body>
 <div class="form-container">
   <form id="signUpForm" autocomplete="off">
     <!-- brand container -->
     <div class="brand">
-      <img src="../img/logo.jpg" alt="">
-      <h3>REGISTERATION FORM</h3>
+      <img src="../assets/img/yamboyLogo.jpg" alt="">
+      <h3>Register To Continue Enjoying</h3>
     </div>
     <!-- message -->
     <div class="message"></div>
     <div class="loading"></div>
     <!-- fname container -->
     <div class="fname-container">
-      <label for="fname">First Name</label>
-      <input type="text" id="fname" name="firstName" required>
+      <label for="fullname">Full Name</label>
+      <input type="text" id="fullname" name="fullname" required placeholder="Muhammad Abdulmalik">
     </div>
-    <!-- lname container -->
-    <div class="lname-container">
-      <label for="lname">Last Name</label>
-      <input type="text" id="lname" name="lastName" required>
-    </div>
-    <!-- username container-->
-    <div class="username-container">
-      <label for="username">Username</label>
-      <input type="text" name="username" id="username" required>
-    </div>
+    
     <!-- Email container -->
     <div class="email-container">
       <label for="email">Email</label>
-      <input type="email" name="email" id="email" required>
+      <input type="email" name="email" id="email" required placeholder="mabdulmalik343@gmail.com">
     </div>
     <!-- phone number container -->
     <div class="mobile-container">
-      <label for="mobile">Mobile</label>
-      <input type="number" name="phone" id="mobile" required>
+      <label for="phone">Mobile</label>
+      <input type="tel" name="phone" id="phone" required placeholder="+2348149715017">
+    </div>
+    <div class="username-container">
+      <label for="referral">Referral</label>
+      <input type="text" name="referral" id="referral" placeholder="Referral Code (Optional)">
+    </div>
+    <div class="cpassword">
+      <label for="pin">Create Pin</label>
+      <input type="password" name="pin" id="pin" placeholder="Transaction Pin" autocomplete="off" required placeholder="Coder@3433">
     </div>
     <!-- password container -->
     <div class="password-container">
@@ -51,10 +50,7 @@
       <input type="password" name="password" id="password" autocomplete="off" required>
     </div>
     <!-- confirm password -->
-    <div class="cpassword">
-      <label for="cpassword">Confirm Password</label>
-      <input type="password" name="comfirmPassword" id="cpassword" autocomplete="off" required>
-    </div>
+    
     <!-- submit button container -->
     <div class="button">
       <button name="submit" id="submitBtn" type="submit">Submit</button>
@@ -63,59 +59,7 @@
   </form>
 </div>
 <!-- sweetalert -->
-<script src="./SweetAlert/sweetalert.js"></script>
-
-<script>
-// declaring toast function
-const Toast = Swal.mixin({
-        toast: true,
-        position: "top-right",
-        showConfirmButton: false,
-        timer: 3000,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-            toast.onmouseenter = Swal.stopTimer;
-            toast.onmouseleave = Swal.resumeTimer;
-        }
-      })
-document.getElementById("signUpForm").addEventListener("submit", function(e){
-  e.preventDefault();
-
-  var formData = new FormData(this);
-
-  fetch("./PHP/Registration.php", {
-    method: "POST",
-    body: formData
-  })
-  .then(response => {
-    console.log("Response received:", response);
-    if(!response.ok){
-      throw new Error("Network response was not ok");
-    }
-    return response.json();
-  })
-  .then(data => {
-    console.log(data);
-    if(data.success){
-      Swal.fire({
-        icon: "success",
-        title: "Successful",
-        text: data.message
-      })
-    }else{
-      Swal.fire({
-        icon: "error",
-        title: "Failed",
-        text: data.message
-      })
-    }
-  })
-  .catch(error => {
-    console.log("There was a problem with the response operation: ",error);
-  })
-})
-
-
-</script>
+<script src="./assets/SweetAlert/sweetalert.js"></script>
+<script src="./assets/JS/register.js"></script>
 </body>
 </html>

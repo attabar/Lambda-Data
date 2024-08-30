@@ -15,7 +15,7 @@ document.getElementById("loginForm").addEventListener("submit", function(e) {
 
     var formData = new FormData(this);
 
-    fetch("../api/v1/loginAuth.php", {
+    fetch("./assets/PHP/login.php", {
         method: "POST",
         body: formData
     })

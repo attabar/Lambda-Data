@@ -67,20 +67,15 @@
 .sidebar-content{
     margin-top: 55px;
 }
-
-
 .sidebar-content ul li:hover {
     background-color: #555;
 }
-
 .sidebar-content ul .submenu li a{
     color:#333;
 }
-
 .sidebar-content ul .submenu li a:hover{
     color: #fff;
 }
-
 .sidebar-content ul {
     list-style: none;
     padding: 0;

@@ -1,2 +1,1 @@
-Entered PIN: 12345
-Stored PIN: 12345
+Error While Creating Wallet: must not be blankError While Creating Wallet: cannot be emptyError While Creating Wallet: cannot be empty
