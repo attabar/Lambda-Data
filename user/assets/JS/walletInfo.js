@@ -17,6 +17,12 @@ fetch("./assets/PHP/DisplayAccountDetails.php", {
         document.getElementById('accNum').innerHTML = accountNumber;
         document.getElementById('accName').innerHTML = accountName;
         document.getElementById('bank').innerHTML = bankName;
+    }else {
+        
+        document.getElementById('accNum').style.color = 'red';
+        document.getElementById('accName').style.color = 'red';
+        document.getElementById('bank').style.color = 'red';
+    
     }
 })
 .catch(error => {

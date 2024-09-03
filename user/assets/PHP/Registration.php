@@ -4,7 +4,7 @@ header("Content-Type: application/json");
 require_once './connection.php';
 
 class Registration {
-        
+    
     // Properties
     private $conn;
 
@@ -14,80 +14,72 @@ class Registration {
     }
     
     // Method to validate and store registration data
-    public function retrieveData($fullname,$email,$phone,$referral,$pin,$password){
+    public function retrieveData($fullname, $email, $phone, $referral, $pin, $password){
 
-        // Hash password and confirm password for security purpose
-        $password = password_hash($password, PASSWORD_DEFAULT);
-        
         // validate input data
-        $validationResult = $this->validateData($fullname,$email,$phone,$referral,$pin,$password);
+        $validationResult = $this->validateData($fullname, $email, $phone, $referral, $pin, $password);
         
         if($validationResult === true){
+            // Hash password for security purposes
+            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-            $stmt = $this->conn->prepare("INSERT INTO users(fullname,email,phone,referral,pin,passwords) VALUES(?,?,?,?,?,?)");
-            $stmt->bind_param("ssssss", $fullname,$email,$phone,$referral,$pin,$password);
+            // Insert data into the database
+            $stmt = $this->conn->prepare("INSERT INTO users (fullname, email, phone, referral, pin, passwords) VALUES (?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param("ssssss", $fullname, $email, $phone, $referral, $pin, $hashedPassword);
             $stmt->execute();
 
             if($stmt){
-                return ["success" => true, "message" => "Registration was successful" . $this->conn->error];
-
-            }else {
+                return ["success" => true, "message" => "Registration was successful"];
+            } else {
                 return ["success" => false, "message" => "Error encountered during Registration: " . $this->conn->error];
             }    
-        }else{
+        } else {
             return $validationResult;
         }
     }
 
-     // Method to validate input data
-     private function validateData($fullname,$email,$phone,$referral,$pin,$password) {
-        $isValid = true;
-
-        // Validate First Name shall only contain letters and white space
+    // Method to validate input data
+    private function validateData($fullname, $email, $phone, $referral, $pin, $password) {
+        // Validate First Name: Only letters and white space
         if (!preg_match("/^[a-zA-Z-' ]*$/", $fullname)) {
-            return ["success" => false, "message" => "Only letters and white space allowed For First Name"];
-            $isValid = false;
+            return ["success" => false, "message" => "Only letters and white space allowed for Full Name"];
         }
 
+        // Check if email already exists
         $sql = $this->conn->prepare("SELECT * FROM users WHERE email = ?");
         $sql->bind_param("s", $email);
         $sql->execute();
-
         $res = $sql->get_result();
 
-        if($res->num_rows > 1) {
-            return ["success" => false, "message" => "Error: This email already exist"];
-            $isValid = false;
+        if($res->num_rows > 0) {
+            return ["success" => false, "message" => "Error: This email already exists"];
         }
 
-        // Validate mobile number input value
-        if (strlen($phone) > 11) {
-            return ["success" => false, "message" => "Mobile number Must be 11 digits."];
-            $isValid = false;
+        // Validate mobile number: Must be exactly 11 digits
+        if (strlen($phone) != 11) {
+            return ["success" => false, "message" => "Mobile number must be 11 digits."];
         }
 
-        // Referral Code
+        // Validate Referral Code: Only letters and white space
         if (!preg_match("/^[a-zA-Z-' ]*$/", $referral)) {
-            return ["success" => false, "message" => "Only letters and white space allowed For The referral Code"];
-            $isValid = false;
+            return ["success" => false, "message" => "Only letters and white space allowed for Referral Code"];
+        }
+        // die('hi');
+        // Validate Transaction Pin: Must be exactly 5 digits
+        if (strlen($pin) < 5) {
+            return ["success" => false, "message" => "Transaction Pin must be 5 digits."];
         }
 
-        // Transaction Pin
-        if (strlen($pin) > 5) {
-            return ["success" => false, "message" => "Transaction Pin Must be 5 digits."];
-            $isValid = false;
-        }
+        
 
-        // Validate password to contain a combination of lowercase, uppercase, and digit
+        // Validate Password: Combination of lowercase, uppercase, digit, and special character, minimum length 8
         $pattern = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=!*_]).{8,}$/';
         if (!preg_match($pattern, $password)) {
-            return ["success" => false, "message" => "Very Weak Password"];
-            $isValid = false;
+            return ["success" => false, "message" => "Password must contain at least one lowercase letter, one uppercase letter, one digit, and one special character."];
         }
-        
-        return $isValid;
+
+        return true;
     }
-   
 }
 
 // Check if form data is submitted
@@ -101,12 +93,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $pin = $_POST['pin'];
     $password = $_POST['password'];
 
-     // Instantiate Registration class and submit data
-     $registration = new Registration($conn);
-     $response = $registration->retrieveData($fullname,$email,$phone,$referral,$pin,$password);
+    // Instantiate Registration class and submit data
+    $registration = new Registration($conn);
+    $response = $registration->retrieveData($fullname, $email, $phone, $referral, $pin, $password);
 
-     echo json_encode($response);
-     exit;
- }
+    echo json_encode($response);
+    exit;
+}
 
 ?>

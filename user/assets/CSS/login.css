@@ -19,7 +19,7 @@ form div{
     margin-top: 17px;
 }
 .button{
-    background-color: black;
+    background-color: blue;
     color: aliceblue;
     font-weight: 900; 
     border: none;
@@ -38,7 +38,7 @@ button:hover{
 /* on small screen */
 @media only screen and (max-width:767px) {
     .form-container{
-        background-color: black;
+        background-color: blue;
         height: 50vh;
     }
     form{
@@ -67,7 +67,7 @@ button:hover{
 /* on large screen */
 @media only screen and (min-width:1200px) {
     .form-container{
-        background-color: black;
+        background-color: blue;
         height: 60vh;
     }
     form{

@@ -6,12 +6,13 @@
     <title>Tv Sub</title>
     <!-- custom css file -->
     <link rel="stylesheet" href="./assets/CSS/tv.css">
+    <link rel="stylesheet" href="./assets/CSS/dashboard.css">
     <!-- fontawesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- bootstrap icon -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <!-- favicon -->
-    <link rel="icon" type="image/x-icon" href="../assets/img/logo.jpg">
+    <link rel="icon" type="image/x-icon" href="../assets/img/yamboyLogo.jpg">
 </head>
 <body>
   <div class="container">
@@ -90,7 +91,7 @@
           </div>
 
           <div id="btn-container">
-            <button type="submit" class="btn" id="btn" name="submit">Pay</button>
+            <button type="submit" class="btn" id="btn" name="submit">Top Up</button>
           </div>
         </form>
       </div>
@@ -103,8 +104,8 @@
 <script>
   const toggleSidebar = () => {
     let sidebar = document.getElementById("sidebar");
-    let isOpen = sidebar.style.left === "-220px";
-    sidebar.style.left = isOpen ? "0px" : "-220px";
+    let isOpen = sidebar.style.left === "-15rem";
+    sidebar.style.left = isOpen ? "0px" : "-15rem";
 
     let toggleSidebar = document.querySelector(".navbar");
     toggleSidebar.classList.toggle("open")

@@ -6,6 +6,7 @@
     <title>Data</title>
     <!-- custom css file -->
     <link rel="stylesheet" href="./assets/CSS/data.css">
+    <link rel="stylesheet" href="./assets/CSS/dashboard.css">
     <!-- fontawesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- bootstrap icon -->
@@ -79,7 +80,7 @@
     <!-- Your main content goes here -->
     <div class="main-content">
       <div class="form-container">
-        <h2 class="">Buy Data</h2>
+        <h2 class="">Top Up Data</h2>
         <form id="dataForm">
           <div>
             <label for="network_id" class="form-label">Network<span style="color: red;">*</span></label>
@@ -125,8 +126,8 @@
 <script>
 function toggleMenu(){
   let sidebar = document.getElementById("sidebar");
-  let isOpen = sidebar.style.left === "-50%";
-  sidebar.style.left = isOpen ? "0px" : "-50%";
+  let isOpen = sidebar.style.left === "-15rem";
+  sidebar.style.left = isOpen ? "0px" : "-15rem";
 
   let toggleIcon = document.querySelector(".navbar");
   toggleIcon.classList.toggle("open");

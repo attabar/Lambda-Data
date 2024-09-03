@@ -150,24 +150,15 @@ body, html{
     border-radius: 10px;
 }
 
+.whatsappUs{
+    position: fixed;
+    right: 5%;
+    bottom: 10%;
+}
+.whatsappUs i {
+    font-size: 5rem;
+}
 
-.contactUs{
-    margin-top: 20px;
-}
-.contactUs .firstChild{
-    text-align: center;
-}
-.contactUs .firstChild p{
-    margin-bottom: 18px;
-    margin-top: 10px;
-}
-button{
-    background-color: #fff;
-    color: #111;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-}
 button:hover{
     background-color: #fff;
     color: blue;
@@ -373,14 +364,7 @@ button:hover{
         font-size: 3rem;
         background-color: 'lightgreen';
     }
-    .whatsappUs{
-        position: fixed;
-        right: 5%;
-        bottom: 10%;
-    }
-    .whatsappUs i {
-        font-size: 5rem;
-    }
+    
     .contactUs .secondChild form{
         background-color: #111;
         color: #fff;
@@ -640,24 +624,20 @@ button:hover{
     .testimonials .testimonialsCardsDiv div p{
         color: black;
     }
-    .contactUs .secondChild form{
+    .whyChooseUs{
         display: flex;
         flex-direction: column;
-        background-color: #111;
-        color: #fff;
-        padding: 45px;
-        border-radius: 10px;
+        justify-content: center;
+        align-items: center;
     }
-    input{
-        width: 100%;
-        padding: 10px;
-        border-radius: 5px;
+    .whyChooseUs div{
+        width: 250px;
+        /* border: 1px solid 'blue'; */
+        text-align: 'center';
     }
-    textarea{
-        width: 107%;
-    }
-    label{
-        font-weight: 800;
+    .whyChooseUs div i{
+        font-size: 3rem;
+        background-color: 'lightgreen';
     }
     .footer .firstChild h1{
         text-align: center;

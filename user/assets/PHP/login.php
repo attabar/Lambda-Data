@@ -25,7 +25,8 @@ class Login {
                 $row = $result->fetch_assoc();
                 if(password_verify($password, $row['passwords'])){
                     $_SESSION['user_id'] = $row['user_id']; 
-                    $_SESSION['email'] = $row['email'];
+                    $_SESSION['fullname'] = $row['fullname'];
+                    $_SESSION['email'] = $row['email']; 
                    
 
                     $response = ['status' => true, 'title' => 'Successful', 'message' => "Login was Successful"];

@@ -6,6 +6,7 @@
     <title>Bill</title>
     <!-- custom css file -->
     <link rel="stylesheet" href="./assets/CSS/bill.css">
+    <link rel="stylesheet" href="./assets/CSS/dashboard.css">
     <!-- fontawesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- bootstrap icon -->
@@ -117,7 +118,7 @@
           </div>
 
           <div id="btn-container">
-            <button type="submit" class="btn" id="btn" name="submit">Pay</button>
+            <button type="submit" class="btn" id="btn" name="submit">Top Up</button>
           </div>
         </form>
       </div>
@@ -127,8 +128,8 @@
   <script>
     function toggleSidebar() {
       let sidebar = document.getElementById("sidebar");
-      let isOpen = sidebar.style.left === "-200px";
-      sidebar.style.left = isOpen ? "0px" : "-200px";
+      let isOpen = sidebar.style.left === "-15rem";
+      sidebar.style.left = isOpen ? "0px" : "-15rem";
 
       let toggleBarContainer = document.querySelector(".navbar");
       toggleBarContainer.classList.toggle("open")

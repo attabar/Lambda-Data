@@ -1,6 +1,33 @@
 <?php
+
+session_start();
+require_once './connection.php';
+
+class CreateWallet {
+
+    private $conn;
+
+    public function __construct($conn) {
+        $this->conn = $conn;
+    }
+
+    // Method to check weather the user already have an account or not
+    public function checkExistenceOfUserAccount() {
+
+        $sql = $this->conn->prepare("SELECT * FROM wallet_account WHERE wallet_user_id = ?");
+        $sql->bind_param("i", $_SESSION['user_id']);
+        $sql->execute();
+        
+        $res = $sql->get_result();
+
+        if($res->num_rows > 0) {
+            echo json_encode(['success' => false, 'message' => 'You have an existing virtual account']);
+        } else {
+            return $this->createWalletAccount();
+        }
+    }  
 // Method to process additional actions upon successful registration
-    private function createWalletAccount($fullname, $email, $user_id) {
+    private function createWalletAccount() {
 
         // Additional actions upon successful registration
         require_once 'AccessTokenGenerator.php';
@@ -20,10 +47,10 @@
         );
         $data = array(
             "accountReference" => uniqid(),
-            "accountName" => $fullname,
+            "accountName" => $_SESSION['fullname'],
             "currencyCode" => "NGN",
             "contractCode" => $contractCode,
-            "customerEmail" => $email,
+            "customerEmail" => $_SESSION['fullname'],
         );
 
         $url = $Base_url . "/api/v1/bank-transfer/reserved-accounts";
@@ -51,21 +78,25 @@
 
                 // Insert into reserved account
                 $reserved_table = $this->conn->prepare("INSERT INTO wallet_account(wallet_user_id, account_name, account_number, bank_name, account_reference) VALUES(?,?,?,?,?)");
-                $reserved_table->bind_param("issss", $user_id, $accountName, $accountNumber, $bankName, $accountReference);
+                $reserved_table->bind_param("issss", $_SESSION['user_id'], $accountName, $accountNumber, $bankName, $accountReference);
                 $reserved_table->execute();
 
                 
                 if ($reserved_table) {
-                    return ["success" => true, "message" => "Registration is Successful"];
+                    echo json_encode(["success" => true, "message" => "Wallet Details Created Successfully"]);
                 } else {
-                    return ["success" => false, "message" => "Wallet Account didn't insert into Table Successfully: " . $this->conn->$reserved_table];
+                    echo json_encode(["success" => false, "message" => "Wallet Account didn't insert into Table Successfully: " . $this->conn->$reserved_table]);
                 }
             } else {
                 $error = "Error While Creating Wallet: " . $responseData->responseMessage;
                 error_log($error, 3, './debug.txt');
                 // return a generic error message to the user so that to avoid exposing sensitive information
-                return ["success" => false, "message" => "Registration incomplete...Try again later."];
+                echo json_encode(["success" => false, "message" => "Registration incomplete...Try again later."]);
             }
         }
     }
+}
+
+$createWallet = new CreateWallet($conn);
+$createWallet->checkExistenceOfUserAccount();
 ?>

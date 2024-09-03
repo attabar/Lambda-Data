@@ -1,138 +1,9 @@
-* {
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-.container {
-    display: flex;
-}
-
-.sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 200px;
-    height: 100%;
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
-    box-sizing: border-box;
-    overflow: auto;
-    scrollbar-width: thin;
-    scrollbar-color: transparent transparent;
-    transition: 0.9s;
-    z-index: 1;
-}
-.header{
-    background-color: #fff;
-    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5);
-    padding: 25px;
-    z-index: 1;
-    position: fixed;
-    width: 100%;
-}
-.navbar{
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    background-color: #fff;
-    color: #fff;
-    cursor: pointer;
-}
-
-.navbar .bar{
-    display: block;
-    align-items: center;
-    text-align: center;
-    background-color: #333;
-    width: 25px;
-    height: 3px;
-    margin-bottom: 3px;
-    transition: all 0.3s ease;
-}
-
-.navbar.open .bar:nth-child(2) {
-    opacity: 0;
-} 
-
-.navbar.open .bar:first-child {
-    transform: translate(-3px, 7px) rotate(55deg);
-} 
-
-.navbar.open .bar:nth-child(3) {
-    transform: translate(-5px) rotate(-50deg);
-} 
-
-.content {
-    flex: 1;
-    box-sizing: border-box;
-}
-.sidebar-content{
-    margin-top: 55px;
-}
-
-
-.sidebar-content ul li:hover {
-    background-color: #555;
-}
-
-/* Add this CSS to your existing stylesheet */
-.sidebar-content ul {
-    list-style: none;
-    padding: 0;
-}
-
-.sidebar-content ul li {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    cursor: pointer;
-    position: relative;
-}
-
-.sidebar-content ul li i {
-    margin-right: 10px;
-}
-
-.sidebar-content ul li.with-arrow {
-    position: relative;
-}
-
-.sidebar-content ul li.with-arrow i.bi-chevron-down {
-    position: absolute;
-    right: 10px;
-}
-a{
-    text-decoration: none;
-    color: #fff;
-}
-.submenu{
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 10%;
-    /* background-color: #333; */
-    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
-    /* z-index: 1; */
-    margin-top: 40px;
-}
-.submenu li{
-    padding: 10px;
-    /* border-bottom: 1px solid #555;  */
-}
-.sidebar-content ul li.open + li {
-    margin-top: 245px; /* Adjust the margin as needed */
-}
 /* form */
 .form-container{
-    margin: auto;
-    background-color: #333;
-    width: 50%;
-    height: 80vh;
+    background-color: blue;
     padding: 20px;
     color: #fff;
+    border-radius: 10px;
 }
 .form-container h2{
     text-align: center;
@@ -149,49 +20,26 @@ a{
 
 /* large screen */
 @media only screen and (min-width:1200px) {
-    .main-content{
-        margin-left: 250px;
-        margin-top: 100px;
+    .form-container{
+        position: absolute;
+        left: 40%;
+        top: 12%;
     }
-
 }
-/* .sidebar-content ul li:hover .submenu {
-    display: block;
-} */
+
 /* on small screen */
 @media only screen and (max-width:767px) {
-    .sidebar{
-        display: block;
-        height: 100vh;
-        position: fixed;
-    }
-    .main-content{
-        margin-left: 50px;
-        margin-top: 100px;
-    }
-    .sidebar{
-        z-index: 1;
-        position: absolute;
-        right: 10%;
-    }
+
     .form-container{
-        width: 300px;
         position: absolute;
-        right: 7%;
+        right: 0.5%;
+        height: 80%;
     }
     .form-container div{
         margin-bottom: 5px;
     }
     #btn-container{
-        position: absolute;
-        bottom: 3%;
-    }
-    #btn-container{
-        width: 90%;
-        margin-top: 2rem;
+        width: 100%;
     }
    
-    .sidebar-content ul li{
-        margin-top: 15px;
-    }
 }

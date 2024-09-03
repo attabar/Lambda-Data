@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
         integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="./assets/lib/fontawesome-free-6.5.0-web/js/all.min.js"></script>
+        <link rel="stylesheet" href="./assets/lib/fontawesome-free-6.5.0-web/css/all.min.css">
 </head>
 <body>
       <!-- Header with menu toggle -->
@@ -60,8 +62,7 @@
         <h2>Yamboy Sub</h2>
         <h4>Welcome to Yamboy Sub, your reliable partner for fast, secure, and convenient top-ups. Whether you need airtime, data bundles, or utility bill payments, we’ve got you covered—all in one place
           <br/><br/>Our mission is to simplify the way you stay connected by providing a seamless and user-friendly platform for virtual top-ups. At Yamboy Sub, we understand that time is valuable, and that’s why we’ve made it our goal to offer instant transactions, so you can get back to what matters most.
-
-Powered by cutting-edge technology and a commitment to excellence, Yamboy Sub is here to make sure you're always connected to the things that matter—no more queues, no more hassles, just easy and fast solutions.
+          <br/><br/>Powered by cutting-edge technology and a commitment to excellence, Yamboy Sub is here to make sure you're always connected to the things that matter—no more queues, no more hassles, just easy and fast solutions.
 
 Join us today and experience the future of top-up services with Yamboy Sub!</h4>
     </div>
@@ -342,23 +343,23 @@ Join us today and experience the future of top-up services with Yamboy Sub!</h4>
         <!-- 1st client -->
         <div class="fClient">
           <img src="./assets/img/testimonial1.jpeg" alt="">
+          <h5>Ali Zannah</h5>
           <i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i>
-          <p>"Yamboy Sub has been a game-changer for me. I love how fast and easy it is to top up my data and airtime. No more waiting in line at kiosks—just a few clicks, and I'm good to go. Highly recommend!"</p>
-	<h5>— Chika A., Lagos</h5>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus iusto veniam distinctio nisi vitae nemo eius velit dicta itaque consectetur? Ea magnam voluptate consequatur eos aspernatur. Laborum voluptas veritatis dolores?</p>
         </div>
         <!-- 2nd client -->
         <div class="sClient">
           <img src="./assets/img/testimonial2.jpeg" alt="">
+          <h5>Abba Ali</h5>
           <i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i>
-          <p>"I’ve been using Yamboy Sub for a few months now, and I’m impressed with the service. The platform is user-friendly, and my transactions are always instant. Plus, the payment options are super convenient!"</p>
-	<h5>— Adeola K., Abuja</h5>
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum, autem commodi? Dolores commodi ducimus saepe nostrum, vel provident in, inventore ipsa amet aspernatur velit repellat culpa incidunt exercitationem laudantium omnis.</p>
         </div>
         <!-- 3rd client -->
         <div class="tClient">
           <img src="./assets/img/testimonial3.jpeg" alt="">
+          <h5>Modu Gana</h5>
           <i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i>
-          <p>"Yamboy Sub makes it so easy to stay connected. I appreciate the security and speed of the platform. It’s my go-to for topping up airtime and paying bills. Best service out there!"</p>
-	<h5>— Michael O., Port Harcourt</h5>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, suscipit! Fuga explicabo quasi laborum debitis iure voluptas amet eveniet odit, at unde ea repudiandae possimus, illo minus veniam, vero exercitationem!</p>
         </div>
       </div>
     </div>
@@ -407,39 +408,7 @@ Join us today and experience the future of top-up services with Yamboy Sub!</h4>
       <i class="fab fa-whatsapp"></i>
         <!-- <i class="fa fa-whatsapp" aria-hidden="true"></i> -->
       </a>
-    <!-- contact us -->
-    <div class="contactUs" id="contactUs">
-      <!-- first child -->
-      <div class="firstChild">
-        <h1>Contact US</h1>
-        <p>Fill out the below form so that your complaint might reach us</p>
-      </div>
-      <!-- second child -->
-      <div class="secondChild">
-        <form action="./PHP/handleContactUsForm.php" method="POST">
-        <div class="twoInputWrapper">
-          <!-- input 1 -->
-          <div class="fullname-container">
-            <label for="fullname">Full Name</label>
-            <input type="text" name="fullname" id="fullname">
-          </div>
-          <!-- input 2 -->
-          <div class="email-container">
-            <label for="email">E-mail</label>
-            <input type="text" name="email" id="email">
-          </div>
-        </div>
-          <!-- input 3 -->
-          <div class="message-container">
-            <label for="message">Message</label><br>
-            <textarea name="message" id="message" cols="" rows="10"></textarea>
-          </div>
-          <div class="button-container">
-            <button type="submit">SEND</button>
-          </div>
-        </form>
-      </div>
-    </div>
+    
     <!-- footer -->
     <div class="footer">
       <!-- first Child -->
@@ -461,10 +430,10 @@ Join us today and experience the future of top-up services with Yamboy Sub!</h4>
         <!-- usefull link 2-->
         <div class="useful-link2">
           <h1>Contact Us</h1>
-          <p><i class="fa fa-whatsapp" aria-hidden="true" style="color: white;"></i> WhatsApp</p>
-          <p><i class="fa fa-facebook-official" aria-hidden="true"></i> Facebook</p>
-          <p><i class="fa fa-telegram" aria-hidden="true"></i> Telegram</p>
-          <p><i class="fa fa-youtube-play" aria-hidden="true"></i> YouTube</p>
+          <p><i class="fab fa-whatsapp"></i> WhatsApp</p>
+          <p><i class="fab fa-facebook-f"></i> Facebook</p>
+          <p><i class="fab fa-telegram-plane"></i> Telegram</p>
+          <p><i class="fab fa-youtube"></i> YouTube</p>
         </div>
         <div class="subscribe">
           <form action="./PHP/subscribe.php" method="POST">
@@ -474,20 +443,19 @@ Join us today and experience the future of top-up services with Yamboy Sub!</h4>
         </div>
       </div>
       <div class="copy-right">
-        <p>&copy; Copyright LAMBDA TECH SERVICES SOLUTION <?php $date = date("Y"); echo $date; ?></p>
+        <p>&copy; <?php $date = date("Y"); echo $date; ?> Yamboy Sub. All Rights Reserved.</p>
       </div>
     </div>
     <script>
-        // Function to toggle the menu visibility
-        function toggleMenu() {
-            var menu = document.getElementById('menu');
-            var isOpen = menu.style.top === '0%';
-            menu.style.top = isOpen ? '-100%' : '0%';
-            // Change toggle icon
-            var toggleIcon = document.querySelector('.menu-toggle');
-            toggleIcon.classList.toggle('open');
-        }
-    </script>
+      
+      function toggleMenu() {
+          let sidebar = document.getElementById('menu');
+          let isOpen = sidebar.style.top === '0px';
+          sidebar.style.left = isOpen ? '228px' : '0px';
 
+          let toggleIcon = document.querySelector(".menu-toggle");
+          toggleIcon.classList.toggle('open');
+      }
+    </script>
 </body>
 </html>

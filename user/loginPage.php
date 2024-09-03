@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Login</title>
   <!-- favicon -->
-  <link rel="shortcut icon" type="image/jpeg" href="../img/logo.jpg" />
+  <link rel="shortcut icon" type="image/jpeg" href="../assets/img/yamboyLogo.jpg" />
   <!-- css file -->
   <link rel="stylesheet" href="./assets/CSS/login.css">
     <!-- jquery cdn -->
@@ -16,14 +16,14 @@
     <form id="loginForm">
       <!-- brand -->
       <div class="brand">
-        <img src="../assets/img/logo.jpg" alt="" srcset="">
-        <h2>Login Form</h2>
+        <img src="../assets/img/yamboyLogo.jpg" alt="" srcset="">
+        <h2>Sign in to your account</h2>
       </div>
       <!-- message -->
       <div id="message"></div>
       <!-- username container -->
       <div class="username-container">
-        <label for="user">Username</label>
+        <label for="user">Email</label>
         <input type="email" name="email" id="user" required>
       </div>
       <!-- password container -->

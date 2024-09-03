@@ -1,1 +1,3 @@
-Error While Creating Wallet: must not be blankError While Creating Wallet: cannot be emptyError While Creating Wallet: cannot be empty
+Error While Creating Wallet: must not be blankError While Creating Wallet: cannot be emptyError While Creating Wallet: cannot be emptycURL: Could not resolve host: sandbox.monnify.comcURL: Could not resolve host: sandbox.monnify.comcURL: Could not resolve host: sandbox.monnify.comcURL: Could not resolve host: sandbox.monnify.comError While Creating Wallet: must be a valid email address
+must be a valid email address
+cURL: Could not resolve host: sandbox.monnify.comcURL: Could not resolve host: sandbox.monnify.com
