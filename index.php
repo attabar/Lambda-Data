@@ -13,8 +13,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
         integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <script src="./assets/lib/fontawesome-free-6.5.0-web/js/all.min.js"></script>
-        <link rel="stylesheet" href="./assets/lib/fontawesome-free-6.5.0-web/css/all.min.css">
+        <!-- <script src="./assets/lib/fontawesome-free-6.5.0-web/js/all.min.js"></script>
+        <link rel="stylesheet" href="./assets/lib/fontawesome-free-6.5.0-web/css/all.min.css"> -->
 </head>
 <body>
       <!-- Header with menu toggle -->
@@ -341,27 +341,43 @@ Join us today and experience the future of top-up services with Yamboy Sub!</h4>
       <!-- testimonials cards div container -->
       <div class="testimonialsCardsDiv">
         <!-- 1st client -->
-        <div class="fClient">
+
+        <div class="mySlides fade">
           <img src="./assets/img/testimonial1.jpeg" alt="">
           <h5>Ali Zannah</h5>
           <i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus iusto veniam distinctio nisi vitae nemo eius velit dicta itaque consectetur? Ea magnam voluptate consequatur eos aspernatur. Laborum voluptas veritatis dolores?</p>
+          <!-- <div class="text">Testimonial 1</div> -->
         </div>
+
         <!-- 2nd client -->
-        <div class="sClient">
+        <div class="mySlides fade">
           <img src="./assets/img/testimonial2.jpeg" alt="">
           <h5>Abba Ali</h5>
           <i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i>
           <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum, autem commodi? Dolores commodi ducimus saepe nostrum, vel provident in, inventore ipsa amet aspernatur velit repellat culpa incidunt exercitationem laudantium omnis.</p>
+          <!-- <div class="text">Testimonial 2</div> -->
         </div>
+
         <!-- 3rd client -->
-        <div class="tClient">
+        <div class="mySlides fade">
           <img src="./assets/img/testimonial3.jpeg" alt="">
           <h5>Modu Gana</h5>
           <i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, suscipit! Fuga explicabo quasi laborum debitis iure voluptas amet eveniet odit, at unde ea repudiandae possimus, illo minus veniam, vero exercitationem!</p>
         </div>
+
       </div>
+        <!-- Next and previous buttons -->
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+      <!-- The dots/circles -->
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+</div>
     </div>
     <!-- why choose us -->
     <h1 style="text-align: center">Why Choose US</h1>
@@ -451,10 +467,25 @@ Join us today and experience the future of top-up services with Yamboy Sub!</h4>
       function toggleMenu() {
           let sidebar = document.getElementById('menu');
           let isOpen = sidebar.style.top === '0px';
-          sidebar.style.left = isOpen ? '228px' : '0px';
+          sidebar.style.top = isOpen ? '-100%' : '0px';
 
           let toggleIcon = document.querySelector(".menu-toggle");
           toggleIcon.classList.toggle('open');
+      }
+
+      let slideIndex = 0;
+      showSlides();
+
+      function showSlides() {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1}
+        slides[slideIndex-1].style.display = "block";
+        setTimeout(showSlides, 2000); // Change image every 2 seconds
       }
     </script>
 </body>

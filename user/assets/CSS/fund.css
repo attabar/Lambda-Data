@@ -1,5 +1,6 @@
 /* form */
 .form-container{
+    position: absolute;
     background-color: blue;
     padding: 25px;
     color: #fff;
@@ -64,12 +65,13 @@ label{
     z-index: 1000;
 }
 
+
 /* on large screen */
 @media only screen and (min-width:1200px) {
     .form-container{
-        position: absolute;
         left: 40%;
-        top: 20%;
+        /* right: 15%; */
+        top: 15%;
     }
 }
 /* on small screen */
@@ -81,10 +83,9 @@ label{
         align-items: center;
         text-align:center;
         width: 250px;
-        position: absolute;
         right: 13%;
         height: 50vh;
-        top:15%;
+        top:30%;
         border-radius: 15px;
     }
     .form-container h2 {
@@ -101,12 +102,21 @@ label{
     #btn-container{
         position: absolute;
         width: 87%;
+    } 
+    .heading{
+        font-size: 1.5rem;
+        margin-bottom: 3rem;
     }
-    
-    .sidebar{
-        position: fixed;
+    .method1, .method2{
+        font-size: 1rem;
     }
-    .sidebar-content ul li{
-        margin-top: 15px;
+    .method2{
+        margin-bottom: 2rem;
+    }
+    .methodTwoDiv{
+        position: absolute;
+        margin-top: 10%;
+        align-items: center;
+        justify-content: center;
     }
 }

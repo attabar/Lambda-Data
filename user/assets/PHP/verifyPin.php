@@ -8,8 +8,8 @@ $pin = trim($input['pin']);
 include_once('./connection.php'); // Include your database connection file
 
 // Fetch the correct PIN from the database
-$sql = $conn->prepare("SELECT pin FROM users WHERE username = ?");
-$sql->bind_param("s",$_SESSION['username']);
+$sql = $conn->prepare("SELECT pin FROM users WHERE email = ?");
+$sql->bind_param("s",$_SESSION['email']);
 $sql->execute();
 
 $res = $sql->get_result();

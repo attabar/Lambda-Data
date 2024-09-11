@@ -1,5 +1,10 @@
 <?php
 session_start();
+// header("Access-Control-Allow-Origin: *");
+// header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
+// header("Access-Control-Allow-Headers: Content-Type, Authorization");
+header("Content-Type: application/json");
+
 require_once 'connection.php';
 
 class Login {
@@ -8,7 +13,7 @@ class Login {
     public function __construct($conn) {
         $this->conn = $conn;
     }
-    
+
     public function userLogin($email, $password){
         $response = [];
 
@@ -37,9 +42,6 @@ class Login {
                 $response = ['status' => false, 'title' => 'No User', 'message' => "User not found"];
             }
         }
-
-        // Output the JSON response
-        header('Content-Type: application/json');
         echo json_encode($response);
     }
 }

@@ -15,8 +15,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <!-- favicon -->
     <link rel="icon" type="image/x-icon" href="../assets/img/yamboyLogo.jpg">
-    <script src="../assets/lib/fontawesome-free-6.5.0-web/js/all.min.js"></script>
-        <link rel="stylesheet" href="./assets/lib/fontawesome-free-6.5.0-web/css/all.min.css">
+    <script src="../../fontawesome-free-6.4.0-web/js/all.min.js"></script>
+        <link rel="stylesheet" href="../../fontawesome-free-6.4.0-web/css/all.min.css">
 </head>
 
 <body>
@@ -92,22 +92,22 @@
                     <p id="accBalance">₦0.00</p>
                 </div>
 
-                <div class="fundWallet">
+                <a href="./fundWallet.php" class="fundWallet">
                     <i style="text-align: center" class="fas fa-plus"></i>
                     <p>Fund Wallet</p>
-                </div>
+                </a>
 
-                <div class="referral">
+                <!-- <div class="referral">
                     <i class="fa fa-users" aria-hidden="true"></i>
                     <p>Referral Commission</p>
                     <h2 style="color:black" id="accBalance">₦0.00</h2>
-                </div>
+                </div> -->
 
-                <div class="dataBalance">
+                <!-- <div class="dataBalance">
                     <i class="fas fa-wifi"></i>
                     <p>Data Balance</p>
                     <h2 style="color:black;" id="accBalance">0.00</h2>
-                </div>
+                </div> -->
             </div>
 
             <div class="bankNames">
@@ -187,19 +187,21 @@
                     </a>
                 </div>
             </div>
-
+            <br><br>
             <div class="finalContainer">
                 <div>
-                    <h4>Referal Link: <span></span></h4>
-                </div>
+                    <h4>Referal Link </h4>
+                    <span>mubarak306 <i class="fab fa-copy"></i></span>
+                </div><br>
 
                 <div>
                     <h4>Total Commission</h4>
-
-                </div>
+                    <span>₦10,000</span>
+                </div><br>
 
                 <div>
                     <h4>Total Referral</h4>
+                    <span>5</span>
                 </div>
             </div>
 
