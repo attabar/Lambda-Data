@@ -420,7 +420,7 @@ Join us today and experience the future of top-up services with Yamboy Sub!</h4>
       </div>
      </div>
      <!-- whatsapp us -->
-      <a href="https://wa.me/08149715017" target="_blank" class="whatsappUs">
+      <a style="color: green" href="https://wa.me/08149715017" target="_blank" class="whatsappUs">
       <i class="fab fa-whatsapp"></i>
         <!-- <i class="fa fa-whatsapp" aria-hidden="true"></i> -->
       </a>
@@ -460,6 +460,7 @@ Join us today and experience the future of top-up services with Yamboy Sub!</h4>
       </div>
       <div class="copy-right">
         <p>&copy; <?php $date = date("Y"); echo $date; ?> Yamboy Sub. All Rights Reserved.</p>
+        <p>Developed by <a style="color: blue;" href="https://wa.me/08149715017">Lambda Tech Solution Services</a></p>
       </div>
     </div>
     <script>

@@ -25,7 +25,7 @@ class CheckOut {
     }
 
     private function fetchFullname(){
-        $sql = $this->conn->prepare("SELECT fname,lname FROM users WHERE user_id = ?");
+        $sql = $this->conn->prepare("SELECT fullname FROM users WHERE user_id = ?");
         $sql->bind_param("i", $_SESSION['user_id']);
         $sql->execute();
 
@@ -33,7 +33,7 @@ class CheckOut {
 
         if($res->num_rows > 0){
             $row = $res->fetch_assoc();
-            return $row['fname'] . $row['lname'];
+            return $row['fullname'];
         }
         return null;
     }
@@ -86,7 +86,7 @@ class CheckOut {
             "paymentDescription"=>"payment for top up",
             "currencyCode"=> "NGN",
             "contractCode"=>"0378523971",
-            "redirectUrl"=>"http://localhost/Personal%20Projects/Lambda%20Data/user/fundWallet.php",
+            "redirectUrl"=>"http://localhost/Personal%20Projects/LambdaDataWebApp/user/fundWallet.php",
             "paymentMethods"=>["CARD","ACCOUNT_TRANSFER"]
         );
 
@@ -95,7 +95,7 @@ class CheckOut {
 
 
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_CAINFO, '../../../../../../ca certificate/cacert-2023-12-12.pem');
+        curl_setopt($ch, CURLOPT_CAINFO, '../../../../../../ca_certificate/cacert-2023-12-12.pem');
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
@@ -105,8 +105,8 @@ class CheckOut {
         $response = curl_exec($ch);
 
         if (curl_errno($ch)) {
-            // return array('success'=>false, 'message'=>'cURL Error: ' . curl_error($ch));
-            return array("success" => false, "message" => "check your network and try again later");
+            return array('success'=>false, 'message'=>'cURL Error: ' . curl_error($ch));
+            // return array("success" => false, "message" => "check your network and try again later");
             exit;
         } else {
             // Handle API response

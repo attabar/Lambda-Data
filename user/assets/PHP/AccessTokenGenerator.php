@@ -21,7 +21,7 @@ class GenerateAccessToken {
         'Content-Type:application/json',
         'Authorization: Basic '. base64_encode($this->apiKey . ":" . $this->secretKey) 
         );
-        curl_setopt($ch, CURLOPT_CAINFO, '../../../../../../ca certificate/cacert-2023-12-12.pem');
+        curl_setopt($ch, CURLOPT_CAINFO, '../../../../../../ca_certificate/cacert-2023-12-12.pem');
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         curl_setopt($ch, CURLOPT_URL,"https://sandbox.monnify.com/api/v1/auth/login");
         curl_setopt($ch, CURLOPT_POST, 1);

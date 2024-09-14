@@ -63,10 +63,10 @@ function submitAirtimeForm() {
     })
     .then(data => {
         Swal.fire({
-            icon: data.success ? "success":"error",
+            icon: data.success ? 'success' : 'error',
             title: data.title,
             text: data.message
-        }) 
+        }); 
     })
     .then(error => {
         console.log("error: ", error)

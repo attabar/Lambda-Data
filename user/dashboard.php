@@ -44,8 +44,8 @@
                     <li><a href="./dataPage.php"><i class="fas fa-wifi"></i> Buy Data</a></li>
                     <li><a href="./airtimePage.php"><i class="fas fa-phone"></i> Buy Airtime</a></li>
                     <li><a href="./billPage.php"><i class="fas fa-lightbulb"></i> Bills</a></li>
-                    <li><a href="./tvCableSubPage.php"><i class="bi bi-tv"></i>TV Cables</a></li>
-                    <li><a href="./resultPinPage.php"><i class="bi bi-mortarboard-fill"></i>Result Pin</a></li>
+                    <li><a href="./tvCableSubPage.php"><i class="bi bi-tv"></i> TV Cables</a></li>
+                    <li><a href="./resultPinPage.php"><i class="bi bi-mortarboard-fill"></i> Result Pin</a></li>
 
                     <!-- transaction history -->
                     <li class="with-arrow transaction"><i class="fas fa-dollar-sign"></i> Transactions <i
@@ -54,9 +54,9 @@
                         <ul class="submenu">
                             <li><a href="./dataTransactionHistory.php"><i class="bi bi-arrow-right-short"></i>Data</a></li>
                             <li><a href="./airtime.php"><i class="bi bi-arrow-right-short"></i>Airtime</a></li>
-                            <li><a href=""><i class="bi bi-arrow-right-short"></i>Bill</a></li>
-                            <li><a href=""><i class="bi bi-arrow-right-short"></i>TV Cables</a></li>
-                            <li><a href=""><i class="bi bi-arrow-right-short"></i>Results Pin</a></li>
+                            <li><a href=""><i class="bi bi-arrow-right-short"></i> Bill</a></li>
+                            <li><a href=""><i class="bi bi-arrow-right-short"></i> TV Cables</a></li>
+                            <li><a href=""><i class="bi bi-arrow-right-short"></i> Results Pin</a></li>
                         </ul>
                     </li>
 
@@ -191,7 +191,7 @@
             <div class="finalContainer">
                 <div>
                     <h4>Referal Link </h4>
-                    <span>mubarak306 <i class="fab fa-copy"></i></span>
+                    <input type="text" value="mubarak306" id="Refer" disabled> <i class="far fa-clipboard" onclick="CopyReferalCode()"></i>
                 </div><br>
 
                 <div>
@@ -253,6 +253,21 @@
             let paystackCon = document.querySelector(".paystackContainer").style.display = 'none';
             let monifyCon = document.querySelector(".monifyContainer").style.display = 'none';
         }
+
+        function CopyReferalCode() {
+  /* Get the text field */
+  var copyText = document.getElementById("Refer");
+
+  /* Select the text field */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+  /* Copy the text inside the text field */
+  navigator.clipboard.writeText(copyText.value);
+  
+  /* Alert the copied text */
+  alert("Copied the text: " + copyText.value);
+}
 
     </script>
 <script src="./assets/JS/createWallet.js"></script>

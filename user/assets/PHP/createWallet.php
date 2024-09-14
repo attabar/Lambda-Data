@@ -50,12 +50,12 @@ class CreateWallet {
             "accountName" => $_SESSION['fullname'],
             "currencyCode" => "NGN",
             "contractCode" => $contractCode,
-            "customerEmail" => $_SESSION['fullname'],
+            "customerEmail" => 'mabdulmalik436@gmail.com',
         );
 
         $url = $Base_url . "/api/v1/bank-transfer/reserved-accounts";
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_CAINFO, '../../../../../../ca certificate/cacert-2023-12-12.pem');
+        curl_setopt($ch, CURLOPT_CAINFO, '../../../../../../ca_certificate/cacert-2023-12-12.pem');
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
