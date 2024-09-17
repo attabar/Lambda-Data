@@ -27,6 +27,8 @@ class ElectricityBillPayment{
 
         $response = $this->processElectricityBillPayment($disco_name, $amount, $meter_number, $meter_type);
 
+        var_dump($response);
+
         // Debugging statement
         error_log("API Response: " . json_encode($response));
         

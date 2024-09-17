@@ -63,7 +63,7 @@
       <div class="main-content">
         <div class="form-container">
           <h2 class="">Result Pin</h2>
-          <form id="tvCableSubForm" method="POST" action="./PHP/buyResultPin.php">
+          <form id="tvCableSubForm" method="POST" action="./assets/PHP/buyResultPin.php">
 
           <div>
             <label for="exam_name" class="form-label">Exam Name<span style="color: red;">*</span></label>

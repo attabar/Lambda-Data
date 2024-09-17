@@ -12,7 +12,7 @@
     <!-- bootstrap icon -->
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css"> -->
     <!-- favicon -->
-    <link rel="icon" type="image/x-icon" href="../img/logo.jpg">
+    <link rel="icon" type="image/x-icon" href="../assets/img/yamboyLogo.jpg">
     <!-- sweetalert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.all.min.js"></script>
     <script src="../../fontawesome-free-6.4.0-web/js/all.min.js"></script>

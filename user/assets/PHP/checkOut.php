@@ -95,7 +95,8 @@ class CheckOut {
 
 
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_CAINFO, '../../../../../../ca_certificate/cacert-2023-12-12.pem');
+        // curl_setopt($ch, CURLOPT_CAINFO, '../../../../../../ca_certificate/cacert-2023-12-12.pem');
+        curl_setopt($ch, CURLOPT_CAINFO, './ca_certificate/cacert-2023-12-12.pem');
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));

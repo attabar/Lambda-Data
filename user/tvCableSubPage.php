@@ -63,7 +63,7 @@
       <div class="main-content">
         <div class="form-container">
           <h2 class="">Tv Subscription</h2>
-          <form id="tvCableSubForm" method="POST" action="./PHP/buyCableSub.php">
+          <form id="tvCableSubForm" method="POST" action="./assets/PHP/buyCableSub.php">
 
           <div>
             <label for="cable_name" class="form-label">Cable Name<span style="color: red;">*</span></label>

@@ -29,10 +29,10 @@ class Connection {
         return $this->conn;
     }
 }
-$host = "sql111.infinityfree.com";
-$username = "if0_37176272";
-$password = "u7HacDOjdp2";
-$dbname = "if0_37176272_mk";
+$host = "localhost";
+$username = "mikiyate_mk";
+$password = "Mubarak@306";
+$dbname = "mikiyate_mk";
 
 $connection = new Connection($host,$username,$password,$dbname);
 $conn = $connection->connect();

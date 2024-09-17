@@ -78,7 +78,7 @@
       <div class="main-content">
         <div class="form-container">
           <h2 class="">Buy Electricity Bill</h2>
-          <form id="billForm">
+          <form id="billForm" action="./assets/PHP/buyBill.php" method="POST">
 
           <div>
             <label for="disco_name" class="form-label">Disco Name<span style="color: red;">*</span></label>
@@ -136,7 +136,7 @@
     }
   </script>
 <script src="./assets/SweetAlert/sweetalert.js"></script>
-<script src="./assets/JS/buyBill.js"></script>
+<!-- <script src="./assets/JS/buyBill.js"></script> -->
 <script src="./assets/JS/logout.js"></script>
 <script src="./assets/JS/user.js"></script>
 </body>

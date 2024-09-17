@@ -27,7 +27,6 @@ class Airtime {
 
         if(is_array($response)){
             $response = (object) $response;
-            print_r($response);
         }
 
         if($response && is_object($response)){
@@ -39,7 +38,6 @@ class Airtime {
             $plan_amount = $response->plan_amount ?? null;
             $paid_amount = $response->paid_amount ?? null;
             $create_date = $response->create_date ?? null;
-            $message = $response->message ?? null;
 
             if($status === "successful"){
                 // after successful transaction deduct the balance
@@ -53,7 +51,10 @@ class Airtime {
                 $sql->bind_param("iisisiis",$_SESSION['user_id'], $transaction_id, $plan_network, $mobile_number, $status, $plan_amount, $paid_amount, $create_date);
                 $sql->execute();
 
-                return ['success' => true, 'title' => 'Successful Transaction', 'message' => $message];
+                return [
+                    'success' => true, 
+                    'title' => 'Successful Transaction', 
+                    'message' => 'You have Top Up Airtime Successfully'];
             }
             return [
                 "success" => false,

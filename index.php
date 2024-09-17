@@ -48,7 +48,7 @@
         <h1>Welcome To <span>Yamboy</span> Sub, The most fast Virtual Top Up Company In Nigeria.</h1>
         <h3>Top Up Anytime and Anywhere</h3>
         <a href="./user/RegistrationPage.php" class="btn1">Register</a>
-        <a href="./user/RegistrationPage.php" class="btn2">Login</a>
+        <a href="./user/loginPage.php" class="btn2">Login</a>
     </div>
     <!-- hero img start -->
     <div class="hero-img">
@@ -76,37 +76,37 @@ Join us today and experience the future of top-up services with Yamboy Sub!</h4>
         <div class="data">
         <i class="bi bi-wifi"></i>
         <h2>Data</h2>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat illo nesciunt tempora animi velit cum laudantium ipsa numquam repellendus dolore architecto ab perferendis, ratione dicta, corporis molestiae, modi deserunt obcaecati!</p>
+        <p>Get affordable data bundles with instant activation. Stay connected with seamless browsing, streaming, and downloads anytime, anywhere.</p>
         </div>
         <!-- airtime -->
         <div class="airtime">
         <i class="bi bi-telephone-inbound-fill"></i>
         <h2>Airtime</h2>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis commodi assumenda ducimus ab harum facere. Explicabo, fuga! Repellendus nobis officia, illo doloribus ipsam deleniti perferendis consectetur esse at obcaecati iure.</p>
+        <p>Top-up airtime instantly for all networks. Enjoy fast, reliable service that keeps you connected to the people that matter.</p>
         </div>
         <!-- tv -->
         <div class="tv">
         <i class="bi bi-tv"></i>
         <h2>TV Cables</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum earum consectetur voluptatibus esse ea numquam eius dolore odio, quae eligendi et distinctio suscipit sapiente. Ea consequatur eaque vero ut maxime.</p>
+        <p>Pay for your favorite TV subscriptions quickly and easily. Enjoy uninterrupted viewing of your favorite channels and shows.</p>
         </div>
         <!-- bill -->
         <div class="bill">
         <i class="bi bi-lightbulb-fill"></i>
         <h2>Electricity</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque autem voluptatem doloribus praesentium consequatur, dolores nihil quis? Eligendi quas, iure officiis molestiae ipsam mollitia ab facere dicta sed non totam.</p>
+        <p>Pay your electricity bills from the comfort of your home. No more queues, just quick and easy transactions to keep the lights on.</p>
         </div>
         <!-- result pin -->
         <div class="result-pin">
         <i class="bi bi-mortarboard-fill"></i>
         <h2>Result Pin</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque cumque assumenda nemo voluptatum ducimus eveniet, quam explicabo voluptates! Aut odit tempora provident molestiae cumque facilis quia aperiam minus quos alias.</p>
-        </div>
+        <p>Purchase result checking pins for exams like WAEC, NECO, and JAMB instantly and conveniently.</p>
+      </div>
         <!-- airtime to money -->
         <div class="airtime-to-money">
         <i class="bi bi-cash"></i>
         <h2>Airtime To Cash</h2>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti sit iure inventore aut qui, corporis ad vitae distinctio ducimus sapiente a quibusdam esse eum aliquid id consequatur totam obcaecati exercitationem?</p>
+        <p>Convert your excess airtime to cash in a few simple steps. Enjoy a hassle-free experience with instant conversion.</p>
         </div>
         </div>
     </div>
@@ -344,27 +344,27 @@ Join us today and experience the future of top-up services with Yamboy Sub!</h4>
 
         <div class="mySlides fade">
           <img src="./assets/img/testimonial1.jpeg" alt="">
-          <h5>Ali Zannah</h5>
+          <h5>— Chika A., Lagos</h5>
           <i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus iusto veniam distinctio nisi vitae nemo eius velit dicta itaque consectetur? Ea magnam voluptate consequatur eos aspernatur. Laborum voluptas veritatis dolores?</p>
+          <p>"Yamboy Sub has been a game-changer for me. I love how fast and easy it is to top up my data and airtime. No more waiting in line at kiosks—just a few clicks, and I'm good to go. Highly recommend!"</p>
           <!-- <div class="text">Testimonial 1</div> -->
         </div>
 
         <!-- 2nd client -->
         <div class="mySlides fade">
           <img src="./assets/img/testimonial2.jpeg" alt="">
-          <h5>Abba Ali</h5>
+          <h5>— Adeola K., Abuja</h5>
           <i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum, autem commodi? Dolores commodi ducimus saepe nostrum, vel provident in, inventore ipsa amet aspernatur velit repellat culpa incidunt exercitationem laudantium omnis.</p>
+          <p>"I’ve been using Yamboy Sub for a few months now, and I’m impressed with the service. The platform is user-friendly, and my transactions are always instant. Plus, the payment options are super convenient!"</p>
           <!-- <div class="text">Testimonial 2</div> -->
         </div>
 
         <!-- 3rd client -->
         <div class="mySlides fade">
           <img src="./assets/img/testimonial3.jpeg" alt="">
-          <h5>Modu Gana</h5>
+          <h5>— Michael O., Port Harcourt</h5>
           <i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, suscipit! Fuga explicabo quasi laborum debitis iure voluptas amet eveniet odit, at unde ea repudiandae possimus, illo minus veniam, vero exercitationem!</p>
+          <p>"Yamboy Sub makes it so easy to stay connected. I appreciate the security and speed of the platform. It’s my go-to for topping up airtime and paying bills. Best service out there!"</p>
         </div>
 
       </div>
@@ -429,38 +429,42 @@ Join us today and experience the future of top-up services with Yamboy Sub!</h4>
     <div class="footer">
       <!-- first Child -->
       <div class="firstChild">
-        <!-- contacts -->
+        <!-- address -->
         <div class="contact-info">
-        <img src="./img/logo.jpg" class="logo" alt="" srcset="">
-          <h1><span>Lambda</span> Data</h1>
-          <p>is a virtual top up company that <br/> is used to purchased data, airtime<br/> Tv Subscription, Electricity bill, <br> result pin and airtime to cash.</p>
+          <h3>Address / Contact </h3>
+          <p>- Street: Jiddari Bus Stop, Maiduguri, Borno State</p>
+          <p>- Tel: 08149715017, 09028350494</p>
+          <p>- Email: mabdulmalik436@gmail.com</p>
         </div>
         <!-- usefull link 1 -->
-        <div class="useful-link1">
-          <h1>Nav Links</h1>
+        <div class="useful-link1 footer-div">
+          <h3>Quick nav</h3>
           <p><a href="/">Home</a></p>
           <p><a href="#about">About</a></p>
-          <p>Services</p>
-          <p>Contact</p>
+          <p><a href="#services">Services</a></p>
+          <p><a href="#testimonials">Testimonials</a></p>
+          <p><a href="#prices">Prices</a></p>
         </div>
         <!-- usefull link 2-->
-        <div class="useful-link2">
-          <h1>Contact Us</h1>
+        <div class="useful-link2 footer-div">
+          <h3>Social Media Handles</h3>
           <p><i class="fab fa-whatsapp"></i> WhatsApp</p>
           <p><i class="fab fa-facebook-f"></i> Facebook</p>
           <p><i class="fab fa-telegram-plane"></i> Telegram</p>
           <p><i class="fab fa-youtube"></i> YouTube</p>
         </div>
         <div class="subscribe">
+          <h3 class="newsletterH">Subscribe To Our Newsletter</h3>
           <form action="./PHP/subscribe.php" method="POST">
-            <input type="email" name="email-subscribe" placeholder="Enter Your Email" id="subscribe">
+            <input type="email" name="email-subscribe"  id="subscribe">
             <button id="subscribe-button">Subscribe</button>
           </form>
         </div>
       </div>
+      <div class="secondChild">
       <div class="copy-right">
-        <p>&copy; <?php $date = date("Y"); echo $date; ?> Yamboy Sub. All Rights Reserved.</p>
-        <p>Developed by <a style="color: blue;" href="https://wa.me/08149715017">Lambda Tech Solution Services</a></p>
+        <p>&copy; <?php $date = date("Y"); echo $date; ?> <a style="color: white; text-decoration:none" href="https://wa.me/08149715017">Lambda Tech Solution Services</a></p>
+      </div>
       </div>
     </div>
     <script>

@@ -233,9 +233,11 @@ button:hover{
     color: blue;
 }
 .footer{
-    background-color: black;
+    display: flex;
+    flex-direction: column;
+    background-color: blue;
     color: #fff;
-    padding: 50px;
+    padding: 30px;
     margin-top: 15px;
 }
 .footer .firstChild p a{
@@ -243,6 +245,10 @@ button:hover{
     text-decoration: none;
     color: #fff;
     padding: 5px;
+}
+
+.footer .footer-div{
+    text-align: center;
 }
 
 
@@ -434,37 +440,9 @@ button:hover{
         background-color: 'lightgreen';
     }
     
-    .contactUs .secondChild form{
-        background-color: #111;
-        color: #fff;
-        width: 700px;
-        padding: 55px;
-        margin: auto;
-        border-radius: 10px;
-    }
-    .contactUs .secondChild form .twoInputWrapper{
-        display: flex;
-        justify-content: space-around;
-        margin-bottom: 15px;
-    }
-
-    #fullname, #email{
-        padding: 10px;
-        width: 100%;
-        border-radius: 10px;
-        border: none;
-    }
-    textarea{
-        border-radius: 5px;
-        width: 600px;
-        padding: 20px;
-    }
-    .message-container{
-        margin: auto;
-    }
     .footer .firstChild{
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
     }
     
@@ -472,7 +450,7 @@ button:hover{
         text-align: center;
         margin-top: 15px;
     }
-    .footer .firstChild #subscribe{
+    .footer .firstChild #subscribe, #subscribe-button{
         padding: 8px;
     }
 }
@@ -711,11 +689,22 @@ button:hover{
     .footer .firstChild h1{
         text-align: center;
     }
-    #subscribe{
-        margin-top: 5px;
+    .footer .firstChild #subscribe{
+        position: relative;
+        padding: 5px;
+        width: 65%;
+    }
+    .newsletterH{
+        text-align: center;
+        font-size: 18px;
     }
     #subscribe-button{
-        margin-top: 5px;
-        margin-bottom: 5px;
+        padding: 5px;
+        position: absolute;
+        right: 17%;
+        /* top: 5%; */
+        background-color: orangered;
+        color: #f2f2f2;
+        font-weight: bold;
     }
 }

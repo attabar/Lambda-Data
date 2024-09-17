@@ -1,1 +1,2 @@
-Error While Creating Wallet: Error While Creating Wallet: Error While Creating Wallet: Error While Creating Wallet: Error While Creating Wallet: Error While Creating Wallet: Error While Creating Wallet: Error While Creating Wallet: Error While Creating Wallet: Error While Creating Wallet: 
+Entered PIN: 12345
+Stored PIN: 12345
