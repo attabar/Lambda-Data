@@ -86,7 +86,8 @@ class CheckOut {
             "paymentDescription"=>"payment for top up",
             "currencyCode"=> "NGN",
             "contractCode"=>"0378523971",
-            "redirectUrl"=>"http://localhost/Personal%20Projects/LambdaDataWebApp/user/fundWallet.php",
+            // "redirectUrl"=>"http://localhost/Personal%20Projects/LambdaDataWebApp/user/fundWallet.php",
+            "redirectUrl"=>"https://mikiyatech.com.ng/mikiyatech.com.ng/user/fundWallet.php",
             "paymentMethods"=>["CARD","ACCOUNT_TRANSFER"]
         );
 

@@ -28,9 +28,8 @@
             <div class="sidebar-content">
             <marquee><h2>Welcome <span id="username"></span></h2></marquee>
                 <ul>
-                    <li><a href="#"><i class="bi bi-columns-gap"></i> Dashboard</a></li>
-                    <li class="with-arrow account"><i class="fas fa-user"></i> Account <i class="bi bi-chevron-down"></i>
-                        <!-- submenu for account -->
+                    <li><a href="#"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
+                    <!-- <li class="with-arrow account"><i class="fas fa-user"></i> Account <i class="bi bi-chevron-down"></i>
                         <ul class="submenu">
                             <li><a href="./profile.php"><i class="bi bi-arrow-right-short"></i> Profile</a></li>
                             <li><a href="./PHP/WebHook.php"><i class="bi bi-arrow-right-short"></i> Upgrade Account</a></li>
@@ -38,7 +37,7 @@
                             <li><a href=""><i class="bi bi-arrow-right-short"></i> Pin Management</a></li>
                             <li><a href=""><i class="bi bi-arrow-right-short"></i> Change Password</a></li>
                         </ul>
-                    </li>
+                    </li> -->
 
                     <li><a href="./fundWallet.php"><i class="fas fa-wallet"></i> Fund Wallet</a></li>
                     <li><a href="./dataPage.php"><i class="fas fa-wifi"></i> Buy Data</a></li>
@@ -48,7 +47,7 @@
                     <li><a href="./resultPinPage.php"><i class="bi bi-mortarboard-fill"></i> Result Pin</a></li>
 
                     <!-- transaction history -->
-                    <li class="with-arrow transaction"><i class="fas fa-dollar-sign"></i> Transactions <i
+                    <li class="with-arrow transaction"><i class="fa fa-book" aria-hidden="true"></i> Transactions <i
                             class="bi bi-chevron-down"></i>
                         <!-- submenu for transactions history -->
                         <ul class="submenu">
@@ -60,11 +59,13 @@
                         </ul>
                     </li>
 
-                    <li><i class="bi bi-cash"></i> Wallet Summary</li>
-                    <li class="with-arrow"><i class="bi bi-sliders"></i> Others <i class="bi bi-chevron-down"></i></li>
-                    <li><i class="bi bi-gear-fill"></i> Settings</li>
-                    <li><i class="bi bi-tag-fill"></i> Price</li>
+                    <!-- <li><i class="bi bi-cash"></i> Wallet Summary</li> -->
+                    <!-- <li class="with-arrow"><i class="bi bi-sliders"></i> Others <i class="bi bi-chevron-down"></i></li> -->
+                    <!-- <li><i class="bi bi-gear-fill"></i> Settings</li> -->
+                    <li><i class="fa fa-list-ul" aria-hidden="true"></i> Pricing</li>
                     <li><i class="bi bi-bell-fill"></i> Notifications</li>
+                    <li><a href="./profile.php"><i class="fas fa-user"></i> Profile</a></li>
+                    <li><i class="fa fa-users" aria-hidden="true"></i> Referrals</li>
                     <li id="logout"><i class="bi bi-box-arrow-left"></i> Logout</li>
                 </ul>
             </div>
@@ -85,7 +86,7 @@
             <div class="main-content">
                 <!-- <h4 style="color:black;padding:35px" class="welcomingUser">Hi, <span id="username"></span></h4> -->
             <div class="balanceContainer">
-
+                
                 <div class="balance">
                     <i class="fas fa-wallet"></i>
                     <p>Total Balance</p>
@@ -110,11 +111,11 @@
                 </div> -->
             </div>
 
-            <div class="bankNames">
+            <!-- <div class="bankNames">
                 <button id="monify" onclick="navigateToMonify()"><i class="fa fa-university" aria-hidden="true"></i> Monnify</button>
                 <button id="paystack" onclick="navigateToPaystack()"><i class="fa fa-university" aria-hidden="true"></i> Paystack</button>
                 <button id="ps9" onclick="navigateToPbs()"><i class="fa fa-university" aria-hidden="true"></i> Moniepoint</button>
-            </div>
+            </div> -->
 
             <!-- account -->
             <div class="account-details">
@@ -129,7 +130,7 @@
                     <button id="verifyAccountBtn" onclick="createWallet()">Verify Your Account here</button>
                 </div>
 
-                <div class="paystackContainer">
+                <!-- <div class="paystackContainer">
                     <img src="../assets/img/paystack.png" class="wemaImg" alt="" srcset="">
                     <h3>Account Number: <span id="accNum2">Unverified</span></h3><br>
                     <h3>Account Name: <span id="accName2">Unverified</span><span class="chargesAmount"> ₦50<br>Charges</span></h3>
@@ -137,9 +138,9 @@
                     <h3>Bank Name: <span id="bank">Unverified</span></h3><br><br>
                     <h3>Unverified Account ?</h3>
                     <button id="verifyAccountBtn">Verify Your Account here</button>
-                </div>
+                </div> -->
 
-                <div class="psb9Container">
+                <!-- <div class="psb9Container">
                     <img src="../assets/img/psb9.png" class="wemaImg" alt="" srcset="">
                     <h3>Account Number: <span id="accNum">Unverified</span></h3><br>
                     <h3>Account Name: <span id="accName">Unverified</span><span class="chargesAmount"> ₦50<br>Charges</span></h3>
@@ -147,7 +148,7 @@
                     <h3>Bank Name: <span id="bank">Unverified</span></h3><br><br>
                     <h3>Unverified Account ?</h3>
                     <button id="verifyAccountBtn">Verify Your Account here</button>
-                </div>
+                </div> -->
             </div>
 
             <!-- services -->
@@ -155,20 +156,21 @@
                 <h3 style="text-align:center; color: blue; margin-bottom:15px">Quick Links</h3>
                 <!-- grid container -->
                 <div class="grid-container">
-                    <!-- data -->
-                    <a href="./dataPage.php" class="data">
-                        <i class="bi bi-wifi"></i>
-                        <h2>Data</h2>
-                    </a>
                     <!-- airtime -->
                     <a href="./airtimePage.php" class="airtime">
                         <i class="bi bi-telephone-inbound-fill"></i>
                         <h2>Airtime</h2>
                     </a>
+                    <!-- data -->
+                    <a href="./dataPage.php" class="data">
+                        <i class="bi bi-wifi"></i>
+                        <h2>Data</h2>
+                    </a>
+                    
                     <!-- tv -->
                     <a href="./tvCableSubPage.php" class="tv">
                         <i class="bi bi-tv"></i>
-                        <h2>TV Cables</h2>
+                        <h2>Cable Tv</h2>
                     </a>
                     <!-- bill -->
                     <a href="./billPage.php" class="bill">
@@ -178,17 +180,36 @@
                     <!-- result pin -->
                     <a href="./resultPinPage.php" class="result-pin">
                         <i class="bi bi-mortarboard-fill"></i>
-                        <h2>Result Pin</h2>
+                        <h2>Exam Pins</h2>
                     </a>
                     <!-- airtime to money -->
                     <a href="#" class="airtime-to-money">
                         <i class="bi bi-cash"></i>
                         <h2>Airtime To Cash</h2>
                     </a>
+                    <!-- airtime to money -->
+                    <a href="./profile.php" class="airtime-to-money">
+                        <i class="fas fa-user"></i>
+                        <h2>Profile</h2>
+                    </a>
+                    <a href="#" class="airtime-to-money">
+                        <i class="bi bi-tag-fill"></i>
+                        <h2>Pricing</h2>
+                    </a>
+                    <a href="#" class="airtime-to-money">
+                        <i class="fa fa-credit-card" aria-hidden="true"></i>
+                        <h2>recharge card</h2>
+                    </a>
+                    
                 </div>
             </div>
             <br><br>
-            <div class="finalContainer">
+             <!-- whatsapp us -->
+            <a style="color: green" href="https://wa.me/08149715017" target="_blank" class="whatsappUs">
+            <i class="fab fa-whatsapp"></i>
+                <!-- <i class="fa fa-whatsapp" aria-hidden="true"></i> -->
+            </a>
+            <!-- <div class="finalContainer">
                 <div>
                     <h4>Referal Link </h4>
                     <input type="text" value="mubarak306" id="Refer" disabled> <i class="far fa-clipboard" onclick="CopyReferalCode()"></i>
@@ -203,7 +224,7 @@
                     <h4>Total Referral</h4>
                     <span>5</span>
                 </div>
-            </div>
+            </div> -->
 
                 <!-- Example content here -->
             </div>
@@ -236,23 +257,6 @@
             });
         });
 
-        const navigateToMonify = () => {
-            let monifyCon = document.querySelector(".monifyContainer").style.display = 'block';
-            let paystackCon = document.querySelector(".paystackContainer").style.display = 'none';
-            let ps9Con = document.querySelector(".psb9Container").style.display = 'none';
-        }
-
-        const navigateToPaystack = () => {
-            let paystackCon = document.querySelector(".paystackContainer").style.display = 'block';
-            let monifyCon = document.querySelector(".monifyContainer").style.display = 'none';
-            let ps9Con = document.querySelector(".psb9Container").style.display = 'none';
-        }
-
-        const navigateToPbs = () => {
-            let ps9Con = document.querySelector(".psb9Container").style.display = 'block';
-            let paystackCon = document.querySelector(".paystackContainer").style.display = 'none';
-            let monifyCon = document.querySelector(".monifyContainer").style.display = 'none';
-        }
 
         function CopyReferalCode() {
   /* Get the text field */

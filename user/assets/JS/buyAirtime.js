@@ -44,6 +44,12 @@ function submitAirtimeForm() {
     var amount = document.getElementById("amount").value;
     var amountToPay = document.getElementById("amountToPay").value;
 
+    var submitBtn = document.getElementById("btn");
+    submitBtn.innerHTML = "Processing...";
+    submitBtn.style.fontWeight = 'bold';
+    submitBtn.style.backgroundColor = 'lightblue';
+    submitBtn.disabled = true;
+
     var formData = new FormData();
     formData.append("network_id", network_id);
     formData.append("airtime_type", airtime_type);
@@ -67,6 +73,8 @@ function submitAirtimeForm() {
             title: data.title,
             text: data.message
         }); 
+        submitBtn.innerHTML = 'Top up';
+        submitBtn.disabled = false;
     })
     .then(error => {
         console.log("error: ", error)

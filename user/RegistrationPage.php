@@ -53,7 +53,7 @@
     
     <!-- submit button container -->
     <div class="button">
-      <button name="submit" id="submitBtn" type="submit">Submit</button>
+      <button name="submit" id="submitBtn" type="submit">Sign up</button>
       <p>Already have an Account <a href="./loginPage.php">Login</a></p>
     </div>  
   </form>

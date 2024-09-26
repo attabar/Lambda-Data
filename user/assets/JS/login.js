@@ -13,6 +13,12 @@ const Toast = Swal.mixin({
 document.getElementById("loginForm").addEventListener("submit", function(e) {
     e.preventDefault();
 
+    var submitBtn = document.getElementById("submitBtn");
+    submitBtn.innerHTML = "Authenticating...";
+    submitBtn.style.fontWeight = 'bold';
+    submitBtn.style.backgroundColor = 'lightblue';
+    submitBtn.disabled = true;
+
     var formData = new FormData(this);
 
     fetch("./assets/PHP/login.php", {
@@ -42,6 +48,8 @@ document.getElementById("loginForm").addEventListener("submit", function(e) {
             text: data.message
         })
     }
+        submitBtn.innerHTML = 'Login';
+        submitBtn.disabled = false;
     }).catch(error => {
         console.log(error);
     })

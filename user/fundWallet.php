@@ -79,47 +79,22 @@
     </div>
     <!-- Your main content goes here -->
     <div class="main-content">
-      <h1 class="heading">FUNDING METHODS</h1>
+      <marquee class="heading">FUNDING METHODS</marquee>
       <!-- method 2 direct bank transfer -->
       <h2 class="method1">METHOD 1: BANK TRANSFER</h2>
-      <div class="bankNames">
-                <button id="monify" onclick="navigateToMonify()"><i class="fa fa-university" aria-hidden="true"></i>WEMA</button>
-                <button id="paystack" onclick="navigateToPaystack()"><i class="fa fa-university" aria-hidden="true"></i>FIRST</button>
-                <button id="ps9" onclick="navigateToPbs()"><i class="fa fa-university" aria-hidden="true"></i>UNITY</button>
-            </div>
-
+    
             <!-- account -->
-            <div class="account-details">
+            <div class="manual-funding">
                 <!-- wema bank logo img-->
-                 <div class="monifyContainer">
-                    <!-- <img src="../assets/img/wemaBankLogo.jpeg" class="wemaImg" alt="" srcset=""> -->
-                    <h3>Account Number: <span id="accNum">08149715017</span></h3><br>
-                    <h3>Account Name: <span id="accName">Ali Goni</span><span class="chargesAmount"></span></h3>
+                    <img src="../assets/img/wemaBankLogo.jpeg" class="wemaImg" alt="" srcset="">
+                    <h3>Account Number: <span id="accNum"></span></h3><br>
+                    <h3>Account Name: <span id="accName"></span><span class="chargesAmount"></span></h3>
                     <br>
                     <h3>Bank Name: <span id="bank">WEMA BANK</span></h3><br>
-                    <h3>Charges Fee: ₦50</h3>
-                </div>
+                    <h3>Charges Fee: 10%</h3>
+              </div>
 
-                <div class="paystackContainer">
-                    <!-- <img src="../assets/img/paystack.png" class="wemaImg" alt="" srcset=""> -->
-                    <h3>Account Number: <span id="accNum2">45635797653</span></h3><br>
-                    <h3>Account Name: <span id="accName2">ABBA SALEH</span><span class="chargesAmount"></span></h3><br>
-                    <h3>Bank Name: <span id="bank">FIRST BANK</span></h3><br>
-                    <h3>Charges Fee: ₦50</h3>
-                    <br>
-                </div>
-
-                <div class="psb9Container">
-                    <!-- <img src="../assets/img/psb9.png" class="wemaImg" alt="" srcset=""> -->
-                    <h3>Account Number: <span id="accNum">14678934672</span></h3><br>
-                    <h3>Account Name: <span id="accName">Abbas Ahmad</span><span class="chargesAmount"></span></h3>
-                    <br>
-                    <h3>Bank Name: <span id="bank">UNITY BANK</span></h3><br>
-                    <h3>Charges Fee: ₦50</h3>
-                </div>
-            </div>
             <!-- funding method 2 -->
-      <div class="methodTwoDiv">       
       <h2 class="method2">METHOD 2: AUTOMATED FUNDING</h2>
       <div class="form-container">
         <h2 class="">AUTOMATED FUNDING</h2>
@@ -133,7 +108,6 @@
             <button type="submit" class="btn" id="btn" name="submit">Fund Now</button>
           </div>
         </form>
-      </div>
       </div>
           <!-- Loading Overlay -->
     <div class="loading-overlay">
@@ -174,6 +148,7 @@
 <script src="./assets/SweetAlert/sweetalert.js"></script>
 <script src="./assets/JS/logout.js"></script>
 <script src="./assets/JS/user.js"></script>
+<script src="./assets/JS/walletInfo.js"></script>
 <script src="./assets/JS/fundWallet.js"></script>
 </body>
 </html>

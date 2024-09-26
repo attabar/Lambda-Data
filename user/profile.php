@@ -1,4 +1,3 @@
-<?php require_once './PHP/RedirectBackToLoginPage.php' ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Dashboard</title>
     <!-- custom css file -->
-    <link rel="stylesheet" href="./CSS/dashboard.css">
-    <link rel="stylesheet" href="./CSS/profile.css">
+    <link rel="stylesheet" href="./assets/CSS/dashboard.css">
+    <link rel="stylesheet" href="./assets/CSS/profile.css">
     <!-- fontawesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
         integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw=="
@@ -16,29 +15,18 @@
     <!-- bootstrap icon -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <!-- favicon -->
-    <link rel="icon" type="image/x-icon" href="../img/logo.jpg">
+    <link rel="icon" type="image/x-icon" href="../assets/img/yamboyLogo.jpg">
 </head>
 
 <body>
     <div class="container">
         <!-- sidebar container -->
-        <div class="sidebar">
+        <div class="sidebar" id="sidebar">
             <!-- Your sidebar content goes here -->
             <div class="sidebar-content">
                 <ul>
-                    <li><a href="#"><i class="bi bi-columns-gap"></i> Dashboard</a></li>
-                    <li class="with-arrow account"><i class="fas fa-user"></i> Account <i
-                            class="bi bi-chevron-down"></i>
-                        <!-- submenu for account -->
-                        <ul class="submenu">
-                            <li><a href="./profile.php"><i class="bi bi-arrow-right-short"></i> Profile</a></li>
-                            <li><a href=""><i class="bi bi-arrow-right-short"></i> Upgrade Account</a></li>
-                            <li><a href=""><i class="bi bi-arrow-right-short"></i> KYC</a></li>
-                            <li><a href=""><i class="bi bi-arrow-right-short"></i> Pin Management</a></li>
-                            <li><a href=""><i class="bi bi-arrow-right-short"></i> Change Password</a></li>
-                        </ul>
-                    </li>
-                    <li><i class="fas fa-wallet"></i> Fund Wallet</li>
+                    <li><a href="./dashboard.php"><i class="bi bi-columns-gap"></i> Home</a></li>
+                    <li><a href="./fundWallet.php"><i class="fas fa-wallet"></i> Fund Wallet</a></li>
                     <li><a href="./data.php"><i class="fas fa-wifi"></i> Buy Data</a></li>
                     <li><a href="./airtime.php"><i class="fas fa-phone"></i> Buy Airtime</a></li>
                     <li><i class="fas fa-lightbulb"></i> Bills</li>
@@ -71,112 +59,116 @@
         <div class="content">
             <!-- header -->
             <div class="header">
-                <button class="navbar">&#9776;</button>
+                <div class="navbar" onclick="toggleMenu()">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
             </div>
             <!-- Your main content goes here -->
             <div class="main-content">
-                <marquee behavior="" direction="">This is the only avalailable bank we have for now that is wema bank
                 </marquee>
+                <div class="hztal">
+                    <button onclick="navigateTouserprofile()">Profile</button>
+                    <button onclick="navigateTouserpass()">Password</button>
+                    <button>Pin</button>
+                </div>
                 <!-- account -->
                 <div class="user-profile">
-                    <h1 class="h1-user-profile">User Profile</h1>
-                    <h3>Full Name: <span id="fullname"></span></h3><br>
-                    <h3>Username: <span id="username"></span></h3>
-                    <br>
-                    <h3>E-mail: <span id="email"></span></h3><br>
-                    <h3>Mobile: <span id="mobile"></span></h3>
-                    <a class="editProfile" href="./editProfile.php"><h4>Edit Profile</h4></a>
+                    <h5 style="color:aqua">Account Details</h5>
+                    <h3 style="margin-bottom: 5%;">Basic information</h3>
+                    <h5><i class="fas fa-user"></i>  Name: <span id="fullname"></span></h5><br>
+                    <h5><i class="fa fa-envelope-o" aria-hidden="true"></i> E-mail: <span id="email"></span></h5><br>
+                    <h5><i class="bi bi-telephone-inbound-fill"></i> Mobile: <span id="mobile"></span></h5>
+                    <!-- <a class="editProfile" href="./editProfile.php"><h4>Edit Profile</h4></a> -->
+
+                    <h5 style="margin-top: 10%;color:aqua">Referrals</h5>
+                    <h3>Referral Link</h3>
+                    <input type="text" class="ReferralLinkC" id="referral" style="color:black">
+                    <button onclick="myFunction()" style="margin-top: 5%; background-color:orangered;padding: 7px; color: #fff;">Copy Link</button>
+                    <button style="margin-top: 5%; background-color:green;padding: 7px; color: #fff;">View Commission</button>
                 </div>
-                <!-- userStatus -->
-                <div class="account-status">
-                    <div class="account-container"><button><i class="bi bi-plus-lg"></i> Fund Wallet</button><button><i
-                                class="bi bi-plus-lg"></i> Upgrade Account</button></div>
-                    <h1 style="color:aliceblue;padding:35px">Welcome <span id="username"></span></h1>
-                    <h3 style="color:aliceblue;padding-left:35px">SMART EARNER</h3>
-                    <h2 style="color:aliceblue;padding-left:35px;padding-top:40px" id="accBalance">₦0.00</h2>
-                    <h4 style="color:aliceblue;padding-left:35px;padding-top:15px;font-weight:100">Wallet Balance</h4>
+
+                <div class="user-pass">
+                    <h5 style="color:aqua">update Login Details</h5>
+                    <h3 style="margin-bottom: 5%;">Login Details</h3>
+                    <label for="">old Password</label>
+                    <input type="password" class="ReferralLinkC" style="color:black; "><br>
+                    <label for="">New Password</label>
+                    <input type="password" class="ReferralLinkC" style="color:black"><br>
+                    <label for="">old Password</label>
+                    <input type="password" class="ReferralLinkC" style="color:black"><br>
+                    
+                    <button style="margin-top: 5%; background-color:orangered;padding: 7px; color: #fff;">Copy Link</button>
                 </div>
-                <!-- services -->
-                <div class="services" id="services">
-                    <!-- grid container -->
-                    <div class="grid-container">
-                        <!-- data -->
-                        <div class="data">
-                            <i class="bi bi-wifi"></i>
-                            <h2>Buy <br>Data</h2>
-                        </div>
-                        <!-- airtime -->
-                        <div class="airtime">
-                            <i class="bi bi-telephone-inbound-fill"></i>
-                            <h2>Buy <br>Airtime</h2>
-                        </div>
-                        <!-- tv -->
-                        <div class="tv">
-                            <i class="bi bi-tv"></i>
-                            <h2>TV Cables</h2>
-                        </div>
-                        <!-- bill -->
-                        <div class="bill">
-                            <i class="bi bi-lightbulb-fill"></i>
-                            <h2>Buy <br>Electricity</h2>
-                        </div>
-                        <!-- result pin -->
-                        <div class="result-pin">
-                            <i class="bi bi-mortarboard-fill"></i>
-                            <h2>Result Pin</h2>
-                        </div>
-                        <!-- airtime to money -->
-                        <div class="airtime-to-money">
-                            <i class="bi bi-cash"></i>
-                            <h2>Airtime To Cash</h2>
-                        </div>
-                    </div>
-                </div>
-                <!-- wallet details and referral div -->
-                <!-- <div class="wallet-details-and-referral" style="background-color: red;">
-                <div class="wallet-details">
-                    <h2>Wallet Balance</h2>
-                </div>
-            </div> -->
+            
                 <!-- end of main content -->
             </div>
         </div>
     </div>
     <script src="./JQUERY/jquery.js"></script>
     <script>
-    $('document').ready(function() {
-        $('.navbar').click(function(e) {
-            e.preventDefault();
-            $('.sidebar').toggle();
+        function myFunction() {
+  /* Get the text field */
+  var copyText = document.getElementById("referral");
+
+  /* Select the text field */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+   /* Copy the text inside the text field */
+  navigator.clipboard.writeText(copyText.value);
+
+  /* Alert the copied text */
+  alert("Copied the text: " + copyText.value);
+}
+        function toggleMenu() {
+            const sidebar = document.getElementById('sidebar');
+            const isOpen = sidebar.style.left === '0px' || !sidebar.style.left;
+            sidebar.style.left = isOpen ? '-15rem' : '0px';
+
+            const toggleIcon = document.querySelector(".navbar");
+            toggleIcon.classList.toggle('open');
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const withArrowElements = document.querySelectorAll(".with-arrow");
+
+            withArrowElements.forEach(element => {
+                element.addEventListener("click", function () {
+                    this.classList.toggle('open');
+
+                    const submenu = this.querySelector(".submenu");
+
+                    if (submenu) {
+                        submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+                    }
+                });
+            });
         });
-        $('.account').click(function() {
-            $(this).toggleClass('open');
-            $(this).find('.submenu').toggle();
-        });
-        $('.transaction').click(function() {
-            $(this).toggleClass('open');
-            $(this).find('.submenu').toggle();
-        })
-        // logout
-        $('#logout').click(function(e) {
-            e.preventDefault();
-            $.ajax({
-                url: './PHP/logout.php',
-                type: 'GET',
-                success: function(response) {
-                    window.location.href = './loginPage.php'
-                },
-                error: function(xhr, status, error) {
-                    console.log("AJAX ERROR: " + status + " - " + error);
-                }
-            })
-        })
-    })
+
+        const navigateTouserprofile = () => {
+            let userprofile = document.querySelector(".user-profile").style.display = 'block';
+            let userpass = document.querySelector(".user-pass").style.display = 'none';
+            let ps9Con = document.querySelector(".psb9Container").style.display = 'none';
+        }
+
+        const navigateTouserpass = () => {
+            let userpass = document.querySelector(".user-pass").style.display = 'block';
+            let userprofile = document.querySelector(".user-profile").style.display = 'none';
+            let ps9Con = document.querySelector(".psb9Container").style.display = 'none';
+        }
+
+        const navigateToPbs = () => {
+            let ps9Con = document.querySelector(".psb9Container").style.display = 'block';
+            let paystackCon = document.querySelector(".paystackContainer").style.display = 'none';
+            let monifyCon = document.querySelector(".monifyContainer").style.display = 'none';
+        }
     </script>
     <!-- wallet account file -->
     <script src="./JS/getAccountDetails.js"></script>
     <!-- session file -->
-    <script src="./JS/getProfile.js"></script>
+    <script src="./assets/JS/referral.js"></script>
     <!-- account balance -->
     <script src="./JS/getBalance.js"></script>
 </body>

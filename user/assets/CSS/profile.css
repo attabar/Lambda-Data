@@ -1,18 +1,20 @@
-.user-profile{
-    position: absolute;
-    top: 30%;
-    right: 20%;
-    width: 40%;
-    background-color: #333;
+.user-profile, .user-pass{
+    margin-top: 5%;
+    background-color: blue;
     padding: 25px;
     height: 50vh;
     color: #fff;
     border-radius: 10px;
 }
 
+.user-pass{
+    display: none;
+}
+
 .h1-user-profile{
     text-align: center;
     margin-bottom: 15px;
+    
 }
 
 h3{
@@ -27,4 +29,24 @@ h3{
 
 .editProfile h4{
     margin-top: 15px;
+}
+.hztal{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: blue;
+    padding: 15px;
+}
+.hztal button{
+    padding: 10px; 
+    width: 100%;
+    border-radius: 50%;
+    background-color:fuchsia;
+    color: #fff;
+}
+.ReferralLinkC{
+    width: 100%;
+    padding: 10px; 
+    border-radius: 10px;
+    border:none;
 }

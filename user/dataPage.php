@@ -115,7 +115,7 @@
             <input type="number" placeholder="0" name="amount" id="amount" required>
           </div>
           <div id="btn-container">
-            <button type="submit" class="btn" id="btn" name="submit">Buy</button>
+            <button type="submit" class="btn" id="btn" name="submit">Top Up</button>
           </div>
         </form>
       </div>

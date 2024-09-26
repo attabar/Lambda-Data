@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function(e){
     e.preventDefault();
     
-    fetch("./assets/PHP/user.php", {
+    fetch("./assets/PHP/referal.php", {
         method: "GET"
     })
     .then(response => {
@@ -12,10 +12,10 @@ document.addEventListener("DOMContentLoaded", function(e){
     })
     .then(data => {
         if(data.success){
-            document.getElementById("username").innerHTML = data.email;
-            document.getElementById("fullname").innerHTML = data.fullname;
+            document.getElementById("referral").value = data.referral;
+            alert(data.referral)
         }else{
-            window.location.href = "./loginPage.php"
+            document.getElementById("referral").innerHTML = data.message;
         }
     })
     .catch(error => {

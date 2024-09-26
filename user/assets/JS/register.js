@@ -3,6 +3,12 @@ document.addEventListener("DOMContentLoaded", function(e) {
 document.getElementById("signUpForm").addEventListener("submit", function(e){
     e.preventDefault();
 
+    var submitBtn = document.getElementById("submitBtn");
+    submitBtn.innerHTML = "Processing...";
+    submitBtn.style.fontWeight = 'bold';
+    submitBtn.style.backgroundColor = 'lightblue';
+    submitBtn.disabled = true;
+
     var formData = new FormData(this);
 
     fetch("./assets/PHP/Registration.php", {
@@ -30,6 +36,8 @@ document.getElementById("signUpForm").addEventListener("submit", function(e){
                 text: data.message
             })
         }
+        submitBtn.innerHTML = 'Sign up';
+        submitBtn.disabled = false;
     })
     .catch(error => {
     console.log("There was a problem with the response operation: ",error);

@@ -58,6 +58,7 @@ function submitDataForm() {
     var submitBtn = document.getElementById("btn");
     submitBtn.innerHTML = "Processing...";
     submitBtn.style.fontWeight = 'bold';
+    submitBtn.style.backgroundColor = 'lightblue'
     submitBtn.disabled = true;
 
     var formData = new FormData();
@@ -84,7 +85,7 @@ function submitDataForm() {
             text: data.message
         });
 
-        submitBtn.innerHTML = 'Buy';
+        submitBtn.innerHTML = 'Top Up';
         submitBtn.disabled = false;
     })
     .catch(error => {
@@ -95,7 +96,7 @@ function submitDataForm() {
             text: error.message, // Using error.message to show the error details
             confirmButtonText: "OK"
         });
-        submitBtn.innerHTML = 'Buy';
+        submitBtn.innerHTML = 'Top Up';
         submitBtn.disabled = false;
     });
 }

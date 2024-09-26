@@ -8,10 +8,12 @@ class RedirectBackToLoginPage {
     public function getUsername() {
         if(isset($_SESSION['email'])){
             $email = $_SESSION['email'];
+            $fullname = $_SESSION['fullname'];
            
             $response = [
                 "success" => true,
-                "email" => $email
+                "email" => $email,
+                "fullname" => $fullname
             ];
             return $response;
         }else{

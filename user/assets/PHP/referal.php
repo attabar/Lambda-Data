@@ -1,7 +1,21 @@
 <?php
-if(isset($_SESSION['username'])){
-    $username = $_SESSION['username'];
+header("Content-Type: application/json");
+session_start();
 
-    $referalLink = "<h3>Referal: "."https://www.lambdadata.com/signup?ref=" . $username."</h3>";
+if(isset($_SESSION['referral'])){
+
+    $referral_code = $_SESSION['referral'];
+    $referral_link = "https://yourdomain.com/signup.php?ref=" . $referral_code;
+
+    echo json_encode([
+        "success" => true,
+        'referral' => $referral_link
+    ]);
+
+} else {
+    echo json_encode([
+        "success" => false,
+        'message' => 'no referral'
+    ]);
 }
 ?>

@@ -48,7 +48,7 @@ class DataPurchase {
                 $profit = $amount - $plan_amount;
 
                 // Insert the transaction done as transaction history
-                $sql = $this->conn->prepare("INSERT INTO data_transaction(data_user_id, plan_network, mobile_number, plan, status, plan_name, plan_amount, transaction_date, profit) VALUES(?,?,?,?,?,?,?,?,?)");
+                $sql = $this->conn->prepare("INSERT INTO data_transaction(data_user_id, plan_network, mobile_number, plan, status, plan_name, plan_amount, create_date, profit) VALUES(?,?,?,?,?,?,?,?,?)");
                 $sql->bind_param("isiissdsi", $user_id, $planNetwork, $mn, $plan, $status, $plan_name, $plan_amount, $date, $profit);
                 $sql->execute();
 
@@ -121,7 +121,7 @@ class DataPurchase {
 
         if (curl_errno($ch)) {
             $error = "cURL: " . curl_error($ch);
-            error_log($error, 3, '../../../../../../php/logs/php_error_log');
+            // error_log($error, 3, '../../../../../../php/logs/php_error_log');
             return ['success' => false, 'error' => $error];
         }
 

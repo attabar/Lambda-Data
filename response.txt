@@ -1,0 +1,9 @@
+{
+  "headers" : "Date: Tue, 17 Sep 2024 01:28:37 GMT\nServer: Apache\nX-Powered-By: PHP/8.2.23\nContent-Length: 0\nConnection: close\nContent-Type: text/html; charset=UTF-8\n",
+  "message" : "Internal Server Error",
+  "request" : null,
+  "response" : "Response{protocol=http/1.1, code=500, message=Internal Server Error, url=https://www.mikiyatech.com.ng/mikiyatech.com.ng/user/assets/PHP/WebHook.php}",
+  "responseBody" : "",
+  "responseCode" : "500",
+  "successful" : false
+}

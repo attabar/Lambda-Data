@@ -253,7 +253,7 @@ button:hover{
 
 
 /* large screen */
-@media only screen and (min-width:1200px) {
+@media only screen and (min-width:768px) {
     .menu ul li{ 
         padding-right: 2rem;
     }
@@ -389,7 +389,7 @@ button:hover{
         align-items: center;
     }
     .prices .grid-container img{
-        width: 150px;
+        width: 90px;
     }
     .prices .grid-container div img{
         border-radius: 50%;
@@ -453,6 +453,11 @@ button:hover{
     .footer .firstChild #subscribe, #subscribe-button{
         padding: 8px;
     }
+}
+
+/* fo tablt */
+@media only screen and (min-width: 600px) {
+    
 }
 
 /* small screen */
