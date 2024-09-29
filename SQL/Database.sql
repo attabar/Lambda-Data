@@ -136,6 +136,15 @@ VALUES
     (179, 'MTN', 'SME', '127', '140', '500MB'),
     (270, 'MTN', 'CG', '25', '50', '50MB');
 
+
+-- capturing referral signed up user for referrer
+CREATE TABLE referrals (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  referrer_id INT,  -- User who made the referral
+  referred_user_id INT,  -- User who signed up using the referral link
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
 -- Inserting into admintable
 INSERT INTO admintable(username, pass) 
 VALUES('Malik', '$2y$10$GvoyFuTBNmnfKOx.P9R0n.FuU6P3L3dUx8b9oejOf64NVSBmSt.Bq');

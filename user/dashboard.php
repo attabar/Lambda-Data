@@ -234,8 +234,8 @@
     <script>
         function toggleMenu() {
             const sidebar = document.getElementById('sidebar');
-            const isOpen = sidebar.style.left === '0px' || !sidebar.style.left;
-            sidebar.style.left = isOpen ? '-15rem' : '0px';
+            const isOpen = sidebar.style.left === '-15rem' || !sidebar.style.left;
+            sidebar.style.left = isOpen ? '0px' : '-15rem';
 
             const toggleIcon = document.querySelector(".navbar");
             toggleIcon.classList.toggle('open');

@@ -20,6 +20,26 @@ class Registration {
         $validationResult = $this->validateData($fullname, $email, $phone, $referral, $pin, $password);
         
         if($validationResult === true){
+
+            //  Logic for capturing referrer link user
+            if(isset($_GET['ref'])){
+                $referral_code = $_GET['ref'];
+
+                // Find the referrer (the user who owns the referral code)
+                $sql = $this->conn->prepare("SELECT user_id FROM users WHERE referral = ?");
+                $sql->bind_param("s", $referral_code);
+                $sql->execute();
+                $result = $sql->get_result();
+                $row = $result->fetch_assoc();
+                $referrer = $row['user_id'];
+
+                if($referrer) {
+                    $referrer_id = $referrer;
+                } else {
+                    $referrer_id = null;
+                }
+            }
+
             // Hash password for security purposes
             $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
             
@@ -30,21 +50,27 @@ class Registration {
 
             if($stmt->execute()) {
                 // Step 2: Get the new user_id
-                $user_id = $this->conn->insert_id;
+                $referred_user_id = $this->conn->insert_id;
 
                 // Step 3: Generate referral code and update the user record
-                $referral = $this->generateReferralCode($user_id);
+                $referral = $this->generateReferralCode($referred_user_id);
 
                 $sql = "UPDATE users SET referral = ? WHERE user_id = ?";
                 $stmt = $this->conn->prepare($sql);
-                $stmt->bind_param("si", $referral, $user_id);
+                $stmt->bind_param("si", $referral, $referred_user_id);
                 $stmt->execute();
+
+                // Step 4: Store the referral relationship in a `referrals` table
+                $ref = $this->conn->prepare("INSERT INTO referrals (referrer_id, referred_user_id) VALUES (?,?)");
+                $ref->bind_param("ii", $referrer_id, $referred_user_id);
+                $ref->execute();
 
                 // Return success response
                 return ["success" => true, "message" => "Registration was successful"];
             } else {
                 return ["success" => false, "message" => "Error encountered during Registration: " . $this->conn->error];
-            }    
+            } 
+              
         } else {
             return $validationResult;
         }

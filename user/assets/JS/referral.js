@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function(e){
     .then(data => {
         if(data.success){
             document.getElementById("referral").value = data.referral;
-            alert(data.referral)
+            // alert(data.referral)
         }else{
             document.getElementById("referral").innerHTML = data.message;
         }

@@ -26,17 +26,13 @@ class Profile {
         
             if($result->num_rows > 0){
                 $row = $result->fetch_assoc();
-                $fname = $row['fname'];
-                $lname = $row['lname'];
-                $username = $row['username'];
+                $fname = $row['fullname'];
                 $email = $row['email'];
                 $mobile = $row['phone'];
 
                 echo json_encode([
                     'success' => true,
-                    'fname' => $fname,
-                    'lname' => $lname,
-                    'username' => $username,
+                    'fullname' => $fname,
                     'email' => $email,
                     'mobile' => $mobile
                 ]);

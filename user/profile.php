@@ -71,7 +71,7 @@
                 <div class="hztal">
                     <button onclick="navigateTouserprofile()">Profile</button>
                     <button onclick="navigateTouserpass()">Password</button>
-                    <button>Pin</button>
+                    <button onclick="navigateToUserPin()">Pin</button>
                 </div>
                 <!-- account -->
                 <div class="user-profile">
@@ -90,16 +90,28 @@
                 </div>
 
                 <div class="user-pass">
-                    <h5 style="color:aqua">update Login Details</h5>
+                    <h5 style="color:aqua">Update Login Details</h5>
                     <h3 style="margin-bottom: 5%;">Login Details</h3>
                     <label for="">old Password</label>
-                    <input type="password" class="ReferralLinkC" style="color:black; "><br>
+                    <input type="password" placeholder="Old Password" class="password-change" style="color:black;"><br>
                     <label for="">New Password</label>
-                    <input type="password" class="ReferralLinkC" style="color:black"><br>
-                    <label for="">old Password</label>
-                    <input type="password" class="ReferralLinkC" style="color:black"><br>
+                    <input type="password" placeholder="New Password" class="password-change" style="color:black"><br>
+                    <label for="">Retype Password</label>
+                    <input type="password" placeholder="Retype Password" class="password-change" style="color:black"><br>
                     
-                    <button style="margin-top: 5%; background-color:orangered;padding: 7px; color: #fff;">Copy Link</button>
+                    <button class="updatePassBtn" style="margin-top: 2%; background-color:orangered;padding: 7px; color: #fff;">Update Password</button>
+                </div>
+                <div class="user-pin">
+                    <h5 style="color:aqua">Update Transaction Pin</h5>
+                    <h3 style="margin-bottom: 5%;">Transaction Pin</h3>
+                    <label for="">old Pin</label>
+                    <input type="password" placeholder="Old Pin" class="password-change" style="color:black;"><br>
+                    <label for="">New Pin</label>
+                    <input type="password" placeholder="New Pin" class="password-change" style="color:black"><br>
+                    <label for="">Retype Pin</label>
+                    <input type="password" placeholder="Retype Pin" class="password-change" style="color:black"><br>
+                    
+                    <button class="updatePassBtn" style="margin-top: 2%; background-color:orangered;padding: 7px; color: #fff;">Update Pin</button>
                 </div>
             
                 <!-- end of main content -->
@@ -150,19 +162,19 @@
         const navigateTouserprofile = () => {
             let userprofile = document.querySelector(".user-profile").style.display = 'block';
             let userpass = document.querySelector(".user-pass").style.display = 'none';
-            let ps9Con = document.querySelector(".psb9Container").style.display = 'none';
+            let ps9Con = document.querySelector(".user-pin").style.display = 'none';
         }
 
         const navigateTouserpass = () => {
             let userpass = document.querySelector(".user-pass").style.display = 'block';
             let userprofile = document.querySelector(".user-profile").style.display = 'none';
-            let ps9Con = document.querySelector(".psb9Container").style.display = 'none';
+            let ps9Con = document.querySelector(".user-pin").style.display = 'none';
         }
 
-        const navigateToPbs = () => {
-            let ps9Con = document.querySelector(".psb9Container").style.display = 'block';
-            let paystackCon = document.querySelector(".paystackContainer").style.display = 'none';
-            let monifyCon = document.querySelector(".monifyContainer").style.display = 'none';
+        const navigateToUserPin = () => {
+            let ps9Con = document.querySelector(".user-pin").style.display = 'block';
+            let paystackCon = document.querySelector(".user-profile").style.display = 'none';
+            let monifyCon = document.querySelector(".user-pass").style.display = 'none';
         }
     </script>
     <!-- wallet account file -->
@@ -170,7 +182,7 @@
     <!-- session file -->
     <script src="./assets/JS/referral.js"></script>
     <!-- account balance -->
-    <script src="./JS/getBalance.js"></script>
+    <script src="./assets/JS/getProfile.js"></script>
 </body>
 
 </html>

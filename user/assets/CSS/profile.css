@@ -1,20 +1,17 @@
-.user-profile, .user-pass{
+.user-profile, .user-pass, .user-pin{
     margin-top: 5%;
     background-color: blue;
-    padding: 25px;
-    height: 50vh;
     color: #fff;
     border-radius: 10px;
 }
 
-.user-pass{
+.user-pass, .user-pin{
     display: none;
 }
 
 .h1-user-profile{
     text-align: center;
     margin-bottom: 15px;
-    
 }
 
 h3{
@@ -22,14 +19,6 @@ h3{
     display: flex;
 }
 
-.editProfile{
-    text-align: center;
-    margin-bottom: 0;
-}
-
-.editProfile h4{
-    margin-top: 15px;
-}
 .hztal{
     width: 100%;
     display: flex;
@@ -44,9 +33,56 @@ h3{
     background-color:fuchsia;
     color: #fff;
 }
-.ReferralLinkC{
+.ReferralLinkC, .password-change{
     width: 100%;
     padding: 10px; 
     border-radius: 10px;
     border:none;
+}
+
+/* desktop */
+@media only screen and (min-width:768px) {
+    .main-content{
+        width: 100%;
+        position: absolute;
+        top: 10%;
+    }
+    .hztal{
+        width: 50%;
+        padding: 5px;
+        border-radius: 5px;
+        position: absolute;
+        left: 30%;
+    }
+    .user-profile, .user-pass, .user-pin{
+        padding: 25px;
+        height: 65vh;
+        width: 50%;
+        position: absolute;
+        left: 30%;
+    }
+    .password-change{
+        margin-bottom: 15px;
+    }
+    .updatePassBtn{
+        width: 100%;
+        padding: 5px;
+        border-radius: 5px;
+    }
+}
+
+/* smart phone */
+@media only screen and (max-width:768px) {
+    .user-profile, .user-pass, .user-pin{
+        padding: 25px;
+        height: 50vh;
+    }
+    .password-change{
+        margin-bottom: 10px;
+    }
+    .updatePassBtn{
+        width: 100%;
+        padding: 5px;
+        border-radius: 5px;
+    }
 }

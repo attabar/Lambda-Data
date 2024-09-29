@@ -1,4 +1,4 @@
-fetch("./PHP/Profile.php", {
+fetch("./assets/PHP/Profile.php", {
     method: 'GET'
 })
 .then(response => {
@@ -10,8 +10,7 @@ fetch("./PHP/Profile.php", {
 })
 .then(data => {
     if(data.success){
-        document.getElementById('fullname').innerHTML = data.fname + ' ' + data.lname;
-        document.getElementById('username').innerHTML = data.username;
+        document.getElementById('fullname').innerHTML = data.fullname;
         document.getElementById('email').innerHTML = data.email;
         document.getElementById('mobile').innerHTML = data.mobile;
         

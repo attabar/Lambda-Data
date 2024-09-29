@@ -5,7 +5,7 @@ session_start();
 if(isset($_SESSION['referral'])){
 
     $referral_code = $_SESSION['referral'];
-    $referral_link = "https://yourdomain.com/signup.php?ref=" . $referral_code;
+    $referral_link = "http://localhost/Personal%20Projects/LambdaDataWebApp/user/RegistrationPage.php?ref=" . $referral_code;
 
     echo json_encode([
         "success" => true,
