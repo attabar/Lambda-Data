@@ -17,53 +17,14 @@
     <!-- favicon -->
     <link rel="icon" type="image/x-icon" href="../assets/img/yamboyLogo.jpg">
 </head>
-
+<!-- git  -->
 <body>
     <div class="container">
-        <!-- sidebar container -->
-        <div class="sidebar" id="sidebar">
-            <!-- Your sidebar content goes here -->
-            <div class="sidebar-content">
-                <ul>
-                    <li><a href="./dashboard.php"><i class="bi bi-columns-gap"></i> Home</a></li>
-                    <li><a href="./fundWallet.php"><i class="fas fa-wallet"></i> Fund Wallet</a></li>
-                    <li><a href="./data.php"><i class="fas fa-wifi"></i> Buy Data</a></li>
-                    <li><a href="./airtime.php"><i class="fas fa-phone"></i> Buy Airtime</a></li>
-                    <li><i class="fas fa-lightbulb"></i> Bills</li>
-                    <li><i class="bi bi-tv"></i>TV Cables</li>
-                    <!-- transaction history -->
-                    <li class="with-arrow transaction"><i class="fas fa-dollar-sign"></i> Transactions <i
-                            class="bi bi-chevron-down"></i>
-                        <!-- submenu for transactions history -->
-                        <ul class="submenu">
-                            <li><a href="./dataTransactionHistory.php"><i class="bi bi-arrow-right-short"></i>Data</a>
-                            </li>
-                            <li><a href="./airtime.php"><i class="bi bi-arrow-right-short"></i>Airtime</a></li>
-                            <li><a href=""><i class="bi bi-arrow-right-short"></i>Bill</a></li>
-                            <li><a href=""><i class="bi bi-arrow-right-short"></i>TV Cables</a></li>
-                            <li><a href=""><i class="bi bi-arrow-right-short"></i>Results Pin</a></li>
-                        </ul>
-                    </li>
-
-                    <li><i class="bi bi-cash"></i> Wallet Summary</li>
-                    <li class="with-arrow"><i class="bi bi-sliders"></i> Others <i class="bi bi-chevron-down"></i></li>
-                    <li><i class="bi bi-gear-fill"></i> Settings</li>
-                    <li><i class="bi bi-tag-fill"></i> Price</li>
-
-                    <li><i class="bi bi-bell-fill"></i> Notifications</li>
-                    <li id="logout"><i class="bi bi-box-arrow-left"></i> Logout</li>
-                </ul>
-            </div>
-        </div>
-
         <div class="content">
             <!-- header -->
             <div class="header">
-                <div class="navbar" onclick="toggleMenu()">
-                    <div class="bar"></div>
-                    <div class="bar"></div>
-                    <div class="bar"></div>
-                </div>
+            <p>Hi, <span id="username"></span></p>
+            <i class="bi bi-bell-fill"></i>
             </div>
             <!-- Your main content goes here -->
             <div class="main-content">
@@ -113,7 +74,36 @@
                     
                     <button class="updatePassBtn" style="margin-top: 2%; background-color:orangered;padding: 7px; color: #fff;">Update Pin</button>
                 </div>
-            
+                <a style="color: green" href="https://wa.me/08149715017" target="_blank" class="whatsappUs">
+            <i class="fab fa-whatsapp"></i>
+                <!-- <i class="fa fa-whatsapp" aria-hidden="true"></i> -->
+            </a>
+            <div class="sidebar" id="sidebar">
+                <a href="./dashboard.php">
+                    <i class="fa fa-home" aria-hidden="true"></i> 
+                    <p>Home</p>
+                </a>
+
+                <a href="./fundWallet.php">
+                    <i class="fas fa-wallet"></i> 
+                    <p>Wallet</p>
+                </a>
+
+                <a href="./dataPage.php">
+                    <i class="fas fa-wifi"></i>
+                    <p>Data</p>
+                </a>
+
+                <a href="./airtimePage.php">
+                    <i class="fas fa-phone"></i> 
+                    <p>Airtime</p>
+                </a>
+
+                <a href="/">
+                    <i class="bi bi-gear-fill"></i> 
+                    <p>Settings</p>
+                </a>
+            </div>
                 <!-- end of main content -->
             </div>
         </div>
@@ -183,6 +173,5 @@
     <script src="./assets/JS/referral.js"></script>
     <!-- account balance -->
     <script src="./assets/JS/getProfile.js"></script>
+    <script src="./assets/JS/user.js"></script>
 </body>
-
-</html>

@@ -14,134 +14,58 @@
 }
 
 .sidebar {
+    display: flex;
+    justify-content: space-around;
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 13rem;
-    height: 100vh;
+    align-items: center;
+    bottom: 0;
+    width: 100%;
     background-color: blue;
     color: #fff;
-    padding: 1rem;
-    overflow: auto;
-    scrollbar-width: thin;
-    scrollbar-color: transparent transparent;
+    padding: 0.2rem 0;
     transition: 0.5s;
-    z-index: -1;
+    z-index: 1;
 }
 .header{
     display: flex;
     justify-content: space-between;
-    background-color: blue;
+    background-color:#fff;
     box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
-    padding: 1.5rem;
+    padding: 1.2rem;
     z-index: 1;
     position: fixed;
     width: 100%;
 }
-.navbar{
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    cursor: pointer;
-}
 
-.navbar .bar{
-    display: block;
-    align-items: center;
-    text-align: center;
-    background-color: #fff;
-    width: 25px;
-    height: 3px;
-    margin-bottom: 3px;
-    transition: all 0.3s ease;
-}
 
-/* .navbar.open .bar:nth-child(2){
-    opacity: 0;
-}
-.navbar.open .bar:first-child{
-    transform: translate(-3px, 7px) rotate(55deg);
-}
-.navbar.open .bar:nth-child(3){
-    transform: translate(-5px) rotate(-50deg);
-} */
-
-.sidebar-content{
-    margin-top: 55px;
-}
-
-.sidebar-content ul li:hover {
+.sidebar a:hover {
     background-color: #555;
+    /* padding: 0.5%; */
 }
 
-.sidebar-content ul .submenu li a{
-    color:white;
+
+.sidebar a{
+    color: #fff;
+    position:relative;
+    text-align: center;
+    margin-bottom: 10px;
 }
 
-/* Add this CSS to your existing stylesheet */
-.sidebar-content ul {
-    list-style: none;
-    padding: 0;
-}
-.sidebar-content ul li {
-    align-items: center;
-    padding: 10px;
-    cursor: pointer;
-}
 
-.sidebar-content ul li.with-arrow {
-    position: relative;
-}
-
-.sidebar-content ul li.with-arrow i.bi-chevron-down {
-    position: absolute;
-    right: 2px;
-}
-.sidebar-content ul li{
-    margin-top: 15px;
-}
 a{
     text-decoration: none;
     color: #fff;
 }
-.submenu{
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 10%;
-    background-color: black;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    z-index: 1;
-    margin-top: 40px;
+
+.services{
+    margin: 40px auto;
+    background-color: #fff;
+    width: 100%;
+    color: black;
+    box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.2);
+    padding: 0.5rem;
+    text-align: center;
 }
-
-.submenu li{
-    color: #fff;
-    padding: 10px;
-    border-bottom: 1px solid #555;
-}
-
-.submenu a {
-    color: blue;
-}
-
-.submenu li {
-    padding: 10px;
-}
-
-
-.with-arrow i.bi-chevron-down{
-    transition: transform 0.5s ease;
-}
-
-.with-arrow.open i.bi-chevron-down{
-    transform: rotate(180deg);
-}
-
-.sidebar-content ul li.open + li {
-    margin-top: 45px;
-}
-
 
 .services .grid-container a{
     background-color: #fff;
@@ -175,25 +99,30 @@ a{
     border-radius: 5px;
 }
 
+.whatsappUs{
+    /* padding: 25%; */
+    position: fixed;
+    right: 5%;
+    bottom: 10%;
+}
+.whatsappUs {
+    font-size: 5rem;
+}
+
 /* If the screen size is 768px or more */
 /* large screen */
 @media only screen and (min-width:768px) {
     .main-content{
         width: 100%;
     }
-    .sidebar{
-        display: block;
-        z-index: 1;
-        position: fixed;
-        /* right: 10%; */
-    }
+    
     .account-details{
         position: absolute;
         top: 40%;
-        right: 2%;
-        width: 80%;
+        right: 17%;
+        width: 65%;
         background-color: white;
-        box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.7);
+        box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.7);
         padding: 25px;
         height: 50vh;
         color: black;
@@ -205,11 +134,11 @@ a{
         display: flex;
         justify-content: space-around;
         background-color: blue;
-        width: 80%;
+        width: 100%;
         /* height: 30%; */
         position: absolute;
         top: 10%;
-        right: 2%;
+        /* right: 2%; */
         padding: 35px;
         border-radius: 5px;
         /* margin-bottom: 10%; */
@@ -231,7 +160,7 @@ a{
     .grid-container{
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 80px;
+        gap: 50px;
         transform: translate(20px, 0px);
     }
     .services h1{
@@ -250,20 +179,13 @@ a{
     .services{
         position: absolute;
         top: 105%;
-        left: 22%;
     }
 }
 
 /* If the screen size is 768px or less */
 /* on small screen */
-@media only screen and (max-width:768px) {
-    .sidebar{
-        display: block;
-        left: -15rem;
-        z-index: 1;
-        position: fixed;
-        /* right: 10%; */
-    }
+@media only screen and (max-width:600px) {
+    
     .main-content{
         width: 100%;
         position: absolute; 
@@ -287,23 +209,7 @@ a{
     .balanceContainer .balance, .fundWallet i {
         font-size: 1rem;
     }
-    /* .bankNames {
-        display: flex;
-        justify-content: space-between;
-        position: relative;
-        margin: 5% 0;
-        right: 12%;
-        padding: 2px;
-        width: 117%;
-    } */
-    /* .bankNames button{
-        background-color: blue;
-        color: #fff;
-        padding: 10px 5px;
-        border-radius: 10px;
-        border: none;
-         gap: 10px;
-    } */
+
     .account-details .wemaImg{
         font-size: 1.2rem;
     }
@@ -316,10 +222,10 @@ a{
         /* right: 8%; */
     }
     .services .grid-container a{
-        width: 90px;
+        width: 100px;
         margin-bottom: 10px;
     }
-    .services .grid-container a h2{
+    .services .grid-container a h4{
         font-size: 15px;
     }
     .grid-container{
@@ -349,13 +255,5 @@ a{
     .account-container{
         display: grid;
         gap: 15px;
-    }
-    .whatsappUs{
-        position: fixed;
-        right: 5%;
-        bottom: 10%;
-    }
-    .whatsappUs i {
-        font-size: 5rem;
-    }
+    } 
 }

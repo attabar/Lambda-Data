@@ -6,6 +6,7 @@ body, html{
     /* box-sizing: border-box; */
     margin: 0;
     padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
     justify-content: center;
     align-items: center;
 }
@@ -40,7 +41,7 @@ body, html{
 }
 
 .menu ul li {
-    padding: 15px;
+    padding: 10px;
 }
 
 .menu ul li:last-child {
@@ -251,217 +252,8 @@ button:hover{
     text-align: center;
 }
 
-
-/* large screen */
-@media only screen and (min-width:768px) {
-    .menu ul li{ 
-        padding-right: 2rem;
-    }
-    .menu ul{
-        display: flex;
-        list-style: none;
-    }
-    .menu-toggle{
-        display: none;
-    }
-
-    /* hero start */
-    .hero{
-        display: flex;
-        justify-content: space-between;
-        align-items:center ;
-        padding: 55px;
-        max-width: 100%;
-        border-bottom: solid 1px black;
-        border-radius: 50px;
-        margin-bottom: 7%;
-    }
-    
-    .hero .hero-text{
-        position: relative;
-    }
-    
-    .hero .hero-text h1 span, .contact-info h1 span{
-        color: blue;
-        font-weight: 900;
-    }
-    
-    .hero .hero-text .effect{
-        position: absolute;
-        top: 5%;
-        background-color: blue;
-        width: 30%;
-        height: 5%;
-    }
-    
-    .hero .hero-text h3{
-        background-color: blue;
-        color: #fff;
-        width: 60%;
-        padding: 1%;
-        text-align: center;
-        border-radius: 20px;
-    }
-    
-    .hero .hero-text .btn1, .btn2{
-        background-color: blue;
-        text-decoration: none;
-        padding: 2%;
-        border-radius: 5%;
-        color: #fff;
-        font-weight: bolder;    
-        position: relative;
-        left: 15%;
-        bottom: 15%;
-        gap: 5px;
-    }
-    
-    .hero .hero-text a:hover{
-        background-color: #111;
-    }
-    .hero .hero-img img{
-        border-radius: 50%;
-    }
-        
-     /*hero ends*/
-    .aboutUs{
-        margin-top: 5px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex-direction: row;
-        gap: 15px;
-        padding: 100px;
-    }
-    .aboutUs img{
-        max-width: 20%;
-        height: auto;
-        margin-right: 20px;
-    }
-   
-    .aboutUs h2{
-        text-align: center;
-        letter-spacing: 3px;
-        margin-bottom: 5px;
-    }
-    .aboutUs  h4{
-        line-height: 27px;
-        font-weight: 100;
-    }
-    .services .grid-container{
-        padding-left: 10%;
-      }
-    .grid-container{
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 20px;
-        align-items: center;
-    }
-    
-    /* .services{
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 20px; */
-    /* } */
-    .services h1{
-        text-align: center;
-        margin-bottom: 15px;
-    }
-    .services div{
-        text-align: center;
-    }
-    .services div i{
-        font-size: 2.5rem;
-    }
-    .services div h2{
-        margin-bottom: 15px;
-    }
-    .prices{
-        margin-top: 20px;
-    }
-    .prices h1{
-        text-align: center;
-    }
-    .prices .grid-container{
-        display: flex;
-        justify-content: space-around;
-        flex-direction: row;
-        align-items: center;
-    }
-    .prices .grid-container img{
-        width: 90px;
-    }
-    .prices .grid-container div img{
-        border-radius: 50%;
-        padding: 5px;
-    }
-    .prices .grid-container div td{
-        padding: 15px;
-    }
-    .testimonials{
-        display: flex;
-        flex-direction: column;
-        padding: 2.5rem;
-    }
-    
-    .testimonials .testimonialsCardsDiv{
-        display: flex;
-        flex-direction: row;
-        justify-content:space-between;
-        
-    }
-    .testimonials .testimonialsCardsDiv div{
-        width: 250px;
-        background-color: #fff;
-        box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.7);
-        text-align: center;
-    }
-    
-    .testimonials .testimonialsCardsDiv img{
-        width: 100px;
-        border-radius: 50%;
-    }
-    .testimonials .testimonialsCardsDiv div p{
-        color: #111;
-    }
-    .whyChooseUs {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 20px;
-        padding: 0 5rem;
-    }
-    .whyChooseUs div{
-        width: 200px;
-        border: 1px solid 'blue';
-        text-align: 'center';
-    }
-    .whyChooseUs div i{
-        font-size: 3rem;
-        background-color: 'lightgreen';
-    }
-    
-    .footer .firstChild{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    
-    .footer .copy-right{
-        text-align: center;
-        margin-top: 15px;
-    }
-    .footer .firstChild #subscribe, #subscribe-button{
-        padding: 8px;
-    }
-}
-
-/* fo tablt */
-@media only screen and (min-width: 600px) {
-    
-}
-
-/* small screen */
-@media only screen and (max-width:768px){
+/* No. 1 Extra small devices (phones, 600px and down) */
+@media only screen and (max-width:600px){
     .header{
         padding: 30px;
         /* position: fixed; */
@@ -711,5 +503,219 @@ button:hover{
         background-color: orangered;
         color: #f2f2f2;
         font-weight: bold;
+    }
+}
+
+
+/* No. 2 Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width:1024px) {
+    .menu ul li{ 
+        padding-right: 2rem;
+    }
+    .menu ul{
+        display: flex;
+        list-style: none;
+    }
+    .menu-toggle{
+        display: none;
+    }
+
+    /* hero start */
+    .hero{
+        display: flex;
+        justify-content: space-between;
+        align-items:center ;
+        padding: 55px;
+        max-width: 100%;
+        border-bottom: solid 1px black;
+        border-radius: 50px;
+        margin-bottom: 7%;
+    }
+    
+    .hero .hero-text{
+        position: relative;
+    }
+    
+    .hero .hero-text h1 span, .contact-info h1 span{
+        color: blue;
+        font-weight: 900;
+    }
+    
+    .hero .hero-text .effect{
+        position: absolute;
+        top: 5%;
+        /* background-color: blue; */
+        width: 30%;
+        height: 5%;
+    }
+    
+    .hero .hero-text h3{
+        background-color: blue;
+        color: #fff;
+        /* width: 100%; */
+        padding: 1%;
+        text-align: center;
+        border-radius: 20px;
+    }
+    
+    .hero .hero-text .btn1, .btn2{
+        background-color: blue;
+        text-decoration: none;
+        padding: 2%;
+        border-radius: 5%;
+        color: #fff;
+        font-weight: bolder;    
+        position: relative;
+        left: 15%;
+        bottom: 15%;
+        gap: 5px;
+    }
+    
+    .hero .hero-text a:hover{
+        background-color: #111;
+    }
+    .hero .hero-img img{
+        border-radius: 50%;
+    }
+        
+     /*hero ends*/
+    .aboutUs{
+        margin-top: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row;
+        gap: 15px;
+        padding: 100px;
+    }
+    .aboutUs img{
+        max-width: 20%;
+        height: auto;
+        margin-right: 20px;
+    }
+   
+    .aboutUs h2{
+        text-align: center;
+        letter-spacing: 3px;
+        margin-bottom: 5px;
+    }
+    .aboutUs  h4{
+        line-height: 27px;
+        font-weight: 100;
+    }
+    .services .grid-container{
+        padding-left: 10%;
+      }
+    .grid-container{
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+        align-items: center;
+    }
+    
+    /* .services{
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px; */
+    /* } */
+    .services h1{
+        text-align: center;
+        margin-bottom: 15px;
+    }
+    .services div{
+        text-align: center;
+    }
+    .services div i{
+        font-size: 2.5rem;
+    }
+    .services div h2{
+        margin-bottom: 15px;
+    }
+    .prices{
+        margin-top: 20px;
+    }
+    .prices h1{
+        text-align: center;
+    }
+    .prices .grid-container{
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;
+        align-items: center;
+    }
+    .prices .grid-container img{
+        width: 90px;
+    }
+    .prices .grid-container div img{
+        border-radius: 50%;
+        padding: 5px;
+    }
+    .prices .grid-container div td{
+        padding: 15px;
+    }
+    .testimonials{
+        display: flex;
+        flex-direction: column;
+        padding: 2.5rem;
+    }
+    
+    .testimonials .testimonialsCardsDiv{
+        display: flex;
+        flex-direction: row;
+        justify-content:space-between;
+        
+    }
+    .testimonials .testimonialsCardsDiv div{
+        width: 250px;
+        background-color: #fff;
+        box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.7);
+        text-align: center;
+    }
+    
+    .testimonials .testimonialsCardsDiv img{
+        width: 100px;
+        border-radius: 50%;
+    }
+    .testimonials .testimonialsCardsDiv div p{
+        color: #111;
+    }
+    .whyChooseUs {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+        padding: 0 5rem;
+    }
+    .whyChooseUs div{
+        width: 200px;
+        border: 1px solid 'blue';
+        text-align: 'center';
+    }
+    .whyChooseUs div i{
+        font-size: 3rem;
+        background-color: 'lightgreen';
+    }
+    
+    .footer .firstChild{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .footer .copy-right{
+        text-align: center;
+        margin-top: 15px;
+    }
+    .footer .firstChild #subscribe, #subscribe-button{
+        padding: 8px;
+    }
+}
+
+/* tablt */
+@media (min-width: 768%) and (max-width: 1023%) {
+    .grid-container{
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 3fr));
+        gap: 20px;
+        align-items: center;
     }
 }

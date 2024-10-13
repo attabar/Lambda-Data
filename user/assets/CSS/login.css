@@ -35,8 +35,8 @@ button:hover{
     text-decoration: none;
 }
 
-/* on small screen */
-@media only screen and (max-width:767px) {
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width:600px) {
     .form-container{
         background-color: blue;
         height: 50vh;
@@ -65,17 +65,17 @@ button:hover{
 }
 /* Malik@306 */
 
-/* on large screen */
-@media only screen and (min-width:768px) {
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width:600px) {
     .form-container{
         background-color: blue;
-        height: 60vh;
+        height: 50vh;
     }
     form{
         background-color: aliceblue;
-        width: 500px;
+        width: 400px;
         position: absolute;
-        top: 25%;
+        top: 35%;
         left: 30%;
         padding: 15px;
         border-radius: 10px;
@@ -84,5 +84,13 @@ button:hover{
         width: 100%;
         padding: 10px;
         border-radius: 5px;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .form-container{
+        background-color:brown;
+        height: 50vh;
     }
 }

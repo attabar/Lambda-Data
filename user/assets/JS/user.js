@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function(e){
     })
     .then(data => {
         if(data.success){
-            document.getElementById("username").innerHTML = data.email;
+            document.getElementById("username").innerHTML = data.fullname;
             document.getElementById("fullname").innerHTML = data.fullname;
         }else{
             window.location.href = "./loginPage.php"

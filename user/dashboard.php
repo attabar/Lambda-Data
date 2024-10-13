@@ -21,66 +21,12 @@
 
 <body>
     <div class="container">
-
-        <!-- sidebar container -->
-        <div class="sidebar" id="sidebar">
-            <!-- Your sidebar content goes here -->
-            <div class="sidebar-content">
-            <marquee><h2>Welcome <span id="username"></span></h2></marquee>
-                <ul>
-                    <li><a href="#"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
-                    <!-- <li class="with-arrow account"><i class="fas fa-user"></i> Account <i class="bi bi-chevron-down"></i>
-                        <ul class="submenu">
-                            <li><a href="./profile.php"><i class="bi bi-arrow-right-short"></i> Profile</a></li>
-                            <li><a href="./PHP/WebHook.php"><i class="bi bi-arrow-right-short"></i> Upgrade Account</a></li>
-                            <li><a href=""><i class="bi bi-arrow-right-short"></i> KYC</a></li>
-                            <li><a href=""><i class="bi bi-arrow-right-short"></i> Pin Management</a></li>
-                            <li><a href=""><i class="bi bi-arrow-right-short"></i> Change Password</a></li>
-                        </ul>
-                    </li> -->
-
-                    <li><a href="./fundWallet.php"><i class="fas fa-wallet"></i> Fund Wallet</a></li>
-                    <li><a href="./dataPage.php"><i class="fas fa-wifi"></i> Buy Data</a></li>
-                    <li><a href="./airtimePage.php"><i class="fas fa-phone"></i> Buy Airtime</a></li>
-                    <li><a href="./billPage.php"><i class="fas fa-lightbulb"></i> Bills</a></li>
-                    <li><a href="./tvCableSubPage.php"><i class="bi bi-tv"></i> TV Cables</a></li>
-                    <li><a href="./resultPinPage.php"><i class="bi bi-mortarboard-fill"></i> Result Pin</a></li>
-
-                    <!-- transaction history -->
-                    <li class="with-arrow transaction"><i class="fa fa-book" aria-hidden="true"></i> Transactions <i
-                            class="bi bi-chevron-down"></i>
-                        <!-- submenu for transactions history -->
-                        <ul class="submenu">
-                            <li><a href="./dataTransactionHistory.php"><i class="bi bi-arrow-right-short"></i>Data</a></li>
-                            <li><a href="./airtime.php"><i class="bi bi-arrow-right-short"></i>Airtime</a></li>
-                            <li><a href=""><i class="bi bi-arrow-right-short"></i> Bill</a></li>
-                            <li><a href=""><i class="bi bi-arrow-right-short"></i> TV Cables</a></li>
-                            <li><a href=""><i class="bi bi-arrow-right-short"></i> Results Pin</a></li>
-                        </ul>
-                    </li>
-
-                    <!-- <li><i class="bi bi-cash"></i> Wallet Summary</li> -->
-                    <!-- <li class="with-arrow"><i class="bi bi-sliders"></i> Others <i class="bi bi-chevron-down"></i></li> -->
-                    <!-- <li><i class="bi bi-gear-fill"></i> Settings</li> -->
-                    <li><i class="fa fa-list-ul" aria-hidden="true"></i> Pricing</li>
-                    <li><i class="bi bi-bell-fill"></i> Notifications</li>
-                    <li><a href="./profile.php"><i class="fas fa-user"></i> Profile</a></li>
-                    <li><i class="fa fa-users" aria-hidden="true"></i> Referrals</li>
-                    <li id="logout"><i class="bi bi-box-arrow-left"></i> Logout</li>
-                </ul>
-            </div>
-        </div>
-
         <div class="content">
-
             <!-- header -->
             <div class="header">
-                <div class="navbar" onclick="toggleMenu()">
-                    <div class="bar"></div>
-                    <div class="bar"></div>
-                    <div class="bar"></div>
-                </div>
-            </div>
+                <p>Hi, <span id="username"></span></p>
+                <i class="bi bi-bell-fill"></i>
+            </div><br>
 
             <!-- Your main content goes here -->
             <div class="main-content">
@@ -89,8 +35,11 @@
                 
                 <div class="balance">
                     <i class="fas fa-wallet"></i>
-                    <p>Total Balance</p>
-                    <p id="accBalance">₦0.00</p>
+                    <p>Available Balance</p>
+                    <h5>
+                        <p id="accBalance">₦0.00</p>
+                        <p class="fa fa-eye" aria-hidden="true"></p>
+                    </h5>
                 </div>
 
                 <a href="./fundWallet.php" class="fundWallet">
@@ -159,47 +108,73 @@
                     <!-- airtime -->
                     <a href="./airtimePage.php" class="airtime">
                         <i class="bi bi-telephone-inbound-fill"></i>
-                        <h2>Airtime</h2>
+                        <h4>Airtime</h4>
                     </a>
                     <!-- data -->
                     <a href="./dataPage.php" class="data">
                         <i class="bi bi-wifi"></i>
-                        <h2>Data</h2>
+                        <h4>Data</h4>
                     </a>
                     
                     <!-- tv -->
                     <a href="./tvCableSubPage.php" class="tv">
                         <i class="bi bi-tv"></i>
-                        <h2>Cable Tv</h2>
+                        <h4>Cable Tv</h4>
                     </a>
                     <!-- bill -->
                     <a href="./billPage.php" class="bill">
                         <i class="bi bi-lightbulb-fill"></i>
-                        <h2>Electricity</h2>
+                        <h4>Electricity</h4>
                     </a>
                     <!-- result pin -->
                     <a href="./resultPinPage.php" class="result-pin">
                         <i class="bi bi-mortarboard-fill"></i>
-                        <h2>Exam Pins</h2>
+                        <h4>Exam Pins</h4>
                     </a>
                     <!-- airtime to money -->
                     <a href="#" class="airtime-to-money">
                         <i class="bi bi-cash"></i>
-                        <h2>Airtime To Cash</h2>
+                        <h4>Airtime To Cash</h4>
                     </a>
                     <!-- airtime to money -->
                     <a href="./profile.php" class="airtime-to-money">
                         <i class="fas fa-user"></i>
-                        <h2>Profile</h2>
+                        <h4>Profile</h4>
                     </a>
                     <a href="#" class="airtime-to-money">
                         <i class="bi bi-tag-fill"></i>
-                        <h2>Pricing</h2>
+                        <h4>Pricing</h4>
                     </a>
                     <a href="#" class="airtime-to-money">
                         <i class="fa fa-credit-card" aria-hidden="true"></i>
-                        <h2>recharge card</h2>
+                        <h4>recharge card</h4>
                     </a>
+
+                    <a href="./resultPinPage.php">
+                        <i class="bi bi-mortarboard-fill"></i>
+                        <h4>Result Pin</h4>
+                    </a>
+
+                    <a href="./billPage.php">
+                        <i class="fas fa-lightbulb"></i>
+                         <h4>Bills</h4>
+                    </a>
+
+                    <a href="">
+                        <i class="fa fa-book" aria-hidden="true"></i> 
+                        <h4>Transactions</h4>
+                    </a>
+
+                    <a href="">
+                        <i class="fa fa-users" aria-hidden="true"></i> 
+                        <h4>Referrals</h4>
+                    </a>
+
+                    <a href="" id="logout">
+                        <i class="bi bi-box-arrow-left"></i> 
+                        <h4>Logout</h4>
+                    </a>
+
                     
                 </div>
             </div>
@@ -227,35 +202,62 @@
             </div> -->
 
                 <!-- Example content here -->
+            </div><br/><br><br/><br><br/><br>
+            
+            <div class="sidebar" id="sidebar">
+                <a href="./dashboard.php">
+                    <i class="fa fa-home" aria-hidden="true"></i> 
+                    <p>Home</p>
+                </a>
+
+                <a href="./fundWallet.php">
+                    <i class="fas fa-wallet"></i> 
+                    <p>Wallet</p>
+                </a>
+
+                <a href="./dataPage.php">
+                    <i class="fas fa-wifi"></i>
+                    <p>Data</p>
+                </a>
+
+                <a href="./airtimePage.php">
+                    <i class="fas fa-phone"></i> 
+                    <p>Airtime</p>
+                </a>
+
+                <a href="/">
+                    <i class="bi bi-gear-fill"></i> 
+                    <p>Settings</p>
+                </a>
             </div>
-        </div>
     </div>
+</div>
 
     <script>
-        function toggleMenu() {
-            const sidebar = document.getElementById('sidebar');
-            const isOpen = sidebar.style.left === '-15rem' || !sidebar.style.left;
-            sidebar.style.left = isOpen ? '0px' : '-15rem';
+        // function toggleMenu() {
+        //     const sidebar = document.getElementById('sidebar');
+        //     const isOpen = sidebar.style.left === '0px' || !sidebar.style.left;
+        //     sidebar.style.left = isOpen ? '-15rem' : '0px';
 
-            const toggleIcon = document.querySelector(".navbar");
-            toggleIcon.classList.toggle('open');
-        }
+        //     const toggleIcon = document.querySelector(".navbar");
+        //     toggleIcon.classList.toggle('open');
+        // }
 
-        document.addEventListener("DOMContentLoaded", function () {
-            const withArrowElements = document.querySelectorAll(".with-arrow");
+        // document.addEventListener("DOMContentLoaded", function () {
+        //     const withArrowElements = document.querySelectorAll(".with-arrow");
 
-            withArrowElements.forEach(element => {
-                element.addEventListener("click", function () {
-                    this.classList.toggle('open');
+        //     withArrowElements.forEach(element => {
+        //         element.addEventListener("click", function () {
+        //             this.classList.toggle('open');
 
-                    const submenu = this.querySelector(".submenu");
+        //             const submenu = this.querySelector(".submenu");
 
-                    if (submenu) {
-                        submenu.style.display = submenu.style.display === "block" ? "none" : "block";
-                    }
-                });
-            });
-        });
+        //             if (submenu) {
+        //                 submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+        //             }
+        //         });
+        //     });
+        // });
 
 
         function CopyReferalCode() {
