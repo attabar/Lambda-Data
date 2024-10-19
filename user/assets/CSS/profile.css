@@ -28,7 +28,7 @@ h3{
 }
 .hztal button{
     padding: 10px; 
-    width: 100%;
+    width: 50%;
     border-radius: 50%;
     background-color:fuchsia;
     color: #fff;
@@ -48,18 +48,19 @@ h3{
         top: 10%;
     }
     .hztal{
-        width: 50%;
+        width: 100%;
         padding: 5px;
         border-radius: 5px;
         position: absolute;
-        left: 30%;
+        /* top: 2%; */
+        /* left: 30%; */
     }
     .user-profile, .user-pass, .user-pin{
-        padding: 25px;
+        padding: 55px;
         height: 65vh;
-        width: 50%;
+        width: 100%;
         position: absolute;
-        left: 30%;
+        /*  left: 30%; */
     }
     .password-change{
         margin-bottom: 15px;

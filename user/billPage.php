@@ -20,11 +20,12 @@
     <div class="content">
       <!-- header -->
       <div class="header">
-      <p>Hi, <span id="username"></span></p>
-      <i class="bi bi-bell-fill"></i>
+      <p>Hi, <span id="fullname"></span></p>
+      <p><i class="bi bi-bell-fill"></i><sub style="background-color:red; color: #fff;border-radius: 5px;">10+</sub></p>
       </div>
       <!-- Your main content goes here -->
       <div class="main-content">
+        <div class="padd">
         <div class="form-container">
           <h2 class="">Buy Electricity Bill</h2>
           <form id="billForm" action="./assets/PHP/buyBill.php" method="POST">
@@ -71,6 +72,7 @@
           </div>
         </form>
       </div>
+        </div>
       <a style="color: green" href="https://wa.me/08149715017" target="_blank" class="whatsappUs">
             <i class="fab fa-whatsapp"></i>
                 <!-- <i class="fa fa-whatsapp" aria-hidden="true"></i> -->

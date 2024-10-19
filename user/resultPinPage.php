@@ -20,8 +20,8 @@
     <div class="content">
       <!-- header -->
       <div class="header">
-      <p>Hi, <span id="username"></span></p>
-      <i class="bi bi-bell-fill"></i>
+      <p>Hi, <span id="fullname"></span></p>
+          <p><i class="bi bi-bell-fill"></i><sub style="background-color:red; color: #fff;border-radius: 5px;">10+</sub></p>
       </div>
       <!-- Your main content goes here -->
       <div class="main-content">

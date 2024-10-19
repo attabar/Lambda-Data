@@ -33,6 +33,7 @@ class Profile {
                 echo json_encode([
                     'success' => true,
                     'fullname' => $fname,
+                    'fullname2' => $fname,
                     'email' => $email,
                     'mobile' => $mobile
                 ]);

@@ -1,12 +1,11 @@
 /* form */
-.form-container{
+form{
     position: absolute;
     background-color: blue;
-    padding: 25px;
+    padding: 10px;
     color: #fff;
     border-radius: 15px;
     text-align: center;
-    margin-bottom: 10%;
 }
 
 .form-container h2{
@@ -70,13 +69,11 @@ label{
 
 /* on large screen */
 @media only screen and (min-width:768px) {
-    .form-container{
-        position: absolute;
+    form{
         top: 90%;
-        /* right: 2%; */
         width: 100%;
         box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.2);
-        padding: 25px;
+        padding: 35px;
         height: 40vh;
     }
     .heading{
@@ -106,10 +103,12 @@ label{
 }
 /* on small screen */
 @media only screen and (max-width:768px) {
-    .form-container{
+    
+    .form{
+        padding: 5%;
         width: 100%;
         top: 110%;
-        height: 40vh;
+        height: auto;
     }
     .form-container h2 {
         font-size: 1.0rem;
@@ -123,12 +122,12 @@ label{
         margin-bottom: 1.5rem;
     }
     .form-container div{
-        margin-bottom: 20px;
+        /* margin-bottom: 20px; */
     }
-    #btn-container{
+    /* #btn-container{
         position: absolute;
         width: 85%;
-    } 
+    }  */
     .heading{
         font-size: 1.5rem;
         margin-bottom: 3rem;

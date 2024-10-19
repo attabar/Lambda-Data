@@ -23,7 +23,7 @@
     .main-content{
         width: 100%;
         position: absolute;
-        top: 10%;
+        top: 12%;
     }
     .form-container{
         position: absolute;
@@ -34,9 +34,12 @@
 
 /* on small screen */
 @media only screen and (max-width:767px) {
-
+    .padd{
+        padding: 5% 10%;
+    }
     .form-container{
-        width: 100%;    
+        width: 100%; 
+        height: auto;   
     }
     .form-container div{
         margin-bottom: 5px;

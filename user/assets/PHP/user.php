@@ -6,13 +6,12 @@ header("Content-Type: application/json");
 class RedirectBackToLoginPage {
 
     public function getUsername() {
-        if(isset($_SESSION['email'])){
-            $email = $_SESSION['email'];
+        if(isset($_SESSION['fullname'])){
+
             $fullname = $_SESSION['fullname'];
            
             $response = [
                 "success" => true,
-                "email" => $email,
                 "fullname" => $fullname
             ];
             return $response;

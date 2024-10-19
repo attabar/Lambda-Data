@@ -11,6 +11,7 @@ fetch("./assets/PHP/Profile.php", {
 .then(data => {
     if(data.success){
         document.getElementById('fullname').innerHTML = data.fullname;
+        document.getElementById('fullname2').innerHTML = data.fullname2;
         document.getElementById('email').innerHTML = data.email;
         document.getElementById('mobile').innerHTML = data.mobile;
         

@@ -30,7 +30,7 @@
     .main-content{
         width: 100%;
         position: absolute;
-        top: 10%;
+        top: 12%;
     }
     .form-container{
         width: 25%;
@@ -41,10 +41,14 @@
 
 /* on small screen */
 @media only screen and (max-width:768px) {
+
+    .padd{
+        padding: 5% 10%;
+    }
     
     .form-container{
         width: 100%;
-        height: 80vh;
+        height: auto;
     }
 
     #btn-container{

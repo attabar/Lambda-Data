@@ -17,18 +17,19 @@
     <!-- favicon -->
     <link rel="icon" type="image/x-icon" href="../assets/img/yamboyLogo.jpg">
 </head>
-<!-- git  -->
+<!-- git commit -m -->
+ <!-- git push origin master -->
 <body>
     <div class="container">
         <div class="content">
             <!-- header -->
             <div class="header">
-            <p>Hi, <span id="username"></span></p>
-            <i class="bi bi-bell-fill"></i>
+            <p>Hi, <span id="fullname"></span></p>
+            <p><i class="bi bi-bell-fill"></i><sub style="background-color:red; color: #fff;border-radius: 5px;">10+</sub></p>
             </div>
             <!-- Your main content goes here -->
             <div class="main-content">
-                </marquee>
+            
                 <div class="hztal">
                     <button onclick="navigateTouserprofile()">Profile</button>
                     <button onclick="navigateTouserpass()">Password</button>
@@ -37,34 +38,36 @@
                 <!-- account -->
                 <div class="user-profile">
                     <h5 style="color:aqua">Account Details</h5>
-                    <h3 style="margin-bottom: 5%;">Basic information</h3>
-                    <h5><i class="fas fa-user"></i>  Name: <span id="fullname"></span></h5><br>
+                    <h3 style="margin-bottom: 2%;">Basic information</h3>
+                    <h5><i class="fas fa-user"></i>  Name: <span id="fullname2"></span></h5><br>
                     <h5><i class="fa fa-envelope-o" aria-hidden="true"></i> E-mail: <span id="email"></span></h5><br>
                     <h5><i class="bi bi-telephone-inbound-fill"></i> Mobile: <span id="mobile"></span></h5>
                     <!-- <a class="editProfile" href="./editProfile.php"><h4>Edit Profile</h4></a> -->
 
-                    <h5 style="margin-top: 10%;color:aqua">Referrals</h5>
+                    <h5 style="margin-top: 2%;color:aqua">Referrals</h5>
                     <h3>Referral Link</h3>
                     <input type="text" class="ReferralLinkC" id="referral" style="color:black">
-                    <button onclick="myFunction()" style="margin-top: 5%; background-color:orangered;padding: 7px; color: #fff;">Copy Link</button>
-                    <button style="margin-top: 5%; background-color:green;padding: 7px; color: #fff;">View Commission</button>
+                    <button onclick="myFunction()" style="margin-top: 2%; background-color:orangered;padding: 7px; color: #fff;">Copy Link</button>
+                    <button style="margin-top: 2%; background-color:green;padding: 7px; color: #fff;">View Commission</button>
                 </div>
 
                 <div class="user-pass">
+                    <form action="./assets/PHP/changePassword.php" method="POST">
                     <h5 style="color:aqua">Update Login Details</h5>
-                    <h3 style="margin-bottom: 5%;">Login Details</h3>
+                    <h3 style="margin-bottom: 2%;">Login Details</h3>
                     <label for="">old Password</label>
-                    <input type="password" placeholder="Old Password" class="password-change" style="color:black;"><br>
+                    <input type="password" placeholder="Old Password" name="oldPass" class="password-change" style="color:black;"><br>
                     <label for="">New Password</label>
-                    <input type="password" placeholder="New Password" class="password-change" style="color:black"><br>
+                    <input type="password" placeholder="New Password" name="newPass" class="password-change" style="color:black"><br>
                     <label for="">Retype Password</label>
-                    <input type="password" placeholder="Retype Password" class="password-change" style="color:black"><br>
+                    <input type="password" placeholder="Retype Password" name="retypePass" class="password-change" style="color:black"><br>
                     
-                    <button class="updatePassBtn" style="margin-top: 2%; background-color:orangered;padding: 7px; color: #fff;">Update Password</button>
+                    <button type="submit" class="updatePassBtn" style="margin-top: 1%; background-color:orangered;padding: 7px; color: #fff;">Update Password</button>
+                    </form>
                 </div>
                 <div class="user-pin">
                     <h5 style="color:aqua">Update Transaction Pin</h5>
-                    <h3 style="margin-bottom: 5%;">Transaction Pin</h3>
+                    <h3 style="margin-bottom: 2%;">Transaction Pin</h3>
                     <label for="">old Pin</label>
                     <input type="password" placeholder="Old Pin" class="password-change" style="color:black;"><br>
                     <label for="">New Pin</label>
@@ -72,7 +75,7 @@
                     <label for="">Retype Pin</label>
                     <input type="password" placeholder="Retype Pin" class="password-change" style="color:black"><br>
                     
-                    <button class="updatePassBtn" style="margin-top: 2%; background-color:orangered;padding: 7px; color: #fff;">Update Pin</button>
+                    <button class="updatePassBtn" style="margin-top: 1%; background-color:orangered;padding: 7px; color: #fff;">Update Pin</button>
                 </div>
                 <a style="color: green" href="https://wa.me/08149715017" target="_blank" class="whatsappUs">
             <i class="fab fa-whatsapp"></i>
@@ -108,7 +111,7 @@
             </div>
         </div>
     </div>
-    <script src="./JQUERY/jquery.js"></script>
+
     <script>
         function myFunction() {
   /* Get the text field */
@@ -175,3 +178,5 @@
     <script src="./assets/JS/getProfile.js"></script>
     <script src="./assets/JS/user.js"></script>
 </body>
+
+</html>

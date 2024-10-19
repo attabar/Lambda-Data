@@ -40,7 +40,8 @@
 
 .sidebar a:hover {
     background-color: #555;
-    /* padding: 0.5%; */
+    padding: 5px;
+    border-radius: 5px;
 }
 
 
@@ -160,8 +161,8 @@ a{
     .grid-container{
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 50px;
-        transform: translate(20px, 0px);
+        gap: 30px;
+        /* transform: translate(25px, 0px); */
     }
     .services h1{
         text-align: center;
@@ -177,6 +178,7 @@ a{
         margin-bottom: 15px;
     }
     .services{
+        padding: 10%;
         position: absolute;
         top: 105%;
     }

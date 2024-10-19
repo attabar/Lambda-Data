@@ -32,7 +32,9 @@
 
 /* on small screen */
 @media only screen and (max-width:767px) {
-    
+    .padd{
+        padding: 5% 10%;
+    }
     .form-container{
         width: 100%;
     }

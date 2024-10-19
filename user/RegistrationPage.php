@@ -11,7 +11,7 @@
 </head>
 <body>
 <div class="form-container">
-  <form id="signUpForm" autocomplete="off" method="post" action="./assets/PHP/Registration.php">
+  <form id="signUpForm" autocomplete="off">
     <!-- brand container -->
     <div class="brand">
       <img src="../assets/img/yamboyLogo.jpg" alt="">
@@ -60,6 +60,6 @@
 </div>
 <!-- sweetalert -->
 <script src="./assets/SweetAlert/sweetalert.js"></script>
-<!-- <script src="./assets/JS/register.js"></script> -->
+<script src="./assets/JS/register.js"></script>
 </body>
 </html>

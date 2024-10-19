@@ -24,8 +24,8 @@
         <div class="content">
             <!-- header -->
             <div class="header">
-                <p>Hi, <span id="username"></span></p>
-                <i class="bi bi-bell-fill"></i>
+                <p>Hi, <span id="fullname"></span></p>
+                <p><i class="bi bi-bell-fill"></i><sub style="background-color:red; color: #fff;border-radius: 5px;">10+</sub></p>
             </div><br>
 
             <!-- Your main content goes here -->
@@ -204,7 +204,7 @@
                 <!-- Example content here -->
             </div><br/><br><br/><br><br/><br>
             
-            <div class="sidebar" id="sidebar">
+            <section class="sidebar" id="sidebar">
                 <a href="./dashboard.php">
                     <i class="fa fa-home" aria-hidden="true"></i> 
                     <p>Home</p>
@@ -229,7 +229,7 @@
                     <i class="bi bi-gear-fill"></i> 
                     <p>Settings</p>
                 </a>
-            </div>
+            </section>
     </div>
 </div>
 
