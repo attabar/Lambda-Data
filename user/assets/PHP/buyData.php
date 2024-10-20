@@ -60,6 +60,8 @@ class DataPurchase {
                 $sql->bind_param("ii", $currentBalance, $user_id);
                 $sql->execute();
 
+                // $this->RewardReferrer($amount, $transaction_id);
+
                 return [
                     "success" => true,
                     "title" => "Successful Transaction",
@@ -81,6 +83,34 @@ class DataPurchase {
         }
     }
 
+    // Rewarding the referrer
+    private function RewardReferrer($amount, $transaction_id) {
+        // Check if the user was referred by someone
+        $checkReferral = $this->conn->prepare("SELECT referred_by FROM users WHERE user_id = ?");
+        $checkReferral->bind_param("i", $_SESSION['user_id']);
+        $checkReferral->execute();
+        $result = $checkReferral->get_result();
+
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $referrerId = $row['referred_by'];
+
+            if ($referrerId) {
+                // Calculate the benefit (e.g., 5% of the purchase)
+                $benefitAmount = $amount * 0.05;
+
+                // Record the referral benefit
+                $benefitSql = $this->conn->prepare("INSERT INTO referral_benefits (referrer_id, referred_user_id, benefit_amount, transaction_id) VALUES (?, ?, ?, ?)");
+                $benefitSql->bind_param("iidi", $referrerId, $_SESSION['user_id'], $benefitAmount, $transaction_id);
+                $benefitSql->execute();
+
+                // Optionally, update referrer's balance or notify them of the reward
+                // echo "Referral benefit of $benefitAmount granted to referrer!";
+            }
+        }
+    }
+
+    // Get the user current available balance
     private function getAccountBalance() {
         $sql = $this->conn->prepare("SELECT settlement_amount FROM account_balance WHERE transaction_user_id = ?");
         $sql->bind_param("i", $_SESSION['user_id']);
@@ -94,6 +124,7 @@ class DataPurchase {
         return 0;
     }
 
+    // execute for data transaction
     private function performDataPurchase($network_id, $plan_id, $data_type, $mobile_number, $amount) {
         $endpoint = 'https://gladtidingsapihub.com/api/data/';
         $header = array(

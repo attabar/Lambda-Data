@@ -21,36 +21,15 @@ class Registration {
         
         if($validationResult === true){
 
-            // Hash password for security purposes
+            // return referrer id
+            $referred_by = $this->ReferrerId($referral);
+            // Insert new user
             $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+            $referralCode = $this->generateReferralCode($referred_by); // Function to generate a unique referral code
+            $insertSql = $this->conn->prepare("INSERT INTO users (fullname, email, phone, pin,  passwords, referral_code, referred_by) VALUES (?, ?, ?, ?, ?, ?, ?)");
+            $insertSql->bind_param("ssiissi", $fullname, $email, $phone, $pin, $hashedPassword, $referralCode, $referred_by);
             
-            // Step 1: Insert new user into the database
-            $sql = "INSERT INTO users (fullname, email, phone, pin, passwords) VALUES (?, ?, ?, ?, ?)";
-            $stmt = $this->conn->prepare($sql);
-            $stmt->bind_param("sssss", $fullname, $email, $phone, $pin, $hashedPassword);
-
-            if($stmt->execute()) {
-
-                // Step 2: Get the new user_id
-                $referred_user_id = $this->conn->insert_id;
-
-                // Step 3: Generate referral code and update the user record
-                $referral = $this->generateReferralCode($referred_user_id);
-
-                // refererr id
-                $referrerId = $this->getRefererrId($referral);
-
-                $sql = "UPDATE users SET referral = ? WHERE user_id = ?";
-                $stmt = $this->conn->prepare($sql);
-                $stmt->bind_param("si", $referral, $referred_user_id);
-                $stmt->execute();
-
-                // Step 4: Store the referral relationship in a `referrals` table
-                $ref = $this->conn->prepare("INSERT INTO referrals (referrer_id, referred_user_id) VALUES (?,?)");
-                $ref->bind_param("ii", $referrerId , $referred_user_id);
-                $ref->execute();
-
-                // Return success response
+            if($insertSql->execute()) {
                 return ["success" => true, "message" => "Registration was successful"];
             } else {
                 return ["success" => false, "message" => "Error encountered during Registration: " . $this->conn->error];
@@ -61,24 +40,18 @@ class Registration {
         }
     }
 
-    public function getRefererrId($referral) {
-        //  Logic for capturing referrer link user
-    
+    private function ReferrerId($referral) {
+        $sql = $this->conn->prepare("SELECT user_id FROM users WHERE referral_code = ?");
+        $sql->bind_param("s", $referral);
+        $sql->execute();
+        $result = $sql->get_result();
 
-            // Find the referrer (the user who owns the referral code)
-            $sql = $this->conn->prepare("SELECT user_id FROM users WHERE referral = ?");
-            $sql->bind_param("s", $referral);
-            $sql->execute();
-            $result = $sql->get_result();
-            
-            if($result->num_rows > 0) {
-                $row = $result->fetch_assoc();
-                return $row['user_id'];
-                 
-            } else {
-                $referrer_id = null;
-                return $referrer_id;
-            }
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $referred_by = $row['user_id'];  // The ID of the person who referred them
+
+            return $referred_by;
+        }
     }
 
     private function generateReferralCode($user_id) {
@@ -108,6 +81,10 @@ class Registration {
             return ["success" => false, "message" => "Mobile number must be 11 digits."];
         }
 
+        if (!preg_match("/^[a-zA-Z-0-9' ]*$/", $referral)) {
+            return ["success" => false, "message" => "Only Alphanumeric allowed"];
+        }
+
         // Validate Transaction Pin: Must be exactly 5 digits
         if (strlen($pin) < 5) {
             return ["success" => false, "message" => "Transaction Pin must be 5 digits."];
@@ -130,7 +107,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $fullname = $_POST['fullname'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];
-    $referral = $_POST['referral'];
+    $referral = $_POST['ref'];
     $pin = $_POST['pin'];
     $password = $_POST['password'];
 

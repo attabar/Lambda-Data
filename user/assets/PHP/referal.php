@@ -2,14 +2,14 @@
 header("Content-Type: application/json");
 session_start();
 
-if(isset($_SESSION['referral'])){
+if(isset($_SESSION['referral_code'])){
 
-    $referral_code = $_SESSION['referral'];
-    $referral_link = "http://localhost/Personal%20Projects/LambdaDataWebApp/user/RegistrationPage.php?ref=" . $referral_code;
+    $referral_code = $_SESSION['referral_code'];
+    $referral_code = $referral_code;
 
     echo json_encode([
         "success" => true,
-        'referral' => $referral_link
+        'referral' => $referral_code
     ]);
 
 } else {

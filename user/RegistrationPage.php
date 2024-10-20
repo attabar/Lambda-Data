@@ -38,7 +38,7 @@
     </div>
     <div class="username-container">
       <label for="referral">Referral</label>
-      <input type="text" name="referral" id="referral" placeholder="Referral Code (Optional)">
+      <input type="text" name="ref" id="referral" placeholder="Referral Code (Optional)">
     </div>
     <div class="cpassword">
       <label for="pin">Create Pin</label>

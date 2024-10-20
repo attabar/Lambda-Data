@@ -32,7 +32,7 @@ class Login {
                     $_SESSION['user_id'] = $row['user_id']; 
                     $_SESSION['fullname'] = $row['fullname'];
                     $_SESSION['email'] = $row['email']; 
-                    $_SESSION['referral'] = $row['referral'];
+                    $_SESSION['referral_code'] = $row['referral_code'];
 
                     $response = ['status' => true, 'title' => 'Successful', 'message' => "Login was Successful"];
                 } else {

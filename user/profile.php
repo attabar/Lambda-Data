@@ -45,7 +45,7 @@
                     <!-- <a class="editProfile" href="./editProfile.php"><h4>Edit Profile</h4></a> -->
 
                     <h5 style="margin-top: 2%;color:aqua">Referrals</h5>
-                    <h3>Referral Link</h3>
+                    <h3>Referral Code</h3>
                     <input type="text" class="ReferralLinkC" id="referral" style="color:black">
                     <button onclick="myFunction()" style="margin-top: 2%; background-color:orangered;padding: 7px; color: #fff;">Copy Link</button>
                     <button style="margin-top: 2%; background-color:green;padding: 7px; color: #fff;">View Commission</button>

@@ -42,19 +42,23 @@ class Airtime {
             if($status === "successful"){
                 // after successful transaction deduct the balance
                 $currentBalance = $balance - $amount;
-                $sql = $this->conn->prepare("UPDATE account_balance SET settlement_amount = ? WHERE transaction_user_id = ?");
+                $sql = $this->conn->prepare("UPDATE account_balance SET settlement_amount = ? WHERE user_id = ?");
                 $sql->bind_param("ii",$currentBalance,$_SESSION['user_id']);
                 $sql->execute();
 
                 // insert the data into database
-                $sql = $this->conn->prepare("INSERT INTO airtime_transaction(airtime_user_id, transaction_id, plan_network, mobile_number, status, plan_amount, paid_amount, create_date) VALUES(?,?,?,?,?,?,?,?)");
+                $sql = $this->conn->prepare("INSERT INTO airtime_transaction(user_id, transaction_id, plan_network, mobile_number, status, plan_amount, paid_amount, create_date) VALUES(?,?,?,?,?,?,?,?)");
                 $sql->bind_param("iisisiis",$_SESSION['user_id'], $transaction_id, $plan_network, $mobile_number, $status, $plan_amount, $paid_amount, $create_date);
                 $sql->execute();
+
+                // after successful purchase reward the referrer
+                 $this->RewardReferrer($amount, $transaction_id);
 
                 return [
                     'success' => true, 
                     'title' => 'Successful Transaction', 
-                    'message' => 'You have Top Up Airtime Successfully'];
+                    'message' => 'You have Top Up Airtime Successfully'
+                ];
             }
             return [
                 "success" => false,
@@ -67,6 +71,34 @@ class Airtime {
         }  
     }
 
+    // Rewarding the referrer
+    private function RewardReferrer($amount, $transaction_id) {
+        // Check if the user was referred by someone
+        $checkReferral = $this->conn->prepare("SELECT referred_by FROM users WHERE user_id = ?");
+        $checkReferral->bind_param("i", $_SESSION['user_id']);
+        $checkReferral->execute();
+        $result = $checkReferral->get_result();
+
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $referrerId = $row['referred_by'];
+
+            if ($referrerId) {
+                // Calculate the benefit (e.g., 5% of the purchase)
+                $benefitAmount = $amount * 0.05;
+
+                // Record the referral benefit
+                $benefitSql = $this->conn->prepare("INSERT INTO referral_benefits (referrer_id, referred_user_id, benefit_amount, transaction_id) VALUES (?, ?, ?, ?)");
+                $benefitSql->bind_param("iidi", $referrerId, $_SESSION['user_id'], $benefitAmount, $transaction_id);
+                $benefitSql->execute();
+
+                // Optionally, update referrer's balance or notify them of the reward
+                // echo "Referral benefit of $benefitAmount granted to referrer!";
+            }
+        }
+    }
+
+    // execute for airtime top up
     private function performAirtimePurchase($network_id, $mobile_number, $airtime_type, $amount){
 
         $endpoint =  'https://gladtidingsapihub.com/api/topup/';
@@ -102,8 +134,9 @@ class Airtime {
         return json_decode($response, true);
     }
 
+    // return the user current account available balance
     private function getAccountBalance() {
-        $sql = $this->conn->prepare("SELECT settlement_amount FROM account_balance WHERE transaction_user_id = ?");
+        $sql = $this->conn->prepare("SELECT settlement_amount FROM account_balance WHERE user_id = ?");
         $sql->bind_param("i", $_SESSION['user_id']);
         $sql->execute();
         

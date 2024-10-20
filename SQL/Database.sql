@@ -12,10 +12,37 @@ CREATE TABLE IF NOT EXISTS users(
     fullname VARCHAR(255),
     email VARCHAR(255),
     phone VARCHAR(255),
-    referral VARCHAR(255),
+    referral_code VARCHAR(50),
+    referred_by INT NULL,
     pin VARCHAR(5),
-    passwords VARCHAR(255)
+    passwords VARCHAR(255),
+    FOREIGN KEY (referred_by) REFERENCES users(user_id)
 );
+
+-- Transactions Table
+CREATE TABLE transactions (
+    transaction_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,  -- The user who made the purchase
+    amount DECIMAL(10, 2),
+    transaction_type ENUM('data', 'airtime', 'other'), -- Transaction type
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
+
+-- Referral Benefits Table (optional)
+-- To store rewards given to referrers
+CREATE TABLE referral_benefits (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    referrer_id INT,  -- The user who referred
+    referred_user_id INT,  -- The referred user
+    benefit_amount DECIMAL(10, 2),
+    transaction_id INT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (referrer_id) REFERENCES users(user_id),
+    FOREIGN KEY (referred_user_id) REFERENCES users(user_id),
+    FOREIGN KEY (transaction_id) REFERENCES transactions(transaction_id)
+);
+
 
 -- Account Details Table
 CREATE TABLE IF NOT EXISTS wallet_account(
@@ -31,42 +58,42 @@ CREATE TABLE IF NOT EXISTS wallet_account(
 -- Wallet Balance
 CREATE TABLE IF NOT EXISTS account_balance(
     transaction_id INT(11) PRIMARY KEY AUTO_INCREMENT,
-    transaction_user_id INT(11),
+    user_id INT(11),
     settlement_amount VARCHAR(255),
     paid_on DATETIME,
     payment_reference VARCHAR(255),
     transaction_reference VARCHAR(255),
     payment_status VARCHAR(255),
-    FOREIGN KEY (transaction_user_id) REFERENCES users(user_id)
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
 -- Data Transaction Table
 CREATE TABLE IF NOT EXISTS data_transaction(
     id INT(11) PRIMARY KEY AUTO_INCREMENT,
-    data_user_id INT(11),
+    user_id INT(11),
     transaction_id INT(11),
     plan_network VARCHAR(255),
     mobile_number INT(11),
     plan INT(11),
     status VARCHAR(255),
     plan_name VARCHAR(255),
-    plan_amount INT(11),
-    create_date DATETIME,
-    FOREIGN KEY (data_user_id) REFERENCES users(user_id)
+    plan_amount DECIMAL(10, 2),
+    created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
 -- Airtime Transaction Table
 CREATE TABLE IF NOT EXISTS airtime_transaction(
     airtime_id INT(11) PRIMARY KEY AUTO_INCREMENT,
-    airtime_user_id INT(11),
+    user_id INT(11),
     transaction_id INT(11),
     plan_network VARCHAR(255),
     mobile_number INT(11),
     status VARCHAR(255),
     plan_amount INT(11),
-    paid_amount INT,
+    paid_amount DECIMAL(10, 2),
     create_date DATETIME,
-    FOREIGN KEY (airtime_user_id) REFERENCES users(user_id)
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
 -- Contact Us Table
