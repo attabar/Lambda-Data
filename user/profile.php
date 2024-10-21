@@ -52,30 +52,32 @@
                 </div>
 
                 <div class="user-pass">
-                    <form action="./assets/PHP/changePassword.php" method="POST">
-                    <h5 style="color:aqua">Update Login Details</h5>
-                    <h3 style="margin-bottom: 2%;">Login Details</h3>
-                    <label for="">old Password</label>
-                    <input type="password" placeholder="Old Password" name="oldPass" class="password-change" style="color:black;"><br>
-                    <label for="">New Password</label>
-                    <input type="password" placeholder="New Password" name="newPass" class="password-change" style="color:black"><br>
-                    <label for="">Retype Password</label>
-                    <input type="password" placeholder="Retype Password" name="retypePass" class="password-change" style="color:black"><br>
-                    
-                    <button type="submit" class="updatePassBtn" style="margin-top: 1%; background-color:orangered;padding: 7px; color: #fff;">Update Password</button>
+                    <form>
+                        <h5 style="color:aqua">Update Login Details</h5>
+                        <h3 style="margin-bottom: 2%;">Login Details</h3>
+                        <label for="oldPass">old Password</label>
+                        <input type="password" placeholder="Old Password" id="oldPass" name="oldPass" class="password-change" style="color:black;"><br>
+                        <label for="newPass">New Password</label>
+                        <input type="password" placeholder="New Password" id="newPass" name="newPass" class="password-change" style="color:black"><br>
+                        <label for="retypePass">Retype Password</label>
+                        <input type="password" placeholder="Retype Password" id="retypePass" name="retypePass" class="password-change" style="color:black"><br>
+                        
+                        <button type="submit" class="updatePassBtn" style="margin-top: 1%; background-color:orangered;padding: 7px; color: #fff;">Update Password</button>
                     </form>
                 </div>
                 <div class="user-pin">
-                    <h5 style="color:aqua">Update Transaction Pin</h5>
-                    <h3 style="margin-bottom: 2%;">Transaction Pin</h3>
-                    <label for="">old Pin</label>
-                    <input type="password" placeholder="Old Pin" class="password-change" style="color:black;"><br>
-                    <label for="">New Pin</label>
-                    <input type="password" placeholder="New Pin" class="password-change" style="color:black"><br>
-                    <label for="">Retype Pin</label>
-                    <input type="password" placeholder="Retype Pin" class="password-change" style="color:black"><br>
-                    
-                    <button class="updatePassBtn" style="margin-top: 1%; background-color:orangered;padding: 7px; color: #fff;">Update Pin</button>
+                    <form>
+                        <h5 style="color:aqua">Update Transaction Pin</h5>
+                        <h3 style="margin-bottom: 2%;">Transaction Pin</h3>
+                        <label for="">old Pin</label>
+                        <input type="password" placeholder="Old Pin" name="oldPin" class="password-change" style="color:black;"><br>
+                        <label for="">New Pin</label>
+                        <input type="password" placeholder="New Pin" name="newPin" class="password-change" style="color:black"><br>
+                        <label for="">Retype Pin</label>
+                        <input type="password" placeholder="Retype Pin" name="retypePin" class="password-change" style="color:black"><br>
+                        
+                        <button class="updatePassBtn" style="margin-top: 1%; background-color:orangered;padding: 7px; color: #fff;">Update Pin</button>
+                    </form>
                 </div>
                 <a style="color: green" href="https://wa.me/08149715017" target="_blank" class="whatsappUs">
             <i class="fab fa-whatsapp"></i>
@@ -170,12 +172,12 @@
             let monifyCon = document.querySelector(".user-pass").style.display = 'none';
         }
     </script>
+    <script src="./assets/SweetAlert/sweetalert.js"></script>
+    <script src="./assets/JS/changePassword.js"></script>
     <!-- wallet account file -->
     <script src="./JS/getAccountDetails.js"></script>
     <!-- session file -->
     <script src="./assets/JS/referral.js"></script>
-    <!-- account balance -->
-    <script src="./assets/JS/getProfile.js"></script>
     <script src="./assets/JS/user.js"></script>
 </body>
 

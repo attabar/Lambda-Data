@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+header("Content-Type: application/json");
 require_once './connection.php';
 
 class ChangePassword {
@@ -31,10 +32,16 @@ class ChangePassword {
             $userPass = $row['passwords'];
 
             if(!password_verify($this->oldPass, $userPass)){
-                echo "Wrong Password";
+                echo json_encode([
+                    "success" => false,
+                    "message" => "Wrong Password"
+                ]);
             }
             elseif($this->newPass !== $this->retypePass) {
-                echo "New Password and Confirm Password was not matched";
+                echo json_encode([
+                    "success" => false,
+                    "message" => "New Password and Confirm Password was not matched"
+                ]);
             }
             else {
 
@@ -44,28 +51,37 @@ class ChangePassword {
                 $sql->bind_param("si", $hashPass , $this->userId);
                 
                 if($sql->execute()) {
-                    echo "Password was Change Successfully";
+                    echo json_encode([
+                        "success" => true,
+                        "message" => "Password was Change Successfully"
+                    ]);
                 }
             }
         }
         else {
-            echo "User not Exist";
+            echo json_encode([
+                "success" => false,
+                "message" => "User not Exist"
+            ]);
         }
     }
 }
 
-$oldPass = $_POST['oldPass'];
-$newPass = $_POST['newPass'];
-$retypePass = $_POST['retypePass'];
-$userId = $_SESSION['user_id'];
 
-if(!empty($oldPass) && !empty($newPass) && !empty($retypePass) ){
+
+if(!empty($_POST['oldPass']) && !empty($_POST['newPass']) && !empty($_POST['retypePass']) ){
+    
+    $oldPass = $conn->real_escape_string($_POST['oldPass']);
+    $newPass = $conn->real_escape_string($_POST['newPass']);
+    $retypePass = $conn->real_escape_string($_POST['retypePass']);
+    $userId = $_SESSION['user_id'];
+
     $chgPass = new ChangePassword($oldPass, $newPass, $retypePass, $conn, $userId);
     $chgPass->changePass();
 }else {
-    echo "Fields Required";
+    echo json_encode([
+        "success" => false,
+        "message" => "Fields Required"
+    ]);
 }
-
-
-
 ?>
