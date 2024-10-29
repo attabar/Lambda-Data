@@ -13,8 +13,6 @@ document.addEventListener("DOMContentLoaded", function(e){
     .then(data => {
         if(data.success){
             document.getElementById("fullname").innerHTML = data.fullname;
-        }else{
-            window.location.href = "./loginPage.php"
         }
     })
     .catch(error => {

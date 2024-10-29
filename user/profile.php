@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -105,8 +106,8 @@
                 </a>
 
                 <a href="/">
-                    <i class="bi bi-gear-fill"></i> 
-                    <p>Settings</p>
+                <i class="fa fa-th" aria-hidden="true"></i>
+                    <p>More</p>
                 </a>
             </div>
                 <!-- end of main content -->

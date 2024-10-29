@@ -35,6 +35,7 @@ class Login {
                     $_SESSION['referral_code'] = $row['referral_code'];
 
                     $response = ['status' => true, 'title' => 'Successful', 'message' => "Login was Successful"];
+                    
                 } else {
                     $response = ['status' => false, 'title' => 'Wrong Input', 'message' => 'Invalid Password'];
                 }
