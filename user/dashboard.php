@@ -232,7 +232,7 @@
                     <p>Airtime</p>
                 </a>
 
-                <a href="/">
+                <a href="./exchange.php">
                     <i class="fa fa-exchange" aria-hidden="true"></i> 
                     <p>Exchange</p>
                 </a>
