@@ -10,7 +10,8 @@ document.addEventListener("DOMContentLoaded", function(){
         .then(data => {
             if(data.success){
                 var accountBalance = data.balance;
-                document.getElementById("accBalance").innerHTML = "₦" + accountBalance
+                document.getElementById("accBalance").innerHTML = "₦" + accountBalance;
+                document.getElementById("dynamicAccBalance").innerHTML = "₦" + accountBalance;
             }else{
                 document.getElementById("accBalance").innerHTML = "₦" + "0.00";
             }

@@ -38,9 +38,9 @@
                     <i class="fas fa-wallet"></i>
                     <p>Available Balance</p>
                     <h5>
-                        <p id="accBalance">₦0.00</p>
+                        <p id="accBalance"></p>
                         <!-- <p class="fa fa-eye" aria-hidden="true"></p> -->
-                        <i class="fa fa-eye" id="toggleEye" aria-hidden="true" style="cursor: pointer;"></i>
+                        <i onclick="hideShowBalance()" class="fa fa-eye" id="toggleEye" aria-hidden="true" style="cursor: pointer;"></i>
 
                     </h5>
                 </div>
@@ -240,28 +240,29 @@
     </div>
 </div>
 
-    <script>
-    document.addEventListener("DOMContentLoaded", function() {
+<script>
+function hideShowBalance () {
     const accBalance = document.getElementById('accBalance');
     const toggleEye = document.getElementById('toggleEye');
     let isBalanceVisible = true;
 
-    toggleEye.addEventListener('click', function() {
-        if (isBalanceVisible) {
-            // Hide the balance and show the closed eye icon
-            accBalance.textContent = '₦****';
-            toggleEye.classList.remove('fa-eye');
-            toggleEye.classList.add('fa-eye-slash');
-        } else {
-            // Show the balance and revert the eye icon
-            accBalance.textContent = '₦1000.00'; // You can dynamically set this value as needed
-            toggleEye.classList.remove('fa-eye-slash');
-            toggleEye.classList.add('fa-eye');
-        }
-        isBalanceVisible = !isBalanceVisible; // Toggle the state
-    });
-});
-    </script>
+    // toggleEye.addEventListener("click", function() {})
+
+    if (isBalanceVisible) {
+        // Hide the balance and show the closed eye icon
+        accBalance.textContent = '₦****';
+        toggleEye.classList.remove('fa-eye');
+        toggleEye.classList.add('fa-eye-slash');
+    } else {
+        // Show the balance and revert the eye icon
+        accBalance.textContent = ''
+        toggleEye.classList.remove('fa-eye-slash');
+        toggleEye.classList.add('fa-eye');
+        !isBalanceVisible;
+    }
+    // isBalanceVisible = !isBalanceVisible; // Toggle the state
+}
+</script>
 <script src="./assets/JS/createWallet.js"></script>
 <script src="./assets/JS/user.js"></script>
     <!-- wallet account file -->

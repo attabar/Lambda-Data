@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data</title>
+    <title>Send Your Commission To Main Balance</title>
     <!-- custom css file -->
     <link rel="stylesheet" href="./assets/CSS/exchange.css">
     <link rel="stylesheet" href="./assets/CSS/dashboard.css">
@@ -46,7 +46,7 @@
 
           
           <div id="btn-container">
-            <button type="submit" class="btn" id="btn" name="submit">Transfer</button>
+            <button type="submit" class="btn" id="btn" name="submit">Send</button>
           </div>
 
         </form>
@@ -54,9 +54,8 @@
       </div>
        <!-- whatsapp us -->
        <a style="color: green" href="https://wa.me/08149715017" target="_blank" class="whatsappUs">
-            <i class="fab fa-whatsapp"></i>
-                <!-- <i class="fa fa-whatsapp" aria-hidden="true"></i> -->
-            </a>
+          <i class="fab fa-whatsapp"></i>
+      </a>
       <div class="sidebar" id="sidebar">
                 <a href="./dashboard.php">
                     <i class="fa fa-home" aria-hidden="true"></i> 
@@ -87,17 +86,6 @@
     </div>
   </div>
   <script src="./assets/SweetAlert/sweetalert.js"></script>
-<script>
-function toggleMenu(){
-  let sidebar = document.getElementById("sidebar");
-  let isOpen = sidebar.style.left === "-15rem";
-  sidebar.style.left = isOpen ? "0px" : "-15rem";
-
-  let toggleIcon = document.querySelector(".navbar");
-  toggleIcon.classList.toggle("open");
-}
-
-</script>
 <script src="./assets/JS/dataOptions.js"></script>
 <script src="./assets/JS/buyData.js"></script>
 <script src="./assets/JS/logout.js"></script>
