@@ -32,35 +32,37 @@
   </div>
     <!-- Your main content goes here -->
     <div class="main-content">
-      <!-- <marquee class="heading">FUNDING METHODS</marquee> -->
-      <!-- method 2 direct bank transfer -->
-      <h2 class="method1">METHOD 1: BANK TRANSFER</h2>
+      <br><br>
+      <select name="" id="paymentMethodContainer">
+        <option value="" disabled selected>Select payment Method</option>
+        <option value="transfer" id="transfer">BANK TRANSFER</option>
+        <option value="auto" id="auto">AUTOMATED FUNDING</option>
+      </select>
     
-            <!-- account -->
-            <div class="manual-funding">
-                <!-- wema bank logo img-->
-                  <img src="../assets/img/wemaBankLogo.jpeg" class="wemaImg" alt="" srcset="">
-                  <h3>Account Number: <span id="accNum"></span></h3><br>
-                  <h3>Account Name: <span id="accName"></span><span class="chargesAmount"></span></h3>
-                  <br>
-                  <h3>Bank Name: <span id="bank">WEMA BANK</span></h3><br>
-                  <h3>Charges Fee: 10%</h3>
-              </div>
+      <!-- account -->
+      <div class="manual-funding" style="display: none;">
+          <!-- wema bank logo img-->
+          <img src="../assets/img/wemaBankLogo.jpeg" class="wemaImg" alt="" srcset="">
+          <h3>Account Number: <span id="accNum"></span></h3><br>
+          <h3>Account Name: <span id="accName"></span><span class="chargesAmount"></span></h3>
+          <br>
+          <h3>Bank Name: <span id="bank">WEMA BANK</span></h3><br>
+          <h3>Charges Fee: 10%</h3>
+        </div>
 
-            <!-- funding method 2 -->
+      <!-- funding method 2 -->
             
-      <h2 class="method2">METHOD 2: AUTOMATED FUNDING</h2>
-      <div class="form-container">
+      <div class="form-container" style="display: none;">
         <form id="checkoutForm"> 
-        <h2 class="">AUTOMATED FUNDING</h2>
-        <i class="fas fa-wallet"></i> 
-          <div class="">
-            <label for="amount" class="form-label">Amount For Funding<span style="color: red;">*</span></label>
-            <input type="number" placeholder="0" name="amount" id="amount">
-          </div>
-          <div id="btn-container">
-            <button type="submit" class="btn" id="btn" name="submit">Fund Now</button>
-          </div>
+          <h2 class="">AUTOMATED FUNDING</h2>
+          <i class="fas fa-wallet"></i> 
+            <div class="">
+              <label for="amount" class="form-label">Amount For Funding<span style="color: red;">*</span></label>
+              <input type="number" placeholder="0" name="amount" id="amount">
+            </div>
+            <div id="btn-container">
+              <button type="submit" class="btn" id="btn" name="submit">Fund Now</button>
+            </div>
         </form>
       </div>
           <!-- Loading Overlay -->
@@ -100,33 +102,21 @@
     </div>
   </div>
   <script>
-    function toggleSidebar(){
-      let sidebar = document.getElementById("sidebar");
-      let isOpen = sidebar.style.left === "-15rem";
-      isOpen = sidebar.style.left = isOpen ? "0px": "-15rem";
+    document.addEventListener("DOMContentLoaded", function(){
+    document.getElementById("paymentMethodContainer").addEventListener("change", function(e){
+        e.preventDefault();
 
-      let togggleBar = document.querySelector(".navbar");
-      togggleBar.classList.toggle("open");
-    }
-
-    const navigateToMonify = () => {
-            let monifyCon = document.querySelector(".monifyContainer").style.display = 'block';
-            let paystackCon = document.querySelector(".paystackContainer").style.display = 'none';
-            let ps9Con = document.querySelector(".psb9Container").style.display = 'none';
+        var paymentMethodContainer = document.getElementById("paymentMethodContainer").value;
+        if(paymentMethodContainer === 'transfer') { 
+          document.querySelector(".manual-funding").style.display = 'block';
+          document.querySelector(".form-container").style.display = 'none';
         }
-
-        const navigateToPaystack = () => {
-            let paystackCon = document.querySelector(".paystackContainer").style.display = 'block';
-            let monifyCon = document.querySelector(".monifyContainer").style.display = 'none';
-            let ps9Con = document.querySelector(".psb9Container").style.display = 'none';
+        else if(paymentMethodContainer === 'auto') { 
+          document.querySelector(".manual-funding").style.display = 'none';
+          document.querySelector(".form-container").style.display = 'block';
         }
-
-        const navigateToPbs = () => {
-            let ps9Con = document.querySelector(".psb9Container").style.display = 'block';
-            let paystackCon = document.querySelector(".paystackContainer").style.display = 'none';
-            let monifyCon = document.querySelector(".monifyContainer").style.display = 'none';
-        }
-
+    });
+  })
   </script>
 <script src="./assets/SweetAlert/sweetalert.js"></script>
 <script src="./assets/JS/logout.js"></script>

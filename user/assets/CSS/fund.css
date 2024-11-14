@@ -69,45 +69,42 @@ label{
 
 /* on large screen */
 @media only screen and (min-width:768px) {
+    #paymentMethodContainer{
+        position: absolute;
+        top: 15%;
+        width:100%; 
+        padding:2% 
+    }
     form{
-        top: 90%;
+        top: 35%;
         width: 100%;
         box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.2);
         padding: 35px;
         height: 40vh;
     }
-    .heading{
-        position: absolute;
-        top: 10%;
-        /* right: 3%; */
-    }
-    .method1{
-        position: absolute;
-        top: 15%;
-    }
-    .method2{
-        position: absolute;
-        top: 80%;
-    }
     .manual-funding{
         position: absolute;
-        top: 25%;
-        /* right: 2%; */
-        width: 100%;
-        background-color: white;
-        box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.7);
-        padding: 25px;
-        height: 50vh;
-        color: black;
+        top: 40%;
+    }
+    .wemaImg{
+        width: 15px;
     }
 }
+/* position:absolute; top: 15%; width:100%; padding:2% */
 /* on small screen */
 @media only screen and (max-width:768px) {
-    
+    #paymentMethodContainer{
+        width:100%; 
+        padding:5% 
+    }
+    .form-container, .manual-funding{
+        margin-top: 5%;
+        width: 100%;
+    }
     .form{
         padding: 5%;
         width: 100%;
-        top: 110%;
+        top: 50%;
         height: auto;
     }
     .form-container h2 {
@@ -117,25 +114,5 @@ label{
     .wemaImg{
         width: 30px;
     }
-    .form-container i {
-        font-size: 1.9rem;
-        margin-bottom: 1.5rem;
-    }
-    .form-container div{
-        /* margin-bottom: 20px; */
-    }
-    /* #btn-container{
-        position: absolute;
-        width: 85%;
-    }  */
-    .heading{
-        font-size: 1.5rem;
-        margin-bottom: 3rem;
-    }
-    .method1, .method2{
-        font-size: 1rem;
-    }
-    .method2{
-        margin-top: 2rem;
-    }
+  
 }

@@ -1,2 +1,2 @@
-Entered PIN: 1234567890
+Entered PIN: 12345
 Stored PIN: 12345

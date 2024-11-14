@@ -241,10 +241,11 @@
 </div>
 
 <script>
+let isBalanceVisible = true;
+
 function hideShowBalance () {
     const accBalance = document.getElementById('accBalance');
     const toggleEye = document.getElementById('toggleEye');
-    let isBalanceVisible = true;
 
     // toggleEye.addEventListener("click", function() {})
 
@@ -255,12 +256,12 @@ function hideShowBalance () {
         toggleEye.classList.add('fa-eye-slash');
     } else {
         // Show the balance and revert the eye icon
-        accBalance.textContent = ''
+        accBalance.textContent = 'N100,000';
         toggleEye.classList.remove('fa-eye-slash');
         toggleEye.classList.add('fa-eye');
-        !isBalanceVisible;
+        // !isBalanceVisible;
     }
-    // isBalanceVisible = !isBalanceVisible; // Toggle the state
+    isBalanceVisible = !isBalanceVisible; // Toggle the state
 }
 </script>
 <script src="./assets/JS/createWallet.js"></script>

@@ -73,7 +73,7 @@
                 <!-- <marquee class="marquee" behavior="" direction="">This is the only avalailable bank we have for now that is wema bank
                 </marquee> -->
                 <div class="balanceContainer">
-                <h1 style="color:aliceblue;padding:35px">Hi, <span id="username"></span></h1>
+                <!-- <h1 style="color:aliceblue;padding:35px">Hi, <span id="username"></span></h1> -->
                     <div class="balance">
                     <i class="fas fa-wallet fa-2x"></i>
                     Monnify Wallet
