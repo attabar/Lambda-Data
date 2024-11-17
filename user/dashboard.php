@@ -7,12 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <!-- custom css file -->
-    <link rel="stylesheet" href="./assets/CSS/dashboard.css">
+    <!-- <link rel="stylesheet" href="./assets/CSS/dashboard.css"> -->
     <!-- fontawesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
         integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- bootstrap icon -->
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <!-- favicon -->
     <link rel="icon" type="image/x-icon" href="../assets/img/yamboyLogo.jpg">
@@ -21,167 +23,233 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="content">
-            <!-- header -->
-            <div class="header">
-                <p>Hi, <span id="fullname"></span></p>
-                <p><i class="bi bi-bell-fill"></i><sub style="background-color:red; color: #fff;border-radius: 5px;">10+</sub></p>
-            </div><br>
 
-            <!-- Your main content goes here -->
-            <div class="main-content">
-                <!-- <h4 style="color:black;padding:35px" class="welcomingUser">Hi, <span id="username"></span></h4> -->
-            <div class="balanceContainer">
-                
-                <div class="balance">
+    <ul class="container-fluid nav d-flex justify-content-around bg-light p-2 shadow fixed-top">
+        <li class="nav-item">
+            <a class="nav-link" href="#" id="fullname"></a>
+        </li>
+        <li class="nav-item">
+            <i class="bi bi-bell-fill"></i><sub style="background-color:red; color: #fff;border-radius: 5px;">10+</sub>
+        </li>
+    </ul>
+
+        <div class="container bg-dark py-4 text-light my-5 align-item-center">
+            <div class="d-flex justify-content-around">
+                <div class="text-center">
                     <i class="fas fa-wallet"></i>
                     <p>Available Balance</p>
                     <h5>
-                        <p id="accBalance"></p>
+                        <p id="accBalance" class="text-light"></p>
                         <!-- <p class="fa fa-eye" aria-hidden="true"></p> -->
-                        <i onclick="hideShowBalance()" class="fa fa-eye" id="toggleEye" aria-hidden="true" style="cursor: pointer;"></i>
-
+                        <i onclick="hideShowBalance()" class="fa fa-eye text-light" id="toggleEye" aria-hidden="true" style="cursor: pointer;"></i>
                     </h5>
                 </div>
-    
-                <a href="./fundWallet.php" class="fundWallet">
-                    <i style="text-align: center" class="fas fa-plus"></i>
+        
+                <a href="./fundWallet.php" class="text-light text-center">
+                    <i class="fas fa-plus my-3"></i>
                     <p>Fund Wallet</p>
                 </a>
-
-                <!-- <div class="referral">
-                    <i class="fa fa-users" aria-hidden="true"></i>
-                    <p>Referral Commission</p>
-                    <h2 style="color:black" id="accBalance">₦0.00</h2>
-                </div> -->
-
-                <!-- <div class="dataBalance">
-                    <i class="fas fa-wifi"></i>
-                    <p>Data Balance</p>
-                    <h2 style="color:black;" id="accBalance">0.00</h2>
-                </div> -->
+            </div>
+            <!-- <div class="text-center mt-5" id="create">
+                <button id="verifyAccountBtn" onclick="createWallet()" class="btn bg-primary text-white">Create Wallet</button>
             </div>
 
-            <!-- <div class="bankNames">
-                <button id="monify" onclick="navigateToMonify()"><i class="fa fa-university" aria-hidden="true"></i> Monnify</button>
-                <button id="paystack" onclick="navigateToPaystack()"><i class="fa fa-university" aria-hidden="true"></i> Paystack</button>
-                <button id="ps9" onclick="navigateToPbs()"><i class="fa fa-university" aria-hidden="true"></i> Moniepoint</button>
+            <div class="text-center mt-5" id="detail">
+                <p class="text-light">Account Number: <span id="accNum"></span></p>
+                <p class="text-light">Bank Name: <span id="bank"></span></p>
             </div> -->
 
-            <!-- account -->
-            <div class="account-details">
-                <!-- wema bank logo img-->
-                 <div class="monifyContainer">
-                    <img src="../assets/img/wemaBankLogo.jpeg" class="wemaImg" alt="" srcset="">
-                    <h3>Account Number: <span id="accNum">Unverified</span></h3><br>
-                    <h3>Account Name: <span id="accName">Unverified</span><span class="chargesAmount"> ₦50<br>Charges</span></h3>
-                    <br>
-                    <h3>Bank Name: <span id="bank">Unverified</span></h3><br><br>
-                    <h3>Unverified Account ?</h3>
-                    <button id="verifyAccountBtn" onclick="createWallet()">Verify Your Account here</button>
-                </div>
-
-                <!-- <div class="paystackContainer">
-                    <img src="../assets/img/paystack.png" class="wemaImg" alt="" srcset="">
-                    <h3>Account Number: <span id="accNum2">Unverified</span></h3><br>
-                    <h3>Account Name: <span id="accName2">Unverified</span><span class="chargesAmount"> ₦50<br>Charges</span></h3>
-                    <br>
-                    <h3>Bank Name: <span id="bank">Unverified</span></h3><br><br>
-                    <h3>Unverified Account ?</h3>
-                    <button id="verifyAccountBtn">Verify Your Account here</button>
-                </div> -->
-
-                <!-- <div class="psb9Container">
-                    <img src="../assets/img/psb9.png" class="wemaImg" alt="" srcset="">
-                    <h3>Account Number: <span id="accNum">Unverified</span></h3><br>
-                    <h3>Account Name: <span id="accName">Unverified</span><span class="chargesAmount"> ₦50<br>Charges</span></h3>
-                    <br>
-                    <h3>Bank Name: <span id="bank">Unverified</span></h3><br><br>
-                    <h3>Unverified Account ?</h3>
-                    <button id="verifyAccountBtn">Verify Your Account here</button>
-                </div> -->
-            </div>
-
-            <!-- services -->
-            <div class="services" id="services">
-                <h3 style="text-align:center; color: blue; margin-bottom:15px">Quick Links</h3>
-                <!-- grid container -->
-                <div class="grid-container">
-                    <!-- airtime -->
+        </div>
+        <!-- services -->
+        <div class="container my-10" id="services">
+            <h3 class="text-center">Quick Links</h3>
+            <!-- grid container -->
+            <div class="row">
+                <!-- airtime -->
+                <div class="col-lg-3 col-sm-2">
                     <a href="./airtimePage.php" class="airtime">
-                        <i class="bi bi-telephone-inbound-fill"></i>
+                        <div class="card">
+                            <div class="card-body">
+                                <i class="bi bi-telephone-inbound-fill card-header"></i>
+                            </div>
+                        </div>
                         <h4>Airtime</h4>
                     </a>
+                 </div>
+            
+                <div class="col-lg-3 col-sm-2">
                     <!-- data -->
                     <a href="./dataPage.php" class="data">
-                        <i class="bi bi-wifi"></i>
+                        <div class="card">
+                            <div class="card-body">
+                                <i class="bi bi-wifi card-header"></i>
+                            </div>
+                        </div>
                         <h4>Data</h4>
                     </a>
-                    
+                </div>
+
+                <div class="col-lg-3 col-sm-2">
                     <!-- tv -->
                     <a href="./tvCableSubPage.php" class="tv">
-                        <i class="bi bi-tv"></i>
+                        <div class="card">
+                            <div class="card-body">
+                                <i class="bi bi-tv card-header"></i>
+                            </div>
+                        </div>
                         <h4>Cable Tv</h4>
                     </a>
+                </div>
+
+                <div class="col-lg-3 col-sm-2">
                     <!-- bill -->
                     <a href="./billPage.php" class="bill">
-                        <i class="bi bi-lightbulb-fill"></i>
+                        <div class="card">
+                            <div class="card-body">
+                                <i class="bi bi-lightbulb-fill card-header"></i>
+                            </div>
+                        </div>
                         <h4>Electricity</h4>
                     </a>
+                </div>
+            </div>
+
+            <!-- 2nd -->
+            <div class="row">
+                <div class="col-lg-3 col-sm-2">
                     <!-- result pin -->
                     <a href="./resultPinPage.php" class="result-pin">
-                        <i class="bi bi-mortarboard-fill"></i>
+                        <div class="card">
+                            <div class="card-body">
+                                <i class="bi bi-mortarboard-fill card-header"></i>
+                            </div>
+                        </div>
                         <h4>Exam Pins</h4>
                     </a>
+                </div>
+
+                <div class="col-lg-3 col-sm-2">
                     <!-- airtime to money -->
                     <a href="#" class="airtime-to-money">
-                        <i class="bi bi-cash"></i>
+                        <div class="card">
+                            <div class="card-body">
+                                <i class="bi bi-cash card-header"></i>
+                            </div>
+                        </div>
                         <h4>Airtime To Cash</h4>
                     </a>
+                </div>
+                    
+                <div class="col-lg-3 col-sm-2">
                     <!-- airtime to money -->
                     <a href="./profile.php" class="airtime-to-money">
-                        <i class="fas fa-user"></i>
+                        <div class="card">
+                            <div class="card-body">
+                                <i class="fas fa-user card-header"></i>
+                            </div>
+                        </div>
                         <h4>Profile</h4>
                     </a>
-                    <a href="#" class="airtime-to-money">
-                        <i class="bi bi-tag-fill"></i>
+                </div>
+
+                <div class="col-lg-3 col-sm-2">
+                    <!-- airtime to money -->
+                    <a href="./profile.php" class="airtime-to-money">
+                        <div class="card">
+                            <div class="card-body">
+                                <i class="bi bi-tag-fill card-header"></i>
+                            </div>
+                        </div>
                         <h4>Pricing</h4>
                     </a>
-                    <a href="#" class="airtime-to-money">
-                        <i class="fa fa-credit-card" aria-hidden="true"></i>
-                        <h4>recharge card</h4>
-                    </a>
+                </div>
+            </div>
 
-                    <a href="./resultPinPage.php">
-                        <i class="bi bi-mortarboard-fill"></i>
+            <div class="row">
+                <div class="col-lg-3 col-sm-2">
+                    <!-- airtime to money -->
+                    <a href="./profile.php" class="airtime-to-money">
+                        <div class="card">
+                            <div class="card-body">
+                                <i class="fa fa-credit-card card-header" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <h4>Recharge card</h4>
+                    </a>
+                </div>
+
+                <div class="col-lg-3 col-sm-2">
+                    <!-- airtime to money -->
+                    <a href="./resultPinPage.php" class="airtime-to-money">
+                        <div class="card">
+                            <div class="card-body">
+                                <i class="bi bi-mortarboard-fill card-header" aria-hidden="true"></i>
+                            </div>
+                        </div>
                         <h4>Result Pin</h4>
                     </a>
+                </div>
 
-                    <a href="./billPage.php">
-                        <i class="fas fa-lightbulb"></i>
-                         <h4>Bills</h4>
+                <div class="col-lg-3 col-sm-2">
+                    <!-- airtime to money -->
+                    <a href="./billPage.php" class="airtime-to-money">
+                        <div class="card">
+                            <div class="card-body">
+                                <i class="fas fa-lightbulb card-header" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <h4>Bills</h4>
                     </a>
+                </div>
 
-                    <a href="">
-                        <i class="fa fa-book" aria-hidden="true"></i> 
+                <div class="col-lg-3 col-sm-2">
+                    <!-- airtime to money -->
+                    <a href="./billPage.php" class="airtime-to-money">
+                        <div class="card">
+                            <div class="card-body">
+                                <i class="fa fa-book card-header" aria-hidden="true"></i>
+                            </div>
+                        </div>
                         <h4>Transactions</h4>
                     </a>
+                </div>
+            </div>
 
+            <div class="row">
+                <div class="col-lg-3 col-sm-2">
                     <a href="">
-                        <i class="fa fa-users" aria-hidden="true"></i> 
+                        <div class="card">
+                            <div class="card-body">
+                                <i class="fa fa-users card-header" aria-hidden="true"></i> 
+                            </div>
+                        </div>
                         <h4>Referrals</h4>
                     </a>
+                </div>
 
+                <div class="col-lg-3 col-sm-2">
                     <a href="" id="logout">
-                        <i class="bi bi-box-arrow-left"></i> 
+                        <div class="card">
+                            <div class="card-body">
+                                <i class="bi bi-box-arrow-left card-header"></i> 
+                            </div>
+                        </div>
                         <h4>Logout</h4>
                     </a>
+                </div>
 
+                <div class="col-lg-3 col-sm-2">
                     <a href="./exchange.php">
-                        <i class="fa fa-exchange" aria-hidden="true"></i>
+                        <div class="card">
+                            <div class="card-body">
+                                <i class="fa fa-exchange card-header"></i> 
+                            </div>
+                        </div>
                         <h4>Exchange</h4>
                     </a>
+                </div>
+            </div>
+
                     
                 </div>
             </div>
@@ -191,53 +259,36 @@
             <i class="fab fa-whatsapp"></i>
                 <!-- <i class="fa fa-whatsapp" aria-hidden="true"></i> -->
             </a>
-            <!-- <div class="finalContainer">
-                <div>
-                    <h4>Referal Link </h4>
-                    <input type="text" value="mubarak306" id="Refer" disabled> <i class="far fa-clipboard" onclick="CopyReferalCode()"></i>
-                </div><br>
-
-                <div>
-                    <h4>Total Commission</h4>
-                    <span>₦10,000</span>
-                </div><br>
-
-                <div>
-                    <h4>Total Referral</h4>
-                    <span>5</span>
-                </div>
-            </div> -->
-
-                <!-- Example content here -->
-            </div><br/><br><br/><br><br/><br>
+            </div>
             
-            <section class="sidebar" id="sidebar">
-                <a href="./dashboard.php">
-                    <i class="fa fa-home" aria-hidden="true"></i> 
-                    <p>Home</p>
-                </a>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-bottom">
+        <div class="container-fluid text-center">
+            <a href="./dashboard.php" class="">
+                <i class="fa fa-home" aria-hidden="true"></i> 
+                <p>Home</p>
+            </a>
 
-                <a href="./fundWallet.php">
-                    <i class="fas fa-wallet"></i> 
-                    <p>Wallet</p>
-                </a>
+            <a href="./fundWallet.php">
+                <i class="fas fa-wallet"></i> 
+                <p>Wallet</p>
+            </a>
 
-                <a href="./dataPage.php">
-                    <i class="fas fa-wifi"></i>
-                    <p>Data</p>
-                </a>
+            <a href="./dataPage.php">
+                <i class="fas fa-wifi"></i>
+                <p>Data</p>
+            </a>
 
-                <a href="./airtimePage.php">
-                    <i class="fas fa-phone"></i> 
-                    <p>Airtime</p>
-                </a>
+            <a href="./airtimePage.php">
+                <i class="fas fa-phone"></i> 
+                <p>Airtime</p>
+            </a>
 
-                <a href="./exchange.php">
-                    <i class="fa fa-exchange" aria-hidden="true"></i> 
-                    <p>Exchange</p>
-                </a>
-            </section>
-    </div>
+            <a href="./exchange.php">
+                <i class="fa fa-exchange" aria-hidden="true"></i> 
+                <p>Exchange</p>
+            </a>
+        </div>
+    </nav>
 </div>
 
 <script>

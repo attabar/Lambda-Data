@@ -17,6 +17,9 @@ fetch("./assets/PHP/DisplayAccountDetails.php", {
         document.getElementById('accNum').innerHTML = accountNumber;
         document.getElementById('accName').innerHTML = accountName;
         document.getElementById('bank').innerHTML = bankName;
+
+        document.getElementById('detail').style.display = 'block';
+        document.getElementById('create').style.display = 'none';
     }else {
         
         document.getElementById('accNum').style.color = 'red';

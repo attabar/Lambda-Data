@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data</title>
     <!-- custom css file -->
-    <link rel="stylesheet" href="./assets/CSS/data.css">
-    <link rel="stylesheet" href="./assets/CSS/dashboard.css">
+    <!-- <link rel="stylesheet" href="./assets/CSS/data.css">
+    <link rel="stylesheet" href="./assets/CSS/dashboard.css"> -->
     <!-- fontawesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- bootstrap icon -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <!-- bootstrap -->
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
     <!-- favicon -->
     <link rel="icon" type="image/x-icon" href="../assets/img/yamboyLogo.jpg">
     <!-- sweetalert -->
@@ -21,89 +23,99 @@
 <div class="container">
     
   <div class="content">
-    <!-- header -->
-    <div class="header">
-    <p>Hi, <span id="fullname"></span></p>
-    <p><i class="bi bi-bell-fill"></i><sub style="background-color:red; color: #fff;border-radius: 5px;">10+</sub></p>
-    </div>
-    <!-- Your main content goes here -->
-    <div class="main-content">
+  <ul class="container-fluid nav d-flex justify-content-around bg-light p-2 shadow fixed-top">
+        <li class="nav-item">
+            <a class="nav-link" href="#" id="fullname"></a>
+        </li>
+        <li class="nav-item">
+            <i class="bi bi-bell-fill"></i><sub style="background-color:red; color: #fff;border-radius: 5px;">10+</sub>
+        </li>
+    </ul>
+  
+    <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-sm-6">
+        <div class="card p-4 shadow rounded my-3">
+          <div class="body">
+            <form id="dataForm">
+              <h2 class="text-center">Data</h2>
+              <div class="error" role="alert"></div>
+              <div class="form-group">
+                <label for="network_id"><strong>Network</strong></label>
+                <select class="form-select" id="network_id" name="network_id" required>
+                  <option disabled selected>--Select Network--</option>
+                  <option value="1">MTN</option>
+                  <option value="3">Airtel</option>
+                  <option value="2">Glo</option>
+                  <option value="6">9Mobile</option>
+                </select>
+              </div>
+  
+              <div class="form-group mt-2">
+                <label for="network_id"><strong>Plan Type</strong></label>
+                <select class="form-select" id="plan_id" name="plan_id" required>
+                  <option disabled selected>------</option>
+                </select>
+              </div>
 
-    <div class="padd">
-      <div class="form-container">
-        <h2 class="">Top Up Data</h2>
-        <form id="dataForm">
-          <div>
-            <label for="network_id" class="form-label">Network<span style="color: red;">*</span></label>
-            <select class="form-select form-select-lg" id="network_id" name="network_id" required>
-              <option disabled selected>--Select Network--</option>
-              <option value="1">MTN</option>
-              <option value="3">Airtel</option>
-              <option value="2">Glo</option>
-              <option value="6">9Mobile</option>
-            </select>
-          </div>
+            <div class="form-group mt-2">
+              <label for="mobile" class="form-label"><strong> Phone Number</strong></label>
+              <input type="tel" class="form-control" name="mobile_number" id="mobile_number" required maxlength="11" placeholder="+2348149715017">
+            </div>
 
-          <div>
-            <label for="plan_type" class="form-label">Plan Type<span style="color: red;">*</span></label>
-            <select id="plan_id" name="plan_id" required>
-            <option disabled selected>------</option>
-            </select>
-          </div>
-
-          <div class="">
-            <label for="mobile" class="form-label">Phone Number<span style="color: red;">*</span></label>
-            <input type="tel" name="mobile_number" id="mobile_number" required maxlength="11" placeholder="+2348149715017">
-          </div>
-
-          <div class="">
-            <label for="data_type" class="form-label">Data Type<span style="color: red;">*</span></label>
-            <input type="text" id="data_type" name="data_type" required>
+          <div class="form-group mt-2">
+            <label for="data_type" class="form-label"><strong> Data Type</strong></label>
+            <input type="text" class="form-control" id="data_type" name="data_type" required>
           </div>
           
-          <div class="">
-            <label for="amount" class="form-label">Price<span style="color: red;">*</span></label>
-            <input type="number" placeholder="0" name="amount" id="amount" required>
+          <div class="form-group mt-2">
+            <label for="amount" class="form-label">Price</label>
+            <input type="number" class="form-control" placeholder="0" name="amount" id="amount" required>
           </div>
-          <div id="btn-container">
-            <button type="submit" class="btn" id="btn" name="submit">Top Up</button>
+
+          <div class="form-group">
+              <label for="check"></label>
+              <button type="submit" name="submit" id="btn" class="btn bg-primary text-light form-control" id="submitBtn">Top Up</button>
           </div>
-        </form>
+            </form>
+          </div>
+        </div>
       </div>
-      </div>
+    </div>
+</div>
        <!-- whatsapp us -->
        <a style="color: green" href="https://wa.me/08149715017" target="_blank" class="whatsappUs">
             <i class="fab fa-whatsapp"></i>
                 <!-- <i class="fa fa-whatsapp" aria-hidden="true"></i> -->
             </a>
-      <div class="sidebar" id="sidebar">
-                <a href="./dashboard.php">
-                    <i class="fa fa-home" aria-hidden="true"></i> 
-                    <p>Home</p>
-                </a>
+            <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-bottom">
+        <div class="container-fluid text-center">
+            <a href="./dashboard.php" class="">
+                <i class="fa fa-home" aria-hidden="true"></i> 
+                <p>Home</p>
+            </a>
 
-                <a href="./fundWallet.php">
-                    <i class="fas fa-wallet"></i> 
-                    <p>Wallet</p>
-                </a>
+            <a href="./fundWallet.php">
+                <i class="fas fa-wallet"></i> 
+                <p>Wallet</p>
+            </a>
 
-                <a href="./dataPage.php">
-                    <i class="fas fa-wifi"></i>
-                    <p>Data</p>
-                </a>
+            <a href="./dataPage.php">
+                <i class="fas fa-wifi"></i>
+                <p>Data</p>
+            </a>
 
-                <a href="./airtimePage.php">
-                    <i class="fas fa-phone"></i> 
-                    <p>Airtime</p>
-                </a>
+            <a href="./airtimePage.php">
+                <i class="fas fa-phone"></i> 
+                <p>Airtime</p>
+            </a>
 
-                <a href="/">
-                    <i class="bi bi-gear-fill"></i> 
-                    <p>Settings</p>
-                </a>
-            </div>
-      <!-- end of main content -->
-    </div>
+            <a href="./exchange.php">
+                <i class="fa fa-exchange" aria-hidden="true"></i> 
+                <p>Exchange</p>
+            </a>
+        </div>
+    </nav>
   </div>
   <script src="./assets/SweetAlert/sweetalert.js"></script>
 <script>

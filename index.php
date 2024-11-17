@@ -15,11 +15,12 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
         <!-- <script src="./assets/lib/fontawesome-free-6.5.0-web/js/all.min.js"></script>
         <link rel="stylesheet" href="./assets/lib/fontawesome-free-6.5.0-web/css/all.min.css"> -->
+    <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
       <!-- Header with menu toggle -->
       <div class="header">
-        <img src="./assets/img/yamboyLogo.jpg" class="logo" alt="" srcset="">
+        <img src="./assets/img/yamboyLogo.jpg" class="logo" alt="" srcset="" loading="lazy">
         <!-- Side menu -->
         <div class="menu" id="menu">
             <ul>
@@ -29,8 +30,8 @@
                 <li><a href="#contactUs">Contact</a></li>
                 <li><a href="#prices">Prices</a></li>
                 <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="./user/RegistrationPage.php" class="register">Register</a></li>
-                <li><a href="./user/loginPage.php" class="login">Login</a></li>
+                <li><a href="./user/register.php" class="register">Register</a></li>
+                <li><a href="./user/login.php" class="login">Login</a></li>
             </ul>
         </div>
         <div class="menu-toggle" onclick="toggleMenu()">
@@ -56,8 +57,8 @@
     </div>
   </div>
     <!-- about us-->
-     <h1 style="text-align: center;">About Yamboy Sub</h1>
-    <div class="aboutUs" id="about">
+     <h1 class="text-center">About Yamboy Sub</h1>
+      <div class="container-fluid bg-primary aboutUs" id="about">
         <img src="./assets/img/yamboyLogo.jpg" alt="aboutUsImg" id="aboutUsImg">
         <h2>Yamboy Sub</h2>
         <h4>Welcome to Yamboy Sub, your reliable partner for fast, secure, and convenient top-ups. Whether you need airtime, data bundles, or utility bill payments, we’ve got you covered—all in one place
@@ -68,112 +69,158 @@ Join us today and experience the future of top-up services with Yamboy Sub!</h4>
     </div>
     
     <!-- services -->
-    <div class="services" id="services">
-        <h1>Our Services</h1>
-        <!-- grid container -->
-        <div class="grid-container">
-        <!-- data -->
-        <div class="data">
-        <i class="bi bi-wifi"></i>
-        <h2>Data</h2>
-        <p>Get affordable data bundles with instant activation. Stay connected with seamless browsing, streaming, and downloads anytime, anywhere.</p>
+    <div class="container my-5">
+        <h1 class="text-center">Our Services</h1>
+        <!-- 1st row -->
+        <div class="row">
+          <!-- data card  -->
+          <div class="col-lg-4 my-2">
+            <div class="card shadow">
+              <div class="card-body">
+                <i class="bi bi-wifi"></i>
+                <h4 class="card-title text-center">Data</h4>
+                <p class="card-text">Get affordable data bundles with instant activation. Stay connected with seamless browsing, streaming, and downloads anytime, anywhere.</p>
+              </div>
+            </div>
+          </div>
+          <!-- airtime card  -->
+          <div class="col-lg-4 my-2">
+            <div class="card shadow">
+              <div class="card-body">
+                <i class="bi bi-telephone-inbound-fill"></i>
+                <h4 class="card-title text-center">Airtime</h4>
+                <p class="card-text">Top-up airtime instantly for all networks. Enjoy fast, reliable service that keeps you connected to the people that matter.</p>
+              </div>
+            </div>
+          </div>
+          <!-- tv card  -->
+          <div class="col-lg-4">
+            <div class="card shadow">
+              <div class="card-body">
+                <i class="bi bi-tv"></i>
+                <h4 class="card-title text-center">TV Cables</h4>
+                <p class="card-text">Pay for your favorite TV subscriptions quickly and easily. Enjoy uninterrupted viewing of your favorite channels and shows.</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <!-- airtime -->
-        <div class="airtime">
-        <i class="bi bi-telephone-inbound-fill"></i>
-        <h2>Airtime</h2>
-        <p>Top-up airtime instantly for all networks. Enjoy fast, reliable service that keeps you connected to the people that matter.</p>
-        </div>
-        <!-- tv -->
-        <div class="tv">
-        <i class="bi bi-tv"></i>
-        <h2>TV Cables</h2>
-        <p>Pay for your favorite TV subscriptions quickly and easily. Enjoy uninterrupted viewing of your favorite channels and shows.</p>
-        </div>
-        <!-- bill -->
-        <div class="bill">
-        <i class="bi bi-lightbulb-fill"></i>
-        <h2>Electricity</h2>
-        <p>Pay your electricity bills from the comfort of your home. No more queues, just quick and easy transactions to keep the lights on.</p>
-        </div>
+
+        <!-- 2st row -->
+        <div class="row my-3">
+          <!-- bill card -->
+          <div class="col-lg-4">
+            <div class="card shadow">
+              <div class="card-body">
+                <i class="bi bi-lightbulb-fill"></i>
+                <h4 class="card-title text-center">Electricity</h4>
+                <p class="card-text">Pay your electricity bills from the comfort of your home. No more queues, just quick and easy transactions to keep the lights on.</p>
+              </div>
+            </div>
+          </div>
         <!-- result pin -->
-        <div class="result-pin">
-        <i class="bi bi-mortarboard-fill"></i>
-        <h2>Result Pin</h2>
-        <p>Purchase result checking pins for exams like WAEC, NECO, and JAMB instantly and conveniently.</p>
-      </div>
+        <div class="col-lg-4 my-2">
+          <div class="card shadow">
+            <div class="card-body">
+              <i class="bi bi-mortarboard-fill"></i>
+              <h4 class="card-title text-center">Result Pin</h2>
+              <p class="card-text">Purchase result checking pins for exams like WAEC, NECO, and JAMB instantly and conveniently.</p>
+            </div>
+          </div>
+        </div>
         <!-- airtime to money -->
-        <div class="airtime-to-money">
-        <i class="bi bi-cash"></i>
-        <h2>Airtime To Cash</h2>
-        <p>Convert your excess airtime to cash in a few simple steps. Enjoy a hassle-free experience with instant conversion.</p>
+        <div class="col-lg-4">
+          <div class="card shadow">
+            <div class="card-body">
+              <i class="bi bi-cash"></i>
+              <h2 class="card-title text-center">Airtime To Cash</h2>
+              <p class="card-text">Convert your excess airtime to cash in a few simple steps. Enjoy a hassle-free experience with instant conversion.</p>
+            </div>
+          </div>
         </div>
-        </div>
+      </div>
     </div>
+  </div>
 
     <!-- prices -->
-    <div class="prices" id="prices">
-        <h1>Prices</h1>
-        <!-- grid container -->
-        <div class="grid-container">
-            <!-- mtn price -->
-            <div class="mtn-price">
-                <img src="./assets/img/mtn.jpeg" alt="">
-                <table style="display: flex; justify-content:space-around; width:100%">
-              <tr>
-                <td>500MB</td>
-                <td>₦110</td>
-              </tr>
-              <tr>
-                <td>750MB</td>
-                <td>₦130</td>
-              </tr>
-              <tr>
-                <td>1GB</td>
-                <td>₦210</td>
-              </tr>
-              <tr>
-                <td>1GB</td>
-                <td>₦220</td>
-              </tr>
-              <tr>
-                <td>1GB</td>
-                <td>₦230</td>
-              </tr>
-              <tr>
-                <td>2GB</td>
-                <td>₦410</td>
-              </tr>
-              <tr>
-                <td>2GB</td>
-                <td>₦420</td>
-              </tr>
-              <tr>
-                <td>2GB</td>
-                <td>₦430</td>
-              </tr>
-              <tr>
-                <td>3GB</td>
-                <td>₦620</td>
-              </tr>
-              <tr>
-                <td>3GB</td>
-                <td>₦630</td>
-              </tr>
-              <tr>
-                <td>5GB</td>
-                <td>₦1100</td>
-              </tr>
-              <tr>
-                <td>10GB</td>
-                <td>₦2000</td>
-              </tr>
-            </table>
+    <div class="container" id="prices">
+      <h1 class="text-center">Prices</h1>
+      <div class="row">
+        <!-- mtn price -->
+          <div class="col-lg-3">
+            <div class="card">
+              <div class="card-body">
+                <img src="./assets/img/mtn.jpeg" alt="" class="card-img-top img-fluid">
+                <table class="table table-striped text-center">
+                <thead>
+                  <tr>
+                      <th>Data Plan</th>
+                      <th>Price (₦)</th>
+                  </tr>
+                </thead>
+                  <tr>
+                    <td>500MB</td>
+                    <td>₦110</td>
+                  </tr>
+                  <tr>
+                    <td>750MB</td>
+                    <td>₦130</td>
+                  </tr>
+                  <tr>
+                    <td>1GB</td>
+                    <td>₦210</td>
+                  </tr>
+                  <tr>
+                    <td>1GB</td>
+                    <td>₦220</td>
+                  </tr>
+                  <tr>
+                    <td>1GB</td>
+                    <td>₦230</td>
+                  </tr>
+                  <tr>
+                  <td>2GB</td>
+                  <td>₦410</td>
+                </tr>
+                <tr>
+                  <td>2GB</td>
+                  <td>₦420</td>
+                </tr>
+                <tr>
+                  <td>2GB</td>
+                  <td>₦430</td>
+                </tr>
+                <tr>
+                  <td>3GB</td>
+                  <td>₦620</td>
+                </tr>
+                <tr>
+                  <td>3GB</td>
+                  <td>₦630</td>
+                </tr>
+                <tr>
+                  <td>5GB</td>
+                  <td>₦1100</td>
+                </tr>
+                <tr>
+                  <td>10GB</td>
+                  <td>₦2000</td>
+                </tr>
+              </table>
+              </div>
             </div>
+          </div>
             <!-- airtel price -->
-            <div class="airtel-price">
-                <img src="./assets/img/airtel.jpeg" alt="">
-                <table style="display: flex; justify-content:space-around; width:100%">
+            <div class="col-lg-3">
+              <div class="card">
+                <div class="card-body">
+                <img src="./assets/img/airtel.jpeg" alt="" class="card-img-top img-fluid">
+                <table class="table table-striped text-center">
+                <thead>
+                  <tr>
+                      <th>Data Plan</th>
+                      <th>Price (₦)</th>
+                  </tr>
+                </thead>
               <tr>
                 <td>500MB</td>
                 <td>₦110</td>
@@ -223,11 +270,21 @@ Join us today and experience the future of top-up services with Yamboy Sub!</h4>
                 <td>₦2000</td>
               </tr>
             </table>
+                </div>
+              </div>
             </div>
             <!-- glo price -->
-            <div class="glo-price">
-                <img src="./assets/img/glo.jpeg" alt="">
-                <table style="display: flex; justify-content:space-around; width:100%">
+            <div class="col-lg-3">
+            <div class="card">
+            <div class="card-body">
+                <img src="./assets/img/glo.jpeg" alt="" class="card-img-top">
+                <table class="table table-striped text-center">
+                <thead>
+                  <tr>
+                      <th>Data Plan</th>
+                      <th>Price (₦)</th>
+                  </tr>
+                </thead>
               <tr>
                 <td>500MB</td>
                 <td>₦110</td>
@@ -278,10 +335,20 @@ Join us today and experience the future of top-up services with Yamboy Sub!</h4>
               </tr>
             </table>
             </div>
+            </div>
+            </div>
             <!-- 9mobile price -->
-            <div class="9mobile-price">
-                <img src="./assets/img/9mobile.jpeg" alt="">
-                <table style="display: flex; justify-content:space-around; width:100%">
+            <div class="col-lg-3">
+            <div class="card">
+            <div class="card-body">
+                <img src="./assets/img/9mobile.jpeg" alt="" class="card-img-top rounded-2 width-10">
+                <table class="table table-striped text-center">
+                <thead>
+                  <tr>
+                      <th>Data Plan</th>
+                      <th>Price (₦)</th>
+                  </tr>
+                </thead>
               <tr>
                 <td>500MB</td>
                 <td>₦110</td>
@@ -331,6 +398,8 @@ Join us today and experience the future of top-up services with Yamboy Sub!</h4>
                 <td>₦2000</td>
               </tr>
             </table>
+            </div>
+            </div>
             </div>
         </div>
     </div>
