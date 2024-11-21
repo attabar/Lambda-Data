@@ -1,22 +1,29 @@
+<?php require_once './assets/PHP/dashboard.php' ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard || Admin</title>
+    <title>Transactions</title>
+    <!-- custom css file -->
+    <!-- <link rel="stylesheet" href="./assets/CSS/dashboard.css"> -->
     <!-- fontawesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- bootstrap icon -->
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <!-- favicon -->
     <link rel="icon" type="image/x-icon" href="../assets/img/yamboyLogo.jpg">
     <script src="../../fontawesome-free-6.4.0-web/js/all.min.js"></script>
-    <link rel="stylesheet" href="../../fontawesome-free-6.4.0-web/css/all.min.css">
+        <link rel="stylesheet" href="../../fontawesome-free-6.4.0-web/css/all.min.css">
 </head>
 
 <body>
+
     <ul class="container-fluid nav d-flex justify-content-around bg-light p-2 shadow fixed-top">
         <li class="nav-item">
             <a class="nav-link" href="#" id="fullname"></a>
@@ -24,37 +31,10 @@
         <li class="nav-item">
             <i class="bi bi-bell-fill"></i><sub style="background-color:red; color: #fff;border-radius: 5px;">10+</sub>
         </li>
-    </ul>
+    </ul><br>
 
-    <div class="container bg-dark py-4 text-light my-5 align-item-center">
-        <div class="d-flex justify-content-around">
-            <div class="text-center">
-                <i class="fas fa-wallet"></i>
-                <p>Available Balance</p>
-                <h5>
-                    <p id="accBalance" class="text-light"></p>
-                    <!-- <p class="fa fa-eye" aria-hidden="true"></p> -->
-                    <i onclick="hideShowBalance()" class="fa fa-eye text-light" id="toggleEye" aria-hidden="true" style="cursor: pointer;"></i>
-                </h5>
-            </div>
-    
-            <div class="text-light text-center">
-                <!-- <i class="fa fa-money card-header" aria-hidden="true"></i>  -->
-                <i class="fa fa-line-chart" aria-hidden="true"></i>
-                <p>Daily profits</p>
-                <p>1,000</p>
-            </div>
-
-            <div class="text-light text-center">
-                <i class="fa fa-users card-header" aria-hidden="true"></i> 
-                <p>All Users</p>
-                <p>1,000</p>
-            </div>
-        </div>
-    </div>
-    
-            <div class="container table-responsive-sm mt-5">
-        <h2>Daily Transactions (Data)</h2>        
+    <div class="table-responsive-sm mt-5">
+        <h2>Data Transactions</h2>        
   <table class="table table-bordered">
     <thead>
       <tr>
@@ -138,8 +118,8 @@
   </table>
   </div>
 
-  <div class="container table-responsive-sm mt-5">
-        <h2>Daily Transactions (Airtime)</h2>        
+  <div class="table-responsive-sm mt-5">
+        <h2>Airtime Transactions</h2>        
   <table class="table table-bordered">
     <thead>
       <tr>
@@ -222,6 +202,15 @@
     </tbody>
   </table>
   </div>
+
+
+            <br><br>
+             <!-- whatsapp us -->
+            <a style="color: green" href="https://wa.me/08149715017" target="_blank" class="whatsappUs">
+            <i class="fab fa-whatsapp"></i>
+                <!-- <i class="fa fa-whatsapp" aria-hidden="true"></i> -->
+            </a>
+            </div>
             
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-bottom">
         <div class="container-fluid text-center">
@@ -231,59 +220,31 @@
             </a>
 
             <a href="./fundWallet.php">
-                <i class="fa fa-book" aria-hidden="true"></i> 
-                <p>History</p>
+                <i class="fas fa-wallet"></i> 
+                <p>Wallet</p>
             </a>
 
             <a href="./dataPage.php">
-                <!-- <i class="fa fa-money" aria-hidden="true"></i> -->
-                <i class="fa fa-bar-chart" aria-hidden="true"></i>
-                <p>Price</p>
+                <i class="fas fa-wifi"></i>
+                <p>Data</p>
             </a>
 
             <a href="./airtimePage.php">
-                <i class="fa fa-users" aria-hidden="true"></i>  
-                <p>Users</p>
+                <i class="fas fa-phone"></i> 
+                <p>Airtime</p>
             </a>
 
             <a href="./exchange.php">
-                <i class="bi bi-box-arrow-left"></i>
-                <p>Logout</p>
+                <i class="fa fa-exchange" aria-hidden="true"></i> 
+                <p>Exchange</p>
             </a>
         </div>
     </nav>
 </div>
 
-<script>
-let isBalanceVisible = true;
-
-function hideShowBalance () {
-    const accBalance = document.getElementById('accBalance');
-    const toggleEye = document.getElementById('toggleEye');
-
-    // toggleEye.addEventListener("click", function() {})
-
-    if (isBalanceVisible) {
-        // Hide the balance and show the closed eye icon
-        accBalance.textContent = '₦****';
-        toggleEye.classList.remove('fa-eye');
-        toggleEye.classList.add('fa-eye-slash');
-    } else {
-        // Show the balance and revert the eye icon
-        accBalance.textContent = 'N100,000';
-        toggleEye.classList.remove('fa-eye-slash');
-        toggleEye.classList.add('fa-eye');
-        // !isBalanceVisible;
-    }
-    isBalanceVisible = !isBalanceVisible; // Toggle the state
-}
-</script>
-<script src="./assets/JS/createWallet.js"></script>
 <script src="./assets/JS/user.js"></script>
     <!-- wallet account file -->
-    <script src="./assets/JS/walletInfo.js"></script>
-    <!-- account balance -->
-    <script src="./assets/JS/balance.js"></script>
+    <script src="./assets/JS/transaction.js"></script>
     <script src="./assets/JS/logout.js"></script>
 </body>
 </html>

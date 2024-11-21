@@ -39,14 +39,14 @@
       </select>
     
       <!-- account -->
-      <div class="manual-funding container bg-light shadow" style="display: none;">
+      <div class="manual-funding container bg-dark shadow" style="display: none;">
           <!-- wema bank logo img-->
           <img src="../assets/img/wemaBankLogo.jpeg" style="width:50px" class="d-block w-10" alt="" srcset="">
-          <h3>Account Number: <span id="accNum"></span></h3><br>
-          <h3>Account Name: <span id="accName"></span><span class="chargesAmount"></span></h3>
+          <h3 class="text-white">Account Number: <span id="accNum"></span></h3><br>
+          <h3 class="text-white">Account Name: <span id="accName"></span><span class="chargesAmount"></span></h3>
           <br>
-          <h3>Bank Name: <span id="bank">WEMA BANK</span></h3><br>
-          <h3>Charges Fee: 10%</h3>
+          <h3 class="text-white">Bank Name: <span id="bank">WEMA BANK</span></h3><br>
+          <h3 class="text-white">Charges Fee: 10%</h3>
         </div>
 
       <!-- funding method 2 -->

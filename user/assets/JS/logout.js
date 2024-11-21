@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function(){
         })
         .then(data => {
             if(data.success){
-                window.location.href = "./loginPage.php"
+                window.location.href = "./login.php"
             }
         })
         .catch(error => {

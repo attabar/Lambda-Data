@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+// Generate CSRF token if it doesn't exist
+if (!isset($_SESSION['csrf_token'])) {
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,6 +32,7 @@
             <form enctype="multipart/form-data" id="signUpForm">
               <h3 class="text-center">Registration</h3><br>
               <div class="error" role="alert"></div>
+              <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
               <div class="form-group">
                 <label for="fullname"><strong>Full Name<span class="text-danger">*</span></strong></label>
                 <input type="text" class="form-control" name="fullname" id="fullname">

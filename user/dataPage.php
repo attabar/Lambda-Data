@@ -21,8 +21,6 @@
 </head>
 <body>
 <div class="container">
-    
-  <div class="content">
   <ul class="container-fluid nav d-flex justify-content-around bg-light p-2 shadow fixed-top">
         <li class="nav-item">
             <a class="nav-link" href="#" id="fullname"></a>
@@ -35,13 +33,13 @@
     <div class="container mt-5">
     <div class="row justify-content-center">
       <div class="col-sm-6">
-        <div class="card p-4 shadow rounded my-3">
+        <div class="card p-4 bg-dark shadow rounded my-3 p-5">
           <div class="body">
             <form id="dataForm">
-              <h2 class="text-center">Data</h2>
+              <h2 class="text-center text-white">Data</h2>
               <div class="error" role="alert"></div>
               <div class="form-group">
-                <label for="network_id"><strong>Network</strong></label>
+                <label for="network_id" class="text-white"><strong>Network</strong></label>
                 <select class="form-select" id="network_id" name="network_id" required>
                   <option disabled selected>--Select Network--</option>
                   <option value="1">MTN</option>
@@ -52,25 +50,25 @@
               </div>
   
               <div class="form-group mt-2">
-                <label for="network_id"><strong>Plan Type</strong></label>
+                <label for="network_id" class="text-white"><strong>Plan Type</strong></label>
                 <select class="form-select" id="plan_id" name="plan_id" required>
                   <option disabled selected>------</option>
                 </select>
               </div>
 
             <div class="form-group mt-2">
-              <label for="mobile" class="form-label"><strong> Phone Number</strong></label>
+              <label for="mobile" class="form-label text-white"><strong> Phone Number</strong></label>
               <input type="tel" class="form-control" name="mobile_number" id="mobile_number" required maxlength="11" placeholder="+2348149715017">
             </div>
 
           <div class="form-group mt-2">
-            <label for="data_type" class="form-label"><strong> Data Type</strong></label>
+            <label for="data_type" class="form-label text-white"><strong> Data Type</strong></label>
             <input type="text" class="form-control" id="data_type" name="data_type" required>
           </div>
           
           <div class="form-group mt-2">
-            <label for="amount" class="form-label">Price</label>
-            <input type="number" class="form-control" placeholder="0" name="amount" id="amount" required>
+            <label for="amount" class="form-label text-white">Price</label>
+            <input type="number" class="form-control" readonly placeholder="0" name="amount" id="amount" required>
           </div>
 
           <div class="form-group">

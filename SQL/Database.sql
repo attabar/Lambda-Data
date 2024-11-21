@@ -176,15 +176,9 @@ CREATE TABLE referrals (
 INSERT INTO admintable(username, pass) 
 VALUES('Malik', '$2y$10$GvoyFuTBNmnfKOx.P9R0n.FuU6P3L3dUx8b9oejOf64NVSBmSt.Bq');
 
-CREATE TABLE IF NOT EXISTS rate_limiting(
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    ip VARBINARY(16) NOT NULL,
-    max_req INT NOT NULL
+CREATE TABLE rate_limits (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    ip_address VARCHAR(45),
+    attempts INT DEFAULT 0,
+    last_attempt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
-
-CREATE TABLE IF NOT EXISTS ip_block(
-    id  INT PRIMARY KEY AUTO_INCREMENT,
-    ip  VARBINARY(16) NOT NULL,
-    exp_date DATETIME
-)
-

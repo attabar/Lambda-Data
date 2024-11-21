@@ -1,6 +1,6 @@
 $(document).ready(function(){
     $.ajax({
-        url:'./PHP/dataTransactionHistory.php',
+        url:'./PHP/transaction.php',
         type:'POST',
         dataType:'json',
         success: function(response){

@@ -48,8 +48,8 @@
       <div class="effect"></div>
         <h1>Welcome To <span>Yamboy</span> Sub, The most fast Virtual Top Up Company In Nigeria.</h1>
         <h3>Top Up Anytime and Anywhere</h3>
-        <a href="./user/RegistrationPage.php" class="btn1">Register</a>
-        <a href="./user/loginPage.php" class="btn2">Login</a>
+        <a href="./user/RegistrationPage.php" class="btn1"><button class="btn text-white"> Register </button></a>
+        <a href="./user/loginPage.php" class="btn2"><button class="btn text-white">Login</button></a>
     </div>
     <!-- hero img start -->
     <div class="hero-img">
@@ -403,6 +403,99 @@ Join us today and experience the future of top-up services with Yamboy Sub!</h4>
             </div>
         </div>
     </div>
+    <section class="ftco-section testimony-section bg-primary">
+		<div class="container">
+			<div class="row justify-content-center pb-5">
+				<div class="col-md-12 heading-section heading-section-white text-center ftco-animate">
+					<span class="subheading">Testimonies</span>
+					<h2 class="mb-4">What client says about?</h2>
+					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+				</div>
+			</div>
+			<div class="row ftco-animate">
+				<div class="col-md-12">
+					<div class="carousel-testimony owl-carousel">
+						<div class="item">
+							<div class="testimony-wrap py-4">
+								<div class="text">
+									<span class="fa fa-quote-left"></span>
+									<p class="mb-4 pl-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+									<div class="d-flex align-items-center">
+										<div class="user-img" style="background-image: url(./assets/img/person_1.jpg)"></div>
+										<div class="pl-3">
+											<p class="name">Roger Scott</p>
+											<span class="position">Marketing Manager</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="testimony-wrap py-4">
+								<div class="text">
+									<span class="fa fa-quote-left"></span>
+									<p class="mb-4 pl-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+									<div class="d-flex align-items-center">
+										<div class="user-img" style="background-image: url(assets/img/person_2.jpg)"></div>
+										<div class="pl-3">
+											<p class="name">Roger Scott</p>
+											<span class="position">Marketing Manager</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="testimony-wrap py-4">
+								<div class="text">
+									<span class="fa fa-quote-left"></span>
+									<p class="mb-4 pl-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+									<div class="d-flex align-items-center">
+										<div class="user-img" style="background-image: url(assets/img/person_3.jpg)"></div>
+										<div class="pl-3">
+											<p class="name">Roger Scott</p>
+											<span class="position">Marketing Manager</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="testimony-wrap py-4">
+								<div class="text">
+									<span class="fa fa-quote-left"></span>
+									<p class="mb-4 pl-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+									<div class="d-flex align-items-center">
+										<div class="user-img" style="background-image: url(assets/img/person_1.jpg)"></div>
+										<div class="pl-3">
+											<p class="name">Roger Scott</p>
+											<span class="position">Marketing Manager</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="testimony-wrap py-4">
+								<div class="text">
+									<span class="fa fa-quote-left"></span>
+									<p class="mb-4 pl-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+									<div class="d-flex align-items-center">
+										<div class="user-img" style="background-image: url(assets/img/person_2.jpg)"></div>
+										<div class="pl-3">
+											<p class="name">Roger Scott</p>
+											<span class="position">Marketing Manager</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
     <!-- testimonials -->
     <h1 style="text-align: center">TESTIMONIALS</h1>
     <p style="text-align: center">What our customers / clients says about our site</p>
@@ -494,48 +587,65 @@ Join us today and experience the future of top-up services with Yamboy Sub!</h4>
         <!-- <i class="fa fa-whatsapp" aria-hidden="true"></i> -->
       </a>
     
-    <!-- footer -->
-    <div class="footer">
-      <!-- first Child -->
-      <div class="firstChild">
-        <!-- address -->
-        <div class="contact-info">
-          <h3>Address / Contact </h3>
-          <p>- Street: Jiddari Bus Stop, Maiduguri, Borno State</p>
-          <p>- Tel: 08149715017, 09028350494</p>
-          <p>- Email: mabdulmalik436@gmail.com</p>
+    <!-- Footer Start -->
+         <div class="container-fluid footer bg-dark wow fadeIn" data-wow-delay=".3s">
+            <div class="container pt-5 pb-4">
+                <div class="row g-5">
+                    <div class="col-lg-3 col-md-6">
+                        <a href="index.html">
+                            <h1 class="text-white fw-bold d-block">High<span class="text-secondary">Tech</span> </h1>
+                        </a>
+                        <p class="mt-4 text-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta facere delectus qui placeat inventore consectetur repellendus optio debitis.</p>
+                        <div class="d-flex hightech-link">
+                            <a href="" class="btn-light nav-fill btn btn-square rounded-circle me-2"><i class="fab fa-facebook-f text-primary"></i></a>
+                            <a href="" class="btn-light nav-fill btn btn-square rounded-circle me-2"><i class="fab fa-twitter text-primary"></i></a>
+                            <a href="" class="btn-light nav-fill btn btn-square rounded-circle me-2"><i class="fab fa-instagram text-primary"></i></a>
+                            <a href="" class="btn-light nav-fill btn btn-square rounded-circle me-0"><i class="fab fa-linkedin-in text-primary"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <a href="#" class="h3 text-secondary">Short Link</a>
+                        <div class="mt-4 d-flex flex-column short-link">
+                            <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-secondary me-2"></i>About us</a>
+                            <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-secondary me-2"></i>Contact us</a>
+                            <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-secondary me-2"></i>Our Services</a>
+                            <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-secondary me-2"></i>Our Projects</a>
+                            <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-secondary me-2"></i>Latest Blog</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <a href="#" class="h3 text-secondary">Help Link</a>
+                        <div class="mt-4 d-flex flex-column help-link">
+                            <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-secondary me-2"></i>Terms Of use</a>
+                            <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-secondary me-2"></i>Privacy Policy</a>
+                            <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-secondary me-2"></i>Helps</a>
+                            <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-secondary me-2"></i>FQAs</a>
+                            <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-secondary me-2"></i>Contact</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <a href="#" class="h3 text-secondary">Contact Us</a>
+                        <div class="text-white mt-4 d-flex flex-column contact-link">
+                            <a href="#" class="pb-3 text-light border-bottom border-primary"><i class="fas fa-map-marker-alt text-secondary me-2"></i> 123 Street, New York, USA</a>
+                            <a href="#" class="py-3 text-light border-bottom border-primary"><i class="fas fa-phone-alt text-secondary me-2"></i> +123 456 7890</a>
+                            <a href="#" class="py-3 text-light border-bottom border-primary"><i class="fas fa-envelope text-secondary me-2"></i> info@exmple.con</a>
+                        </div>
+                    </div>
+                </div>
+                <hr class="text-light mt-5 mb-4">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start">
+                        <span class="text-light"><a href="#" class="text-secondary"><i class="fas fa-copyright text-secondary me-2"></i>Your Site Name</a>, All right reserved.</span>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                        <span class="text-light">Designed By<a href="https://htmlcodex.com" class="text-secondary">HTML Codex</a> Distributed By <a href="https://themewagon.com">ThemeWagon</a></span>
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- usefull link 1 -->
-        <div class="useful-link1 footer-div">
-          <h3>Quick nav</h3>
-          <p><a href="/">Home</a></p>
-          <p><a href="#about">About</a></p>
-          <p><a href="#services">Services</a></p>
-          <p><a href="#testimonials">Testimonials</a></p>
-          <p><a href="#prices">Prices</a></p>
-        </div>
-        <!-- usefull link 2-->
-        <div class="useful-link2 footer-div">
-          <h3>Social Media Handles</h3>
-          <p><i class="fab fa-whatsapp"></i> WhatsApp</p>
-          <p><i class="fab fa-facebook-f"></i> Facebook</p>
-          <p><i class="fab fa-telegram-plane"></i> Telegram</p>
-          <p><i class="fab fa-youtube"></i> YouTube</p>
-        </div>
-        <div class="subscribe">
-          <h3 class="newsletterH">Subscribe To Our Newsletter</h3>
-          <form action="./PHP/subscribe.php" method="POST">
-            <input type="email" name="email-subscribe"  id="subscribe">
-            <button id="subscribe-button">Subscribe</button>
-          </form>
-        </div>
-      </div>
-      <div class="secondChild">
-      <div class="copy-right">
-        <p>&copy; <?php $date = date("Y"); echo $date; ?> <a style="color: white; text-decoration:none" href="https://wa.me/08149715017">Lambda Tech Solution Services</a></p>
-      </div>
-      </div>
-    </div>
+        <!-- Footer End -->
+
     <script>
       
       function toggleMenu() {
