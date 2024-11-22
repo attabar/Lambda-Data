@@ -21,9 +21,9 @@
         <li class="nav-item">
             <a class="nav-link" href="#" id="fullname"></a>
         </li>
-        <li class="nav-item">
+        <a href="./notifications.php" class="nav-item">
             <i class="bi bi-bell-fill"></i><sub style="background-color:red; color: #fff;border-radius: 5px;">10+</sub>
-        </li>
+        </a>
     </ul>
 
     <div class="container bg-dark py-4 text-light my-5 align-item-center">
@@ -230,18 +230,18 @@
                 <p>Home</p>
             </a>
 
-            <a href="./fundWallet.php">
+            <a href="./transactions.php">
                 <i class="fa fa-book" aria-hidden="true"></i> 
                 <p>History</p>
             </a>
 
-            <a href="./dataPage.php">
+            <a href="./prices.php">
                 <!-- <i class="fa fa-money" aria-hidden="true"></i> -->
                 <i class="fa fa-bar-chart" aria-hidden="true"></i>
                 <p>Price</p>
             </a>
 
-            <a href="./airtimePage.php">
+            <a href="./users.php">
                 <i class="fa fa-users" aria-hidden="true"></i>  
                 <p>Users</p>
             </a>

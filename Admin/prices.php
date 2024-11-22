@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transactions</title>
+    <title>Prices</title>
     <!-- custom css file -->
     <!-- <link rel="stylesheet" href="./assets/CSS/dashboard.css"> -->
     <!-- fontawesome -->
@@ -32,8 +32,11 @@
         </li>
     </ul><br>
 
-    <div class="table-responsive-sm mt-5">
-        <h2>Data Transactions</h2>        
+    <div class="container table-responsive-sm mt-5">
+        <div class="d-flex justify-content-around">
+        <h2>Data Prices Table</h2>  
+        <a href="#updateDataPrice">Price Form</a>
+        </div>      
   <table class="table table-bordered">
     <thead>
       <tr>
@@ -116,9 +119,10 @@
     </tbody>
   </table>
   </div>
+  
 
-  <div class="table-responsive-sm mt-5">
-        <h2>Airtime Transactions</h2>        
+  <div class="container table-responsive-sm mt-5">
+        <h2>Airtime Price Table</h2>        
   <table class="table table-bordered">
     <thead>
       <tr>
@@ -201,6 +205,101 @@
     </tbody>
   </table>
   </div>
+<!-- 1st form -->
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-sm-6">
+        <div class="card p-4 bg-dark shadow rounded my-3 p-5">
+          <div class="body">
+            <form id="updateDataPrice">
+              <h2 class="text-center text-white">UPDATE DATA PRICE</h2>
+              <div class="error" role="alert"></div>
+              <div class="form-group">
+                <label for="network_id" class="text-white"><strong>Network</strong></label>
+                <select class="form-select" id="network_id" name="network_id" required>
+                  <option disabled selected>--Select Network--</option>
+                  <option value="1">MTN</option>
+                  <option value="3">Airtel</option>
+                  <option value="2">Glo</option>
+                  <option value="6">9Mobile</option>
+                </select>
+              </div>
+  
+              <div class="form-group mt-2">
+                <label for="network_id" class="text-white"><strong>Plan Type</strong></label>
+                <select class="form-select" name="planType" id="planType" required>
+                  <option disabled selected>------</option>
+                </select>
+              </div>
+
+            <div class="form-group mt-2">
+              <label for="mobile" class="form-label text-white"><strong>Buying Price</strong></label>
+              <input type="tel" class="form-control"  name="buying-price" id="buying-price" placeholder="Buying Price" required readonly>
+            </div>
+
+          <div class="form-group mt-2">
+            <label for="data_type" class="form-label text-white"><strong> Selling Price</strong></label>
+            <input type="text" class="form-control" name="selling-price" id="selling-price" placeholder="Selling Price" required readonly>
+          </div>
+
+          <div class="form-group">
+              <label for="check"></label>
+              <button type="submit" id="btn" class="btn bg-primary text-light form-control" name="update" id="update">Update Price</button>
+          </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+<!-- 2nd form -->
+<div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-sm-6">
+        <div class="card p-4 bg-dark shadow rounded my-3 p-5">
+          <div class="body">
+            <form id="updateDataPrice">
+              <h2 class="text-center text-white">UPDATE AIRTIME PRICE</h2>
+              <div class="error" role="alert"></div>
+              <div class="form-group">
+                <label for="network_id" class="text-white"><strong>Network</strong></label>
+                <select class="form-select" id="network_id" name="network_id" required>
+                  <option disabled selected>--Select Network--</option>
+                  <option value="1">MTN</option>
+                  <option value="3">Airtel</option>
+                  <option value="2">Glo</option>
+                  <option value="6">9Mobile</option>
+                </select>
+              </div>
+  
+              <div class="form-group mt-2">
+                <label for="network_id" class="text-white"><strong>Airtime Type</strong></label>
+                <select class="form-select" name="planType" id="planType" required>
+                  <option disabled selected>------</option>
+                </select>
+              </div>
+
+            <div class="form-group mt-2">
+              <label for="mobile" class="form-label text-white"><strong>Buying Price</strong></label>
+              <input type="tel" class="form-control"  name="buying-price" id="buying-price" placeholder="Buying Price" required readonly>
+            </div>
+
+          <div class="form-group mt-2">
+            <label for="data_type" class="form-label text-white"><strong> Selling Price</strong></label>
+            <input type="text" class="form-control" name="selling-price" id="selling-price" placeholder="Selling Price" required readonly>
+          </div>
+
+          <div class="form-group">
+              <label for="check"></label>
+              <button type="submit" id="btn" class="btn bg-primary text-light form-control" name="update" id="update">Update Price</button>
+          </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
 
 
             <br><br>
@@ -219,8 +318,8 @@
             </a>
 
             <a href="./transactions.php">
-              <i class="fa fa-book" aria-hidden="true"></i> 
-              <p>History</p>
+                <i class="fa fa-book" aria-hidden="true"></i> 
+                <p>History</p>
             </a>
 
             <a href="./prices.php">

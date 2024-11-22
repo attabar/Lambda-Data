@@ -19,7 +19,7 @@
 </head>
 <body>
       <!-- Header with menu toggle -->
-      <div class="header">
+      <div class="header bg-dark">
         <img src="./assets/img/yamboyLogo.jpg" class="logo" alt="" srcset="" loading="lazy">
         <!-- Side menu -->
         <div class="menu" id="menu">
@@ -42,14 +42,13 @@
     </div>
 
   <!-- hero section -->
-  <div class="hero">
-
+  <div class="hero container-fluid d-flex justify-content-between">
+    <!-- hero text -->
     <div class="hero-text">
-      <div class="effect"></div>
-        <h1>Welcome To <span>Yamboy</span> Sub, The most fast Virtual Top Up Company In Nigeria.</h1>
-        <h3>Top Up Anytime and Anywhere</h3>
-        <a href="./user/RegistrationPage.php" class="btn1"><button class="btn text-white"> Register </button></a>
-        <a href="./user/loginPage.php" class="btn2"><button class="btn text-white">Login</button></a>
+        <h1>Welcome To <span class="text-primary">Yamboy</span> Sub, The most fast Virtual Top Up Company In Nigeria.</h1>
+        <h3 class="bg-primary">Top Up Anytime and Anywhere</h3>
+        <a href="./user/RegistrationPage.php" class="btn1 bg-primary"><button class="btn text-white"> Register </button></a>
+        <a href="./user/loginPage.php" class="btn2 bg-primary"><button class="btn text-white">Login</button></a>
     </div>
     <!-- hero img start -->
     <div class="hero-img">
@@ -644,6 +643,7 @@ Join us today and experience the future of top-up services with Yamboy Sub!</h4>
                 </div>
             </div>
         </div>
+
         <!-- Footer End -->
 
     <script>
