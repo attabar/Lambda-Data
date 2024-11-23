@@ -1,4 +1,5 @@
 ieruopqw
+how seperate navbar-brand & navbar-nav i.e justify-content-center
 
 i want to host my software, so i want you to check my backend codes for finding and fixing vulnerabilities
 

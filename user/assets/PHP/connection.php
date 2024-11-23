@@ -1,5 +1,7 @@
 <?php
 
+require "../../../vendor/autoload.php";
+
 class Connection {
 
     private $host;
@@ -19,21 +21,30 @@ class Connection {
     public function connect(){
 
         // Attempt to establish connection
-        $this->conn = new mysqli($this->host, $this->username, $this->password, $this->dbname);
+        $this->conn = new mysqli($this->host, $this->username, $this->password, $this->dbname, null, "../../../ca_certificate/cacert-2023-12-12.pem");
+        // Set connection timeout
+        mysqli_options( $this->conn, MYSQLI_OPT_CONNECT_TIMEOUT, 5);
 
         // check for database connection
         if($this->conn->connect_error){
-            $error = "Connection Failed: " . $this->conn->connect_error;
-            return $error;
+            error_log("Connection Failed: " . $this->conn->connect_error, 3, "./app_errors.log");
+            return "Unable to connect to the database. Please try again later.";
         }
         return $this->conn;
     }
 }
-$host = "localhost";
-$username = "root";
-$password = "";
-$dbname = "mk_yamboy";
+
+// Load environment variables
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
+// Retrieve credentials from environment variables
+$host = $_ENV['DB_HOST'];
+$username = $_ENV['DB_USERNAME'];
+$password = $_ENV['DB_PASSWORD'];
+$dbname = $_ENV['DB_NAME'];
 
 $connection = new Connection($host,$username,$password,$dbname);
 $conn = $connection->connect();
+
 ?>

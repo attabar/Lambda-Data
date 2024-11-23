@@ -61,7 +61,7 @@
         <!-- grid container -->
         <div class="row">
             <!-- airtime -->
-            <div class="col-lg-3 col-sm-2">
+            <div class="col-lg-3 col-sm-4">
                 <a href="./airtimePage.php" class="airtime">
                     <div class="card">
                         <div class="card-body">
@@ -72,7 +72,7 @@
                 </a>
                 </div>
         
-            <div class="col-lg-3 col-sm-2">
+            <div class="col-lg-3 col-sm-4">
                 <!-- data -->
                 <a href="./dataPage.php" class="data">
                     <div class="card">
@@ -84,7 +84,7 @@
                 </a>
             </div>
 
-            <div class="col-lg-3 col-sm-2">
+            <div class="col-lg-3 col-sm-4">
                 <!-- tv -->
                 <a href="./tvCableSubPage.php" class="tv">
                     <div class="card">
@@ -96,7 +96,7 @@
                 </a>
             </div>
 
-            <div class="col-lg-3 col-sm-2">
+            <div class="col-lg-3 col-sm-4">
                 <!-- bill -->
                 <a href="./billPage.php" class="bill">
                     <div class="card">
@@ -111,7 +111,7 @@
 
         <!-- 2nd -->
         <div class="row">
-            <div class="col-lg-3 col-sm-2">
+            <div class="col-lg-3 col-sm-4">
                 <!-- result pin -->
                 <a href="./resultPinPage.php" class="result-pin">
                     <div class="card">
@@ -123,7 +123,7 @@
                 </a>
             </div>
 
-            <div class="col-lg-3 col-sm-2">
+            <div class="col-lg-3 col-sm-4">
                 <!-- airtime to money -->
                 <a href="#" class="airtime-to-money">
                     <div class="card">
@@ -135,7 +135,7 @@
                 </a>
             </div>
                 
-            <div class="col-lg-3 col-sm-2">
+            <div class="col-lg-3 col-sm-4">
                 <!-- airtime to money -->
                 <a href="./profile.php" class="airtime-to-money">
                     <div class="card">
@@ -147,7 +147,7 @@
                 </a>
             </div>
 
-            <div class="col-lg-3 col-sm-2">
+            <div class="col-lg-3 col-sm-4">
                 <!-- airtime to money -->
                 <a href="#" class="airtime-to-money">
                     <div class="card">
@@ -161,7 +161,7 @@
         </div>
 
         <div class="row">
-            <div class="col-lg-3 col-sm-2">
+            <div class="col-lg-3 col-sm-4">
                 <!-- airtime to money -->
                 <a href="#" class="airtime-to-money">
                     <div class="card">
@@ -173,7 +173,7 @@
                 </a>
             </div>
 
-            <div class="col-lg-3 col-sm-2">
+            <div class="col-lg-3 col-sm-4">
                 <!-- airtime to money -->
                 <a href="#" class="airtime-to-money">
                     <div class="card">
@@ -185,7 +185,7 @@
                 </a>
             </div>
 
-            <div class="col-lg-3 col-sm-2">
+            <div class="col-lg-3 col-sm-4">
                 <!-- airtime to money -->
                 <a href="#" class="airtime-to-money">
                     <div class="card">
@@ -197,7 +197,7 @@
                 </a>
             </div>
 
-            <div class="col-lg-3 col-sm-2">
+            <div class="col-lg-3 col-sm-4">
                 <!-- airtime to money -->
                 <a href="./transactions.php" class="airtime-to-money">
                     <div class="card">
@@ -211,7 +211,7 @@
         </div>
 
         <div class="row">
-            <div class="col-lg-3 col-sm-2">
+            <div class="col-lg-3 col-sm-4">
                 <a href="#">
                     <div class="card">
                         <div class="card-body">
@@ -222,7 +222,7 @@
                 </a>
             </div>
 
-            <div class="col-lg-3 col-sm-2">
+            <div class="col-lg-3 col-sm-4">
                 <a href="#" id="logout">
                     <div class="card">
                         <div class="card-body">
@@ -233,7 +233,7 @@
                 </a>
             </div>
 
-            <div class="col-lg-3 col-sm-2">
+            <div class="col-lg-3 col-sm-4">
                 <a href="./exchange.php">
                     <div class="card">
                         <div class="card-body">

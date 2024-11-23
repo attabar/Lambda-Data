@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yamboy Sub</title>
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- <link rel="stylesheet" href="./assets/css/style.css"> -->
     <!-- favicon -->
     <link rel="icon" type="image/x-icon" href="./assets/img/yamboyLogo.jpg">
     <!-- bootstrap icon -->
@@ -16,57 +16,131 @@
         <!-- <script src="./assets/lib/fontawesome-free-6.5.0-web/js/all.min.js"></script>
         <link rel="stylesheet" href="./assets/lib/fontawesome-free-6.5.0-web/css/all.min.css"> -->
     <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      .about-header {
+  background: linear-gradient(to right, #007bff, #ffffff);
+  color: #fff;
+}
+.hero {
+  background: linear-gradient(to bottom, rgba(0, 123, 255, 0.7), rgba(255, 255, 255, 0.8)), 
+              url('./assets/img/hero-bg.jpg') center/cover no-repeat;
+  color: #fff;
+}
+
+</style>
 </head>
 <body>
-      <!-- Header with menu toggle -->
-      <div class="header bg-dark">
-        <img src="./assets/img/yamboyLogo.jpg" class="logo" alt="" srcset="" loading="lazy">
-        <!-- Side menu -->
-        <div class="menu" id="menu">
-            <ul>
-                <li><a href="/" class="home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contactUs">Contact</a></li>
-                <li><a href="#prices">Prices</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="./user/register.php" class="register">Register</a></li>
-                <li><a href="./user/login.php" class="login">Login</a></li>
-            </ul>
-        </div>
-        <div class="menu-toggle" onclick="toggleMenu()">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-        </div>
-    </div>
+      
+<!-- Navbar -->
+<nav class="navbar navbar-expand-sm bg-light navbar-light fixed-top">
+  <div class="container d-flex justify-content-between align-items-center">
+    <!-- Navbar Brand -->
+    <a class="navbar-brand" href="#">
+      <img src="./assets/img/yamboyLogo.jpg" class="logo img-fluid" width="30" alt="" loading="lazy">
+    </a>
 
-  <!-- hero section -->
-  <div class="hero container-fluid d-flex justify-content-between">
-    <!-- hero text -->
-    <div class="hero-text">
-        <h1>Welcome To <span class="text-primary">Yamboy</span> Sub, The most fast Virtual Top Up Company In Nigeria.</h1>
-        <h3 class="bg-primary">Top Up Anytime and Anywhere</h3>
-        <a href="./user/RegistrationPage.php" class="btn1 bg-primary"><button class="btn text-white"> Register </button></a>
-        <a href="./user/loginPage.php" class="btn2 bg-primary"><button class="btn text-white">Login</button></a>
-    </div>
-    <!-- hero img start -->
-    <div class="hero-img">
-      <img src="./assets/img/hero.png" alt="">
+    <!-- Toggler button for mobile view -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar Links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="#">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="#">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="#">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="#">Prices</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="#">Testimonials</a>
+        </li>
+      </ul>
     </div>
   </div>
-    <!-- about us-->
-     <h1 class="text-center">About Yamboy Sub</h1>
-      <div class="container-fluid bg-primary aboutUs" id="about">
-        <img src="./assets/img/yamboyLogo.jpg" alt="aboutUsImg" id="aboutUsImg">
-        <h2>Yamboy Sub</h2>
-        <h4>Welcome to Yamboy Sub, your reliable partner for fast, secure, and convenient top-ups. Whether you need airtime, data bundles, or utility bill payments, we’ve got you covered—all in one place
-          <br/><br/>Our mission is to simplify the way you stay connected by providing a seamless and user-friendly platform for virtual top-ups. At Yamboy Sub, we understand that time is valuable, and that’s why we’ve made it our goal to offer instant transactions, so you can get back to what matters most.
-          <br/><br/>Powered by cutting-edge technology and a commitment to excellence, Yamboy Sub is here to make sure you're always connected to the things that matter—no more queues, no more hassles, just easy and fast solutions.
+</nav>
+<!-- Navbar -->
 
-Join us today and experience the future of top-up services with Yamboy Sub!</h4>
+  <!-- hero section -->
+  <div class="container-xxl py-5 bg-primary hero-header mb-5">
+    <div class="container my-5 py-5 px-lg-5">
+      <div class="row g-5 py-5">
+        <div class="col-lg-6 text-center text-lg-start">
+          <h1 class="text-white mb-4 animated zoomIn">Welcome to Yamboy Sub</h1>
+          <p class="text-white pb-3 animated zoomIn">Seamlessly top up airtime, data, and utilities at unbeatable prices, your reliable partner for fast, secure, and convenient top-ups. Whether you need airtime, data bundles, or utility bill payments, we’ve got you covered—all in one place Our mission is to simplify the way you stay connected by providing a seamless and user-friendly platform for virtual top-ups. At Yamboy Sub, we understand that time is valuable, and that’s why we’ve made it our goal to offer instant transactions, so you can get back to what matters most.
+          Powered by cutting-edge technology and a commitment to excellence, Yamboy Sub is here to make sure you're always connected to the things that matter—no more queues, no more hassles, just easy and fast solutions. Join us today and experience the future of top-up services with Yamboy Sub!
+          </p>
+          <a href="./user/register.php" class="btn btn-light py-sm-3 px-sm-5 rounded-pill me-3 animated slideInLeft">Register</a>
+          <a href="./user/login.php" class="btn btn-outline-light py-sm-3 px-sm-5 rounded-pill animated slideInRight">Login</a>
+        </div>
+        <div class="col-lg-6 text-center text-lg-start">
+          <img class="img-fluid" src="./assets/img/hero.png" alt="">
+        </div>
+      </div>
     </div>
-    
+  </div>
+        </div>
+        <!-- Navbar & Hero End -->
+
+
+        <!-- Full Screen Search Start -->
+        <div class="modal fade" id="searchModal" tabindex="-1">
+            <div class="modal-dialog modal-fullscreen">
+                <div class="modal-content" style="background: rgba(29, 29, 39, 0.7);">
+                    <div class="modal-header border-0">
+                        <button type="button" class="btn bg-white btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body d-flex align-items-center justify-content-center">
+                        <div class="input-group" style="max-width: 600px;">
+                            <input type="text" class="form-control bg-transparent border-light p-3" placeholder="Type search keyword">
+                            <button class="btn btn-light px-4"><i class="bi bi-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Full Screen Search End -->
+
+    <!-- about us-->
+     <!-- About Header Section -->
+<section class="about-header bg-light py-5">
+  <div class="container d-flex flex-column align-items-center text-center">
+    <!-- Title -->
+    <h2 class="display-5 fw-bold text-primary">
+      About Yamboy Sub
+    </h2>
+
+    <!-- Subtitle -->
+    <p class="lead text-muted mt-3">
+      Your Trusted Partner for Seamless VTU Services.
+    </p>
+
+    <!-- Interactive Description -->
+    <p class="text-dark mt-4 mb-5 px-3" style="max-width: 800px;">
+      At Yamboy Sub, we specialize in providing fast and reliable Virtual Top-Up (VTU) services, 
+      including airtime, data, cable TV subscriptions, and utility bill payments. With a focus on 
+      affordability and convenience, we empower individuals and businesses across Nigeria to stay 
+      connected and productive.
+    </p>
+
+    <!-- Call-to-Action Buttons -->
+    <div>
+      <a href="#our-story" class="btn btn-primary btn-lg mx-2">Our Story</a>
+      <a href="#contact" class="btn btn-outline-dark btn-lg mx-2">Contact Us</a>
+    </div>
+  </div>
+</section>
+
     <!-- services -->
     <div class="container my-5">
         <h1 class="text-center">Our Services</h1>
@@ -148,7 +222,7 @@ Join us today and experience the future of top-up services with Yamboy Sub!</h4>
           <div class="col-lg-3">
             <div class="card">
               <div class="card-body">
-                <img src="./assets/img/mtn.jpeg" alt="" class="card-img-top img-fluid">
+                <img src="./assets/img/mtn.jpeg" style="width:50%; height:20%"  alt="" class="card-img-top img-fluid">
                 <table class="table table-striped text-center">
                 <thead>
                   <tr>
@@ -212,7 +286,7 @@ Join us today and experience the future of top-up services with Yamboy Sub!</h4>
             <div class="col-lg-3">
               <div class="card">
                 <div class="card-body">
-                <img src="./assets/img/airtel.jpeg" alt="" class="card-img-top img-fluid">
+                <img src="./assets/img/airtel.jpeg" style="width:50%; height:20%" alt="" class="card-img-top img-fluid">
                 <table class="table table-striped text-center">
                 <thead>
                   <tr>
@@ -276,7 +350,7 @@ Join us today and experience the future of top-up services with Yamboy Sub!</h4>
             <div class="col-lg-3">
             <div class="card">
             <div class="card-body">
-                <img src="./assets/img/glo.jpeg" alt="" class="card-img-top">
+                <img src="./assets/img/glo.jpeg" style="width:50%; height:20%" alt="" class="card-img-top">
                 <table class="table table-striped text-center">
                 <thead>
                   <tr>
@@ -340,7 +414,7 @@ Join us today and experience the future of top-up services with Yamboy Sub!</h4>
             <div class="col-lg-3">
             <div class="card">
             <div class="card-body">
-                <img src="./assets/img/9mobile.jpeg" alt="" class="card-img-top rounded-2 width-10">
+                <img src="./assets/img/9mobile.jpeg" style="width:50%; height:20%" alt="" class="card-img-top rounded-2 width-10">
                 <table class="table table-striped text-center">
                 <thead>
                   <tr>
@@ -402,7 +476,7 @@ Join us today and experience the future of top-up services with Yamboy Sub!</h4>
             </div>
         </div>
     </div>
-    <section class="ftco-section testimony-section bg-primary">
+    <!-- <section class="ftco-section testimony-section bg-primary">
 		<div class="container">
 			<div class="row justify-content-center pb-5">
 				<div class="col-md-12 heading-section heading-section-white text-center ftco-animate">
@@ -493,7 +567,7 @@ Join us today and experience the future of top-up services with Yamboy Sub!</h4>
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> -->
 
     <!-- testimonials -->
     <h1 style="text-align: center">TESTIMONIALS</h1>
@@ -542,7 +616,7 @@ Join us today and experience the future of top-up services with Yamboy Sub!</h4>
     </div>
     <!-- why choose us -->
     <h1 style="text-align: center">Why Choose US</h1>
-     <div class="whyChooseUs">
+     <div class="container">
 
       <div class="fast">
         <i class="fas fa-bolt"></i>
@@ -672,5 +746,8 @@ Join us today and experience the future of top-up services with Yamboy Sub!</h4>
         setTimeout(showSlides, 2000); // Change image every 2 seconds
       }
     </script>
+    <!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="./assets/css/bootstrap.min.js"></script>
 </body>
 </html>
