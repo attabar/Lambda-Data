@@ -18,7 +18,7 @@
       <div class="body">
       <form id="loginForm">
         <h3 class="text-center">Login</h3><br>
-        <div class="error" role="alert"></div>
+        <div class="error text-center text-danger" role="alert"></div>
 
         <div class="form-group">
           <label class="form-label" for="username"><strong>Username:</strong></label>

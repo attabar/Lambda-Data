@@ -1,3 +1,4 @@
+<?php require_once './assets/PHP/dashboard.php' ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,8 +46,11 @@
           <h3 class="text-white">Account Number: <span id="accNum"></span></h3><br>
           <h3 class="text-white">Account Name: <span id="accName"></span><span class="chargesAmount"></span></h3>
           <br>
-          <h3 class="text-white">Bank Name: <span id="bank">WEMA BANK</span></h3><br>
+          <h3 class="text-white">Bank Name: <span id="bank"></span></h3><br>
           <h3 class="text-white">Charges Fee: 10%</h3>
+          <div class="text-center mt-3" id="create">
+            <button id="verifyAccountBtn" onclick="createWallet()" class="btn bg-primary text-white">Create Wallet</button>
+          </div>
         </div>
 
       <!-- funding method 2 -->
@@ -131,6 +135,7 @@
   })
   </script>
 <script src="./assets/SweetAlert/sweetalert.js"></script>
+<script src="./assets/JS/createWallet.js"></script>
 <script src="./assets/JS/logout.js"></script>
 <script src="./assets/JS/user.js"></script>
 <script src="./assets/JS/walletInfo.js"></script>

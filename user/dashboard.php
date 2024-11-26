@@ -46,201 +46,200 @@
                 <p>Fund Wallet</p>
             </a>
         </div>
-            <!-- <div class="text-center mt-5" id="create">
-                <button id="verifyAccountBtn" onclick="createWallet()" class="btn bg-primary text-white">Create Wallet</button>
-            </div>
+            <!-- 
 
             <div class="text-center mt-5" id="detail">
                 <p class="text-light">Account Number: <span id="accNum"></span></p>
                 <p class="text-light">Bank Name: <span id="bank"></span></p>
             </div> -->
         </div>
+    
     <!-- services -->
     <div class="container my-10" id="services">
         <h3 class="text-center">Quick Links</h3>
         <!-- grid container -->
         <div class="row">
             <!-- airtime -->
-            <div class="col-lg-3 col-sm-4">
+            <div class="col-3">
                 <a href="./airtimePage.php" class="airtime">
                     <div class="card">
                         <div class="card-body">
-                            <i class="bi bi-telephone-inbound-fill card-header"></i>
+                            <i class="bi bi-telephone-inbound-fill"></i>
                         </div>
                     </div>
-                    <h4>Airtime</h4>
+                    <h6 class="card-title">Airtime</h6>
                 </a>
                 </div>
         
-            <div class="col-lg-3 col-sm-4">
+            <div class="col-3">
                 <!-- data -->
                 <a href="./dataPage.php" class="data">
                     <div class="card">
                         <div class="card-body">
-                            <i class="bi bi-wifi card-header"></i>
+                            <i class="bi bi-wifi"></i>
                         </div>
                     </div>
-                    <h4>Data</h4>
+                    <h6>Data</h6>
                 </a>
             </div>
 
-            <div class="col-lg-3 col-sm-4">
+            <div class="col-3">
                 <!-- tv -->
                 <a href="./tvCableSubPage.php" class="tv">
                     <div class="card">
                         <div class="card-body">
-                            <i class="bi bi-tv card-header"></i>
+                            <i class="bi bi-tv"></i>
                         </div>
                     </div>
-                    <h4>Cable Tv</h4>
+                    <h6>Cable Tv</h6>
                 </a>
             </div>
 
-            <div class="col-lg-3 col-sm-4">
+            <div class="col-3">
                 <!-- bill -->
                 <a href="./billPage.php" class="bill">
                     <div class="card">
                         <div class="card-body">
-                            <i class="bi bi-lightbulb-fill card-header"></i>
+                            <i class="bi bi-lightbulb-fill"></i>
                         </div>
                     </div>
-                    <h4>Electricity</h4>
+                    <h6>Bill</h6>
                 </a>
             </div>
         </div>
 
         <!-- 2nd -->
         <div class="row">
-            <div class="col-lg-3 col-sm-4">
+            <div class="col-3">
                 <!-- result pin -->
                 <a href="./resultPinPage.php" class="result-pin">
                     <div class="card">
                         <div class="card-body">
-                            <i class="bi bi-mortarboard-fill card-header"></i>
+                            <i class="bi bi-mortarboard-fill"></i>
                         </div>
                     </div>
-                    <h4>Exam Pins</h4>
+                    <h6>Exam Pins</h6>
                 </a>
             </div>
 
-            <div class="col-lg-3 col-sm-4">
+            <div class="col-3">
                 <!-- airtime to money -->
                 <a href="#" class="airtime-to-money">
                     <div class="card">
                         <div class="card-body">
-                            <i class="bi bi-cash card-header"></i>
+                            <i class="bi bi-cash"></i>
                         </div>
                     </div>
-                    <h4>Airtime To Cash</h4>
+                    <h6>Air To Cash</h6>
                 </a>
             </div>
                 
-            <div class="col-lg-3 col-sm-4">
+            <div class="col-3">
                 <!-- airtime to money -->
                 <a href="./profile.php" class="airtime-to-money">
                     <div class="card">
                         <div class="card-body">
-                            <i class="fas fa-user card-header"></i>
+                            <i class="fas fa-user"></i>
                         </div>
                     </div>
-                    <h4>Profile</h4>
+                    <h6>Profile</h6>
                 </a>
             </div>
 
-            <div class="col-lg-3 col-sm-4">
+            <div class="col-3">
                 <!-- airtime to money -->
                 <a href="#" class="airtime-to-money">
                     <div class="card">
                         <div class="card-body">
-                            <i class="bi bi-tag-fill card-header"></i>
+                            <i class="bi bi-tag-fill"></i>
                         </div>
                     </div>
-                    <h4>Pricing</h4>
+                    <h6>Pricing</h6>
                 </a>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-lg-3 col-sm-4">
+            <div class="col-3">
                 <!-- airtime to money -->
                 <a href="#" class="airtime-to-money">
                     <div class="card">
                         <div class="card-body">
-                            <i class="fa fa-credit-card card-header" aria-hidden="true"></i>
+                            <i class="fa fa-credit-card" aria-hidden="true"></i>
                         </div>
                     </div>
-                    <h4>Recharge card</h4>
+                    <h6>Recharge card</h6>
                 </a>
             </div>
 
-            <div class="col-lg-3 col-sm-4">
+            <div class="col-3">
                 <!-- airtime to money -->
                 <a href="#" class="airtime-to-money">
                     <div class="card">
                         <div class="card-body">
-                            <i class="bi bi-mortarboard-fill card-header" aria-hidden="true"></i>
+                            <i class="bi bi-mortarboard-fill" aria-hidden="true"></i>
                         </div>
                     </div>
-                    <h4>Result Pin</h4>
+                    <h6>Result Pin</h6>
                 </a>
             </div>
 
-            <div class="col-lg-3 col-sm-4">
+            <div class="col-3">
                 <!-- airtime to money -->
                 <a href="#" class="airtime-to-money">
                     <div class="card">
                         <div class="card-body">
-                            <i class="fas fa-lightbulb card-header" aria-hidden="true"></i>
+                            <i class="fas fa-lightbulb" aria-hidden="true"></i>
                         </div>
                     </div>
-                    <h4>Bills</h4>
+                    <h6>Bills</h6>
                 </a>
             </div>
 
-            <div class="col-lg-3 col-sm-4">
+            <div class="col-3">
                 <!-- airtime to money -->
                 <a href="./transactions.php" class="airtime-to-money">
                     <div class="card">
                         <div class="card-body">
-                            <i class="fa fa-book card-header" aria-hidden="true"></i>
+                            <i class="fa fa-book" aria-hidden="true"></i>
                         </div>
                     </div>
-                    <h4>Transactions</h4>
+                    <h6>Txns</h6>
                 </a>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-lg-3 col-sm-4">
+            <div class="col-3">
                 <a href="#">
                     <div class="card">
                         <div class="card-body">
-                            <i class="fa fa-users card-header" aria-hidden="true"></i> 
+                            <i class="fa fa-users" aria-hidden="true"></i> 
                         </div>
                     </div>
-                    <h4>Referrals</h4>
+                    <h6>Referrals</h6>
                 </a>
             </div>
 
-            <div class="col-lg-3 col-sm-4">
+            <div class="col-3">
                 <a href="#" id="logout">
                     <div class="card">
                         <div class="card-body">
-                            <i class="bi bi-box-arrow-left card-header"></i> 
+                            <i class="bi bi-box-arrow-left"></i> 
                         </div>
                     </div>
-                    <h4>Logout</h4>
+                    <h6>Logout</h6>
                 </a>
             </div>
 
-            <div class="col-lg-3 col-sm-4">
+            <div class="col-3">
                 <a href="./exchange.php">
                     <div class="card">
                         <div class="card-body">
-                            <i class="fa fa-exchange card-header"></i> 
+                            <i class="fa fa-exchange"></i> 
                         </div>
                     </div>
-                    <h4>Transfer</h4>
+                    <h6>Transfer</h6>
                 </a>
             </div>
         </div>
@@ -310,12 +309,8 @@ function hideShowBalance () {
     isBalanceVisible = !isBalanceVisible; // Toggle the state
 }
 </script>
-<script src="./assets/JS/createWallet.js"></script>
 <script src="./assets/JS/user.js"></script>
-    <!-- wallet account file -->
-    <script src="./assets/JS/walletInfo.js"></script>
-    <!-- account balance -->
-    <script src="./assets/JS/balance.js"></script>
-    <script src="./assets/JS/logout.js"></script>
+<script src="./assets/JS/balance.js"></script>
+<script src="./assets/JS/logout.js"></script>
 </body>
 </html>

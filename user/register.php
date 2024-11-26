@@ -31,22 +31,22 @@ if (!isset($_SESSION['csrf_token'])) {
           <div class="body">
             <form enctype="multipart/form-data" id="signUpForm">
               <h3 class="text-center">Registration</h3><br>
-              <div class="error" role="alert"></div>
+              <div class="error text-center text-danger" role="alert"></div>
               <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
               <div class="form-group">
                 <label for="fullname"><strong>Full Name<span class="text-danger">*</span></strong></label>
-                <input type="text" class="form-control" name="fullname" id="fullname">
+                <input type="text" class="form-control" name="fullname" id="fullname" required>
                 <span id="fullname" style="color: red;"></span>
               </div>
   
               <div class="form-group mt-2">
                 <label for="email"><strong>Email<span class="text-danger">*</span><strong></label>
-                <input type="email" name="email" class="form-control" id="email">
+                <input type="email" name="email" class="form-control" id="email" required>
               </div>
 
               <div class="form-group mt-2">
                 <label for="phone"><strong>Mobile<span class="text-danger">*</span><strong></label>
-                <input type="tel" name="phone" class="form-control" id="phone">
+                <input type="tel" name="phone" class="form-control" id="phone" required>
               </div>
 
               <div class="form-group mt-2">
@@ -56,12 +56,12 @@ if (!isset($_SESSION['csrf_token'])) {
 
               <div class="form-group mt-2">
                 <label for="pin"><strong>Create Pin<span class="text-danger">*</span><strong></label>
-                <input type="password" name="pin" class="form-control" id="pin">
+                <input type="password" name="pin" class="form-control" id="pin" required>
               </div>
 
               <div class="form-group mt-2">
                 <label for="password"><strong>Password<span class="text-danger">*</span><strong></label>
-                <input type="password" name="password" class="form-control" id="password">
+                <input type="password" name="password" class="form-control" id="password" required>
               </div>
 
               <div class="form-group mt-3">

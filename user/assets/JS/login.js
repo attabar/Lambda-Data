@@ -13,6 +13,8 @@ const Toast = Swal.mixin({
 document.getElementById("loginForm").addEventListener("submit", function(e) {
     e.preventDefault();
 
+    // if (!validateInput()) return;
+
     var submitBtn = document.getElementById("submitBtn");
     submitBtn.innerHTML = "Authenticating...";
     submitBtn.style.fontWeight = 'bold';
@@ -54,3 +56,30 @@ document.getElementById("loginForm").addEventListener("submit", function(e) {
         console.log(error);
     })
 })
+
+function validateInput() {
+    let email = document.getElementById("email").value.trim();
+    let password = document.getElementById("password").value.trim();
+    let errorElement = document.querySelector('.error');
+
+    if (!email || !password) {
+        errorElement.innerText = "All fields are required!";
+        return false;
+    }
+
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        errorElement.innerText = "Invalid email format!";
+        return false;
+    }
+
+    // Check password strength
+    if (password.length < 6) {
+        errorElement.innerText = "Password must be at least 6 characters!";
+        return false;
+    }
+
+    errorElement.innerText = ""; // Clear error message
+    return true;
+}

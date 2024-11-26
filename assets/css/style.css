@@ -20,6 +20,29 @@
             <div class="bar"></div>
         </div>
     </div> */
+    /* function toggleMenu() {
+        let sidebar = document.getElementById('menu');
+        let isOpen = sidebar.style.top === '0px';
+        sidebar.style.top = isOpen ? '-100%' : '0px';
+
+        let toggleIcon = document.querySelector(".menu-toggle");
+        toggleIcon.classList.toggle('open');
+    }
+
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {slideIndex = 1}
+      slides[slideIndex-1].style.display = "block";
+      setTimeout(showSlides, 2000); // Change image every 2 seconds
+    } */
 *{
     box-sizing: border-box; /* This makes sure that the padding and border are included in the total width and height of the elements */
     /* font-family :'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */

@@ -26,16 +26,15 @@ class DisplayAccountDetails {
                 $accountName = $row['account_name'];
                 $accountNumber = $row['account_number'];
                 $bankName = $row['bank_name'];
-            }
-        
-            if(isset($accountNumber, $accountName, $bankName)){
+
                 echo json_encode([
                     'success' => true,
                     'accountNumber' => $accountNumber,
                     'accountName' => $accountName,
                     'bankName' => $bankName
                 ]);
-            }else{
+            }
+            else{
                 echo json_encode(['success' => false, 'accountNumber' => null, 'accountName' => null, 'bankName' => null]);
             }
         }

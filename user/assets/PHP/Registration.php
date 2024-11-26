@@ -45,7 +45,7 @@ class Registration {
 
             $referralCode = $this->generateReferralCode($referred_by); // Function to generate a unique referral code
             $insertSql = $this->conn->prepare("INSERT INTO users (fullname, email, phone, pin,  passwords, referral_code, referred_by) VALUES (?, ?, ?, ?, ?, ?, ?)");
-            $insertSql->bind_param("ssiissi", $fullname, $email, $phone, $hashedPin, $hashedPassword, $referralCode, $referred_by);
+            $insertSql->bind_param("ssisssi", $fullname, $email, $phone, $hashedPin, $hashedPassword, $referralCode, $referred_by);
             
             if($insertSql->execute()) {    
                 $insertSql->close();
@@ -86,8 +86,6 @@ class Registration {
         // Validate Full Name: Only letters and white space
         if (!preg_match("/^[a-zA-Z-' ]*$/", $fullname)) return ["success" => false, "message" => "Only letters and white space allowed for Full Name"];
         
-        if (strlen($fullname) > 30) return ["success" => false, "message" => "Full Name is too long."];
-        
         // Check if email already exists
         $sql = $this->conn->prepare("SELECT * FROM users WHERE email = ?");
         $sql->bind_param("s", $email);
@@ -104,7 +102,7 @@ class Registration {
         // Validate referral code: only alphanumeric
         if (!preg_match('/^[a-zA-Z0-9]*$/', $referral)) return ["success" => false, "message" => "Invalid Referral Code"];
 
-        if (strlen($referral) > 8) return ["success" => false, "message" => "Full Name is too long."];
+        // if (strlen($referral) > 8) return ["success" => false, "message" => "Full Name is too long."];
         
         // Validate Transaction Pin: Must be exactly 5 digits
         if (strlen($pin) != 5 || !ctype_digit($pin)) return ["success" => false, "message" => "Invalid PIN"];

@@ -15,12 +15,8 @@ class Login {
     }
 
     public function userLogin($email, $password){
-        $response = [];
 
-        if(empty($email) || empty($password)){
-            $response['status'] = 'error';
-            $response['message'] = "All the Fields Are Required";
-        } else {
+        if($this->validatelnput($email, $password)){
             $stmt = $this->conn->prepare("SELECT * FROM users WHERE email = ?");
             $stmt->bind_param("s", $email);
             $stmt->execute();
@@ -33,25 +29,43 @@ class Login {
                     $_SESSION['fullname'] = $row['fullname'];
                     $_SESSION['email'] = $row['email']; 
                     $_SESSION['referral_code'] = $row['referral_code'];
-
-                    $response = ['status' => true, 'title' => 'Successful', 'message' => "Login was Successful"];
-                    
+                    return ['status' => true, 'title' => 'Successful', 'message' => "Login was Successful"];
                 } else {
-                    $response = ['status' => false, 'title' => 'Wrong Input', 'message' => 'Invalid Password'];
+                    error_log("<br/> lnvalid password", 3, "./app_errors.log");
+                    return ['status' => false, 'title' => 'Wrong Input', 'message' => 'Incorrect passwords or email'];
                 }
             } else {
-                $response = ['status' => false, 'title' => 'No User', 'message' => "User not found"];
+                error_log("User not found", 3, "./app_errors.log");
+                return ['status' => false, 'title' => 'No User', 'message' => "Incorrect passwords or email"];
             }
-        }
-        echo json_encode($response);
+            $stmt->close();
+        } 
+    }
+
+    function validatelnput($email, $password) {
+
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) return ["success" => false, "message" => "Invalid email format"];
+        $pattern = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=!*_]).{8,}$/';
+        if (!preg_match($pattern, $password)) return ["success" => false, "message" => "Password must contain at least one lowercase letter, one uppercase letter, one digit, and one special character."];
+
+        $pattern = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=!*_]).{8,}$/';
+        if (!preg_match($pattern, $password)) return ["success" => false, "message" => "Password must contain at least one lowercase letter, one uppercase letter, one digit, and one special character."];
+
+        if(empty($email) || empty($password)){
+            return ["success" => false, 'message' => "All the Fields Are Required"];
+        } 
+
+        return true;
     }
 }
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    $email = $conn->real_escape_string($_POST['email']);
-    $password = $conn->real_escape_string($_POST['password']);
+    $email = htmlspecialchars($_POST['email']);
+    $password = htmlspecialchars($_POST['password']);
 
     $login = new Login($conn);
-    $login->userLogin($email,$password);
+    $response = $login->userLogin($email,$password);
+    echo json_encode($response);
+    exit;
 }
 ?>

@@ -18,14 +18,6 @@ fetch("./assets/PHP/DisplayAccountDetails.php", {
         document.getElementById('accName').innerHTML = accountName;
         document.getElementById('bank').innerHTML = bankName;
 
-        document.getElementById('detail').style.display = 'block';
-        document.getElementById('create').style.display = 'none';
-    }else {
-        
-        document.getElementById('accNum').style.color = 'red';
-        document.getElementById('accName').style.color = 'red';
-        document.getElementById('bank').style.color = 'red';
-    
     }
 })
 .catch(error => {

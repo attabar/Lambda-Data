@@ -32,12 +32,12 @@ class CreateWallet {
         // Additional actions upon successful registration
         require_once 'AccessTokenGenerator.php';
 
-        $contractCode = "0378523971";
+        $contractCode = $_ENV['CONTRACT_CODE'];
         $Base_url = "https://sandbox.monnify.com";
 
         // pass these variables into the constructor in order to generate the token
-        $apiKey = "MK_TEST_KWB4J5FHZN";
-        $secretKey = "Q4PFEVJWE1YFAHFVDP1QQX8SGYGAVUM5";
+        $apiKey = $_ENV["API_KEY"];
+        $secretKey = $_ENV["SECRET_KEY"];
 
         $access_token = new GenerateAccessToken($apiKey, $secretKey);
 
@@ -56,7 +56,7 @@ class CreateWallet {
         $url = $Base_url . "/api/v1/bank-transfer/reserved-accounts";
         $ch = curl_init();
         // curl_setopt($ch, CURLOPT_CAINFO, '../../../../../../ca_certificate/cacert-2023-12-12.pem');
-        curl_setopt($ch, CURLOPT_CAINFO, './ca_certificate/cacert-2023-12-12.pem');
+        curl_setopt($ch, CURLOPT_CAINFO, '../../../ca_certificate/cacert-2023-12-12.pem');
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
@@ -86,7 +86,8 @@ class CreateWallet {
                 if ($reserved_table) {
                     echo json_encode(["success" => true, "message" => "Wallet Details Created Successfully"]);
                 } else {
-                    echo json_encode(["success" => false, "message" => "Wallet Account didn't insert into Table Successfully: " . $this->conn->$reserved_table]);
+                    error_log($this->conn->$reserved_table, 3, './debug.txt');
+                    echo json_encode(["success" => false, "message" => "Wallet Account didn't insert into Table Successfully: "]);
                 }
             } else {
                 $error = "Error While Creating Wallet: " . $responseData->responseMessage;
