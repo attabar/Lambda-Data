@@ -17,12 +17,11 @@ class ChangePassword {
         $this->newPass = $newPass;
         $this->retypePass = $retypePass;
         $this->conn = $conn;
-        $this->userId = $userId;
     }
 
     public function changePass() {
-        $sql = $this->conn->prepare("SELECT * FROM users WHERE user_id = ?");
-        $sql->bind_param("i", $this->userId);
+        $sql = $this->conn->prepare("SELECT passwords FROM users WHERE user_id = ?");
+        $sql->bind_param("i", $_SESSION['user_id']);
         $sql->execute();
 
         $res = $sql->get_result();
@@ -81,7 +80,7 @@ if(!empty($_POST['oldPass']) && !empty($_POST['newPass']) && !empty($_POST['rety
 }else {
     echo json_encode([
         "success" => false,
-        "message" => "Fields Required"
+        "message" => "All Fields Required"
     ]);
 }
 ?>

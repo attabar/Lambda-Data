@@ -68,7 +68,7 @@
                         <div class="col-sm-6">
                             <div class="card p-4 shadow rounded my-3">
                             <div class="body">
-                    <form>
+                    <form id="changePassword">
                         <h5 style="color:aqua">Update Login Details</h5>
                         <h3 style="margin-bottom: 2%;">Login Details</h3>
                         <label for="oldPass">old Password</label>
@@ -156,31 +156,7 @@
   /* Alert the copied text */
   alert("Copied the text: " + copyText.value);
 }
-        function toggleMenu() {
-            const sidebar = document.getElementById('sidebar');
-            const isOpen = sidebar.style.left === '0px' || !sidebar.style.left;
-            sidebar.style.left = isOpen ? '-15rem' : '0px';
-
-            const toggleIcon = document.querySelector(".navbar");
-            toggleIcon.classList.toggle('open');
-        }
-
-        document.addEventListener("DOMContentLoaded", function () {
-            const withArrowElements = document.querySelectorAll(".with-arrow");
-
-            withArrowElements.forEach(element => {
-                element.addEventListener("click", function () {
-                    this.classList.toggle('open');
-
-                    const submenu = this.querySelector(".submenu");
-
-                    if (submenu) {
-                        submenu.style.display = submenu.style.display === "block" ? "none" : "block";
-                    }
-                });
-            });
-        });
-
+      
         const navigateTouserprofile = () => {
             let userprofile = document.querySelector(".user-profile").style.display = 'block';
             let userpass = document.querySelector(".user-pass").style.display = 'none';
@@ -200,7 +176,7 @@
         }
     </script>
     <script src="./assets/SweetAlert/sweetalert.js"></script>
-    <script src="./assets/JS/changePassword.js"></script>
+    <!-- <script src="./assets/JS/changePassword.js"></script> -->
     <!-- wallet account file -->
     <script src="./JS/getAccountDetails.js"></script>
     <!-- session file -->

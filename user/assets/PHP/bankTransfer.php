@@ -1,14 +1,14 @@
 <?php
 
-function sendMoneyToWallet($walletAccountNumber, $amount)
+function BankTransfer($walletAccountNumber, $amount)
 {
     // include token generator file
     require_once 'AccessTokenGenerator.php';
 
     $Base_url = "https://sandbox.monnify.com";
 
-    $class = new GenerateAccessToken("MK_TEST_KWB4J5FHZN","Q4PFEVJWE1YFAHFVDP1QQX8SGYGAVUM5");
-    $access_token = $class->getAccessToken();
+    $GenerateAccessToken = new GenerateAccessToken("MK_TEST_KWB4J5FHZN","Q4PFEVJWE1YFAHFVDP1QQX8SGYGAVUM5");
+    $access_token = $GenerateAccessToken->getAccessToken();
 
     $headers = array(
         'Content-Type:application/json',
@@ -29,7 +29,7 @@ function sendMoneyToWallet($walletAccountNumber, $amount)
 
 
     $ch = curl_init();
-    curl_setopt($ch, CURLOPT_CAINFO, '../../../../../../ca certificate/cacert-2023-12-12.pem');
+    curl_setopt($ch, CURLOPT_CAINFO, '../../../ca_certificate/cacert-2023-12-12.pem');
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
     curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
@@ -61,6 +61,5 @@ function sendMoneyToWallet($walletAccountNumber, $amount)
 // Example usage
 $walletAccountNumber = "3000284761"; // Replace with the actual wallet account number
 $amountToSend = 300.00; // Replace with the amount you want to send
-
-sendMoneyToWallet($walletAccountNumber, $amountToSend);
+BankTransfer($walletAccountNumber, $amountToSend);
 ?>

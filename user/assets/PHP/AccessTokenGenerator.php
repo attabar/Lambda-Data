@@ -12,14 +12,14 @@ class GenerateAccessToken {
 
     public function getAccessToken(){
 
-        $this->apiKey = $_ENV["API_KEY"];
-        $this->secretKey = $_ENV["SECRET_KEY"];
+        // $this->apiKey = $_ENV["API_KEY"];
+        // $this->secretKey = $_ENV["SECRET_KEY"];
 
         $ch = curl_init();
                         
         $headers = array(
-        'Content-Type:application/json',
-        'Authorization: Basic '. base64_encode($this->apiKey . ":" . $this->secretKey) 
+            'Content-Type:application/json',
+            'Authorization: Basic '. base64_encode($this->apiKey . ":" . $this->secretKey) 
         );
         curl_setopt($ch, CURLOPT_CAINFO, '../../../ca_certificate/cacert-2023-12-12.pem');
         // curl_setopt($ch, CURLOPT_CAINFO, './ca_certificate/cacert-2023-12-12.pem');

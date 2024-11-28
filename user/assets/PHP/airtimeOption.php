@@ -19,15 +19,15 @@ class AirtimeOptions {
         if($res->num_rows > 0){
             $amount[] = [];
             while($row=$res->fetch_assoc()){
-                $a = $row['amount'];
+                $amount = $row['amount'];
                 $amount[] = [
                     "success" => true,
-                    "amount" => $a
+                    "amount" => $amount
                 ];
             }
             return $amount;
         }else{
-            return ["success" => false, "amount" => "No amount found"];
+            error_log("No amount found", 3, "./app_errors.log");
         }
     }
 
@@ -48,6 +48,7 @@ class AirtimeOptions {
             return $amount;
         }else{
             return ["success" => false, "amount" => "No amount found"];
+            error_log("No amountToPay found", 3, "./app_errors.log");
         }
     }
 }
