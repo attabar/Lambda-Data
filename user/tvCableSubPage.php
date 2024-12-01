@@ -105,7 +105,7 @@
 
         <a href="./exchange.php">
           <i class="fa fa-exchange" aria-hidden="true"></i> 
-          <p>Exchange</p>
+          <p>Transfer</p>
         </a>
       </div>
     </nav>

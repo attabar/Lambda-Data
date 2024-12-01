@@ -17,11 +17,12 @@
       <div class="card p-4 my-5 shadow">
       <div class="body">
       <form id="loginForm">
-        <h3 class="text-center">Login</h3><br>
+        <h3 class="text-center">Login</h3>
+        <!-- <h6>Login with Email and Password</h6><br/> -->
         <div class="error text-center text-danger" role="alert"></div>
 
         <div class="form-group">
-          <label class="form-label" for="username"><strong>Username:</strong></label>
+          <label class="form-label" for="username"><strong>Email:</strong></label>
           <input type="email" name="email" class="form-control mb-3 rounded" id="email">
         </div>
 

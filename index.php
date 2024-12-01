@@ -16,6 +16,7 @@
         <!-- <script src="./assets/lib/fontawesome-free-6.5.0-web/js/all.min.js"></script>
         <link rel="stylesheet" href="./assets/lib/fontawesome-free-6.5.0-web/css/all.min.css"> -->
     <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./lib/animate/animate.css">
     <style>
       .about-header {
   background: linear-gradient(to right, #007bff, #ffffff);
@@ -23,7 +24,7 @@
 }
 .hero {
   background: linear-gradient(to bottom, rgba(0, 123, 255, 0.7), rgba(255, 255, 255, 0.8)), 
-              url('./assets/img/hero-bg.jpg') center/cover no-repeat;
+  url('./assets/img/hero-bg.jpg') center/cover no-repeat;
   color: #fff;
 }
 
@@ -149,9 +150,9 @@
           <!-- data card  -->
           <div class="col-lg-4 my-2">
             <div class="card shadow">
-              <div class="card-body">
-                <i class="bi bi-wifi"></i>
-                <h4 class="card-title text-center">Data</h4>
+              <div class="card-body text-center">
+                <i class="bi bi-wifi card-header"></i>
+                <h4 class="card-title my-2">Data</h4>
                 <p class="card-text">Get affordable data bundles with instant activation. Stay connected with seamless browsing, streaming, and downloads anytime, anywhere.</p>
               </div>
             </div>
@@ -159,9 +160,9 @@
           <!-- airtime card  -->
           <div class="col-lg-4 my-2">
             <div class="card shadow">
-              <div class="card-body">
-                <i class="bi bi-telephone-inbound-fill"></i>
-                <h4 class="card-title text-center">Airtime</h4>
+              <div class="card-body text-center">
+                <i class="bi bi-telephone-inbound-fill card-header"></i>
+                <h4 class="card-title my-2">Airtime</h4>
                 <p class="card-text">Top-up airtime instantly for all networks. Enjoy fast, reliable service that keeps you connected to the people that matter.</p>
               </div>
             </div>
@@ -169,9 +170,9 @@
           <!-- tv card  -->
           <div class="col-lg-4">
             <div class="card shadow">
-              <div class="card-body">
-                <i class="bi bi-tv"></i>
-                <h4 class="card-title text-center">TV Cables</h4>
+              <div class="card-body text-center">
+                <i class="bi bi-tv card-header"></i>
+                <h4 class="card-title my-2">TV Cables</h4>
                 <p class="card-text">Pay for your favorite TV subscriptions quickly and easily. Enjoy uninterrupted viewing of your favorite channels and shows.</p>
               </div>
             </div>
@@ -183,9 +184,9 @@
           <!-- bill card -->
           <div class="col-lg-4">
             <div class="card shadow">
-              <div class="card-body">
-                <i class="bi bi-lightbulb-fill"></i>
-                <h4 class="card-title text-center">Electricity</h4>
+              <div class="card-body text-center">
+                <i class="bi bi-lightbulb-fill card-header"></i>
+                <h4 class="card-title my-2">Electricity</h4>
                 <p class="card-text">Pay your electricity bills from the comfort of your home. No more queues, just quick and easy transactions to keep the lights on.</p>
               </div>
             </div>
@@ -193,9 +194,9 @@
         <!-- result pin -->
         <div class="col-lg-4 my-2">
           <div class="card shadow">
-            <div class="card-body">
-              <i class="bi bi-mortarboard-fill"></i>
-              <h4 class="card-title text-center">Result Pin</h2>
+            <div class="card-body text-center">
+              <i class="bi bi-mortarboard-fill card-header"></i>
+              <h4 class="card-title my-2">Result Pin</h2>
               <p class="card-text">Purchase result checking pins for exams like WAEC, NECO, and JAMB instantly and conveniently.</p>
             </div>
           </div>
@@ -203,9 +204,9 @@
         <!-- airtime to money -->
         <div class="col-lg-4">
           <div class="card shadow">
-            <div class="card-body">
-              <i class="bi bi-cash"></i>
-              <h2 class="card-title text-center">Airtime To Cash</h2>
+            <div class="card-body text-center">
+              <i class="bi bi-cash card-header"></i>
+              <h2 class="card-title my-2">Airtime To Cash</h2>
               <p class="card-text">Convert your excess airtime to cash in a few simple steps. Enjoy a hassle-free experience with instant conversion.</p>
             </div>
           </div>
@@ -222,7 +223,7 @@
           <div class="col-lg-3">
             <div class="card">
               <div class="card-body text-center">
-                <img src="./assets/img/mtn.jpeg" style="width:50%; height:20%"  alt="" class="card-img-top img-fluid">
+                <img src="./assets/img/mtn.jpeg" style="width:30%; height:20%"  alt="" class="card-img-top img-fluid">
                 <table class="table table-striped text-center">
                 <thead>
                   <tr>
@@ -286,7 +287,7 @@
             <div class="col-lg-3">
               <div class="card">
                 <div class="card-body text-center">
-                <img src="./assets/img/airtel.jpeg" style="width:50%; height:20%" alt="" class="card-img-top img-fluid">
+                <img src="./assets/img/airtel.jpeg" style="width:27%; " alt="" class="card-img-top img-fluid">
                 <table class="table table-striped text-center">
                 <thead>
                   <tr>
@@ -350,7 +351,7 @@
             <div class="col-lg-3">
             <div class="card">
             <div class="card-body text-center">
-                <img src="./assets/img/glo.jpeg" style="width:50%; height:20%" alt="" class="card-img-top">
+                <img src="./assets/img/glo.jpeg" style="width:30%; height:20%" alt="" class="card-img-top">
                 <table class="table table-striped text-center">
                 <thead>
                   <tr>
@@ -414,7 +415,7 @@
             <div class="col-lg-3">
             <div class="card">
             <div class="card-body text-center">
-                <img src="./assets/img/9mobile.jpeg" style="width:50%; height:20%" alt="" class="card-img-top rounded-2 width-10">
+                <img src="./assets/img/9mobile.jpeg" style="width:30%; height:20%" alt="" class="card-img-top rounded-2 width-10">
                 <table class="table table-striped text-center">
                 <thead>
                   <tr>
@@ -530,7 +531,7 @@
         <div class="col-lg-4">
           <div class="card shadow p-4 my-xs-2">
             <div class="card-body text-center">
-              <i class="fas fa-bolt card-header"></i>
+              <i class="fas fa-bolt z"></i>
               <h4 class="card-title my-2">Fast and Reliable Service</h4>
               <p class="card-text">We prioritize speed and efficiency to ensure that your top-up is processed instantly. No more waiting—just seamless transactions.</p>
             </div>
@@ -649,7 +650,7 @@
                     </div>
                     <div class="col-md-6 text-center text-md-end">
                         <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                        <span class="text-light">Developed By<a href="https://htmlcodex.com" class="text-secondary"> Lambda</a> Deployed By <a href="https://themewagon.com">Masfo</a></span>
+                        <span class="text-light">Developed By<a href="https://lambda.com.ng" class="text-secondary"> Lambda</a> Deployed By <a href="https://masfo.com.ng">Masfo</a></span>
                     </div>
                 </div>
             </div>
