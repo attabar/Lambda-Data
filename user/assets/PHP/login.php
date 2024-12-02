@@ -5,6 +5,8 @@ session_start();
 // header("Access-Control-Allow-Headers: Content-Type, Authorization");
 header("Content-Type: application/json");
 
+// for all contributors please implement rate limit and restrict unverified email for login
+
 require_once 'connection.php';
 
 class Login {
